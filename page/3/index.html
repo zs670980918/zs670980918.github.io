@@ -1,0 +1,2426 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/3/"/>
+
+
+
+
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1083-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1083-yi-ji/" itemprop="url">Pat_1083（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:22:57+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1083 是否存在相等的差 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805260780945408" target="_blank" rel="noopener">原文地址</a></p>
+<p>给定 N 张卡片，正面分别写上 1、2、……、N，然后全部翻面，洗牌，在背面分别写上 1、2、……、N。将每张牌的正反两面数字相减（大减小），得到 N 个非负差值，其中是否存在相等的差？</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出一个正整数 N（2 ≤ N ≤ 10 000），随后一行给出 1 到 N 的一个洗牌后的排列，第 i 个数表示正面写了 i 的那张卡片背面的数字。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>按照“差值 重复次数”的格式从大到小输出重复的差值及其重复的次数，每行输出一个结果。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>8
+3 5 8 6 2 1 4 7</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>5 2
+3 3
+2 2</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include<map><br>#include<vector><br>#include<algorithm></p>
+<p>using namespace std;</p>
+<p>struct Node{<br>    int t1;<br>    int t2;<br>};</p>
+<p>bool cmp(Node a,Node b){<br>    return a.t1 &gt; b.t1;<br>}</p>
+<p>int main(){<br>    map&lt;int,int&gt; dir;<br>    map&lt;int,int&gt;::iterator pos;<br>    vector<Node> dir_vec;<br>    vector<Node>::iterator pos1;<br>    int num;<br>    cin&gt;&gt;num;<br>    for(int i=0;i&lt;num;i++){<br>        int cha,temp;<br>        cin&gt;&gt;temp;<br>        if(temp &gt; i+1){<br>            cha = temp - (i+1);<br>        }<br>        else{<br>            cha = (i+1) - temp;<br>        }<br>        if(dir.count(cha) == 0){<br>            dir[cha] = 1;<br>        }<br>        else{<br>            dir[cha] += 1;<br>        }<br>    }<br>    for(pos=dir.begin();pos!=dir.end();pos++){<br>        Node node = {(*pos).first,(*pos).second};<br>        if((<em>pos).second &gt; 1){<br>            dir_vec.push_back(node);<br>        }<br>    }<br>    if(dir_vec.empty()){<br>        cout&lt;&lt;endl;<br>    }<br>    else{<br>       sort(dir_vec.begin(),dir_vec.end(),cmp);<br>        for(pos1 = dir_vec.begin();pos1!=dir_vec.end();pos1++){<br>            cout&lt;&lt;(\</em>pos1).t1&lt;&lt;” “&lt;&lt;(*pos1).t2&lt;&lt;endl;<br>        }<br>    }<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1082-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1082-yi-ji/" itemprop="url">Pat_1082（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:21:52+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1082 射击比赛 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805260990660608" target="_blank" rel="noopener">原文地址</a></p>
+<p>本题目给出的射击比赛的规则非常简单，谁打的弹洞距离靶心最近，谁就是冠军；谁差得最远，谁就是菜鸟。本题给出一系列弹洞的平面坐标(x,y)，请你编写程序找出冠军和菜鸟。我们假设靶心在原点(0,0)。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在第一行中给出一个正整数 N（≤ 10 000）。随后 N 行，每行按下列格式给出：</p>
+<pre><code>ID x y</code></pre><p>其中 <code>ID</code> 是运动员的编号（由 4 位数字组成）；<code>x</code> 和 <code>y</code> 是其打出的弹洞的平面坐标(<code>x</code>,<code>y</code>)，均为整数，且 0 ≤ |<code>x</code>|, |<code>y</code>| ≤ 100。题目保证每个运动员的编号不重复，且每人只打 1 枪。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>输出冠军和菜鸟的编号，中间空 1 格。题目保证他们是唯一的。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>3
+0001 5 7
+1020 -1 3
+0233 0 -1</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>0233 0001</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include&lt;math.h&gt;<br>#include<algorithm></p>
+<p>using namespace std;</p>
+<p>struct Player{<br>    string name;<br>    float distance;<br>};</p>
+<p>bool cmp(Player a,Player b){<br>    return a.distance &gt; b.distance;<br>}</p>
+<p>int main(){<br>    int num;<br>    cin&gt;&gt;num;<br>    Player players[num];<br>    for(int i=0;i&lt;num;i++){<br>        string s1;<br>        cin&gt;&gt;s1;<br>        float t1,t2;<br>        cin&gt;&gt;t1&gt;&gt;t2;<br>        float ds = sqrt(t1*t1 + t2*t2);<br>        players[i].name = s1;<br>        players[i].distance = ds;<br>    }<br>    sort(players,players+num,cmp);<br>    cout&lt;&lt;players[num-1].name&lt;&lt;” “&lt;&lt;players[0].name&lt;&lt;endl;<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1081-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1081-yi-ji/" itemprop="url">Pat_1081（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:20:58+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1081 检查密码 （15 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805261217153024" target="_blank" rel="noopener">原文地址</a></p>
+<p>本题要求你帮助某网站的用户注册模块写一个密码合法性检查的小功能。该网站要求用户设置的密码必须由不少于6个字符组成，并且只能有英文字母、数字和小数点 <code>.</code>，还必须既有字母也有数字。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出一个正整数 N（≤ 100），随后 N 行，每行给出一个用户设置的密码，为不超过 80 个字符的非空字符串，以回车结束。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对每个用户的密码，在一行中输出系统反馈信息，分以下5种：</p>
+<ul>
+<li>如果密码合法，输出<code>Your password is wan mei.</code>；</li>
+<li>如果密码太短，不论合法与否，都输出<code>Your password is tai duan le.</code>；</li>
+<li>如果密码长度合法，但存在不合法字符，则输出<code>Your password is tai luan le.</code>；</li>
+<li>如果密码长度合法，但只有字母没有数字，则输出<code>Your password needs shu zi.</code>；</li>
+<li>如果密码长度合法，但只有数字没有字母，则输出<code>Your password needs zi mu.</code>。</li>
+</ul>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>5
+123s
+zheshi.wodepw
+1234.5678
+WanMei23333
+pass*word.6</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>Your password is tai duan le.
+Your password needs shu zi.
+Your password needs zi mu.
+Your password is wan mei.
+Your password is tai luan le.</code></pre><p>代码（不通过的版本）：</p>
+<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include<algorithm><br>//废弃版本 花费太多时间了 时间复杂度不符合要求<br>using namespace std;<br>//判断是否含有非法字符<br>bool IsIllegal(string s1){<br>    bool flag = true;<br>    for(int i=0;i&lt;s1.length();i++){<br>        if((s1[i] &gt;= ‘0’ &amp;&amp; s1[i] &lt;= ‘9’) || (s1[i] &gt;= ‘A’ &amp;&amp; s1[i] &lt;= ‘Z’) || (s1[i] &gt;= ‘a’ &amp;&amp; s1[i] &lt;= ‘z’) || (s1[i] == ‘.’)){<br>            continue;<br>        }<br>        else{<br>            flag = false;<br>            break;<br>        }<br>    }<br>    return flag;<br>}</p>
+<p>//判断是否含有数字<br>bool IsHaveNumber(string s1){<br>    bool flag = true;<br>    for(int i=0;i&lt;=9;i++){<br>        char t = (i+’0’);<br>        if(find(s1.begin(),s1.end(),s1.begin(),t)==string::npos){<br>            flag = false;<br>            break;<br>        }<br>    }<br>    return flag;<br>}</p>
+<p>int main(){<br>    int num = 0;<br>    cin&gt;&gt;num;<br>    for(int i=0;i&lt;num;i++){<br>        string s1;<br>        cin&gt;&gt;s1;<br>        bool flag = true;<br>        if(s1.length() &lt; 6){<br>            cout&lt;&lt;”Your password is tai duan le.”&lt;&lt;endl;<br>            continue;<br>        }<br>        else if(!IsIllegal(s1)){<br>            cout&lt;&lt;”Your password is tai duan le.”&lt;&lt;endl;<br>            continue;<br>        }<br>        else if(IsHaveNumber(s1){<br>            cout&lt;&lt;”Your password needs zi mu.”&lt;&lt;endl;<br>            continue;<br>        }<br>    }<br>    return 0;<br>}</p>
+<p>修改后的版本：</p>
+<p>#include <iostream><br>#include <cctype><br>using namespace std;<br>int main() {<br>    int n;<br>    cin &gt;&gt; n; getchar();<br>    for (int i = 0; i &lt; n; i++) {<br>        string s;<br>        getline(cin, s);<br>        if (s.length() &gt;= 6) {<br>            int invalid = 0, hasAlpha = 0, hasNum = 0;<br>            for (int j = 0; j &lt; s.length(); j++) {<br>                if (s[j] != ‘.’ &amp;&amp; !isalnum(s[j])) invalid = 1;<br>                else if (isalpha(s[j])) hasAlpha = 1;<br>                else if (isdigit(s[j])) hasNum = 1;<br>            }<br>            if (invalid == 1) cout &lt;&lt; “Your password is tai luan le.\n”;<br>            else if (hasNum == 0) cout &lt;&lt; “Your password needs shu zi.\n”;<br>            else if (hasAlpha == 0) cout &lt;&lt; “Your password needs zi mu.\n”;<br>            else cout &lt;&lt; “Your password is wan mei.\n”;<br>        } else<br>            cout &lt;&lt; “Your password is tai duan le.\n”;<br>    }<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1080-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1080-yi-ji/" itemprop="url">Pat_1080（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:18:39+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1080 MOOC期终成绩 （25 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805261493977088" target="_blank" rel="noopener">原文地址</a></p>
+<p>对于在中国大学MOOC（<a href="http://www.icourse163.org/" target="_blank" rel="noopener">http://www.icourse163.org/</a> ）学习“数据结构”课程的学生，想要获得一张合格证书，必须首先获得不少于200分的在线编程作业分，然后总评获得不少于60分（满分100）。总评成绩的计算公式为 G=(G​mid−term​​×40%+G​final​​×60%)，如果 G​mid−term​​&gt;G​final​​；否则总评 G 就是 G​final​​。这里 G​mid−term​​ 和 G​final​​ 分别为学生的期中和期末成绩。 现在的问题是，每次考试都产生一张独立的成绩单。本题就请你编写程序，把不同的成绩单合为一张。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在第一行给出3个整数，分别是 P（做了在线编程作业的学生数）、M（参加了期中考试的学生数）、N（参加了期末考试的学生数）。每个数都不超过10000。 接下来有三块输入。第一块包含 P 个在线编程成绩 G​p​​；第二块包含 M 个期中考试成绩 G​mid−term​​；第三块包含 N 个期末考试成绩 G​final​​。每个成绩占一行，格式为：<code>学生学号 分数</code>。其中<code>学生学号</code>为不超过20个字符的英文字母和数字；<code>分数</code>是非负整数（编程总分最高为900分，期中和期末的最高分为100分）。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>打印出获得合格证书的学生名单。每个学生占一行，格式为： <code>学生学号</code> G​p​​ G​mid−term​​ G​final​​ G 如果有的成绩不存在（例如某人没参加期中考试），则在相应的位置输出“−1”。输出顺序为按照总评分数（四舍五入精确到整数）递减。若有并列，则按学号递增。题目保证学号没有重复，且至少存在1个合格的学生。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>6 6 7
+01234 880
+a1903 199
+ydjh2 200
+wehu8 300
+dx86w 220
+missing 400
+ydhfu77 99
+wehu8 55
+ydjh2 98
+dx86w 88
+a1903 86
+01234 39
+ydhfu77 88
+a1903 66
+01234 58
+wehu8 84
+ydjh2 82
+missing 99
+dx86w 81</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>missing 400 -1 99 99
+ydjh2 200 98 82 88
+dx86w 220 88 81 84
+wehu8 300 55 84 84</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include<map><br>#include<algorithm><br>#include&lt;string.h&gt;<br>#include<vector><br>#include&lt;math.h&gt;</p>
+<p>using namespace std;</p>
+<p>struct Student{<br>    int P;<br>    int Gm;<br>    int Gf;<br>    int G;<br>    Student();<br>};<br>//结构体设置初值<br>Student::Student(){<br>    P = -1;<br>    Gm = -1;<br>    Gf = -1;<br>    G = -1;<br>}</p>
+<p>struct Node{<br>    string name;<br>    int P1;<br>    int Gm1;<br>    int Gf1;<br>    int G1;<br>};</p>
+<p>bool cmp(Node t1,Node t2){<br>    if(t1.G1 == t2.G1){<br>        return t1.name &lt; t2.name;<br>    }<br>    else{<br>        return t1.G1 &gt; t2.G1;<br>    }<br>}</p>
+<p>int main(){<br>    map&lt;string,Student&gt; studentList;<br>    map&lt;string,Student&gt;::iterator pos;<br>    vector<Node> list1;<br>    vector<Node>::iterator pos1;<br>    int P,M,N;<br>    cin&gt;&gt;P&gt;&gt;M&gt;&gt;N;<br>    for(int i=0;i&lt;P;i++){<br>        string temp;<br>        int grade;<br>        cin&gt;&gt;temp&gt;&gt;grade;<br>        studentList[temp].P = grade;<br>    }<br>    for(int i=0;i&lt;M;i++){<br>        string temp;<br>        int grade;<br>        cin&gt;&gt;temp&gt;&gt;grade;<br>        studentList[temp].Gm = grade;<br>    }<br>    for(int i=0;i&lt;N;i++){<br>        string temp;<br>        int grade;<br>        cin&gt;&gt;temp&gt;&gt;grade;<br>        studentList[temp].Gf = grade;<br>    }<br>    for(pos = studentList.begin();pos!=studentList.end();pos++){<br>        if(pos-&gt;second.Gm &gt; pos-&gt;second.Gf){<br>            pos-&gt;second.G = round((float)(pos-&gt;second.Gm * 0.4 + pos-&gt;second.Gf * 0.6));<br>        }<br>        else{<br>            pos-&gt;second.G = pos-&gt;second.Gf;<br>        }<br>        if(pos-&gt;second.P &gt;= 200 &amp;&amp; pos-&gt;second.G &gt;= 60){<br>            Node nodes = {pos-&gt;first,pos-&gt;second.P,pos-&gt;second.Gm,pos-&gt;second.Gf,pos-&gt;second.G};<br>            list1.push_back(nodes);<br>        }<br>        //cout&lt;<pos->first&lt;&lt;” “&lt;<pos->second.P&lt;&lt;” “&lt;<pos->second.Gm&lt;&lt;” “&lt;<pos->second.Gf&lt;&lt;” “&lt;<pos->second.G&lt;&lt;endl;<br>    }<br>    sort(list1.begin(),list1.end(),cmp);<br>    for(pos1 = list1.begin();pos1!= list1.end();pos1++){<br>        cout&lt;&lt;(*pos1).name&lt;&lt;” “&lt;&lt;(*pos1).P1&lt;&lt;” “&lt;&lt;(*pos1).Gm1&lt;&lt;” “&lt;&lt;(*pos1).Gf1&lt;&lt;” “&lt;&lt;(*pos1).G1&lt;&lt;endl;<br>    }<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1079-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1079-yi-ji/" itemprop="url">Pat_1079（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:17:29+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1079 延迟的回文数 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805261754023936" target="_blank" rel="noopener">原文地址</a></p>
+<p>给定一个 k+1 位的正整数 N，写成 a​k​​⋯a​1​​a​0​​ 的形式，其中对所有 i 有 0≤a​i​​&lt;10 且 a​k​​&gt;0。N 被称为一个<strong>回文数</strong>，当且仅当对所有 i 有 a​i​​=a​k−i​​。零也被定义为一个回文数。 非回文数也可以通过一系列操作变出回文数。首先将该数字逆转，再将逆转数与该数相加，如果和还不是一个回文数，就重复这个逆转再相加的操作，直到一个回文数出现。如果一个非回文数可以变出回文数，就称这个数为<strong>延迟的回文数</strong>。（定义翻译自 <a href="https://en.wikipedia.org/wiki/Palindromic_number" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Palindromic_number</a> ） 给定任意一个正整数，本题要求你找到其变出的那个回文数。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在一行中给出一个不超过1000位的正整数。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对给定的整数，一行一行输出其变出回文数的过程。每行格式如下</p>
+<pre><code>A + B = C</code></pre><p>其中 <code>A</code> 是原始的数字，<code>B</code> 是 <code>A</code> 的逆转数，<code>C</code> 是它们的和。<code>A</code> 从输入的整数开始。重复操作直到 <code>C</code> 在 10 步以内变成回文数，这时在一行中输出 <code>C is a palindromic number.</code>；或者如果 10 步都没能得到回文数，最后就在一行中输出 <code>Not found in 10 iterations.</code>。</p>
+<h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例 1："></a>输入样例 1：</h3><pre><code>97152</code></pre><h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例 1："></a>输出样例 1：</h3><pre><code>97152 + 25179 = 122331
+122331 + 133221 = 255552
+255552 is a palindromic number.</code></pre><h3 id="输入样例-2："><a href="#输入样例-2：" class="headerlink" title="输入样例 2："></a>输入样例 2：</h3><pre><code>196</code></pre><h3 id="输出样例-2："><a href="#输出样例-2：" class="headerlink" title="输出样例 2："></a>输出样例 2：</h3><pre><code>196 + 691 = 887
+887 + 788 = 1675
+1675 + 5761 = 7436
+7436 + 6347 = 13783
+13783 + 38731 = 52514
+52514 + 41525 = 94039
+94039 + 93049 = 187088
+187088 + 880781 = 1067869
+1067869 + 9687601 = 10755470
+10755470 + 07455701 = 18211171
+Not found in 10 iterations.</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include&lt;math.h&gt;<br>#include<algorithm></p>
+<p>using namespace std;<br>//这里采用大数加法 如果使用普通的加法的话 会出现超过范围的数值无法解决<br>string BigNumberAdd(string s1,string s2){<br>    string result(10000,’0’);<br>    reverse(s1.begin(),s1.end());<br>    reverse(s2.begin(),s2.end());<br>    for(int i=0;i&lt;s1.length();i++){<br>        result[i] = s1[i];<br>    }<br>    int temp = 0;<br>    for(int i=0;i&lt;s2.length();i++){<br>        temp += (result[i]-‘0’ + s2[i] -‘0’);<br>        result[i] = temp%10 + ‘0’;<br>        temp /= 10;<br>    }<br>    result[s2.length()] = (result[s2.length()]-‘0’) + temp + ‘0’;<br>    reverse(result.begin(),result.end());<br>    return result.substr(result.find_first_not_of(‘0’));<br>}</p>
+<p>bool IsPalindromic_Number(string s1){<br>    bool flag = true;<br>    if(s1 == “0”){<br>        return flag;<br>    }<br>    else{<br>        for(int i=0;i&lt;s1.length()/2;i++){<br>            if(s1[i] != s1[s1.length() - i -1]){<br>                flag = false;<br>                break;<br>            }<br>        }<br>    }<br>    return flag;<br>}</p>
+<p>int main(){<br>    string number;<br>    int iter = 0; //计数器<br>    cin&gt;&gt;number;<br>    if(IsPalindromic_Number(number)){<br>        cout&lt;&lt;number&lt;&lt;” is a palindromic number.”&lt;&lt;endl;<br>    }<br>    else{<br>        while(!IsPalindromic_Number(number) &amp;&amp; iter &lt; 10){<br>            string t1 = number;<br>            reverse(t1.begin(),t1.end());<br>            string temp = BigNumberAdd(number,t1);<br>            cout&lt;&lt;number&lt;&lt;” + “&lt;&lt;t1&lt;&lt;” = “&lt;&lt;temp&lt;&lt;endl;<br>            number = temp;<br>            iter++;<br>        }<br>        if(iter == 10){<br>            cout&lt;&lt;”Not found in 10 iterations.”&lt;&lt;endl;<br>        }<br>        else{<br>            cout&lt;&lt;number&lt;&lt;” is a palindromic number.”&lt;&lt;endl;<br>        }<br>    }<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1078-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1078-yi-ji/" itemprop="url">Pat_1078（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:16:17+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1078 字符串压缩与解压 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805262018265088" target="_blank" rel="noopener">原文地址</a></p>
+<p>文本压缩有很多种方法，这里我们只考虑最简单的一种：把由相同字符组成的一个连续的片段用这个字符和片段中含有这个字符的个数来表示。例如 <code>ccccc</code> 就用 <code>5c</code> 来表示。如果字符没有重复，就原样输出。例如 <code>aba</code> 压缩后仍然是 <code>aba</code>。 解压方法就是反过来，把形如 <code>5c</code> 这样的表示恢复为 <code>ccccc</code>。 本题需要你根据压缩或解压的要求，对给定字符串进行处理。这里我们简单地假设原始字符串是完全由英文字母和空格组成的非空字符串。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出一个字符，如果是 <code>C</code> 就表示下面的字符串需要被压缩；如果是 <code>D</code> 就表示下面的字符串需要被解压。第二行给出需要被压缩或解压的不超过 1000 个字符的字符串，以回车结尾。题目保证字符重复个数在整型范围内，且输出文件不超过 1MB。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>根据要求压缩或解压字符串，并在一行中输出结果。</p>
+<h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例 1："></a>输入样例 1：</h3><pre><code>C
+TTTTThhiiiis isssss a   tesssst CAaaa as</code></pre><h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例 1："></a>输出样例 1：</h3><pre><code>5T2h4is i5s a3 te4st CA3a as</code></pre><h3 id="输入样例-2："><a href="#输入样例-2：" class="headerlink" title="输入样例 2："></a>输入样例 2：</h3><pre><code>D
+5T2h4is i5s a3 te4st CA3a as10Z</code></pre><h3 id="输出样例-2："><a href="#输出样例-2：" class="headerlink" title="输出样例 2："></a>输出样例 2：</h3><pre><code>TTTTThhiiiis isssss a   tesssst CAaaa asZZZZZZZZZZ</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include&lt;math.h&gt;<br>#include<algorithm></p>
+<p>using namespace std;</p>
+<p>int strToNum(string s1){<br>    int len = s1.length();<br>    int num = 0;<br>    reverse(s1.begin(),s1.end());<br>    while(len &gt; 0){<br>        num += (s1[len-1] - ‘0’)*round(pow(10,len-1));<br>        len–;<br>    }<br>    return num;<br>}</p>
+<p>int main(){<br>    char tt;<br>    cin&gt;&gt;tt;<br>    string s1=””;<br>    cin.get();<br>    if(tt == ‘C’){<br>        getline(cin,s1);<br>        int index = 0,num = 1;<br>        char temp = s1[index++];<br>        while(index &lt;= s1.length()){<br>            if(temp == s1[index]){<br>                num++;<br>                index++;<br>                continue;<br>            }<br>            else if(temp != s1[index]){<br>                if(num == 1){<br>                    cout&lt;&lt;temp;<br>                }<br>                else{<br>                    cout&lt;&lt;num&lt;&lt;temp;<br>                }<br>                temp = s1[index++];<br>                num = 1;<br>            }<br>        }<br>        cout&lt;&lt;endl;<br>    }<br>    else if(tt == ‘D’){<br>        getline(cin,s1);<br>        int index = 0,num = 0;<br>        char temp;<br>        while(index &lt; s1.length()){<br>            if(s1[index] &gt;= ‘0’ &amp;&amp; s1[index] &lt;= ‘9’){<br>                string t = “”;<br>                t += s1[index++];<br>                while(s1[index] &gt;= ‘0’ &amp;&amp; s1[index] &lt;= ‘9’){<br>                    t += s1[index++];<br>                }<br>                num = strToNum(t);<br>                temp =  s1[index++];<br>                string s2(num,temp);<br>                cout&lt;&lt;s2;<br>            }<br>            else{<br>                cout&lt;&lt;s1[index++];<br>            }<br>        }<br>        cout&lt;&lt;endl;<br>    }<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1077-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1077-yi-ji/" itemprop="url">Pat_1077（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:15:17+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1077 互评成绩计算 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805262303477760" target="_blank" rel="noopener">原文地址</a></p>
+<p>在浙大的计算机专业课中，经常有互评分组报告这个环节。一个组上台介绍自己的工作，其他组在台下为其表现评分。最后这个组的互评成绩是这样计算的：所有其他组的评分中，去掉一个最高分和一个最低分，剩下的分数取平均分记为 G​1​​；老师给这个组的评分记为 G​2​​。该组得分为 (G​1​​+G​2​​)/2，最后结果四舍五入后保留整数分。本题就要求你写个程序帮助老师计算每个组的互评成绩。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出两个正整数 N（&gt; 3）和 M，分别是分组数和满分，均不超过 100。随后 N 行，每行给出该组得到的 N 个分数（均保证为整型范围内的整数），其中第 1 个是老师给出的评分，后面 N−1个是其他组给的评分。合法的输入应该是 [0,M] 区间内的整数，若不在合法区间内，则该分数须被忽略。题目保证老师的评分都是合法的，并且每个组至少会有 3 个来自同学的合法评分。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>为每个组输出其最终得分。每个得分占一行。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>6 50
+42 49 49 35 38 41
+36 51 50 28 -1 30
+40 36 41 33 47 49
+30 250 -25 27 45 31
+48 0 0 50 50 1234
+43 41 36 29 42 29</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>42
+33
+41
+31
+37
+39</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include&lt;math.h&gt;<br>#include<vector><br>#include<algorithm></p>
+<p>using namespace std;</p>
+<p>bool cmp(int a,int b){<br>    return a &lt; b;<br>}</p>
+<p>int main(){<br>    int num,M;<br>    cin&gt;&gt;num&gt;&gt;M;<br>    int grade[num]={0};<br>    for(int i=0;i&lt;num;i++){<br>        int g1=0,g2=0,tt=0;<br>        vector<int> rate;<br>        cin&gt;&gt;g2;<br>        for(int j=0;j&lt;num-1;j++){<br>            int temp;<br>            cin&gt;&gt;temp;<br>            if(temp&gt;=0 &amp;&amp; temp&lt;=M){<br>                rate.push_back(temp);<br>                tt++;<br>            }<br>        }<br>        sort(rate.begin(),rate.end(),cmp);<br>        float sum = 0;<br>        for(int m=1;m&lt;tt-1;m++){<br>            sum += rate[m];<br>        }<br>        g1 = round(((sum/(tt-2)) + g2)/2);<br>        grade[i] = g1;<br>    }<br>    for(int i=0;i&lt;num;i++){<br>        cout&lt;&lt;grade[i]&lt;&lt;endl;<br>    }<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1076-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1076-yi-ji/" itemprop="url">Pat_1076（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:14:14+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1076 Wifi密码 （15 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805262622244864" target="_blank" rel="noopener">原文地址</a></p>
+<p>下面是微博上流传的一张照片：“各位亲爱的同学们，鉴于大家有时需要使用 wifi，又怕耽误亲们的学习，现将 wifi 密码设置为下列数学题答案：A-1；B-2；C-3；D-4；请同学们自己作答，每两日一换。谢谢合作！！~”—— 老师们为了促进学生学习也是拼了…… 本题就要求你写程序把一系列题目的答案按照卷子上给出的对应关系翻译成 wifi 的密码。这里简单假设每道选择题都有 4 个选项，有且只有 1 个正确答案。 <img src="https://images.ptausercontent.com/7e56be3f-caba-45f1-b9cb-38a96d44de76.jpg" alt="wifi.jpg"></p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出一个正整数 N（≤ 100），随后 N 行，每行按照 <code>编号-答案</code> 的格式给出一道题的 4 个选项，<code>T</code> 表示正确选项，<code>F</code> 表示错误选项。选项间用空格分隔。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出 wifi 密码。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>8
+A-T B-F C-F D-F
+C-T B-F A-F D-F
+A-F D-F C-F B-T
+B-T A-F C-F D-F
+B-F D-T A-F C-F
+A-T C-F B-F D-F
+D-T B-F C-F A-F
+C-T A-F B-F D-F</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>13224143</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include<map><br>using namespace std;</p>
+<p>int main(){<br>    map&lt;char,char&gt; dir;<br>    dir[‘A’] = ‘1’; dir[‘B’] = ‘2’; dir[‘C’] = ‘3’; dir[‘D’] = ‘4’;<br>    int num;<br>    cin&gt;&gt;num;<br>    string wifi_password=””;<br>    for(int i=0;i&lt;num;i++){<br>        for(int j=0;j&lt;4;j++){<br>            string temp;<br>            cin&gt;&gt;temp;<br>            if(temp[2] == ‘T’){<br>                wifi_password += dir[temp[0]];<br>            }<br>        }<br>    }<br>    cout&lt;&lt;wifi_password&lt;&lt;endl;<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1075-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1075-yi-ji/" itemprop="url">Pat_1075（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:13:04+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1075 链表元素分类 （25 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805262953594880" target="_blank" rel="noopener">原文地址</a></p>
+<p>给定一个单链表，请编写程序将链表元素进行分类排列，使得所有负值元素都排在非负值元素的前面，而 [0, K] 区间内的元素都排在大于 K 的元素前面。但每一类内部元素的顺序是不能改变的。例如：给定链表为 18→7→-4→0→5→-6→10→11→-2，K 为 10，则输出应该为 -4→-6→-2→7→0→5→10→18→11。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>每个输入包含一个测试用例。每个测试用例第 1 行给出：第 1 个结点的地址；结点总个数，即正整数N (≤10​5​​)；以及正整数K (≤10​3​​)。结点的地址是 5 位非负整数，NULL 地址用 −1 表示。 接下来有 N 行，每行格式为：</p>
+<pre><code>Address Data Next</code></pre><p>其中 <code>Address</code> 是结点地址；<code>Data</code> 是该结点保存的数据，为 [−10​5​​,10​5​​] 区间内的整数；<code>Next</code> 是下一结点的地址。题目保证给出的链表不为空。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对每个测试用例，按链表从头到尾的顺序输出重排后的结果链表，其上每个结点占一行，格式与输入相同。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>00100 9 10
+23333 10 27777
+00000 0 99999
+00100 18 12309
+68237 -6 23333
+33218 -4 00000
+48652 -2 -1
+99999 5 68237
+27777 11 48652
+12309 7 33218</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>33218 -4 68237
+68237 -6 48652
+48652 -2 12309
+12309 7 00000
+00000 0 99999
+99999 5 23333
+23333 10 00100
+00100 18 27777
+27777 11 -1</code></pre><p>代码（两个测试点通过不了的版本）：</p>
+<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include<algorithm><br>#include<vector></p>
+<p>using namespace std;</p>
+<p>struct Node{<br>    string Address;<br>    int Data;<br>    string Next;<br>};</p>
+<p>void sorted(Node nodes[],int num){<br>    string s1,s2;<br>    int t;<br>    for(int i=0;i&lt;num-1;i++){<br>        for(int j = i+1;j&lt;num;j++){<br>            if(nodes[i].Next == nodes[j].Address){<br>                swap(nodes[j],nodes[i+1]);<br>            }<br>        }<br>    }<br>}</p>
+<p>int main(){<br>    vector<Node> que1; //小于0<br>    vector<Node> que2; //大于等于0 小于等于K<br>    vector<Node> que3; //大于K<br>    vector<Node>::iterator pos;<br>    string start;<br>    int num,K;<br>    cin&gt;&gt;start&gt;&gt;num&gt;&gt;K;<br>    Node nodes[num];<br>    for(int i=0;i&lt;num;i++){<br>        cin&gt;&gt;nodes[i].Address&gt;&gt;nodes[i].Data&gt;&gt;nodes[i].Next;<br>        if(nodes[i].Address == start &amp;&amp; i != 0){<br>            swap(nodes[0],nodes[i]);<br>        }<br>    }<br>    sorted(nodes,num);<br>    /<em>cout&lt;&lt;endl;<br>    for(int i=0;i&lt;num;i++){<br>        cout&lt;&lt;nodes[i].Address&lt;&lt;” “&lt;&lt;nodes[i].Data&lt;&lt;” “&lt;&lt;nodes[i].Next&lt;&lt;endl;<br>    }<br>    cout&lt;&lt;endl;</em>/<br>    for(int i=0;i&lt;num;i++){<br>        if(nodes[i].Data &lt; 0){<br>            que1.push_back(nodes[i]);<br>        }<br>        else if(nodes[i].Data &gt;= 0 &amp;&amp; nodes[i].Data &lt;= K){<br>            que2.push_back(nodes[i]);<br>        }<br>        else{<br>            que3.push_back(nodes[i]);<br>        }<br>    }<br>    if(!que1.empty()){<br>        for(pos=que1.begin();pos != que1.end();pos++){<br>            if(pos != que1.end()-1){<br>                cout&lt;&lt;(*pos).Address&lt;&lt;” “&lt;&lt;(*pos).Data&lt;&lt;” “&lt;&lt;(<em>(pos+1)).Address&lt;&lt;endl;<br>            }<br>            else{<br>                cout&lt;&lt;(*pos).Address&lt;&lt;” “&lt;&lt;(*pos).Data&lt;&lt;” “;<br>            }<br>        }<br>        if(!que2.empty()){<br>            cout&lt;&lt;(<em>que2.begin()).Address&lt;&lt;endl;<br>        }<br>        else if(!que3.empty()){<br>            cout&lt;&lt;(</em>que3.begin()).Address&lt;&lt;endl;<br>        }<br>        else{<br>            cout&lt;&lt;”-1”&lt;&lt;endl;<br>        }<br>    }<br>    if(!que2.empty()){<br>        for(pos=que2.begin();pos != que2.end();pos++){<br>            if(pos != que2.end()-1){<br>                cout&lt;&lt;(*pos).Address&lt;&lt;” “&lt;&lt;(*pos).Data&lt;&lt;” “&lt;&lt;(</em>(pos+1)).Address&lt;&lt;endl;<br>            }<br>            else{<br>                cout&lt;&lt;(*pos).Address&lt;&lt;” “&lt;&lt;(*pos).Data&lt;&lt;” “;<br>            }<br>        }<br>        if(!que3.empty()){<br>            cout&lt;&lt;(<em>que3.begin()).Address&lt;&lt;endl;<br>        }<br>        else{<br>            cout&lt;&lt;”-1”&lt;&lt;endl;<br>        }<br>    }<br>    if(!que3.empty()){<br>        for(pos=que3.begin();pos != que3.end();pos++){<br>            if(pos != que3.end()-1){<br>                cout&lt;&lt;(*pos).Address&lt;&lt;” “&lt;&lt;(*pos).Data&lt;&lt;” “&lt;&lt;(</em>(pos+1)).Address&lt;&lt;endl;<br>            }<br>            else{<br>                cout&lt;&lt;(*pos).Address&lt;&lt;” “&lt;&lt;(*pos).Data&lt;&lt;” “;<br>            }<br>        }<br>        cout&lt;&lt;”-1”&lt;&lt;endl;<br>    }<br>    return 0;<br>}</p>
+<p>改正后版本：</p>
+<p>#include &lt;bits/stdc++.h&gt;<br>using namespace std;</p>
+<p>const int maxn = 1e6 + 10;<br>int st, N, K;</p>
+<p>struct Node{<br>    int address;<br>    int val;<br>    int nx;<br>};</p>
+<p>Node n;<br>vector<Node> l;<br>vector<Node> ans;<br>Node add[maxn];</p>
+<p>int main() {<br>    scanf(“%d%d%d”, &amp;st, &amp;N, &amp;K);<br>    for(int i = 0; i &lt; N; i ++) {<br>        scanf(“%d%d%d”, &amp;n.address, &amp;n.val, &amp;n.nx);<br>        add[n.address] = n;<br>    }</p>
+<pre><code>int first = st;
+while(first != -1) {
+    l.push_back(add\[first\]);
+    first = add\[first\].nx;
+}
+
+int sz = l.size();
+for(int i = 0; i &lt; sz; i ++) {
+    if(l\[i\].val &lt; 0)
+        ans.push_back(l\[i\]);
+}
+for(int i = 0; i &lt; sz; i ++) {
+    if(l\[i\].val &gt;= 0 &amp;&amp; l\[i\].val &lt;= K)
+        ans.push_back(l\[i\]);
+}
+for(int i = 0; i &lt; sz; i ++) {
+    if(l\[i\].val &gt; K)
+        ans.push_back(l\[i\]);
+}
+
+for(int i = 0; i &lt; sz; i ++) {
+    ans\[i\].nx = ans\[i + 1\].address;
+    if(i != sz - 1)
+        printf(&quot;%05d %d %05d\\n&quot;, ans\[i\].address, ans\[i\].val, ans\[i\].nx);
+    else
+        printf(&quot;%05d %d -1\\n&quot;, ans\[i\].address, ans\[i\].val);
+}
+return 0;</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1074-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1074-yi-ji/" itemprop="url">Pat_1074（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:09:50+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1074 宇宙无敌加法器 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805263297527808" target="_blank" rel="noopener">原文地址</a></p>
+<p>地球人习惯使用十进制数，并且默认一个数字的每一位都是十进制的。而在 PAT 星人开挂的世界里，每个数字的每一位都是不同进制的，这种神奇的数字称为“PAT数”。每个 PAT 星人都必须熟记各位数字的进制表，例如“……0527”就表示最低位是 7 进制数、第 2 位是 2 进制数、第 3 位是 5 进制数、第 4 位是 10 进制数，等等。每一位的进制 d 或者是 0（表示十进制）、或者是 [2，9] 区间内的整数。理论上这个进制表应该包含无穷多位数字，但从实际应用出发，PAT 星人通常只需要记住前 20 位就够用了，以后各位默认为 10 进制。 在这样的数字系统中，即使是简单的加法运算也变得不简单。例如对应进制表“0527”，该如何计算“6203 + 415”呢？我们得首先计算最低位：3 + 5 = 8；因为最低位是 7 进制的，所以我们得到 1 和 1 个进位。第 2 位是：0 + 1 + 1（进位）= 2；因为此位是 2 进制的，所以我们得到 0 和 1 个进位。第 3 位是：2 + 4 + 1（进位）= 7；因为此位是 5 进制的，所以我们得到 2 和 1 个进位。第 4 位是：6 + 1（进位）= 7；因为此位是 10 进制的，所以我们就得到 7。最后我们得到：6203 + 415 = 7201。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入首先在第一行给出一个 N 位的进制表（0 &lt; N ≤ 20），以回车结束。 随后两行，每行给出一个不超过 N 位的非负的 PAT 数。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出两个 PAT 数之和。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>30527
+06203
+415</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>7201</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include<algorithm></p>
+<p>using namespace std;</p>
+<p>int main(){<br>    string pat,num1,num2,result=””;<br>    cin&gt;&gt;pat&gt;&gt;num1&gt;&gt;num2;<br>    int num;<br>    num = pat.length() - num1.length();<br>    string tt(num,’0’);<br>    num1 = tt + num1;<br>    num = pat.length() - num2.length();<br>    string tt1(num,’0’);<br>    num2 = tt1 + num2;<br>    reverse(pat.begin(),pat.end());<br>    reverse(num1.begin(),num1.end());<br>    reverse(num2.begin(),num2.end());<br>    int flag = 0; //进位标志<br>    for(int i=0;i&lt;num1.length();i++){<br>        int jinzhi;<br>        if(pat[i] == ‘d’){<br>            jinzhi = 0;<br>        }<br>        else{<br>            jinzhi = pat[i] - ‘0’;<br>        }<br>        int t1,t2;<br>        t1 = num1[i] - ‘0’;<br>        t2 = num2[i] - ‘0’;<br>        if(jinzhi == 0){<br>            jinzhi = 10;<br>            result += (((t1+t2+flag)%jinzhi) + ‘0’);<br>            flag = (t1+t2+flag)/jinzhi;<br>        }<br>        else{<br>            result += (((t1+t2+flag)%jinzhi) + ‘0’);<br>            flag = (t1+t2+flag)/jinzhi;<br>        }<br>    }<br>    if(flag != 0){<br>        result += (flag + ‘0’); //特别处理如果大于进制表的位数 则对进位的数据按照十进制来添加到头<br>    }<br>    reverse(result.begin(),result.end());<br>    if(result.find_first_not_of(‘0’) == string::npos){<br>        cout&lt;&lt;0&lt;&lt;endl;<br>    }<br>    else{<br>        cout&lt;&lt;result.substr(result.find_first_not_of(‘0’),result.length())&lt;&lt;endl;<br>    }<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

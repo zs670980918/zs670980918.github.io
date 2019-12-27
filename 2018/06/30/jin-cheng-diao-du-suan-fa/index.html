@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="进程的调度方式：  非抢占方式：在这种调度方式下，一旦把处理机分配给某个进程后，就会一直让它运行下去，绝不会因为时钟中断或任何其他原因去抢占当前正在运行进程的处理机，直到该进程完成，或者发生某事件而被阻塞时，才会放弃处理机，这样系统才能把 处理机分配给其他进程。 抢占方式：这种调度方式允许调度进程根据某种原则，去暂停某个正在执行的进程，将已分配给该进程的处理机重新分配给另一个进程。  抢占方式也">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进程调度算法">
+<meta property="og:url" content="http://yoursite.com/2018/06/30/jin-cheng-diao-du-suan-fa/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="进程的调度方式：  非抢占方式：在这种调度方式下，一旦把处理机分配给某个进程后，就会一直让它运行下去，绝不会因为时钟中断或任何其他原因去抢占当前正在运行进程的处理机，直到该进程完成，或者发生某事件而被阻塞时，才会放弃处理机，这样系统才能把 处理机分配给其他进程。 抢占方式：这种调度方式允许调度进程根据某种原则，去暂停某个正在执行的进程，将已分配给该进程的处理机重新分配给另一个进程。  抢占方式也">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/QQ%E5%9B%BE%E7%89%8720180529111458.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180630225321.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/06/%E8%87%AA%E8%A1%8C%E8%BD%A6%E8%87%AA%E8%A1%8C%E8%BD%A6%E9%80%89%E6%8B%A9.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180630225321-1.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/06/%E6%92%92%E5%A4%A7%E5%A3%B0%E5%9C%B0.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/06/1-1.png">
+<meta property="article:published_time" content="2018-06-30T14:59:16.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.208Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/05/QQ%E5%9B%BE%E7%89%8720180529111458.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/30/jin-cheng-diao-du-suan-fa/"/>
+
+
+
+
+
+  <title>进程调度算法 | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/30/jin-cheng-diao-du-suan-fa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">进程调度算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-30T22:59:16+08:00">
+                2018-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/QQ%E5%9B%BE%E7%89%8720180529111458.png" alt=""> <strong>进程的调度方式：</strong></p>
+<ul>
+<li>非抢占方式：在这种调度方式下，一旦把处理机分配给某个进程后，就会一直让它运行下去，绝不会因为时钟中断或任何其他原因去抢占当前正在运行进程的处理机，直到该进程完成，或者发生某事件而被阻塞时，才会放弃处理机，这样系统才能把 处理机分配给其他进程。</li>
+<li>抢占方式：这种调度方式允许调度进程根据某种原则，去暂停某个正在执行的进程，将已分配给该进程的处理机重新分配给另一个进程。</li>
+</ul>
+<p><strong>抢占方式也要遵循某种原则：</strong></p>
+<ul>
+<li>优先权原则</li>
+<li>短进程优先原则</li>
+<li>时间片原则</li>
+</ul>
+<p>1、2两个原则就不做过多的介绍了，在之前的作业调度算法中已经给出了较为详细的介绍，这里就说一下时间片原则，即为各进程按时间片轮转运行时，当正在执行的进程对一个时间片用完后，便停止该进程的执行而重新进行调度。   <strong>调度算法：</strong>         1.轮转调度算法RR：基于时间片的进行轮转调度，即：让就绪队列上的每一个进程每次仅运行一个时间片，然后就切换到下一个进程。 在轮转（RR）中，系统根据FCFS策略，将所有就绪进程排成一个就绪队列，并可设置每隔一定时间间隔产生一次中断，激活系统中的进程调度，完成一次调度，将CPU分配给新的队首进程（或新到达的紧迫进程）。 进程的切换时机，有两种情况：</p>
+<ul>
+<li>若一个时间片尚未用完，正在运行的进程便已经完成，则立即激活调度程序，将它从就绪队列中删除，再调度就绪队列中队首的进程运行，并启动一个新的时间片。</li>
+<li>在一个时间片用完时，计时器中断处理程序被激活，如果进程尚未运行完毕，调度程序将把它送往就绪队列的末尾。</li>
+</ul>
+<p>时间片大小的选择一定要合适，如果太长则变为了FCFS算法，太短的话进程切换太频繁。 <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180630225321.png" alt=""> 具体过程： <img src="http://47.100.4.8/wp-content/uploads/2018/06/%E8%87%AA%E8%A1%8C%E8%BD%A6%E8%87%AA%E8%A1%8C%E8%BD%A6%E9%80%89%E6%8B%A9.png" alt="">   <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180630225321-1.png" alt=""> 具体过程： <img src="http://47.100.4.8/wp-content/uploads/2018/06/%E6%92%92%E5%A4%A7%E5%A3%B0%E5%9C%B0.png" alt="">    2.优先级调度算法 有两种类型：非抢占式优先级调度算法，抢占式优先级调度算法 优先级分别静态优先级和动态优先级 静态优先级：事先给进程分配一个优先级 动态优先级：根据进程的等待时间以及其他因素来分配优先级   3.多级反馈队列 <img src="http://47.100.4.8/wp-content/uploads/2018/06/1-1.png" alt=""> 设置多个就绪队列，每个队列赋予不同的优先级。第一个队列优先级最高，第二个次之，其余的队列优先级依次降低。算法为，每个队列赋予的时间片的大小也不同，在优先级越高的队列时间片越短。 其中每个队列都采用FCFS算法，如果有一个新的进程到达则把它放到第一个队列末端，按照FCFS原则等待调度。如果在该时间片内该进程没有运行结束，则把它放到下一个优先级的队列末端进行等待，如果在时间片内进程运行结束，则运行调度算法执行下一个进程，如果该队列中没有进程可以调度，则进入下一个优先级的队列。 例如：如果处于第二队列的进程在使用处理机，那么当一个新的进程到达时则把它放到第一个队列中等到调度，当正在执行的进程时间片结束之后，如果没有运行结束则把该进程放到第三优先级的队列末尾，然后重新回到第一队列中执行进程。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/21/shu-ju-ku-sql-yu-ju-yu-fa-yi-ji-li-zi/" rel="next" title="数据库SQL语句语法以及例子">
+                <i class="fa fa-chevron-left"></i> 数据库SQL语句语法以及例子
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/02/zuo-ye-diao-du-suan-fa/" rel="prev" title="作业调度算法">
+                作业调度算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="称为朴素的原因：是因为整个形式化过程只做最原始、最简单的假设。 任务：利用python进行文本处理将文档切分成词向量，然后利用词向量对文档进行分类。 朴素贝叶斯使用数据类型：标称型数据 优点是：在数据较少的情况下仍然能使用，可以处理多类别问题。 缺点：对于数据输入方式有一定要求。   快速了解贝叶斯决策理论： 用p1(x,y)表示数据点(x,y)属于类别1的概率 用p2(x,y)表示数据点(x,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习之朴素贝叶斯">
+<meta property="og:url" content="http://yoursite.com/2018/04/23/ji-qi-xue-xi-zhi-pu-su-bei-ye-si/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="称为朴素的原因：是因为整个形式化过程只做最原始、最简单的假设。 任务：利用python进行文本处理将文档切分成词向量，然后利用词向量对文档进行分类。 朴素贝叶斯使用数据类型：标称型数据 优点是：在数据较少的情况下仍然能使用，可以处理多类别问题。 缺点：对于数据输入方式有一定要求。   快速了解贝叶斯决策理论： 用p1(x,y)表示数据点(x,y)属于类别1的概率 用p2(x,y)表示数据点(x,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/timg.jpg">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/123341233123.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/sad%E4%B8%AD%E5%BF%83%E6%93%A6%E4%BC%A4%E7%9A%84.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/1968541563156.png">
+<meta property="article:published_time" content="2018-04-23T10:13:43.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.206Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/04/timg.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/23/ji-qi-xue-xi-zhi-pu-su-bei-ye-si/"/>
+
+
+
+
+
+  <title>机器学习之朴素贝叶斯 | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/23/ji-qi-xue-xi-zhi-pu-su-bei-ye-si/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习之朴素贝叶斯</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-23T18:13:43+08:00">
+                2018-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">朴素贝叶斯</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/04/timg.jpg" alt=""> 称为朴素的原因：是因为整个形式化过程只做最原始、最简单的假设。 任务：利用python进行文本处理将文档切分成词向量，然后利用词向量对文档进行分类。 朴素贝叶斯使用数据类型：标称型数据 优点是：在数据较少的情况下仍然能使用，可以处理多类别问题。 缺点：对于数据输入方式有一定要求。   快速了解贝叶斯决策理论： 用p1(x,y)表示数据点(x,y)属于类别1的概率 用p2(x,y)表示数据点(x,y)属于类别2的概率 那么对于一个 新的数据点(x,y)我们使用如下规则判断它属于哪个类别： p1(x,y)&gt;p2(x,y) —&gt;属于类别1 p1(x,y)&lt;p2(x,y) —&gt;属于类别2 因此就是我们只会选择高概率对应的类别即高概率决策。这就是贝叶斯思想的核心。（由此可见之后要使用到概率论的知识。） 贝叶斯决策时最佳的数据点分类策略。   主要用到了条件概率： p（A|B）=P（AB）/P（B） 贝叶斯准则：计算条件概率的方法：已知p(A|B)求P（B|A），可已使用如下公式计算 P（B|A）=（P(A|B)*P(B)）/P(A)   使用条件概率来分类： 上面提到的核心思想并不是贝叶斯决策的全部内容，p1（）和p2（）也不是真实的只是一个表示：实际为p（c1|x，y）和p（c2|x，y）这些符号所代表的的具体意义是给定某个x、y表示的数据点，那么该点来自c1或者c2类别的概率多少 应用贝叶斯准则得到： <img src="http://47.100.4.8/wp-content/uploads/2018/04/123341233123.png" alt=""> 分类过程就是按照谁的概率更大一些就属于它所在分类。   使用朴素贝叶斯进行文档分类：   过程：</p>
+<ol>
+<li>收集数据：可以使用任何方法，这里使用的是RSS源</li>
+<li>准备数据：需要数值型或者布尔型数据。</li>
+<li>分析数据：有大量特征值时，绘制特征作用不大，此时使用直方图比较好</li>
+<li>训练算法：计算不同的独立特征的条件概率。</li>
+<li>测试算法：计算错误率</li>
+</ol>
+<p>使用算法：一个常见的的朴素贝叶斯应用的文档的分类   特征值之间要相互独立，即一个特征出现的可能性与其他特征值无关。 朴素贝叶斯分类器中的另一种假设是：每个特征值同等重要。     使用python进行文本分类： 首先要进行文本的拆分：特征是来自文本的一个词条，一个词条是字符的任意组合。 接下来以在线社区留言板为例： 目的是屏蔽侮辱性的言论，因此构建一个快速过滤侮辱性言论的过滤器。 将文本内容分为侮辱性和非侮辱性使用1和0分别表示   接下来就是将文本转换为数字向量   准备数据：从文本中构建词向量（也就是将句子转换为向量） 词表到向量的转换函数：</p>
+<p>import numpy as np<br>#词表到向量的转化函数<br>#创建一些实验样本 用于训练<br>def loadDataSet():<br>    postingList = [[‘my’,’dog’,’has’,’flea’,’problems’,’help’,’please’],<br>                   [‘maybe’,’not’,’take’,’him’,’to’,’dog’,’park’,’stupid’],<br>                   [‘my’,’dalmation’,’is’,’so’,’cute’,’I’,’love’,’him’],<br>                   [‘stop’,’posting’,’stupid’,’worhless’,’garbage’],<br>                   [‘mr’,’licks’,’ate’,’my’,’steak’,’how’,’to’,’stop’,’him’],<br>                   [‘quit’,’buying’,’worhless’,’dog’,’food’,’stupid’]]<br>    #创建一个类别标签集合<br>    classVec = [0,1,0,1,0,1] #每一个标签对应一个子列表 分别表示了是侮辱性语言（1）还是非侮辱性语言（0）<br>    return postingList,classVec</p>
+<p>#处理集合 创建一个包含在所有文档中出现的不重复词的列表<br>def createVocableList(dataSet):<br>    vocabSet = set([]) #创建一个无序无重复空集<br>    for document in dataSet:<br>        vocabSet = vocabSet | set(document)  #创建两个集合的并集 目的是去掉dataSet中每个集合重复的数据<br>    return list(vocabSet)<br>#创建一个将给的文档转换为向量文档的函数<br>#该函数的输入参数为词汇表以及某个文档<br>def setOfWords2Vec(vocabList,inputSet):<br>    returnVec = [0]*len(vocabList)  #创建一个词汇表等长的向量表<br>    for word in inputSet:#循环遍历输入的文档<br>        if word in vocabList: #如果输入的文档内容在给出的 词汇表中<br>            returnVec[vocabList.index(word)] = 1 #找到word对应的索引位置并且将返回数字向量对应的位置设置为1<br>        else:<br>            print(“这个单词是：%s 不在我的词表中!” %word)<br>    return returnVec  #输出的是向量文档</p>
+<p>使用：</p>
+<p>import Bayesian</p>
+<p>listOposts,listClasses = Bayesian.loadDataSet()<br>myVocabList = Bayesian.createVocableList(listOposts)<br>print(myVocabList)<br>print(listClasses)<br>print(Bayesian.setOfWords2Vec(myVocabList,listOposts[0]))</p>
+<p>结果： <img src="http://47.100.4.8/wp-content/uploads/2018/04/sad%E4%B8%AD%E5%BF%83%E6%93%A6%E4%BC%A4%E7%9A%84.png" alt="">)<img src="http://47.100.4.8/wp-content/uploads/2018/04/1968541563156.png" alt=""> End！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/22/tan-lan-suan-fa-c/" rel="next" title="贪婪算法C++实现">
+                <i class="fa fa-chevron-left"></i> 贪婪算法C++实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/24/sheng-chan-zhe-xiao-fei-zhe-wen-ti-c-shi-xian/" rel="prev" title="生产者消费者问题C++实现">
+                生产者消费者问题C++实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

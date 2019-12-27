@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="诞生我是一个Web Crawler , 有时候称为Spider , 你们经常说的爬虫就是我。 我想我是遇到了好时代，感谢IT政府，提供了简单的HTTP协议，还有HTML,CSS, JavaScript这一系列开放的技术， 原来的桌面应用，局域网应用都被搬到了网络上，形成了一个个的网站， 网站互联起来，形成了一个覆盖全世界的大网。 在这个大背景下，我应运而生，开始在这个大网上爬来爬去，收集、分析各">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（转）我是一个爬虫">
+<meta property="og:url" content="http://yoursite.com/2018/06/04/zhuan-wo-shi-yi-ge-pa-chong/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="诞生我是一个Web Crawler , 有时候称为Spider , 你们经常说的爬虫就是我。 我想我是遇到了好时代，感谢IT政府，提供了简单的HTTP协议，还有HTML,CSS, JavaScript这一系列开放的技术， 原来的桌面应用，局域网应用都被搬到了网络上，形成了一个个的网站， 网站互联起来，形成了一个覆盖全世界的大网。 在这个大背景下，我应运而生，开始在这个大网上爬来爬去，收集、分析各">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/03/timg-6.jpg">
+<meta property="article:published_time" content="2018-06-04T10:03:18.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.208Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/03/timg-6.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/04/zhuan-wo-shi-yi-ge-pa-chong/"/>
+
+
+
+
+
+  <title>（转）我是一个爬虫 | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/zhuan-wo-shi-yi-ge-pa-chong/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">（转）我是一个爬虫</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-04T18:03:18+08:00">
+                2018-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E7%88%AC%E8%99%AB/Python%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index">
+                    <span itemprop="name">Python知识</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E7%88%AC%E8%99%AB/Python%E7%9F%A5%E8%AF%86/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/03/timg-6.jpg" alt=""></p>
+<h3 id="诞生"><a href="#诞生" class="headerlink" title="诞生"></a>诞生</h3><p>我是一个Web Crawler , 有时候称为Spider , 你们经常说的爬虫就是我。 我想我是遇到了好时代，感谢IT政府，提供了简单的HTTP协议，还有HTML,CSS, JavaScript这一系列开放的技术， 原来的桌面应用，局域网应用都被搬到了网络上，形成了一个个的网站， 网站互联起来，形成了一个覆盖全世界的大网。 在这个大背景下，我应运而生，开始在这个大网上爬来爬去，收集、分析各种网页的数据。 我有几个亲戚在搜索引擎公司工作，听说他们的目标是把全世界的网页都给爬下来，形成索引，让人类搜索， 想想全世界网页的数量，这几位亲戚的工作实在是让人敬畏。 我的工作原理非常简单， 给我一个URL，我就可以通过HTTP协议把HTML页面下载下来。然后分析一下这个页面中有哪些元素，比如说，表单，表格，链接等等。 反正这个HTML页面是纯文本的，我想怎么折腾都可以，我可以把它形成一颗DOM树，也可以用正则表达式去获得一段我想要的内容，总之方法多得很呢！ 最重要的是，我要拿到这个页面中的其他链接， 然后再拿到这些链接对应的HTML页面,继续我的分析，如此循环下去，就能把所有的页面给找出来了，所有的内容都尽在掌握！ 有时候，有些HTML页面是受到保护的，必须登陆以后才能够访问，这也难不住我，人类早已经申请了很多的账号。我把这些用户名和密码拿过来，找到对应的登录框，向服务器端发送一个请求，就可以顺利登录了， 访问受保护网页的大门就敞开了。 所以说我有两个最基本的能力， 第一，通过HTTP协议访问网页;  第二，分析HTML网页。</p>
+<h3 id="斗争"><a href="#斗争" class="headerlink" title="斗争"></a>斗争</h3><p>所谓“爬亦有道”， 我们爬虫界也是有一定规范的，比如说，你在你的网站的根目录下放一个robots.txt文件，里边定义好那些内容对爬虫开放，那些内容不希望爬虫访问， 那我们就不会去爬这些内容了。 当然这只是个约定俗成的规范，而不是标准， 所以总是有一些爬虫完全不遵守规则，置这些规范于不顾。 作为程序，我们访问起网络来， 要远远比人类快得多，人类还需要在界面上移动鼠标点击，我们则是拿到URL后直接、迅速、毫不犹豫地访问， 这样一来，如果爬虫很多，常常给一些网站带来非常大的流量，给服务器带来很大的压力，影响了正常用户的访问， 从而影响了网站的收入。 断人财路，网站就急眼了， 肯定要反击， 于是他们网站便提出了各种各样的办法，成为反爬虫。 他们有反爬虫， 我们便反反爬虫，于是便引发了一场波澜壮阔，反复拉锯的战争。 首先他们得把我们给识别出来才行。最早爬虫在发出HTTP请求的时候，不注意伪装自己，不会修改User Agent ，相当于告诉对方说： 我是爬虫。 于是这些网站轻轻松松的就把我们识别出来，返回一个错误码，或者干脆禁止我们访问。 什么？ 你还不知道什么是User Agent ？ User Agent其实就是HTTP Header 中的一个字符串，让服务器端能识别客户端的操作系统及版本，浏览器及版本，浏览器引擎，语言等等信息。 这样可以针对性地做一些处理，例如发送桌面版或者手机版的网页。 比如： User-Agent:Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0) 后来我们也学精了，把这个User Agent 设置得和人类的浏览器一模一样，对方就不好识别了。 有时候我们还可以伪装成Google的爬虫，百度的爬虫， 各个网站自然希望百度和Google去对自己的网页做索引的，所以对这样的User Agent不会下狠手拒绝。 但是他们也有别的办法，比如分析我们的行为，利用我们速度快的特点， 比如说，一秒之内有多少次请求，就认为是爬虫。 我们也得斗智斗勇，访问一会儿就休眠几秒钟，然后接着再访问，让他们的策略失效。 但是我们也不能老是休息呀，如果休息得太多，那我们就会人类的速度差不多了，爬虫还有什么意义？</p>
+<p>陷阱，验证码，投毒</p>
+<p>有些网站会采取一些非常“恶劣”的手段，我最难以防范的就是陷阱。 具体来说，就是在网站发回的HTML页面中，包含一些人类肉眼看不到的链接，比如弄个一个像素大小的图片，上面有个链接。 人类看不到，是绝对不会点击的，但是我们爬虫是程序啊，能分析所有的链接并访问之。 但是以我们的智商，并不知道这是一个陷阱啊！ 这些陷阱就像漂浮在网页中的幽灵， 只要我们一访问这些链接，服务器立刻就会知道，哼哼，又来一个爬虫，立刻启动大杀招：封IP！ 他们还有一招就是验证码， 如果一段时间内访问的次数超过了某个阈值，立刻显示一个图形验证码，输入验证码以后才能继续，这实在是太讨厌了， 因为验证码是个图片， 人类肉眼轻松识别，可是我想识别还得靠别的软件或者系统，比如OCR。 但是验证现在搞得越来越复杂，什么滑块验证，什么数学题…… 单纯的OCR都不够了。 不过我也不怕，我可以做分布式，反正机器多，让每个机器上的爬虫运行得稍微慢一点，不要触发服务器端的各种讨厌的封锁策略。 我还可以用代理，让IP不断变换，封了一个IP， 就用另外一个，子子孙孙无穷匮也。 我最烦的就是“投毒”，这一招最损， 网站识别出来我是爬虫以后，并不会把我的IP关到小黑屋，而是很阴险地发送一些假数据，和真实数据混在一起，让我喜滋滋地取走，不知道过了多少天，主人用数据做分析时才发现： 嗯，这数据有点不对头啊！ 到底是怎么回事！！！  于是我被拖出去打了50大板，真是冤枉啊。</p>
+<h3 id="新装备"><a href="#新装备" class="headerlink" title="新装备"></a>新装备</h3><p>最近的日子有点不大对头儿，访问一个URL后，返回的HTML特别少，JS特别多，我从HTML中几乎找不到什么有用的东西。 主人看到我干活效率骤然降低，赶紧亲自上手研究了一番，他用Chrome打开网站，按F12, 查看源代码和网络请求, 叹了一口气说： “原来的办法都不管用了，这些网站都在用JavaScript在浏览器端渲染了！” 不过他接着又兴奋地说：“这也许是一件好事情，这些JavaScript通过AJAX的方式访问后端网站的API，返回的数据都是JSON，我分析下，只要弄清楚这些API的输入和输出， 直接调用API就可以拿到数据了。” 其实都是分析，只不过原来分析HTML结构，从中取出内容，现在是分析后端服务器提供的API，直接获取到了数据，似乎更加方便。 但时候直接调用这些API也是有点小麻烦，比如很多时候，都需要进行认证，比如发个token什么的给服务器，要不然人家就不让调用。 后来主人说，算了，实在是麻烦，我给我的爬虫升级下装备吧。 新装备其实就是一个内嵌的浏览器，这个浏览器不需要界面显示， 可以在程序中静悄悄地执行，主人把他叫做无界面浏览器，或者无头浏览器。 有了全功能的内嵌浏览器，相当于一个真正的人类在请求网页了，把JavaScript下载下来，不是要在浏览器中做渲染吗？等的就是你！ 管你什么AJAX， token ,加密， 这里统统可以执行。 这个无头浏览器渲染完以后，我就可以拿到HTML做后续的分析了。 一切尽在掌握，这种感觉实在美妙。 不过缺点也是有的： 慢！ 没办法，有得必有失嘛， 我们还可以采用分布式运行的利器，多跑一些爬虫的实例，人多力量大。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我们爬虫界的终极目标就是和人类的行为保持一致，这样就网站就无法识别了，只不过路漫漫其修远兮，双方的争斗估计会一直持续下去。 在斗争中，建议大家遵循一个原则：“斗而不破”， 不能砸网站的饭碗，要不然人家一怒之下把功能下线了，那大家彻底玩完。   感觉讲的挺真实的，也可以让我们更加形象化地了解爬虫。       转自公众号码农翻身</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/03/tan-yi-xia/" rel="next" title="谈一下">
+                <i class="fa fa-chevron-left"></i> 谈一下
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/05/di-zhi-bian-huan-suan-fa/" rel="prev" title="地址变换算法">
+                地址变换算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#诞生"><span class="nav-number">1.</span> <span class="nav-text">诞生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斗争"><span class="nav-number">2.</span> <span class="nav-text">斗争</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新装备"><span class="nav-number">3.</span> <span class="nav-text">新装备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

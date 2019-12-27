@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="向四结点的插入节点的情况： 第二种情况： 向3 key结点插入，父结点也是3 key结点的处理情况。 如图：      主要核心的思想是：向3 key结点插入数值，父结点也为3 key结点的话，则父结点也要进行中间值提到父结点的父结点的操作，知道结点不再是3 key值结点为止。   下面给出2-3-4数创建的过程（大家可自行分析理解我个人认为已经很好理解了） 如图：     最后会形成一个所有高度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2-3-4树学习（续）">
+<meta property="og:url" content="http://yoursite.com/2018/05/22/2-3-4-shu-xue-xi-xu/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="向四结点的插入节点的情况： 第二种情况： 向3 key结点插入，父结点也是3 key结点的处理情况。 如图：      主要核心的思想是：向3 key结点插入数值，父结点也为3 key结点的话，则父结点也要进行中间值提到父结点的父结点的操作，知道结点不再是3 key值结点为止。   下面给出2-3-4数创建的过程（大家可自行分析理解我个人认为已经很好理解了） 如图：     最后会形成一个所有高度">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/1-7.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/2-7.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/3-6.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/4-6.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/5-4.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/6-3.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/7-3.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/8-1.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/9-1.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/10-1.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/11-2.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/12-1.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/13-1.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/14-1.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/15.png">
+<meta property="article:published_time" content="2018-05-22T15:41:15.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.207Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/05/1-7.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/22/2-3-4-shu-xue-xi-xu/"/>
+
+
+
+
+
+  <title>2-3-4树学习（续） | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/2-3-4-shu-xue-xi-xu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2-3-4树学习（续）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-22T23:41:15+08:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C&amp;C++</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/C-%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">C++学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/C-%E5%AD%A6%E4%B9%A0/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>向四结点的插入节点的情况： 第二种情况： 向3 key结点插入，父结点也是3 key结点的处理情况。 如图： <img src="http://47.100.4.8/wp-content/uploads/2018/05/1-7.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/2-7.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/3-6.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/4-6.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/5-4.png" alt=""> 主要核心的思想是：向3 key结点插入数值，父结点也为3 key结点的话，则父结点也要进行中间值提到父结点的父结点的操作，知道结点不再是3 key值结点为止。   下面给出2-3-4数创建的过程（大家可自行分析理解我个人认为已经很好理解了） 如图： <img src="http://47.100.4.8/wp-content/uploads/2018/05/6-3.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/7-3.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/8-1.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/9-1.png" alt=""> 最后会形成一个所有高度都一样的树： <img src="http://47.100.4.8/wp-content/uploads/2018/05/10-1.png" alt=""> 在很多数据的情况下： 2-3-4树的效率比平衡二叉树要好的很多。 2-3-4的高度的最坏情况（全是2-node），也就相当于演变成了平衡二叉树 ： 相当于平衡二叉树 lgN 2-3-4树高度的最好情况（全是4-node），log4 N = 1/2 lg N   删除操作：要保证结点在同一高度，有必要时要进行合并 如图： <img src="http://47.100.4.8/wp-content/uploads/2018/05/11-2.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/12-1.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/13-1.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/14-1.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/05/15.png" alt=""> 在这里要感谢：<a href="https://www.jianshu.com/p/37c845a5add6" target="_blank" rel="noopener">https://www.jianshu.com/p/37c845a5add6</a> <a href="http://www.cnblogs.com/nullzx/p/6111175.html" target="_blank" rel="noopener">http://www.cnblogs.com/nullzx/p/6111175.html</a> 两位博主 提供的讲解，上面的图均取自二者的博文，再次感谢。   C++实现难点：要有三种结点分别有三个两个一个键值，要进行他们之间的转换，以及处理所以比较麻烦。 由于代码比较难于实现所里这里只进行了分析。 为了以后的红黑树做准备。   因此这给出伪代码： 结点数据结构：</p>
+<p>//1键值的结点</p>
+<p>struct Node1{</p>
+<pre><code>Elem data1;
+
+Node1 *rNode; //右子节点
+
+Node1 *lNode; //左子节点</code></pre><p>};</p>
+<p>Node1 root; //根结点一定是为1个键值的结点</p>
+<p>//2键值的结点</p>
+<p>struct Node2{</p>
+<pre><code>Elem data1;
+
+Elem data2;
+
+Node2 *rNode;
+
+Node2 *zNode;//中间子节点
+
+Node2 *lNode;</code></pre><p>};</p>
+<p>//3键值的结点</p>
+<p>struct Node3{</p>
+<pre><code>Elem data1;
+
+Elem data2;
+
+Elem data3;
+
+Node3 *rNode;
+
+Node3 *rzNode; //右二子节点
+
+Node3 *lzNode;  //左二子节点
+
+Node3 *lNode;</code></pre><p>};</p>
+<pre><code>插入操作的伪代码：  </code></pre><p>void insert(Key key,Elem Val)</p>
+<p>{</p>
+<pre><code>Node x=root;
+
+while (x.getTheCorrectChild(key) != null) //查找到子节点为止 如果不为空则一直继续向下寻找
+
+{
+
+    x = x.getTheCorrectChild(key);  //跳转到下一个节点根据给出的key
+
+    if (x.is4Node()) //如x所在键值是3个的结点还要在插入一个则将该节点分解，
+
+        x.split();
+
+}
+
+if (x.is2Node())  //如果为两键值节点
+
+    x.make3Node(key, val); //则进行插入操作
+
+else if (x.is3Node())   //如果为三键值结点
+
+    x.make4Node(key, val); //则进行插入操作</code></pre><p>}</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/21/2-3-4-shu-xue-xi/" rel="next" title="2-3-4树学习">
+                <i class="fa fa-chevron-left"></i> 2-3-4树学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/24/potplayer-wu-bian-kuang/" rel="prev" title="PotPlayer+无边框">
+                PotPlayer+无边框 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

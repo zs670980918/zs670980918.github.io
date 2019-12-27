@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="多种群遗传算法的函数优化算法（MPGA） 多种群遗传算法（MPGA）概述 MPGA在GA的基础上主要引入了一下几个概念：  突破GA仅靠单个群体进行遗传进化的框架，引入多个种群问题同时进行优化搜索；不同的种群赋以不用的控制参数，实现不同的搜索的目的。 各个种群之间通过移民算子进行联系，实现多种群的协同进化；最优解的获取是多个种群协同进化的综合结果。 通过人工选择算子保存各种群每个进化代中的最优个体">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多种群遗传算法的函数优化算法">
+<meta property="og:url" content="http://yoursite.com/2018/08/28/duo-zhong-qun-yi-chuan-suan-fa-de-han-shu-you-hua-suan-fa/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多种群遗传算法的函数优化算法（MPGA） 多种群遗传算法（MPGA）概述 MPGA在GA的基础上主要引入了一下几个概念：  突破GA仅靠单个群体进行遗传进化的框架，引入多个种群问题同时进行优化搜索；不同的种群赋以不用的控制参数，实现不同的搜索的目的。 各个种群之间通过移民算子进行联系，实现多种群的协同进化；最优解的获取是多个种群协同进化的综合结果。 通过人工选择算子保存各种群每个进化代中的最优个体">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/08/1-1.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/08/2-1.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/08/3-1.png">
+<meta property="article:published_time" content="2018-08-28T08:40:46.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.209Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/08/1-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/28/duo-zhong-qun-yi-chuan-suan-fa-de-han-shu-you-hua-suan-fa/"/>
+
+
+
+
+
+  <title>多种群遗传算法的函数优化算法 | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/duo-zhong-qun-yi-chuan-suan-fa-de-han-shu-you-hua-suan-fa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多种群遗传算法的函数优化算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-28T16:40:46+08:00">
+                2018-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">优化算法</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%A4%9A%E7%A7%8D%E7%BE%A4%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88MPGA%EF%BC%89/" itemprop="url" rel="index">
+                    <span itemprop="name">多种群遗传算法（MPGA）</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%A4%9A%E7%A7%8D%E7%BE%A4%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88MPGA%EF%BC%89/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%A4%9A%E7%A7%8D%E7%BE%A4%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88MPGA%EF%BC%89/%E6%96%87%E7%AB%A0%E9%A1%B5/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>多种群遗传算法的函数优化算法（MPGA）</strong> <strong>多种群遗传算法（MPGA）概述</strong> MPGA在GA的基础上主要引入了一下几个概念：</p>
+<ul>
+<li>突破GA仅靠单个群体进行遗传进化的框架，引入多个种群问题同时进行优化搜索；不同的种群赋以不用的控制参数，实现不同的搜索的目的。</li>
+<li>各个种群之间通过移民算子进行联系，实现多种群的协同进化；最优解的获取是多个种群协同进化的综合结果。</li>
+<li>通过人工选择算子保存各种群每个进化代中的最优个体，并作为判断算法收敛的依据。</li>
+</ul>
+<p>MPGA的算法结构示意图 <img src="http://47.100.4.8/wp-content/uploads/2018/08/1-1.png" alt="">   这里的SGA就是标准GA，由上图可以看出每个种群还是遵循GA中的算法准则，只不过是通过移民算子以及人工选择将最优的解结合到了一起。 各种群取不同的控制参数。交叉概率Pc和变异概率Pm的取值决定了算法全局搜索和拒不搜索能力的均衡。在GA中，交叉算子是产生新个体的主要算子，它决定了遗传算法全局搜索的能力；而变异算子只是产生新个体的辅助算子，它决定了遗传算法的局部搜索能力。大多数认为Pc在0.7<del>0.9最为合适，Pm在0.001</del>0.05之间最为合适。但是他们的取值方式还是有无数种的，对于不同的取值方式，优化结果差异也是很大的。MPGA弥补了GA的这一不足，通过多个设有不同控制参数的种群协同进化，同时兼顾了算法的全局搜索和局部搜索。 各种群是相对独立的，相互之间通过移民算子联系。移民算子将各种群在进化过程中出现的最优个体定期地（每隔一定的进化代数）引入其他的种群中，实现种群之间的信息交换。具体的操作规则是，将目标种群中的最差个体用源种群的最优个体替代。移民算子在MPGA中至关重要，如果没有银民算子，各种群之间失去联系，MPGA将等同于用不同的控制参数进行多次GA计算，从而是去了MPGA的特色。 精华种群和其他种群有很大不同。在金华的每一代，通过人工选择算子选出其他种群的 最优个体放入精华种群加以保存。精华种群不进行选择、交叉、变异等遗传操作，保证进化过程中各种群产生的最优个体不被破坏和丢失。同时，精华种群也是判断算法终止的依据。这里采用最优个体最少保持代数作为最终判断依据。这种判断充分利用了遗传算法在进化过程中的知识积累，较最大遗传代数判据更为合理。   <strong>问题描述</strong> 复杂二元函数求最值： <strong>max f(x,y) = 21.5 + xsin(4πx) + ysin(20πy)</strong> 图像生成代码：  </p>
+<p>clear;</p>
+<p>[X,Y] = meshgrid(-10:0.355:10);</p>
+<p>Z = 21.5 + X.*sin(4*pi.*X) + Y.*sin(20*pi.*Y);</p>
+<p>surf(X,Y,Z);</p>
+<p>图像： <img src="http://47.100.4.8/wp-content/uploads/2018/08/2-1.png" alt=""> 由上图可以看出该函数在区间内分布着多个局部极值，这样如果使用普通的遗传算法很容易出现早熟的现象，因此多种群遗传算法比较适合。 该问题所使用到的遗传算法工具箱的函数列表：</p>
+<p>算子</p>
+<p>函数</p>
+<p>功能</p>
+<p>创建种群</p>
+<p>Crtbp</p>
+<p>创建基向量</p>
+<p>适应度计算</p>
+<p>Ranking</p>
+<p>常用的基于秩的适应度计算</p>
+<p>  选择函数</p>
+<p>Select</p>
+<p>高级选择函数</p>
+<p>Sus</p>
+<p>随机变异采样</p>
+<p>Reins</p>
+<p>一致随机和基于适应度的重插入</p>
+<p>交叉算子</p>
+<p>Recombin</p>
+<p>高级重组算子</p>
+<p>Xovsp</p>
+<p>单点交叉</p>
+<p>变异算子</p>
+<p>Mut</p>
+<p>离散变异</p>
+<p>  <strong>移民算子</strong> 函数名为immigrant，函数的输入、输出参数如下：</p>
+<p>变量名</p>
+<p>类型</p>
+<p>意义</p>
+<p>输入参数</p>
+<p>Chrom</p>
+<p>Cell</p>
+<p>每个元细胞单元为一个种群的编码（移民前）</p>
+<p>ObjV</p>
+<p>Cell</p>
+<p>每个元细胞为一个种群所有个体的目标值（移民前）</p>
+<p>输出参数</p>
+<p>Chrom</p>
+<p>Cell</p>
+<p>每个元细胞单元为一个种群的编码（移民后）</p>
+<p>ObjV</p>
+<p>Cell</p>
+<p>每个元细胞为一个种群所有个体的目标值（移民后）</p>
+<p>代码：</p>
+<p>function [Chrom,ObjV]=immigrant(Chrom,ObjV)<br>%% 移民算子<br>MP=length(Chrom); %得到种群个数<br>% 遍历每个种群寻找到其中的最优解<br>for i=1:MP<br>    [MaxO,maxI]=max(ObjV{i});  % 找出第i种群中最优的个体的值以及它的序号<br>    next_i=i+1;                % 目标种群（移民操作中） 到下一个种群<br>    if next_i&gt;MP % 如果 i的值大于总的种群个数 使用取模操作回到开头<br>        next_i=mod(next_i,MP);<br>    end<br>    [MinO,minI]=min(ObjV{next_i});          %  找出目标种群中最劣的个体<br>    %% 目标种群最劣个体替换为源种群最优个体<br>    Chrom{next_i}(minI,:)=Chrom{i}(maxI,:);<br>    ObjV{next_i}(minI)=ObjV{i}(maxI); %目标值的替换<br>end </p>
+<p><strong>人工选择算子</strong> 函数名为EliteInduvidual，函数的输入、输出参数如下：</p>
+<p>变量名</p>
+<p>意义</p>
+<p>输入参数</p>
+<p>Chrom</p>
+<p>每个元细胞单元为一个种群的编码（移民前）</p>
+<p>ObjV</p>
+<p>每个元细胞为一个种群所有个体的目标值（移民前）</p>
+<p>MaxObjV</p>
+<p>各个种群当前最优个体的目标值（选择前）</p>
+<p>MaxChrom</p>
+<p>各个种群当前最优个体的编码（选择前）</p>
+<p>输出参数</p>
+<p>MaxObjV</p>
+<p>各个种群当前最优个体的目标值（选择后）</p>
+<p>MaxChrom</p>
+<p>各个种群当前最优的编码（选择后）</p>
+<p>代码：</p>
+<p>function [MaxObjV,MaxChrom]=EliteInduvidual(Chrom,ObjV,MaxObjV,MaxChrom)<br>%% 人工选择算子<br>MP=length(Chrom);  %种群数<br>for i=1:MP<br>    [MaxO,maxI]=max(ObjV{i});   %找出第i种群中最优个体以及编号<br>    if MaxO&gt;MaxObjV(i) %如果选择出来的最优个体的目标值大于当前种群最优的目标值<br>        MaxObjV(i)=MaxO;         %记录各种群的精华个体<br>        MaxChrom(i,:)=Chrom{i}(maxI,:);  %记录各种群精华个体的编码<br>    end<br>end </p>
+<p><strong>目标函数</strong> 针对提出问题写出来的目标函数 代码：</p>
+<p>function obj=ObjectFunction(X)<br>%% 待优化的目标函数<br>col=size(X,1); %得到个体个数<br>for i=1:col %计算种群每个个体对应的目标值<br>    obj(i,1)=21.5+X(i,1)*sin(4*pi*X(i,1))+X(i,2)*sin(20*pi*X(i,2));<br>end </p>
+<p><strong>MPGA：</strong></p>
+<p>%% 2、多种群遗传算法<br>clear;<br>clc<br>NIND=40;               %个体数目<br>NVAR=2;                %变量的维数<br>PRECI=20;              %变量的二进制位数<br>GGAP=0.9;              %代沟<br>MP=10;                 %种群数目<br>FieldD=[rep(PRECI,[1,NVAR]);[-3,4.1;12.1,5.8];rep([1;0;1;1],[1,NVAR])];  %译码矩阵<br>for i=1:MP<br>    Chrom{i}=crtbp(NIND, NVAR<em>PRECI);                       %创建初始种群<br>end<br>pc=0.7+(0.9-0.7)</em>rand(MP,1);    %在【0.7,0.9】范围i内随机产生交叉概率<br>pm=0.001+(0.05-0.001)<em>rand(MP,1);  %在【0.001,0.05】范围内随机产生变异概率<br>gen=0;  %初始遗传代数<br>gen0=0; %初始保持代数<br>MAXGEN=10;  %最优个体最少保持代数<br>maxY=0; %最优值<br>for i=1:MP<br>    ObjV{i}=ObjectFunction(bs2rv(Chrom{i}, FieldD));%计算各初始种群个体的目标函数值<br>end<br>MaxObjV=zeros(MP,1);           %记录精华种群<br>MaxChrom=zeros(MP,PRECI</em>NVAR); %记录精华种群的编码<br>% 结束条件为如果进行MAXGEN+1次优秀的迭代 则结束循环（即每次得到的最优结果都比前面的值好）<br>while gen0&lt;=MAXGEN<br>    gen=gen+1;       %遗传代数加1<br>    for i=1:MP<br>        FitnV{i}=ranking(-ObjV{i});                      % 各种群的适应度<br>        SelCh{i}=select(‘sus’, Chrom{i}, FitnV{i},GGAP); % 选择操作<br>        SelCh{i}=recombin(‘xovsp’,SelCh{i}, pc(i));      % 交叉操作<br>        SelCh{i}=mut(SelCh{i},pm(i));                    % 变异操作<br>        ObjVSel=ObjectFunction(bs2rv(SelCh{i}, FieldD)); % 计算子代目标函数值<br>        [Chrom{i},ObjV{i}]=reins(Chrom{i},SelCh{i},1,1,ObjV{i},ObjVSel);    %重插入操作<br>    end<br>    [Chrom,ObjV]=immigrant(Chrom,ObjV);     % 移民操作<br>    [MaxObjV,MaxChrom]=EliteInduvidual(Chrom,ObjV,MaxObjV,MaxChrom);     % 人工选择精华种群<br>    YY(gen)=max(MaxObjV);    %找出精华种群中最优的个体<br>    if YY(gen)&gt;maxY   %判断当前优化值是否与前一次优化值相同<br>        maxY=YY(gen); %更新最优值<br>        gen0=0;<br>    else<br>        gen0=gen0+1; %最优值保持次数加1<br>    end<br>end<br>%% 进化过程图<br>plot(1:gen,YY);<br>xlabel(‘进化代数’)<br>ylabel(‘最优解变化’)<br>title(‘MPGA进化过程’)</p>
+<p>%% 输出最优解<br>[Y,I]=max(MaxObjV);    %找出精华种群中最优的个体<br>X=(bs2rv(MaxChrom(I,:), FieldD));   %最优个体的解码解<br>disp([‘最优值为：’,num2str(Y)])<br>disp([‘对应的自变量取值：’,num2str(X)]) </p>
+<p>结果： 最优值为：38.8503 对应的自变量取值：11.6255      5.72504 <img src="http://47.100.4.8/wp-content/uploads/2018/08/3-1.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/22/yi-chuan-suan-fa-de-zao-shu-wen-ti/" rel="next" title="遗传算法的早熟问题">
+                <i class="fa fa-chevron-left"></i> 遗传算法的早熟问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/29/shi-yong-sga-dui-duo-yuan-han-shu-jin-xing-you-hua/" rel="prev" title="使用SGA对多元函数进行优化">
+                使用SGA对多元函数进行优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

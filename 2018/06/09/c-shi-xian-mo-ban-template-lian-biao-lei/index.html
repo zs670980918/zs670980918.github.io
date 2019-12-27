@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="链表相信都很熟悉了就不过多的介绍，如果需要自行翻阅数据结构。这里面使用到了之前结点类 创建LinkedList.h头文件 代码： #ifndef LINKEDLIST_CLASS#define LINKEDLIST_CLASS#include #include #include “Node.h” using namespace std; template class LinkedList{">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++实现模板（template）链表类">
+<meta property="og:url" content="http://yoursite.com/2018/06/09/c-shi-xian-mo-ban-template-lian-biao-lei/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="链表相信都很熟悉了就不过多的介绍，如果需要自行翻阅数据结构。这里面使用到了之前结点类 创建LinkedList.h头文件 代码： #ifndef LINKEDLIST_CLASS#define LINKEDLIST_CLASS#include #include #include “Node.h” using namespace std; template class LinkedList{">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180609225518.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/06/15613.png">
+<meta property="article:published_time" content="2018-06-09T14:58:56.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.208Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180609225518.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/09/c-shi-xian-mo-ban-template-lian-biao-lei/"/>
+
+
+
+
+
+  <title>C++实现模板（template）链表类 | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/c-shi-xian-mo-ban-template-lian-biao-lei/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++实现模板（template）链表类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-09T22:58:56+08:00">
+                2018-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C&amp;C++</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/C-%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">C++学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/C-%E5%AD%A6%E4%B9%A0/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180609225518.png" alt=""> 链表相信都很熟悉了就不过多的介绍，如果需要自行翻阅数据结构。这里面使用到了之前结点类 创建LinkedList.h头文件 代码：</p>
+<p>#ifndef LINKEDLIST_CLASS<br>#define LINKEDLIST_CLASS<br>#include <iostream><br>#include <cstdlib><br>#include “Node.h”</p>
+<p>using namespace std;</p>
+<p>template <class T><br>class LinkedList<br>{<br>   private:<br>      Node<T> *front, *rear;<br>      Node<T> *prevPtr, *currPtr;<br>      int size;<br>      int position;<br>      Node<T> *GetNode(const T&amp; item,Node<T> *ptrNext=NULL);<br>      void FreeNode(Node<T> <em>p);<br>      void CopyList(const LinkedList<T>&amp; L);<br>   public:<br>      LinkedList(void);<br>      LinkedList(const LinkedList<T>&amp; L);<br>      ~LinkedList(void);<br>      LinkedList<T>&amp; operator= (const LinkedList<T>&amp; L);<br>      int ListSize(void) const;<br>      int ListEmpty(void) const;<br>      void Reset(int pos = 0);<br>      void Next(void);<br>      int EndOfList(void) const;<br>      int CurrentPosition(void) const;<br>      void InsertFront(const T&amp; item);<br>      void InsertRear(const T&amp; item);<br>      void InsertAt(const T&amp; item);<br>      void InsertAfter(const T&amp; item);<br>           T DeleteFront(void);<br>      void DeleteAt(void);<br>            T&amp; Data(void);<br>      void ClearList(void);<br>};<br>template <class T><br>Node<T> *LinkedList<T>::GetNode(const T&amp; item,<br>                      Node<T></em> ptrNext)<br>{<br>   Node<T> <em>p;<br>   p = new Node<T>(item,ptrNext);<br>   if (p == NULL)<br>   {<br>      cout &lt;&lt; “Memory allocation failure!\n”;<br>      exit(1);<br>   }<br>   return p;<br>}<br>template <class T><br>void LinkedList<T>::FreeNode(Node<T> *p)<br>{<br>   delete p;<br>}<br>template <class T><br>void LinkedList<T>::CopyList(const LinkedList<T>&amp; L)<br>{<br>   Node<T> *p = L.front;<br>   int pos;<br>   while (p != NULL)<br>   {<br>      InsertRear(p-&gt;data);<br>      p = p-&gt;NextNode();<br>   }<br>    if (position == -1)<br>     return;<br>     prevPtr = NULL;<br>   currPtr = front;<br>   for (pos = 0; pos != position; pos++)<br>   {<br>      prevPtr = currPtr;<br>      currPtr = currPtr-&gt;NextNode();<br>   }<br>}<br>template <class T><br>LinkedList<T>::LinkedList(void): front(NULL), rear(NULL),<br>      prevPtr(NULL),currPtr(NULL), size(0), position(-1)<br>{}<br>template <class T><br>LinkedList<T>::LinkedList(const LinkedList<T>&amp; L)<br>{<br>   front = rear = NULL;<br>   prevPtr = currPtr = NULL;<br>   size = 0;<br>   position = -1;<br>   CopyList(L);<br>}<br>template <class T><br>void LinkedList<T>::ClearList(void)<br>{<br>   Node<T> \</em>currPosition, *nextPosition;<br>   currPosition = front;<br>   while(currPosition != NULL)<br>   {<br>      nextPosition = currPosition-&gt;NextNode();<br>      FreeNode(currPosition);<br>      currPosition = nextPosition;<br>   }<br>   front = rear = NULL;<br>   prevPtr = currPtr = NULL;<br>   size = 0;<br>   position = -1;<br>}<br>template <class T><br>LinkedList<T>::~LinkedList(void)<br>{<br>    ClearList();<br>}<br>template <class T><br>LinkedList<T>&amp; LinkedList<T>::operator=(const LinkedList<T>&amp; L)<br>{<br>   if (this == &amp;L)<br>      return *this;<br>   ClearList();<br>   CopyList(L);<br>   return *this;<br>}<br>template <class T><br>int LinkedList<T>::ListSize(void) const<br>{<br>   return size;<br>}<br>template <class T><br>int LinkedList<T>::ListEmpty(void) const<br>{<br>   return size==0;<br>}<br>template <class T><br>void LinkedList<T>::Next(void)<br>{<br>   if (currPtr != NULL)<br>   {<br>      prevPtr = currPtr;<br>      currPtr = currPtr-&gt;NextNode();<br>      position++;<br>   }<br>}<br>template <class T><br>int LinkedList<T>::EndOfList(void) const<br>{<br>   return currPtr == NULL;<br>}<br>template <class T><br>int LinkedList<T>::CurrentPosition(void) const<br>{<br>   return position;<br>}<br>template <class T><br>void LinkedList<T>::Reset(int pos)<br>{<br>   int startPos;<br>    if (front == NULL)<br>      return;<br>   if (pos &lt; 0 || pos &gt; size-1)<br>   {<br>      cerr &lt;&lt; “Reset: Invalid list position: “ &lt;&lt; pos &lt;&lt; endl;<br>      return;<br>   }<br>   if(pos == 0)<br>   {<br>      prevPtr = NULL;<br>      currPtr = front;<br>      position = 0;<br>   }<br>   else<br>     {<br>       currPtr = front-&gt;NextNode();<br>       prevPtr = front;<br>       startPos = 1;<br>    for(position=startPos; position != pos; position++)<br>       {<br>           prevPtr = currPtr;<br>           currPtr = currPtr-&gt;NextNode();<br>      }<br>   }<br>}<br>template <class T><br>T&amp; LinkedList<T>::Data(void)<br>{<br>    if (size == 0 || currPtr == NULL)<br>        {<br>            cerr &lt;&lt; “Data: invalid reference!” &lt;&lt; endl;<br>            exit(1);<br>        }<br>    return currPtr-&gt;data;<br>}<br>template <class T><br>void LinkedList<T>::InsertFront(const T&amp; item)<br>{<br>    if (front != NULL)<br>      Reset();<br>    InsertAt(item);<br>}<br>template <class T><br>void LinkedList<T>::InsertRear(const T&amp; item)<br>{<br>   Node<T> *newNode;<br>   prevPtr = rear;<br>   newNode = GetNode(item);<br>   if (rear == NULL)<br>      front = rear = newNode;<br>   else<br>   {<br>      rear-&gt;InsertAfter(newNode);<br>      rear = newNode;<br>   }<br>   currPtr = rear;<br>   position = size;<br>   size++;<br>}<br>template <class T><br>void LinkedList<T>::InsertAt(const T&amp; item)<br>{<br>   Node<T> *newNode;<br>   if (prevPtr == NULL)<br>   {<br>      newNode = GetNode(item,front);<br>      front = newNode;<br>   }<br>   else<br>   {<br>      newNode = GetNode(item);<br>      prevPtr-&gt;InsertAfter(newNode);<br>   }<br>   if (prevPtr == rear)<br>   {<br>      rear = newNode;<br>      position = size;<br>   }<br>     currPtr = newNode;<br>   size++;<br>}<br>template <class T><br>void LinkedList<T>::InsertAfter(const T&amp; item)<br>{<br>   Node<T> *p;<br>   p = GetNode(item);<br>   if (front == NULL)<br>   {<br>      front = currPtr = rear = p;<br>      position = 0;<br>   }<br>   else<br>   {<br>      if (currPtr == NULL)<br>      currPtr = prevPtr;<br>      currPtr-&gt;InsertAfter(p);<br>      if (currPtr == rear)<br>      {<br>        rear = p;<br>        position = size;<br>      }<br>      else<br>       position++;<br>      prevPtr = currPtr;<br>      currPtr = p;<br>   }<br>   size++;<br>}<br>template <class T><br>T LinkedList<T>::DeleteFront(void)<br>{<br>   T item;<br>   Reset();<br>   if (front == NULL)<br>   {<br>      cerr &lt;&lt; “Invalid deletion!” &lt;&lt; endl;<br>      exit(1);<br>   }<br>   item = currPtr-&gt;data;<br>   DeleteAt();<br>   return item;<br>}<br>template <class T><br>void LinkedList<T>::DeleteAt(void)<br>{<br>   Node<T> *p;<br>   if (currPtr == NULL)<br>   {<br>      cerr &lt;&lt; “Invalid deletion!” &lt;&lt; endl;<br>      exit(1);<br>   }<br>     if (prevPtr == NULL)<br>   {<br>      p = front;<br>      front = front-&gt;NextNode();<br>   }<br>   else<br>    p = prevPtr-&gt;DeleteAfter();<br>   if (p == rear)<br>   {<br>      rear = prevPtr;<br>      position–;<br>   }<br>   currPtr = p-&gt;NextNode();<br>   FreeNode(p);<br>   size–;<br>}<br>#endif</p>
+<p>使用： 代码：</p>
+<p>#include<iostream><br>#include “LinkedList.h”<br>using namespace std;</p>
+<p>int main()<br>{<br>    LinkedList<int> A, B;<br>    int a=0;<br>    cout&lt;&lt;”输入4个数用于创建链表A：”;<br>    for(int i=0;i&lt;4;i++)<br>    {<br>        cin&gt;&gt;a;<br>        A.InsertRear(a);<br>    }<br>    cout&lt;&lt;”输入3个数用于创建链表A：”;<br>    for(int i=0;i&lt;3;i++)<br>    {<br>        cin&gt;&gt;a;<br>        B.InsertRear(a);<br>    }<br>    A.Reset();<br>    B.Reset();<br>    cout &lt;&lt; “将B中的元素复制到链表A的尾部……” &lt;&lt; endl;<br>    B.Reset();<br>    while(!B.EndOfList())<br>    {<br>        A.InsertRear(B.Data());<br>        B.Next();<br>    }<br>    A.Reset();<br>    cout &lt;&lt; “合并之后，链表A的元素为：” ;<br>    while(!A.EndOfList())<br>    {<br>        cout &lt;&lt; A.Data() &lt;&lt; “   “;<br>        A.Next();<br>    }<br>    cout &lt;&lt; endl;<br>}</p>
+<p>结果： <img src="http://47.100.4.8/wp-content/uploads/2018/06/15613.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/08/python-tong-guo-guan-jian-ci-pa-qu-jing-dong-shang-pin-tu-pian/" rel="next" title="python通过关键词爬取京东商品图片">
+                <i class="fa fa-chevron-left"></i> python通过关键词爬取京东商品图片
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/12/jin-cheng-tong-bu-zhi-sheng-chan-zhe-xiao-fei-zhe-wen-ti/" rel="prev" title="进程同步之生产者消费者问题">
+                进程同步之生产者消费者问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

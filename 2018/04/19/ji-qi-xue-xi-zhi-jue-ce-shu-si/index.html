@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="使用matplotlib绘制决策树： 构造注解树： 首先要得到树的子节点数目和树的深度 都是通过递归得到的 首先是递归得到树的叶子结点数目： #深度递归遍历获取树的叶节点数目def getNumLeafs(myTree):    numLeafs &#x3D; 0    firstStr &#x3D; list(myTree.keys())[0]  #得到字典的第一个键值    secondDict &#x3D; myTre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习之决策树（四）">
+<meta property="og:url" content="http://yoursite.com/2018/04/19/ji-qi-xue-xi-zhi-jue-ce-shu-si/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用matplotlib绘制决策树： 构造注解树： 首先要得到树的子节点数目和树的深度 都是通过递归得到的 首先是递归得到树的叶子结点数目： #深度递归遍历获取树的叶节点数目def getNumLeafs(myTree):    numLeafs &#x3D; 0    firstStr &#x3D; list(myTree.keys())[0]  #得到字典的第一个键值    secondDict &#x3D; myTre">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/timg.jpg">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/543234.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/526325.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/213213.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/82236633.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/6435.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/8523652.png">
+<meta property="article:published_time" content="2018-04-19T14:56:20.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.206Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/04/timg.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/19/ji-qi-xue-xi-zhi-jue-ce-shu-si/"/>
+
+
+
+
+
+  <title>机器学习之决策树（四） | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/19/ji-qi-xue-xi-zhi-jue-ce-shu-si/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习之决策树（四）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-19T22:56:20+08:00">
+                2018-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%B3%E7%AD%96%E6%A0%91/" itemprop="url" rel="index">
+                    <span itemprop="name">决策树</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/04/timg.jpg" alt=""> 使用matplotlib绘制决策树： 构造注解树： 首先要得到树的子节点数目和树的深度 都是通过递归得到的 首先是递归得到树的叶子结点数目：</p>
+<p>#深度递归遍历获取树的叶节点数目<br>def getNumLeafs(myTree):<br>    numLeafs = 0<br>    firstStr = list(myTree.keys())[0]  #得到字典的第一个键值<br>    secondDict = myTree[firstStr] ##得到键值对应的值（子字典）<br>    for key in secondDict.keys():<br>        #判断得到的数据是否为字典<br>        if type(secondDict[key]).__name__ == ‘dict’:  #如果仍为字典类型 则进行再次的深度递归遍历 访问他的子节点（子字典）<br>            numLeafs += getNumLeafs(secondDict[key])<br>        else:<br>            numLeafs +=1 #如果访问的类型不是字典 则证明已经访问到了一个具体的值 则进行节点数+1<br>    return numLeafs</p>
+<p>  如果想要详细的了解过程，可以用过Debug来查看值   然后是递归得到树的层数：</p>
+<p>#获得树的层数<br>def getTreeDepth(myTree):<br>    maxDepth = 0  #初始化最大深度<br>    firstStr = list(myTree.keys())[0]  #得到字典的第一个键值<br>    secondDict = myTree[firstStr] #得到键值对应的值（子字典）<br>    for key in secondDict.keys():<br>        #判断得到的数据是否为字典<br>        if type(secondDict[key]).__name__ == ‘dict’:  #如果仍为字典类型 则进行再次的深度递归遍历 访问他的子节点（子字典）<br>            thisDepth = 1 + getTreeDepth(secondDict[key])<br>        else:<br>            thisDepth = 1 #如果遇到叶子节点则返回<br>        if thisDepth &gt; maxDepth:<br>            maxDepth = thisDepth<br>    return maxDepth</p>
+<p>  使用以之前创建的树为例子： <img src="http://47.100.4.8/wp-content/uploads/2018/04/543234.png" alt="">)<img src="http://47.100.4.8/wp-content/uploads/2018/04/526325.png" alt=""> 结果：<img src="http://47.100.4.8/wp-content/uploads/2018/04/213213.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/04/82236633.png" alt=""> 绘制决策树： 要使用到上面的函数getNumLeafs（得到树的叶子结点），getTreeDepth（得到树的层数） 具体形式：</p>
+<p>trees.getNumLeafs(myTree)<br>trees.getTreeDepth(myTree)</p>
+<p>绘制带注解的箭头：</p>
+<p>#绘制带箭头的注解<br>def plotNode(nodeTxt,centerPt,parentPt,nodeType):<br>    createPlot.ax1.annotate(nodeTxt,xy=parentPt,xycoords=’axes fraction’,xytext=centerPt,<br>                            textcoords=’axes fraction’,va=”center”,ha=”center”,<br>                            bbox=nodeType,arrowprops=arrow_args)</p>
+<p>  在父子结点间填充信息：</p>
+<p>#在父子结点间填充信息<br>def plotMidText(cntrPt,parentPt,txtString):<br>    xMid = (parentPt[0] - cntrPt[0]) / 2.0 + cntrPt[0]<br>    yMid = (parentPt[1] - cntrPt[1]) / 2.0 + cntrPt[1]<br>    createPlot.ax1.text(xMid,yMid,txtString)</p>
+<p>  得到绘制树的相关数据：</p>
+<p>#plotTree函数<br>def plotTree(myTree,parentPt,nodeTxt):<br>    numLeafs = getNumLeafs(myTree)<br>    depth = getTreeDepth(myTree)<br>    firstStr = myTree.keys()[0]<br>    cntrPt = (plotTree.xOff + (1.0 + float(numLeafs)) / 2.0 / plotTree.totalW,plotTree.yOff)<br>    plotMidText(cntrPt,parentPt,nodeTxt)<br>    plotNode(firstStr,cntrPt,parentPt,decisionNode)<br>    secondDict = myTree[firstStr]<br>    plotTree.xOff = plotTree.yOff - 1.0 / plotTree.totalD<br>    for key in secondDict.keys():<br>        if type(secondDict[key]).__name__ == ‘dict’:<br>            plotTree(secondDict[key],cntrPt,str(key))<br>        else:<br>            plotTree.xOff = plotTree.xOff + 1.0 / plotTree.toatlW<br>            plotNode(secondDict[key],(plotTree.xOff,plotTree.yOff),cntrPt,leafNode)<br>            plotMidText((plotTree.xOff,plotTree.yOff),cntrPt,leafNode)<br>    plotTree.yOff = plotTree.yOff + 1.0 / plotTree.totalD</p>
+<p>  绘制树：</p>
+<p>def createPlot(inTree):<br>    fig = plt.figure(1,facecolor=’white’)<br>    fig.clf()<br>    axprops = dict(xticks=[],ticks=[])<br>    createPlot.ax1 = plt.subplot(111,frameon=False,**axprops)<br>    plotTree.totalW = float(getNumLeafs(inTree))<br>    plotTree.totalD = float(getTreeDepth(inTree))<br>    plotTree.xOff = -0.5 / plotTree.totalW;plotTree.yOff = 1.0;<br>    plotTree(inTree,(0.5,1.0),’’)<br>    plt.show()</p>
+<p>  两个测试字典（树）：</p>
+<p>#示例的两个字典<br>def retrieveTree(i):<br>    listOfTree = [{‘no surfacing’:{0:’no’,1:{‘flippers’:{0:’no’,1:’yes’}}}},<br>                  {‘no surfacing’:{0:’no’,1:{‘flippers’:{0:{‘head’:{0:’no’,1:’yes’}},1:’no’}}}}<br>                  ]<br>    return listOfTree[i]</p>
+<p>  效果图： <img src="http://47.100.4.8/wp-content/uploads/2018/04/6435.png" alt="">)<img src="http://47.100.4.8/wp-content/uploads/2018/04/8523652.png" alt="">   End！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/18/python-shu-ju-fen-xi-xue-xi-bi-ji-si/" rel="next" title="Python数据分析学习笔记（四）">
+                <i class="fa fa-chevron-left"></i> Python数据分析学习笔记（四）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/20/python-ding-shi-guan-ji-ruan-jian/" rel="prev" title="Python定时关机软件">
+                Python定时关机软件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

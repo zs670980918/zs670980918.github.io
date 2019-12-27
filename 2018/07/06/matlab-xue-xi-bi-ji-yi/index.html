@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Matlab基础学习 命令窗口的使用（注意在每个语句结尾加上分号则不会显示该值除非你调用该值时才会显示） ① 直接输入简单公式按回车得到运算结果：  &gt; [12+2*(7-4)]&#x2F;3^2  ans &#x3D;  2  ② 不仅支持简单的乘除法平方运算还支持sin（）cos（）sqrt（）等运算 &gt; sin(45*pi&#x2F;180)  ans &#x3D; 0.7071 这里的pi表示π ③ clc清除当前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MatLab学习笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/matlab-xue-xi-bi-ji-yi/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Matlab基础学习 命令窗口的使用（注意在每个语句结尾加上分号则不会显示该值除非你调用该值时才会显示） ① 直接输入简单公式按回车得到运算结果：  &gt; [12+2*(7-4)]&#x2F;3^2  ans &#x3D;  2  ② 不仅支持简单的乘除法平方运算还支持sin（）cos（）sqrt（）等运算 &gt; sin(45*pi&#x2F;180)  ans &#x3D; 0.7071 这里的pi表示π ③ clc清除当前">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/QQ%E5%9B%BE%E7%89%8720180706191552.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/1-3.png">
+<meta property="article:published_time" content="2018-07-06T11:25:40.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.208Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/07/QQ%E5%9B%BE%E7%89%8720180706191552.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/matlab-xue-xi-bi-ji-yi/"/>
+
+
+
+
+
+  <title>MatLab学习笔记（一） | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/matlab-xue-xi-bi-ji-yi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MatLab学习笔记（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-06T19:25:40+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MatLab/" itemprop="url" rel="index">
+                    <span itemprop="name">MatLab</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MatLab/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/07/QQ%E5%9B%BE%E7%89%8720180706191552.png" alt=""></p>
+<p><strong>Matlab基础学习</strong></p>
+<p>命令窗口的使用（注意在每个语句结尾加上分号则不会显示该值除非你调用该值时才会显示）</p>
+<p>① 直接输入简单公式按回车得到运算结果：</p>
+<blockquote>
+<p>&gt; [12+2*(7-4)]/3^2</p>
+</blockquote>
+<p>ans =</p>
+<pre><code> 2
+
+② 不仅支持简单的乘除法平方运算还支持sin（）cos（）sqrt（）等运算</code></pre><blockquote>
+<p>&gt; sin(45*pi/180)</p>
+</blockquote>
+<p>ans =</p>
+<p>0.7071</p>
+<pre><code>这里的pi表示π ③ clc清除当前界面所有内容的命令 ④ 名字=公式 得到的结果显示为名字=结果（就不会在以answer来显示了）</code></pre><blockquote>
+<p>&gt; area = pi*5.2^2</p>
+</blockquote>
+<p>area =</p>
+<p>   84.9487</p>
+<p>  ⑤ 常见的通用命令</p>
+<p><strong>clc</strong></p>
+<p><strong>清除命令窗口的显示内容</strong></p>
+<p><strong>clear</strong></p>
+<p><strong>清除matlab工作空间中保存的变量</strong></p>
+<p><strong>who或whos</strong></p>
+<p><strong>显示matlab工作空间中的变量信息</strong></p>
+<p><strong>dir</strong></p>
+<p><strong>显示当前工作目录的文件和子目录清单</strong></p>
+<p><strong>cd</strong></p>
+<p><strong>显示或设置当前工作目录</strong></p>
+<p><strong>type</strong></p>
+<p><strong>显示指定m文件的内容</strong></p>
+<p><strong>Help或doc</strong></p>
+<p><strong>获取在线帮助</strong></p>
+<p><strong>Quit或exit</strong></p>
+<p><strong>关闭或退出matlab</strong></p>
+<p>具体的使用可以自行尝试 ⑥ 求取方程的全部根（使用roots） 建立方程： p = [2,0,71,-9,13];  %建立多项式系数向量 对应方程为<img src="http://47.100.4.8/wp-content/uploads/2018/07/1-3.png" alt=""> 这个只能靠记。 使用roots（得到所有结果） 代码：</p>
+<blockquote>
+<p>&gt; p = [2,0,71,-9,13];  %建立多项式系数向量</p>
+</blockquote>
+<blockquote>
+<p>&gt; x = roots(p);</p>
+</blockquote>
+<blockquote>
+<p>&gt; x</p>
+</blockquote>
+<p>x =</p>
+<p>  -0.0640 + 5.9438i</p>
+<p>  -0.0640 - 5.9438i</p>
+<p>   0.0640 + 0.4241i</p>
+<p>   0.0640 - 0.4241i</p>
+<pre><code>⑦ 求解线性方程组 ![](http://47.100.4.8/wp-content/uploads/2018/07/2-1.png) 代码：</code></pre><blockquote>
+<p>&gt; a = [2,3,-1;8,2,3;45,3,9];  %建立系数矩阵a</p>
+</blockquote>
+<blockquote>
+<p>&gt; b = [2;4;23];  %建立结果列向量</p>
+</blockquote>
+<blockquote>
+<p>&gt; x = inv(a)*b;</p>
+</blockquote>
+<blockquote>
+<p>&gt; x</p>
+</blockquote>
+<p>x =</p>
+<pre><code>0.5531
+
+0.2051</code></pre><p>   -0.2784</p>
+<pre><code>要系数放在一个\[ \]中 等于的结果放到一个\[ \]中 并且不同方程的系数和值要用分号隔开 ⑧ 使用syms 定义符号变量  它定义的符号变量比如x  就是一个变量没有具体的数值，用于多项式等相关运算中。 使用slove（）可以求解方程配合syms使用 可以通过solve和syms配合来对⑦中的方程组来进行计算 代码：</code></pre><blockquote>
+<p>&gt; syms x y z %声明符号变量</p>
+</blockquote>
+<blockquote>
+<p>&gt; [x,y,z] = solve(2*x+3*y-z-2,8*x+2*y+3*z-4,45*x+3*y+9*z-23)</p>
+</blockquote>
+<p>x =</p>
+<p>151/273</p>
+<p>y =</p>
+<p>8/39</p>
+<p>z =</p>
+<p>-76/273</p>
+<p>  注意的是solve式子没有等号但是等号右边为0 所以要在每个式子分别减去其右边的非0数。   先到这里了，最近有一点小忙，虽然考完试了。\(^o^)/~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/05/sqlserversetting/" rel="next" title="SQLServerWindows用户登陆转为混合登陆">
+                <i class="fa fa-chevron-left"></i> SQLServerWindows用户登陆转为混合登陆
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/07/hao-dong-xi-fen-xiang-kan-dai-ma-shen-qi/" rel="prev" title="(好东西分享）看代码神器">
+                (好东西分享）看代码神器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

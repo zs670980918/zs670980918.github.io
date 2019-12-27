@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="生产者消费者问题 是同步互斥的经典问题。 目的就是验证用信号量机制实现进程互斥的方法，验证用信号量机制实现进程同步的方法。 了解经典同步问题“生产者和消费者” 生产者与消费者可以通过一个环形缓冲池联系起来，环形缓冲池由几个大小相等的缓冲块组成，每个缓冲块容纳一个产品。每个生产者可不断地每次往缓冲池中送一个生产产品，而每个消费者则可不断地每次从缓冲池中取出一个产品。指针in和指针out分别指出当前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生产者消费者问题C++实现">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/sheng-chan-zhe-xiao-fei-zhe-wen-ti-c-shi-xian/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="生产者消费者问题 是同步互斥的经典问题。 目的就是验证用信号量机制实现进程互斥的方法，验证用信号量机制实现进程同步的方法。 了解经典同步问题“生产者和消费者” 生产者与消费者可以通过一个环形缓冲池联系起来，环形缓冲池由几个大小相等的缓冲块组成，每个缓冲块容纳一个产品。每个生产者可不断地每次往缓冲池中送一个生产产品，而每个消费者则可不断地每次从缓冲池中取出一个产品。指针in和指针out分别指出当前">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/QQ%E5%9B%BE%E7%89%8720180424231257.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/146548913.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/856486413.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/78874.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/789745413.png">
+<meta property="article:published_time" content="2018-04-24T15:22:38.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.206Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/05/QQ%E5%9B%BE%E7%89%8720180424231257.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/24/sheng-chan-zhe-xiao-fei-zhe-wen-ti-c-shi-xian/"/>
+
+
+
+
+
+  <title>生产者消费者问题C++实现 | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/sheng-chan-zhe-xiao-fei-zhe-wen-ti-c-shi-xian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">生产者消费者问题C++实现</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-24T23:22:38+08:00">
+                2018-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C&amp;C++</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">生产者消费者问题</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/QQ%E5%9B%BE%E7%89%8720180424231257.png" alt=""> 生产者消费者问题 是同步互斥的经典问题。 目的就是验证用信号量机制实现进程互斥的方法，验证用信号量机制实现进程同步的方法。 了解经典同步问题“生产者和消费者” 生产者与消费者可以通过一个环形缓冲池联系起来，环形缓冲池由几个大小相等的缓冲块组成，每个缓冲块容纳一个产品。每个生产者可不断地每次往缓冲池中送一个生产产品，而每个消费者则可不断地每次从缓冲池中取出一个产品。指针in和指针out分别指出当前的第一个空缓冲块和第一个满缓冲块。   首先是在Windows下编写的生产着消费者代码：</p>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;pthread.h&gt;<br>#include &lt;stdlib.h&gt;<br>#include &lt;windows.h&gt;<br>#include &lt;semaphore.h&gt;<br>#include &lt;unistd.h&gt;<br>using namespace std;</p>
+<p>#define n 10<br>#define True 1<br>#define False 0<br>#define producers 2<br>#define customers 4</p>
+<p>typedef int semaphore;<br>int buffer[n]={0};  //创建缓冲区<br>semaphore emptys=n,fulls=0; //空和满信号量<br>pthread_mutex_t mutex; //创建互斥信号量</p>
+<p>//P操作<br>int wait(semaphore &amp;mutex1)<br>{<br>    mutex1–;<br>    if(mutex1&lt;0)<br>        return False;<br>    else<br>        return True;<br>}<br>//V操作<br>int signal(semaphore &amp;mutex1)<br>{<br>    mutex1++;<br>    if(mutex1&lt;=0)<br>        return False;<br>    else<br>        return True;<br>}<br>//打印缓冲区  在测试时自行选择是否出去<br>void print()<br>{<br>    int i;<br>    for(i=0;i&lt;n;i++)<br>        printf(“%d “,buffer[i]);<br>    printf(“\n”);<br>}<br>//生产者<br>int in=0;<br>void *producer(void *b)<br>{<br>    while(True)<br>    {</p>
+<pre><code>    if(wait(emptys))
+    {
+    //创建一个产品和名称
+    pthread\_mutex\_lock(&amp;mutex);  //互斥
+    printf(&quot;厂家生产一盒牛奶产品，编号为: product%d\\n&quot;,in+1);
+    buffer\[in\]= 1;
+    in=(in+1)%n;
+    pthread\_mutex\_unlock(&amp;mutex);
+    signal(fulls);
+    Sleep(1000);  //设置生产延迟
+    }
+    else
+    {
+        printf(&quot;&lt;!!!!&gt;库存已经满了&lt;!!!!&gt;\\n&quot;);
+    }
+
+}</code></pre><p>}</p>
+<p>//消费者<br>int out=0;<br>void *consumer(void *b)<br>{<br>    while(True)<br>    {</p>
+<pre><code>    if(!wait(fulls))
+    {
+        pthread\_mutex\_lock(&amp;mutex);
+        if(buffer\[out\] == 1)
+        {
+            printf(&quot;                                      顾客购买了一盒牛奶，产品编号为： product%d\\n&quot;,out+1);
+            buffer\[out\]= 0;
+        }
+        out=(out+1)%n;
+        pthread\_mutex\_unlock(&amp;mutex);
+        signal(emptys);
+        Sleep(1000);  //设置消费延迟
+    }
+    else
+    {
+        printf(&quot;&lt;!!!!&gt;生产池已经为空&lt;!!!!&gt;\\n&quot;);
+    }
+
+}</code></pre><p>}<br>int main()<br>{<br>    printf(“&lt;——————————————-开始生产——————————————–&gt;\n”);<br>    //初始化信号量<br>    pthread_mutex_init(&amp;mutex,NULL);</p>
+<pre><code>//线程初始化
+int i;
+void *a;
+pthread\_t thread\_pro\[producers\];  //创建生产者线程组
+pthread\_t thread\_cons\[customers\];  //创建消费者线程组
+for(i=0;i&lt;n;i++)
+{
+    if(i&lt;producers)
+    {
+        pthread\_create(&amp;thread\_pro\[i\],NULL,producer,NULL);
+
+    }#include &lt;pthread.h&gt;
+    if(i&lt;customers)
+        pthread\_create(&amp;thread\_cons\[i\],NULL,consumer,NULL);
+}
+for(i=0;i&lt;n;i++)
+{
+    if(i&lt;producers)
+    {
+        pthread\_join(thread\_pro\[i\],&amp;a);
+
+    }
+    if(i&lt;customers)
+        pthread\_join(thread\_cons\[i\],&amp;a);
+}
+return 0;</code></pre><p>}</p>
+<p>  我采用了多线程多个生产者消费者来进行 运行结果： <img src="http://47.100.4.8/wp-content/uploads/2018/04/146548913.png" alt="">   这里还有在linux下运行的代码：</p>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;pthread.h&gt;<br>#include &lt;stdlib.h&gt;<br>#include &lt;semaphore.h&gt;<br>#include &lt;unistd.h&gt;<br>using namespace std;</p>
+<p>#define n 10<br>#define True 1<br>#define False 0<br>#define producers 2<br>#define customers 4</p>
+<p>typedef int semaphore;<br>int buffer[n]={0};  //创建缓冲区<br>semaphore emptys=n,fulls=0; //空和满信号量<br>pthread_mutex_t mutex; //创建互斥信号量</p>
+<p>//P操作<br>int wait(semaphore &amp;mutex1)<br>{<br>    mutex1–;<br>    if(mutex1&lt;0)<br>        return False;<br>    else<br>        return True;<br>}<br>//V操作<br>int signal(semaphore &amp;mutex1)<br>{<br>    mutex1++;<br>    if(mutex1&lt;=0)<br>        return False;<br>    else<br>        return True;<br>}<br>//打印缓冲区  在测试时自行选择是否出去<br>void print()<br>{<br>    int i;<br>    for(i=0;i&lt;n;i++)<br>        printf(“%d “,buffer[i]);<br>    printf(“\n”);<br>}<br>//生产者<br>int in=0;<br>void *producer(void *b)<br>{<br>    while(True)<br>    {</p>
+<pre><code>    if(wait(emptys))
+    {
+    //创建一个产品和名称
+    pthread\_mutex\_lock(&amp;mutex);  //互斥
+    printf(&quot;The manufacturer produces a carton of milk products, numbered: product%d\\n&quot;,in+1);
+    buffer\[in\]= 1;
+    in=(in+1)%n;
+    pthread\_mutex\_unlock(&amp;mutex);
+    signal(fulls);
+    sleep(1000);  //设置生产延迟
+    }
+    else
+    {
+        printf(&quot;&lt;!!!!&gt;The inventory is full. &lt;!!!!&gt;\\n&quot;);
+    }
+
+}</code></pre><p>}</p>
+<p>//消费者<br>int out=0;<br>void *consumer(void *b)<br>{<br>    while(True)<br>    {</p>
+<pre><code>    if(!wait(fulls))
+    {
+        pthread\_mutex\_lock(&amp;mutex);
+        if(buffer\[out\] == 1)
+        {
+            printf(&quot;                                      The customer bought a carton of milk, the product number is： product%d\\n&quot;,out+1);
+            buffer\[out\]= 0;
+        }
+        out=(out+1)%n;
+        pthread\_mutex\_unlock(&amp;mutex);
+        signal(emptys);
+        sleep(1000);  //设置消费延迟
+    }
+    else
+    {
+        printf(&quot;&lt;!!!!&gt;Production pool is empty &lt;!!!!&gt;\\n&quot;);
+    }
+
+}</code></pre><p>}<br>int main()<br>{<br>    printf(“&lt;——————————————-开始生产——————————————–&gt;\n”);<br>    //初始化信号量<br>    pthread_mutex_init(&amp;mutex,NULL);</p>
+<pre><code>//线程初始化
+int i;
+void *a;
+pthread\_t thread\_pro\[producers\];  //创建生产者线程组
+pthread\_t thread\_cons\[customers\];  //创建消费者线程组
+for(i=0;i&lt;n;i++)
+{
+    if(i&lt;producers)
+    {
+        pthread\_create(&amp;thread\_pro\[i\],NULL,producer,NULL);
+
+    }
+    if(i&lt;customers)
+        pthread\_create(&amp;thread\_cons\[i\],NULL,consumer,NULL);
+}
+for(i=0;i&lt;n;i++)
+{
+    if(i&lt;producers)
+    {
+        pthread\_join(thread\_pro\[i\],&amp;a);
+
+    }
+    if(i&lt;customers)
+        pthread\_join(thread\_cons\[i\],&amp;a);
+}
+return 0;</code></pre><p>}</p>
+<p>  下面是在linux下运行的步骤：（有些需要注意的问题在之前的博文中也提到过了）   对代码文件进行编译： <img src="http://47.100.4.8/wp-content/uploads/2018/04/856486413.png" alt=""> 首先打开命令界面，输入 g++ a.cpp –o b –lpthread 即可编译成功生成可执行文件。 <img src="http://47.100.4.8/wp-content/uploads/2018/04/78874.png" alt=""> 运行文件： 在命令行输入： ./b 即可运行文件 需要注意的是： 输出为中文的话可能会出现乱码因此改为了英文。 结果： <img src="http://47.100.4.8/wp-content/uploads/2018/04/789745413.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/23/ji-qi-xue-xi-zhi-pu-su-bei-ye-si/" rel="next" title="机器学习之朴素贝叶斯">
+                <i class="fa fa-chevron-left"></i> 机器学习之朴素贝叶斯
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/25/c-cheng-xu-xing-neng-fen-xi/" rel="prev" title="C++程序性能分析">
+                C++程序性能分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

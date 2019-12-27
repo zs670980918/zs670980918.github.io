@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="对C++指针的整理： 指针变量是用于存放内存单元地址的。 声明指针的语法形式： 数据类型 标识符；   要注意的只有指针名字是代表的是赋值给指针元素的地址，如果使用指针名 则是该元素的真实值。 例如： int *t;   上面例子定义是声明一个整形的指针变量，这个指针的名称为t专门用来存放int型数据的地址。   指针的赋值 语法形式： 数据类型 *标识符; 指针名&#x3D;数据名 &#x2F;&#x2F;注意这里的数据的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++指针数组学习">
+<meta property="og:url" content="http://yoursite.com/2018/05/03/c-zhi-zhen-shu-zu-xue-xi/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="对C++指针的整理： 指针变量是用于存放内存单元地址的。 声明指针的语法形式： 数据类型 标识符；   要注意的只有指针名字是代表的是赋值给指针元素的地址，如果使用指针名 则是该元素的真实值。 例如： int *t;   上面例子定义是声明一个整形的指针变量，这个指针的名称为t专门用来存放int型数据的地址。   指针的赋值 语法形式： 数据类型 *标识符; 指针名&#x3D;数据名 &#x2F;&#x2F;注意这里的数据的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/%E5%9B%BE%E7%89%87150.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/1-2.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/2-2.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/3-2.png">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/4-2.png">
+<meta property="article:published_time" content="2018-05-03T14:08:53.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.207Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/05/%E5%9B%BE%E7%89%87150.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/03/c-zhi-zhen-shu-zu-xue-xi/"/>
+
+
+
+
+
+  <title>C++指针数组学习 | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/c-zhi-zhen-shu-zu-xue-xi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++指针数组学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T22:08:53+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C&amp;C++</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/C-%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">C++学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/C-%E5%AD%A6%E4%B9%A0/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/%E5%9B%BE%E7%89%87150.png" alt=""> 对C++指针的整理： 指针变量是用于存放内存单元地址的。 声明指针的语法形式： 数据类型 <em>标识符；   要注意的只有指针名字是代表的是赋值给指针元素的地址，如果使用</em>指针名 则是该元素的真实值。 例如：</p>
+<p>int *t;</p>
+<p>  上面例子定义是声明一个整形的指针变量，这个指针的名称为t专门用来存放int型数据的地址。   指针的赋值 语法形式： 数据类型 *标识符; 指针名=数据名 //注意这里的数据的类型要和指针的类型相同   例如：</p>
+<p>int a=0;</p>
+<p>int *t;</p>
+<p>t = a;</p>
+<pre><code>一个数组，可以用他的名字来直接表示它的起始地址。 例如：</code></pre><p>int a[10]={0};</p>
+<p>int *t = a;</p>
+<p>  这里还有一点需要注意的是： 通过指针访问数组元素时要使用：*(t+i)  i为该元素在数组中的序号 综上诉述：（给出一个实例来表示） 代码：  </p>
+<p>#include <iostream></p>
+<p>using namespace std;</p>
+<p>int main()</p>
+<p>{</p>
+<pre><code>int a\[5\]={1,2,3,4,5};
+
+int *t=a;
+
+cout&lt;&lt;&quot;数组值：&quot;&lt;&lt;endl;
+
+for(int i=0;i&lt;5;i++)
+
+{
+
+    cout&lt;&lt;a\[i\]&lt;&lt;&quot; &quot;;
+
+}
+
+cout&lt;&lt;endl;
+
+cout&lt;&lt;&quot;指针值：&quot;&lt;&lt;endl;
+
+for(int i=0;i&lt;5;i++)
+
+    cout&lt;&lt;*(t+i)&lt;&lt;&quot; &quot;;
+
+cout&lt;&lt;endl;
+
+return 0;</code></pre><p>}</p>
+<p>  结果： <img src="http://47.100.4.8/wp-content/uploads/2018/05/1-2.png" alt="">     接下来介绍的二维数组的指针介绍以及在函数参数传递时使用指针经传递：   二维指针数组的定义为： 类型 (*指针名)[二维数组每列元素的个数]; 例如：</p>
+<p>int (*t)[2];</p>
+<p>  在访问指针二维数组时 格式为 <em>（</em>（指针名+i）+j） 如果为：（*（指针名+i）+j） 则代表数组的每行的首地址 使用： 代码：  </p>
+<p>#include <iostream></p>
+<p>using namespace std;</p>
+<p>int main()</p>
+<p>{</p>
+<pre><code>int (*t)\[2\];
+
+int a\[2\]\[2\]={1,2,3,4};
+
+t=a;
+
+for(int i=0;i&lt;2;i++)
+
+{
+
+    for(int j=0;j&lt;2;j++)
+
+       cout&lt;&lt;a\[i\]\[j\]&lt;&lt;&quot; &quot;;
+
+    cout&lt;&lt;endl;
+
+}
+
+cout&lt;&lt;&quot;对比：&quot;&lt;&lt;endl;
+
+for(int i=0;i&lt;2;i++)
+
+{
+
+    for(int j=0;j&lt;2;j++)
+
+       cout&lt;&lt;*(*(t+i)+j)&lt;&lt;&quot; &quot;;
+
+    cout&lt;&lt;endl;
+
+}
+
+return 0;</code></pre><p>}</p>
+<p>  结果： <img src="http://47.100.4.8/wp-content/uploads/2018/05/2-2.png" alt="">   接下来介绍指针二维数组作为参数传递的使用： 其实数组不使用指针传递，在调用的函数中如果有对数组的修改原数组的值也会发生改变 下面用一个给出（这是一个矩阵转置的例子） 代码：  </p>
+<p>#include<iostream></p>
+<p>using namespace std;</p>
+<p>void MatrixTranspose(int a[][3])</p>
+<p>{</p>
+<pre><code>int b\[3\]\[3\]={0};
+
+for(int i=0;i&lt;3;i++)
+
+    for(int j=0;j&lt;3;j++)
+
+       b\[j\]\[i\]=a\[i\]\[j\];
+
+for(int i=0;i&lt;3;i++)
+
+    for(int j=0;j&lt;3;j++)
+
+       a\[i\]\[j\]=b\[i\]\[j\];</code></pre><p>}</p>
+<p>int main()</p>
+<p>{</p>
+<pre><code>int a\[3\]\[3\]={0};
+
+cout&lt;&lt;&quot;请输入一个3*3的数组：&quot;&lt;&lt;endl;
+
+for(int i=0;i&lt;3;i++)
+
+{
+
+    for(int j=0;j&lt;3;j++)
+
+        cin&gt;&gt;a\[i\]\[j\];
+
+}
+
+MatrixTranspose(a);
+
+cout&lt;&lt;&quot;经过转置之后的数组为：&quot;&lt;&lt;endl;
+
+for(int i=0;i&lt;3;i++)
+
+{
+
+    for(int j=0;j&lt;3;j++)
+
+        cout&lt;&lt;a\[i\]\[j\]&lt;&lt;&quot; &quot;;
+
+    cout&lt;&lt;endl;
+
+}
+
+return 0;</code></pre><p>}</p>
+<p>  结果： <img src="http://47.100.4.8/wp-content/uploads/2018/05/3-2.png" alt="">   然后给出一个数组作为指针进行参数传递的例子： （同样这里使用到了动态数组的声明） 即在参数形参定义是直接定义一个二维指针数组进行接收二维数组的地址 代码：  </p>
+<p>#include<iostream></p>
+<p>using namespace std;</p>
+<p>void MatrixTranspose(int (*a)[3],int n)</p>
+<p>{</p>
+<pre><code>int (*t)\[3\] = new int\[3\]\[3\];
+
+for(int i=0;i&lt;n;i++)
+
+    for(int j=0;j&lt;n;j++)
+
+       *(*(t+j)+i)=a\[i\]\[j\];
+
+for(int i=0;i&lt;n;i++)
+
+    for(int j=0;j&lt;n;j++)
+
+       a\[i\]\[j\]=*(*(t+i)+j);
+
+delete \[\] t;</code></pre><p>}</p>
+<p>int main()</p>
+<p>{</p>
+<pre><code>int a\[3\]\[3\]={0};
+
+cout&lt;&lt;&quot;请输入一个3*3的数组：&quot;&lt;&lt;endl;
+
+for(int i=0;i&lt;3;i++)
+
+{
+
+    for(int j=0;j&lt;3;j++)
+
+        cin&gt;&gt;a\[i\]\[j\];
+
+}
+
+MatrixTranspose(a,3);
+
+cout&lt;&lt;&quot;经过转置之后的数组为：&quot;&lt;&lt;endl;
+
+for(int i=0;i&lt;3;i++)
+
+{
+
+    for(int j=0;j&lt;3;j++)
+
+        cout&lt;&lt;a\[i\]\[j\]&lt;&lt;&quot; &quot;;
+
+    cout&lt;&lt;endl;
+
+}
+
+return 0;</code></pre><p>}</p>
+<p>  结果： <img src="http://47.100.4.8/wp-content/uploads/2018/05/4-2.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/02/c-mao-pao-pai-xu-zhe-ban-cha-zhao/" rel="next" title="C++ 冒泡排序&折半查找">
+                <i class="fa fa-chevron-left"></i> C++ 冒泡排序&折半查找
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/04/c-dong-tai-nei-cun-de-shi-yong/" rel="prev" title="C++动态内存的使用">
+                C++动态内存的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

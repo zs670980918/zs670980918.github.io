@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这里我采用了一个比较简单的思想，主要是先用字符串存储大数，然后将其转换存储到一个数组中。 这里面实现自减比较简单，也是为了满足一个对于输入数据个数没有上限的问题的需求，自减是为了实现数据的输入，然后判断零来结束输入。其他的一些操作也在上面的改进，对于加法进位的话可以考虑采用队列来存储数据。 #include#include using namespace std;&#x2F;&#x2F;自减void zijian(i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++实现大数自减和判断为零">
+<meta property="og:url" content="http://yoursite.com/2019/01/26/c-shi-xian-da-shu-zi-jian-he-pan-duan-wei-ling/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这里我采用了一个比较简单的思想，主要是先用字符串存储大数，然后将其转换存储到一个数组中。 这里面实现自减比较简单，也是为了满足一个对于输入数据个数没有上限的问题的需求，自减是为了实现数据的输入，然后判断零来结束输入。其他的一些操作也在上面的改进，对于加法进位的话可以考虑采用队列来存储数据。 #include#include using namespace std;&#x2F;&#x2F;自减void zijian(i">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2019/01/QQ%E5%9B%BE%E7%89%8720190126181320.png">
+<meta property="article:published_time" content="2019-01-26T10:15:00.000Z">
+<meta property="article:modified_time" content="2019-12-27T02:15:57.209Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2019/01/QQ%E5%9B%BE%E7%89%8720190126181320.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/26/c-shi-xian-da-shu-zi-jian-he-pan-duan-wei-ling/"/>
+
+
+
+
+
+  <title>C++实现大数自减和判断为零 | Hexo</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/c-shi-xian-da-shu-zi-jian-he-pan-duan-wei-ling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++实现大数自减和判断为零</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-26T18:15:00+08:00">
+                2019-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C&amp;C++</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/C-%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">C++学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/C-%E5%AD%A6%E4%B9%A0/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这里我采用了一个比较简单的思想，主要是先用字符串存储大数，然后将其转换存储到一个数组中。 这里面实现自减比较简单，也是为了满足一个对于输入数据个数没有上限的问题的需求，自减是为了实现数据的输入，然后判断零来结束输入。其他的一些操作也在上面的改进，对于加法进位的话可以考虑采用队列来存储数据。</p>
+<p>#include<iostream><br>#include<string></p>
+<p>using namespace std;<br>//自减<br>void zijian(int n[],int len){<br>    int t = len;<br>    bool flag = false;<br>    do{<br>        if((n[t]-1)&gt;=0){<br>            n[t]–;<br>            flag = true;<br>        }<br>        else{<br>            n[t] = 9;<br>            t–;<br>        }<br>    }while(flag!=true);<br>}<br>//判断是否为零<br>bool equalZero(int n[],int len){<br>    bool flag = true;<br>    for(int i=0;i&lt;len;i++){<br>        if(n[i]!=0){<br>            flag = false;<br>            break;<br>        }<br>    }<br>    return flag;<br>}</p>
+<p>int main(){<br>    string number;<br>    cin&gt;&gt;number;<br>    int BigNum[number.length()];<br>    for(int i=number.length()-1;i&gt;=0;i–){<br>        BigNum[i] = number[i] - ‘0’;<br>    }<br>    zijian(BigNum,number.length()-1);<br>    for(int i=0;i&lt;number.length();i++){<br>        cout&lt;&lt;BigNum[i];<br>    }<br>    cout&lt;&lt;endl;<br>    cout&lt;&lt;”Is 0?:”;<br>    if(equalZero(BigNum,number.length())==1){<br>       cout&lt;&lt;”Yes”&lt;&lt;endl;<br>    }<br>    else{<br>        cout&lt;&lt;”No”&lt;&lt;endl;<br>    }</p>
+<pre><code>cout&lt;&lt;endl;
+return 0;</code></pre><p>}</p>
+<p>使用： <img src="http://47.100.4.8/wp-content/uploads/2019/01/QQ%E5%9B%BE%E7%89%8720190126181320.png" alt=""> 下面给出一个实现大数各种操作的C++类：</p>
+<p>#include<iostream><br>#include<cstring><br>#include<iomanip><br>#include<algorithm><br>#include<cstdlib><br>#include<cstdio><br>using namespace std;</p>
+<p>#define MAXN 9999<br>#define MAXSIZE 1000<br>#define DLEN 4</p>
+<p>class BigNum<br>{<br>private:<br>    int a[MAXSIZE];    //可以控制大数的位数<br>    int len;       //大数长度<br>public:<br>    BigNum(){ len = 1;memset(a,0,sizeof(a)); }   //构造函数<br>    BigNum(const int);       //将一个int类型的变量转化为大数<br>    BigNum(const char*);     //将一个字符串类型的变量转化为大数<br>    BigNum(const BigNum &amp;);  //拷贝构造函数<br>    BigNum &amp;operator=(const BigNum &amp;);   //重载赋值运算符，大数之间进行赋值运算</p>
+<pre><code>friend istream&amp; operator&gt;&gt;(istream&amp;,  BigNum&amp;);   //重载输入运算符
+friend ostream&amp; operator&lt;&lt;(ostream&amp;,  BigNum&amp;);   //重载输出运算符
+
+BigNum operator+(const BigNum &amp;) const;   //重载加法运算符，两个大数之间的相加运算
+BigNum operator-(const BigNum &amp;) const;   //重载减法运算符，两个大数之间的相减运算
+BigNum operator*(const BigNum &amp;) const;   //重载乘法运算符，两个大数之间的相乘运算
+BigNum operator/(const int   &amp;) const;    //重载除法运算符，大数对一个整数进行相除运算
+
+BigNum operator^(const int  &amp;) const;    //大数的n次方运算
+int    operator%(const int  &amp;) const;    //大数对一个int类型的变量进行取模运算
+bool   operator&gt;(const BigNum &amp; T)const;   //大数和另一个大数的大小比较
+bool   operator&gt;(const int &amp; t)const;      //大数和一个int类型的变量的大小比较
+
+void print();       //输出大数</code></pre><p>};</p>
+<p>BigNum::BigNum(const int b)     //将一个int类型的变量转化为大数<br>{<br>    int c,d = b;<br>    len = 0;<br>    memset(a,0,sizeof(a));<br>    while(d &gt; MAXN)<br>    {<br>        c = d - (d / (MAXN + 1)) * (MAXN + 1);<br>        d = d / (MAXN + 1);<br>        a[len++] = c;<br>    }<br>    a[len++] = d;<br>}<br>BigNum::BigNum(const char<em>s)     //将一个字符串类型的变量转化为大数<br>{<br>    int t,k,index,l,i;<br>    memset(a,0,sizeof(a));<br>    l=strlen(s);<br>    len=l/DLEN;<br>    if(l%DLEN)<br>        len++;<br>    index=0;<br>    for(i=l-1;i&gt;=0;i-=DLEN)<br>    {<br>        t=0;<br>        k=i-DLEN+1;<br>        if(k&lt;0)<br>            k=0;<br>        for(int j=k;j&lt;=i;j++)<br>            t=t<em>10+s[j]-‘0’;<br>        a[index++]=t;<br>    }<br>}<br>BigNum::BigNum(const BigNum &amp; T) : len(T.len)  //拷贝构造函数<br>{<br>    int i;<br>    memset(a,0,sizeof(a));<br>    for(i = 0 ; i &lt; len ; i++)<br>        a[i] = T.a[i];<br>}<br>BigNum &amp; BigNum::operator=(const BigNum &amp; n)   //重载赋值运算符，大数之间进行赋值运算<br>{<br>    int i;<br>    len = n.len;<br>    memset(a,0,sizeof(a));<br>    for(i = 0 ; i &lt; len ; i++)<br>        a[i] = n.a[i];<br>    return *this;<br>}<br>istream&amp; operator&gt;&gt;(istream &amp; in,  BigNum &amp; b)   //重载输入运算符<br>{<br>    char ch[MAXSIZE</em>4];<br>    int i = -1;<br>    in&gt;&gt;ch;<br>    int l=strlen(ch);<br>    int count=0,sum=0;<br>    for(i=l-1;i&gt;=0;)<br>    {<br>        sum = 0;<br>        int t=1;<br>        for(int j=0;j&lt;4&amp;&amp;i&gt;=0;j++,i–,t</em>=10)<br>        {<br>            sum+=(ch[i]-‘0’)*t;<br>        }<br>        b.a[count]=sum;<br>        count++;<br>    }<br>    b.len =count++;<br>    return in;</p>
+<p>}<br>/<em>ostream&amp; operator&lt;&lt;(ostream&amp; out,  BigNum&amp; b)   //重载输出运算符<br>{<br>    int i;<br>    cout &lt;&lt; b.a[b.len - 1];<br>    for(i = b.len - 2 ; i &gt;= 0 ; i–)<br>    {<br>        cout.width(DLEN);<br>        cout.fill(‘0’);<br>        cout &lt;&lt; b.a[i];<br>    }<br>    return out;<br>}</em>/</p>
+<p>BigNum BigNum::operator+(const BigNum &amp; T) const   //两个大数之间的相加运算<br>{<br>    BigNum t(<em>this);<br>    int i,big;      //位数<br>    big = T.len &gt; len ? T.len : len;<br>    for(i = 0 ; i &lt; big ; i++)<br>    {<br>        t.a[i] +=T.a[i];<br>        if(t.a[i] &gt; MAXN)<br>        {<br>            t.a[i + 1]++;<br>            t.a[i] -=MAXN+1;<br>        }<br>    }<br>    if(t.a[big] != 0)<br>        t.len = big + 1;<br>    else<br>        t.len = big;<br>    return t;<br>}<br>BigNum BigNum::operator-(const BigNum &amp; T) const   //两个大数之间的相减运算<br>{<br>    int i,j,big;<br>    bool flag;<br>    BigNum t1,t2;<br>    if(</em>this&gt;T)<br>    {<br>        t1=<em>this;<br>        t2=T;<br>        flag=0;<br>    }<br>    else<br>    {<br>        t1=T;<br>        t2=</em>this;<br>        flag=1;<br>    }<br>    big=t1.len;<br>    for(i = 0 ; i &lt; big ; i++)<br>    {<br>        if(t1.a[i] &lt; t2.a[i])<br>        {<br>            j = i + 1;<br>            while(t1.a[j] == 0)<br>                j++;<br>            t1.a[j–]–;<br>            while(j &gt; i)<br>                t1.a[j–] += MAXN;<br>            t1.a[i] += MAXN + 1 - t2.a[i];<br>        }<br>        else<br>            t1.a[i] -= t2.a[i];<br>    }<br>    t1.len = big;<br>    while(t1.a[len - 1] == 0 &amp;&amp; t1.len &gt; 1)<br>    {<br>        t1.len–;<br>        big–;<br>    }<br>    if(flag)<br>        t1.a[big-1]=0-t1.a[big-1];<br>    return t1;<br>}</p>
+<p>BigNum BigNum::operator<em>(const BigNum &amp; T) const   //两个大数之间的相乘运算<br>{<br>    BigNum ret;<br>    int i,j,up;<br>    int temp,temp1;<br>    for(i = 0 ; i &lt; len ; i++)<br>    {<br>        up = 0;<br>        for(j = 0 ; j &lt; T.len ; j++)<br>        {<br>            temp = a[i] * T.a[j] + ret.a[i + j] + up;<br>            if(temp &gt; MAXN)<br>            {<br>                temp1 = temp - temp / (MAXN + 1) * (MAXN + 1);<br>                up = temp / (MAXN + 1);<br>                ret.a[i + j] = temp1;<br>            }<br>            else<br>            {<br>                up = 0;<br>                ret.a[i + j] = temp;<br>            }<br>        }<br>        if(up != 0)<br>            ret.a[i + j] = up;<br>    }<br>    ret.len = i + j;<br>    while(ret.a[ret.len - 1] == 0 &amp;&amp; ret.len &gt; 1)<br>        ret.len–;<br>    return ret;<br>}<br>BigNum BigNum::operator/(const int &amp; b) const   //大数对一个整数进行相除运算<br>{<br>    BigNum ret;<br>    int i,down = 0;<br>    for(i = len - 1 ; i &gt;= 0 ; i–)<br>    {<br>        ret.a[i] = (a[i] + down * (MAXN + 1)) / b;<br>        down = a[i] + down * (MAXN + 1) - ret.a[i] * b;<br>    }<br>    ret.len = len;<br>    while(ret.a[ret.len - 1] == 0 &amp;&amp; ret.len &gt; 1)<br>        ret.len–;<br>    return ret;<br>}<br>int BigNum::operator %(const int &amp; b) const    //大数对一个int类型的变量进行取模运算<br>{<br>    int i,d=0;<br>    for (i = len-1; i&gt;=0; i–)<br>    {<br>        d = ((d * (MAXN+1))% b + a[i])% b;<br>    }<br>    return d;<br>}<br>BigNum BigNum::operator^(const int &amp; n) const    //大数的n次方运算<br>{<br>    BigNum t,ret(1);<br>    int i;<br>    if(n&lt;0)<br>        exit(-1);<br>    if(n==0)<br>        return 1;<br>    if(n==1)<br>        return <em>this;<br>    int m=n;<br>    while(m&gt;1)<br>    {<br>        t=</em>this;<br>        for( i=1;i&lt;&lt;1&lt;=m;i&lt;&lt;=1)<br>        {<br>            t=t<em>t;<br>        }<br>        m-=i;<br>        ret=ret</em>t;<br>        if(m==1)<br>            ret=ret</em>(*this);<br>    }<br>    return ret;<br>}<br>bool BigNum::operator&gt;(const BigNum &amp; T) const   //大数和另一个大数的大小比较<br>{<br>    int ln;<br>    if(len &gt; T.len)<br>        return true;<br>    else if(len == T.len)<br>    {<br>        ln = len - 1;<br>        while(a[ln] == T.a[ln] &amp;&amp; ln &gt;= 0)<br>            ln–;<br>        if(ln &gt;= 0 &amp;&amp; a[ln] &gt; T.a[ln])<br>            return true;<br>        else<br>            return false;<br>    }<br>    else<br>        return false;<br>}<br>bool BigNum::operator &gt;(const int &amp; t) const    //大数和一个int类型的变量的大小比较<br>{<br>    BigNum b(t);<br>    return *this&gt;b;<br>}</p>
+<p>void BigNum::print()    //输出大数<br>{<br>    int i;<br>    //cout &lt;&lt; a[len - 1];<br>    printf(“%d”,a[len-1]);<br>    for(i = len - 2 ; i &gt;= 0 ; i–)<br>    {<br>        /<em>cout.width(DLEN);<br>        cout.fill(‘0’);<br>        cout &lt;&lt; a[i];</em>/<br>        printf(“%04d”,a[i]);<br>    }<br>    //cout &lt;&lt; endl;<br>    printf(“\n”);<br>}</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="John Doe wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/19/python-shi-xian-kuai-su-pai-xu-bing-qie-dui-sort-jin-xing-jie-shao/" rel="next" title="Python实现快速排序并且对sort进行介绍">
+                <i class="fa fa-chevron-left"></i> Python实现快速排序并且对sort进行介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/26/c-memset-shi-yong/" rel="prev" title="C++ memset使用">
+                C++ memset使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="John Doe" />
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">162</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
