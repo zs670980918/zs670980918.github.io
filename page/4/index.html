@@ -73,6 +73,10 @@
 
 
 
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
 
 
 
@@ -275,6 +279,289 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1073-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1073-yi-ji/" itemprop="url">Pat_1073（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:06:57+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1073 多选题常见计分法 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805263624683520" target="_blank" rel="noopener">原文地址</a></p>
+<p>批改多选题是比较麻烦的事情，有很多不同的计分方法。有一种最常见的计分方法是：如果考生选择了部分正确选项，并且没有选择任何错误选项，则得到 50% 分数；如果考生选择了任何一个错误的选项，则不能得分。本题就请你写个程序帮助老师批改多选题，并且指出哪道题的哪个选项错的人最多。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在第一行给出两个正整数 N（≤1000）和 M（≤100），分别是学生人数和多选题的个数。随后 M 行，每行顺次给出一道题的满分值（不超过 5 的正整数）、选项个数（不少于 2 且不超过 5 的正整数）、正确选项个数（不超过选项个数的正整数）、所有正确选项。注意每题的选项从小写英文字母 a 开始顺次排列。各项间以 1 个空格分隔。最后 N 行，每行给出一个学生的答题情况，其每题答案格式为 <code>(选中的选项个数 选项1 ……)</code>，按题目顺序给出。注意：题目保证学生的答题情况是合法的，即不存在选中的选项数超过实际选项数的情况。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>按照输入的顺序给出每个学生的得分，每个分数占一行，输出小数点后 1 位。最后输出错得最多的题目选项的信息，格式为：<code>错误次数 题目编号（题目按照输入的顺序从1开始编号）-选项号</code>。如果有并列，则每行一个选项，按题目编号递增顺序输出；再并列则按选项号递增顺序输出。行首尾不得有多余空格。如果所有题目都没有人错，则在最后一行输出 <code>Too simple</code>。</p>
+<h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例 1："></a>输入样例 1：</h3><pre><code>3 4 
+3 4 2 a c
+2 5 1 b
+5 3 2 b c
+1 5 4 a b d e
+(2 a c) (3 b d e) (2 a c) (3 a b e)
+(2 a c) (1 b) (2 a b) (4 a b d e)
+(2 b d) (1 e) (1 c) (4 a b c d)</code></pre><h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例 1："></a>输出样例 1：</h3><pre><code>3.5
+6.0
+2.5
+2 2-e
+2 3-a
+2 3-b</code></pre><h3 id="输入样例-2："><a href="#输入样例-2：" class="headerlink" title="输入样例 2："></a>输入样例 2：</h3><pre><code>2 2 
+3 4 2 a c
+2 5 1 b
+(2 a c) (1 b)
+(2 a c) (1 b)</code></pre><h3 id="输出样例-2："><a href="#输出样例-2：" class="headerlink" title="输出样例 2："></a>输出样例 2：</h3><pre><code>5.0
+5.0
+Too simple</code></pre><p>代码（本题和之前的一题十分类似）：</p>
+<p>#include <iostream><br>#include <vector><br>#include <iomanip><br>#include &lt;string.h&gt;</p>
+<p>using namespace std;</p>
+<p>const int LEN = 5;</p>
+<p>struct ques {<br>    int score;<br>    int ans[LEN]; //答案向量，1表示含此答案，0表示不含此答案<br>    int ansCount;<br>    int wrongNum[LEN];//答错向量<br>};</p>
+<p>int main() {</p>
+<pre><code>int n, m;
+cin&gt;&gt;n&gt;&gt;m;
+ques qu\[m\];
+for(int i=0; i&lt;m; i++) {
+    memset(qu\[i\].ans, 0, sizeof(qu\[i\].ans));
+    memset(qu\[i\].wrongNum, 0, sizeof(qu\[i\].wrongNum));
+    qu\[i\].ansCount = 0;
+}
+
+double stuScore\[n\] = {0};
+
+for(int i=0; i&lt;m; i++) {
+    cin&gt;&gt;qu\[i\].score;
+    int t, c;
+    cin&gt;&gt;t&gt;&gt;c;
+    for(int j=0; j&lt;c; j++) {
+        char ch;
+        cin&gt;&gt;ch;
+        qu\[i\].ans\[ch-&apos;a&apos;\] = 1;
+        qu\[i\].ansCount++;
+    }
+}
+
+string s1;
+getline(cin, s1);
+int maxWrongNum = 0;
+for(int i=0; i&lt;n; i++) {
+    getline(cin, s1);
+    string s2;
+    //remove blank
+    for(int j=0; j&lt;s1.length(); j++) {
+        if(s1.at(j)!=&apos; &apos;) {
+            s2 += s1.at(j);
+        }
+    }
+    for(int j=0; j&lt;m; j++) {
+        //find one answer
+        int start = s2.find(&quot;(&quot;);
+        int end = s2.find(&quot;)&quot;);
+        string tmp = s2.substr(start, end-start+1);
+        int tmpAns\[LEN\] = {0};
+        for(int k=0; k&lt;tmp.at(1)-&apos;0&apos;; k++) {
+            tmpAns\[tmp.at(2+k)-&apos;a&apos;\] = 1; //该学生选了此选项，tmp.at(2+k)是该选项，-&apos;a&apos;是把字母变成数字
+
+        }
+        //judge whether correct
+        bool flag = true;
+        int tmpCount = 0;
+        for(int k=0; k&lt;LEN; k++) {
+            if(tmpAns\[k\]==1) {
+                tmpCount++;
+            }
+            if(tmpAns\[k\]==0 &amp;&amp; qu\[j\].ans\[k\]==1) {
+                qu\[j\].wrongNum\[k\]++;
+                if(qu\[j\].wrongNum\[k\]&gt;maxWrongNum) {
+                    maxWrongNum = qu\[j\].wrongNum\[k\];
+                }
+            } else if(tmpAns\[k\]==1 &amp;&amp; qu\[j\].ans\[k\]==0) {
+                qu\[j\].wrongNum\[k\]++;
+                flag = false;
+                if(qu\[j\].wrongNum\[k\]&gt;maxWrongNum) {
+                    maxWrongNum = qu\[j\].wrongNum\[k\];
+                }
+            }
+        }
+        //correct or semi-correct
+        if(flag &amp;&amp; tmpCount==qu\[j\].ansCount) {
+            stuScore\[i\] += qu\[j\].score;
+        } else if(flag) {
+            stuScore\[i\] += qu\[j\].score/2.0;
+        }
+
+        s2 = s2.substr(end+1);
+    }
+}
+
+for(int i=0; i&lt;n; i++) {
+    cout&lt;&lt;setiosflags(ios::fixed)&lt;&lt;setprecision(1)&lt;&lt;stuScore\[i\]&lt;&lt;endl;
+}
+if(maxWrongNum&gt;0) {
+    for(int j=0; j&lt;m; j++) {
+        for(int k=0; k&lt;LEN; k++) {
+            if(qu\[j\].wrongNum\[k\]==maxWrongNum) {
+                cout&lt;&lt;maxWrongNum&lt;&lt;&quot; &quot;&lt;&lt;(j+1)&lt;&lt;&quot;-&quot;&lt;&lt;(char)(k+&apos;a&apos;)&lt;&lt;endl;
+            }
+        }
+    }
+} else {
+    cout&lt;&lt;&quot;Too simple&quot;&lt;&lt;endl;
+}
+
+return 0;</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1901,182 +2188,6 @@ Welcome in</code></pre><p>代码：</p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1063-yi-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/18/pat-1063-yi-ji/" itemprop="url">Pat_1063（乙级）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:50:58+08:00">
-                2019-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
-                    <span itemprop="name">乙级</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">文章页</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1063 计算谱半径 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805267860930560" target="_blank" rel="noopener">原文地址</a></p>
-<p>在数学中，矩阵的“谱半径”是指其特征值的模集合的上确界。换言之，对于给定的 n 个复数空间的特征值 { a​1​​+b​1​​i,⋯,a​n​​+b​n​​i }，它们的模为实部与虚部的平方和的开方，而“谱半径”就是最大模。 现在给定一些复数空间的特征值，请你计算并输出这些特征值的谱半径。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出正整数 N（≤ 10 000）是输入的特征值的个数。随后 N 行，每行给出 1 个特征值的实部和虚部，其间以空格分隔。注意：题目保证实部和虚部均为绝对值不超过 1000 的整数。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出谱半径，四舍五入保留小数点后 2 位。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>5
-0 1
-2 0
--1 0
-3 3
-0 -3</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>4.24</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include&lt;math.h&gt;<br>#include<cstdio></p>
-<p>using namespace std;</p>
-<p>int main(){<br>    int num;<br>    float R=0;<br>    cin&gt;&gt;num;<br>    for(int i=0;i&lt;num;i++){<br>        int a,b;<br>        cin&gt;&gt;a&gt;&gt;b;<br>        if(sqrt(a*a+b*b) &gt; R){<br>            R = sqrt(a*a+b*b);<br>        }<br>    }<br>    printf(“%.2f”,R);<br>    return 0;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2131,7 +2242,7 @@ Welcome in</code></pre><p>代码：</p>
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">251</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2161,6 +2272,13 @@ Welcome in</code></pre><p>代码：</p>
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           

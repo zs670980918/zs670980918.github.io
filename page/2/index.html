@@ -73,6 +73,10 @@
 
 
 
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
 
 
 
@@ -275,6 +279,178 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1093-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1093-yi-ji/" itemprop="url">Pat_1093（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:35:13+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1093 字符串A+B （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/1071785884776722432" target="_blank" rel="noopener">原文地址</a></p>
+<p>给定两个字符串 A 和 B，本题要求你输出 A+B，即两个字符串的并集。要求先输出 A，再输出 B，但<strong>重复的字符必须被剔除</strong>。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在两行中分别给出 A 和 B，均为长度不超过 10​6​​的、由可见 ASCII 字符 (即码值为32~126)和空格组成的、由回车标识结束的非空字符串。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出题面要求的 A 和 B 的和。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>This is a sample test
+to show you_How it works</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>This ampletowyu_Hrk</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include<vector><br>#include<algorithm></p>
+<p>using namespace std;</p>
+<p>int main(){<br>    string s1,s2;<br>    getline(cin,s1);<br>    getline(cin,s2);<br>    vector<char> dir;<br>    for(int i=0;i&lt;s1.length();i++){<br>        if(find(dir.begin(),dir.end(),s1[i]) == dir.end()){<br>            cout&lt;&lt;s1[i];<br>            dir.push_back(s1[i]);<br>        }<br>    }<br>    for(int i=0;i&lt;s2.length();i++){<br>        if(find(dir.begin(),dir.end(),s2[i]) == dir.end()){<br>            cout&lt;&lt;s2[i];<br>            dir.push_back(s2[i]);<br>        }<br>    }<br>    cout&lt;&lt;endl;<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1864,182 +2040,6 @@ A03274 45 hypu</code></pre><h3 id="输出样例："><a href="#输出样例：" c
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/pat-1083-yi-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/18/pat-1083-yi-ji/" itemprop="url">Pat_1083（乙级）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:22:57+08:00">
-                2019-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
-                    <span itemprop="name">乙级</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">文章页</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1083 是否存在相等的差 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805260780945408" target="_blank" rel="noopener">原文地址</a></p>
-<p>给定 N 张卡片，正面分别写上 1、2、……、N，然后全部翻面，洗牌，在背面分别写上 1、2、……、N。将每张牌的正反两面数字相减（大减小），得到 N 个非负差值，其中是否存在相等的差？</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出一个正整数 N（2 ≤ N ≤ 10 000），随后一行给出 1 到 N 的一个洗牌后的排列，第 i 个数表示正面写了 i 的那张卡片背面的数字。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>按照“差值 重复次数”的格式从大到小输出重复的差值及其重复的次数，每行输出一个结果。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>8
-3 5 8 6 2 1 4 7</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>5 2
-3 3
-2 2</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<map><br>#include<vector><br>#include<algorithm></p>
-<p>using namespace std;</p>
-<p>struct Node{<br>    int t1;<br>    int t2;<br>};</p>
-<p>bool cmp(Node a,Node b){<br>    return a.t1 &gt; b.t1;<br>}</p>
-<p>int main(){<br>    map&lt;int,int&gt; dir;<br>    map&lt;int,int&gt;::iterator pos;<br>    vector<Node> dir_vec;<br>    vector<Node>::iterator pos1;<br>    int num;<br>    cin&gt;&gt;num;<br>    for(int i=0;i&lt;num;i++){<br>        int cha,temp;<br>        cin&gt;&gt;temp;<br>        if(temp &gt; i+1){<br>            cha = temp - (i+1);<br>        }<br>        else{<br>            cha = (i+1) - temp;<br>        }<br>        if(dir.count(cha) == 0){<br>            dir[cha] = 1;<br>        }<br>        else{<br>            dir[cha] += 1;<br>        }<br>    }<br>    for(pos=dir.begin();pos!=dir.end();pos++){<br>        Node node = {(*pos).first,(*pos).second};<br>        if((<em>pos).second &gt; 1){<br>            dir_vec.push_back(node);<br>        }<br>    }<br>    if(dir_vec.empty()){<br>        cout&lt;&lt;endl;<br>    }<br>    else{<br>       sort(dir_vec.begin(),dir_vec.end(),cmp);<br>        for(pos1 = dir_vec.begin();pos1!=dir_vec.end();pos1++){<br>            cout&lt;&lt;(\</em>pos1).t1&lt;&lt;” “&lt;&lt;(*pos1).t2&lt;&lt;endl;<br>        }<br>    }<br>    return 0;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2094,7 +2094,7 @@ A03274 45 hypu</code></pre><h3 id="输出样例："><a href="#输出样例：" c
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">251</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2124,6 +2124,13 @@ A03274 45 hypu</code></pre><h3 id="输出样例："><a href="#输出样例：" c
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           

@@ -73,6 +73,10 @@
 
 
 
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
 
 
 
@@ -275,6 +279,173 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/di-zhi-bian-huan-suan-fa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/05/di-zhi-bian-huan-suan-fa/" itemprop="url">地址变换算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-05T17:47:31+08:00">
+                2018-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C&amp;C++</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180605173814.png" alt=""> 地址变换算法：根据当前的地址使用公式，绝对地址计算公式：块号<em>块的长度+页内偏移量 来得到物理地址从而实现从逻辑地址向物理地址的转换。 页表的形式： <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180605174311.png" alt=""> 思想： 如果匹配的情况下： 在内存中存在则直接计算绝对地址使用公式：块号</em>块的长度+页内偏移量 如果不匹配且在页表中存在： 将产生缺页中断，并且修改对应的页表项。 如果不匹配且在页表中不存在： 输出在页表项没有的提示。   算法代码：</p>
+<p>//地址变换算法<br>void Transform()<br>{<br>    for(int i=0;i&lt;m;i++)<br>    {<br>        cout&lt;&lt;”第”&lt;&lt;i+1&lt;&lt;”次！”&lt;&lt;endl;<br>        int t=-1;<br>        for(int j=0;j&lt;num;j++)<br>        {<br>            if(yebiao[j].YeHao == xulie[i])<br>            {<br>                t = j;<br>                break;<br>            }<br>        }<br>        if(yebiao[t].BiaoZhi==1&amp;&amp;yebiao[t].Flag==0)<br>        {<br>            cout&lt;&lt;”    页面已经存入内存但是修改位并未修改，进行修改！~”&lt;&lt;endl;<br>            yebiao[t].Flag = 1;<br>            cout&lt;&lt;”绝对地址：”&lt;&lt;yebiao[t].YeHao * 300 + yebiao[t].DiZhi&lt;&lt;endl;<br>            cout&lt;&lt;endl;<br>            continue;<br>        }<br>        if(yebiao[t].BiaoZhi==1&amp;&amp;yebiao[t].Flag==1)<br>        {<br>            cout&lt;&lt;”    页面已经进入内存”&lt;&lt;endl;<br>            cout&lt;&lt;”绝对地址：”&lt;&lt;yebiao[t].YeHao * 300 + yebiao[t].DiZhi&lt;&lt;endl;<br>            cout&lt;&lt;endl;<br>            continue;<br>        }<br>        if(xulie[i]&gt;=num)<br>        {<br>            cout&lt;&lt;”    序列值大于页表项中最大的页面号”&lt;&lt;endl;<br>            cout&lt;&lt;endl;<br>            continue;<br>        }<br>        cout&lt;&lt;”    页面不在内存！,产生缺页中断”&lt;&lt;endl;<br>        cout&lt;&lt;”    将页面装入内存！”&lt;&lt;endl;<br>        yebiao[t].BiaoZhi = 1;<br>        yebiao[t].Flag = 1;<br>        cout&lt;&lt;endl;<br>    }<br>}</p>
+<p>使用到的数据结构：</p>
+<p>struct YeBiao{<br>    int YeHao; //页号<br>    int BiaoZhi; //标志<br>    int ZhuCunHao; //页对应的主存号<br>    int Flag; //表示该页调入主存后是否修改过的标志<br>    int DiZhi;  //外存地址<br>}yebiao[num];</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1785,200 +1956,6 @@ img.save(path)</code></pre><p>if __name__ == “__main__“:<br>   gen_qrcode(�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/26/python-pa-chong-xue-xi-bi-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/26/python-pa-chong-xue-xi-bi-ji/" itemprop="url">Python爬虫学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-26T12:42:55+08:00">
-                2018-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%8A%9F%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">Python功能</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%8A%9F%E8%83%BD/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index">
-                    <span itemprop="name">Python爬虫</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E5%8A%9F%E8%83%BD/Python%E7%88%AC%E8%99%AB/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">文章页</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Urllib库是python中一个用于操作URL的模块。 在Python3.X中一些库引用名： import urllib.request import urllib.error import urllib.parse import urllib.urlopen import urllib.urlencode import urllib.quote http.CookieJar urllib.request.Request  <strong>快速爬取一个网页：</strong> 使用file=urllib.request.urlopen() 打开并爬取一个网页 使用file.read() 读取网页内容 也可以使用file.readline（）读取一行内容 具体代码如下：</p>
-<p>import urllib.request</p>
-<p>file = urllib.request.urlopen(“<a href="http://strivezs.com&quot;" target="_blank" rel="noopener">http://strivezs.com&quot;</a>)<br>data = file.read()<br>dataline = file.readline()</p>
-<p>print(data)<br>print(dataline)</p>
-<p>  结果： <img src="http://47.100.4.8/wp-content/uploads/2018/05/147.png" alt=""> 等太长了不复制了就。上面就是成功爬取下来后得到的网页的html代码 这里需要的注意的是： 通过使用read（）得到的内容会以字符串的形式存储。 而通过readline（）得到的是会以列表的形式存储   将爬取到的网页以htm的形式保存：</p>
-<p>import urllib.request</p>
-<p>file = urllib.request.urlopen(“<a href="http://strivezs.com&quot;" target="_blank" rel="noopener">http://strivezs.com&quot;</a>)<br>data = file.read()<br>dataline = file.readline()</p>
-<p>filestring = open(“F:/data.html”,”wb”)<br>filestring.write(data)</p>
-<p>结果： <img src="http://47.100.4.8/wp-content/uploads/2018/05/1-8.png" alt=""> 同样还可以使用txt，等其他形式进行保存。 也可以使用urllib.request.urlretrieve直接对网页进行爬取并自动保存到本地设置的路径。</p>
-<p>filename = urllib.request.urlretrieve(“<a href="http://strivezs.com&quot;,filename=&quot;F://2.html&quot;" target="_blank" rel="noopener">http://strivezs.com&quot;,filename=&quot;F://2.html&quot;</a>)<br>urllib.request.urlcleanup()  #清除urlretrieve（）造成缓存</p>
-<p>结果： <img src="http://47.100.4.8/wp-content/uploads/2018/05/2-8.png" alt=""> 返回与当前环境有关的信息使用info（）进行返回 print(file.info()) 调用的格式为爬取网页.info（）   获得爬取网页的状态码使用getcode（） print(file.getcode()) 调用格式为：爬取网页.getcode（）   获得爬取网页的url使用geturl（） print(file.geturl()) 调用格式爬取网页.geturl（）   需要注意的是：url标准中只会允许一部分ASCII字符比如数组。字母。部分符号等。而一些其他字符比如汉字等则不符合标准。 如果我们在URL中使用一些其他不符合标准的字符就会出现问题，此时可以使用URL编码的方式解决。 使用urllib.request.quote（网址）进行编码 使用urllib.request.unquote（编码后的网址）进行解码 使用：</p>
-<p>import urllib.request</p>
-<p>file = urllib.request.urlopen(“<a href="http://strivezs.com&quot;" target="_blank" rel="noopener">http://strivezs.com&quot;</a>)<br>data = file.read()<br>dataline = file.readline()<br>print(file.info())<br>print(file.getcode())<br>print(file.geturl())</p>
-<p><strong>浏览器的模拟——Headers属性</strong> headers={“<strong>User-Agent”,</strong> “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36” } 在爬取某些网页时会出现403错误，则证明该网页在robots协议中拒绝了爬虫。 使用build_opener（）修改报头：</p>
-<p>import urllib.request</p>
-<p>url=”<a href="http://strivezs.com&quot;" target="_blank" rel="noopener">http://strivezs.com&quot;</a><br>headers={“User-Agent”, “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36”}<br>opener = urllib.request.build_opener()<br>opener.addheaders = [headers]<br>data=opener.open(url).read()</p>
-<p>  上面这种方法不作具体的介绍了。 使用add_header（）添加报头：  这里我更加推荐使用这种方法，因为比较简单好理解。 代码：</p>
-<p>import urllib.request</p>
-<p>url=”<a href="http://strivezs.com&quot;" target="_blank" rel="noopener">http://strivezs.com&quot;</a><br>req = urllib.request.Request(url)<br>req.add_header(‘User-Agent’, ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36’)<br>data= urllib.request.urlopen(req).read()<br>print(data)</p>
-<p>  add_header（）是用来添加对应的报头信息   超时设置： 有时我们在访问一个网页时长时间没有响应，系统就会判断超时了，然后就无法打开网页。 但是有时我们需要根据自己的需求来设置超时的时间。一般都设为80秒。 代码：</p>
-<p>import urllib.request</p>
-<p>url=”<a href="http://strivezs.com&quot;" target="_blank" rel="noopener">http://strivezs.com&quot;</a><br>headers=[‘User-Agent’, ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36’]<br>req = urllib.request.Request(url)<br>req.add_header(‘User-Agent’, ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36’)<br>data= urllib.request.urlopen(req,timeout=80).read()</p>
-<p>  Http协议请求主要分为6种类型，各类型的主要作用如下：</p>
-<ul>
-<li>Get请求：GET请求会通过URL网址传递信息，可以直接在URL中写上要传递的信息，也可以由表单进行传递。如果使用表单进行传递，这表单中的信息会自动转为URL地址中的数据，通过URL地址传递。</li>
-<li>Post请求：可以向服务器提交数据，是一种比较主流也比较安全的数据传递方式，比如登陆时，经常使用Post请求发送地址。</li>
-<li>Put请求：请求服务器存储一个资源，通常要指定存储的位置。</li>
-<li>Delete请求：请求服务器删除一个数据</li>
-<li>Head请求：请求获得服务器报头信息</li>
-<li>Options请求：可以获得当前URL所支持的请求类型</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2033,7 +2010,7 @@ img.save(path)</code></pre><p>if __name__ == “__main__“:<br>   gen_qrcode(�
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">251</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2063,6 +2040,13 @@ img.save(path)</code></pre><p>if __name__ == “__main__“:<br>   gen_qrcode(�
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           

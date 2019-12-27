@@ -73,6 +73,10 @@
 
 
 
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
 
 
 
@@ -275,6 +279,177 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/pat-1043-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/12/pat-1043-yi-ji/" itemprop="url">Pat_1043（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T18:18:08+08:00">
+                2019-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1043 输出PATest （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805280074743808" target="_blank" rel="noopener">原文地址</a></p>
+<p>给定一个长度不超过 10​4​​ 的、仅由英文字母构成的字符串。请将字符重新调整顺序，按 <code>PATestPATest....</code> 这样的顺序输出，并忽略其它字符。当然，六种字符的个数不一定是一样多的，若某种字符已经输出完，则余下的字符仍按 PATest 的顺序打印，直到所有字符都被输出。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在一行中给出一个长度不超过 10​4​​ 的、仅由英文字母构成的非空字符串。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中按题目要求输出排序后的字符串。题目保证输出非空。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>redlesPayBestPATTopTeePHPereatitAPPT</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>PATestPATestPTetPTePePee</code></pre><p>代码：</p>
+<p>#include<iostream><br>#include&lt;string.h&gt;</p>
+<p>using namespace std;</p>
+<p>int main(){<br>    string s1;<br>    cin&gt;&gt;s1;<br>    int num_P=0,num_A=0,num_T=0,num_e=0,num_s=0,num_t=0;<br>    for(int i=0;i&lt;s1.length();i++){<br>        if(s1[i] == ‘P’){<br>            num_P++;<br>        }<br>        else if(s1[i] == ‘A’){<br>            num_A++;<br>        }<br>        else if(s1[i] == ‘T’){<br>            num_T++;<br>        }<br>        else if(s1[i] == ‘e’){<br>            num_e++;<br>        }<br>        else if(s1[i] == ‘s’){<br>            num_s++;<br>        }<br>        else if(s1[i] == ‘t’){<br>            num_t++;<br>        }<br>    }<br>    while(num_P!=0 || num_A!=0 || num_T!=0 || num_e!=0 || num_s!=0 || num_t!=0){<br>        if(num_P &gt; 0){<br>            cout&lt;&lt;”P”;<br>            num_P–;<br>        }<br>        if(num_A &gt; 0){<br>            cout&lt;&lt;”A”;<br>            num_A–;<br>        }<br>        if(num_T &gt; 0){<br>            cout&lt;&lt;”T”;<br>            num_T–;<br>        }<br>        if(num_e &gt; 0){<br>            cout&lt;&lt;”e”;<br>            num_e–;<br>        }<br>        if(num_s &gt; 0){<br>            cout&lt;&lt;”s”;<br>            num_s–;<br>        }<br>        if(num_t &gt; 0){<br>            cout&lt;&lt;”t”;<br>            num_t–;<br>        }<br>    }<br>    cout&lt;&lt;endl;<br>    return 0;<br>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1856,177 +2031,6 @@ aaaaaaaaaa</code></pre><p>代码：</p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/pat-1033-yi-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/12/pat-1033-yi-ji/" itemprop="url">Pat_1033（乙级）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:48:21+08:00">
-                2019-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
-                    <span itemprop="name">乙级</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">文章页</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1033 旧键盘打字 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805288530460672" target="_blank" rel="noopener">原文地址</a></p>
-<p>旧键盘上坏了几个键，于是在敲一段文字的时候，对应的字符就不会出现。现在给出应该输入的一段文字、以及坏掉的那些键，打出的结果文字会是怎样？</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在 2 行中分别给出坏掉的那些键、以及应该输入的文字。其中对应英文字母的坏键以大写给出；每段文字是不超过 10​5​​ 个字符的串。可用的字符包括字母 [<code>a</code>-<code>z</code>, <code>A</code>-<code>Z</code>]、数字 <code>0</code>-<code>9</code>、以及下划线 <code>_</code>（代表空格）、<code>,</code>、<code>.</code>、<code>-</code>、<code>+</code>（代表上档键）。题目保证第 2 行输入的文字串非空。 注意：如果上档键坏掉了，那么大写的英文字母无法被打出。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出能够被打出的结果文字。如果没有一个字符能被打出，则输出空行。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>7+IE.
-7_This_is_a_test.</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>_hs_s_a_tst</code></pre><p>代码：（这里要仔细理解题意 只有+是上档键）</p>
-<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include<vector><br>#include<algorithm><br>//这里只有+是上档键<br>using namespace std;</p>
-<p>int main(){<br>    string s1,s2,s3;<br>    vector<char> list1;<br>    vector<char>::iterator pos;<br>    getline(cin,s1);<br>    getline(cin,s2);<br>    s3 = s2;<br>    bool flag = false,flag1 = true;<br>    transform(s1.begin(),s1.end(),s1.begin(),::toupper);<br>    transform(s3.begin(),s3.end(),s3.begin(),::toupper);<br>    for(int i=0;i&lt;s1.length();i++){<br>        list1.push_back(s1[i]);<br>    }<br>    if(s1.find(‘+’) != string::npos){<br>        flag = true;<br>    }<br>    for(int i=0;i&lt;s2.length();i++){<br>        if(find(list1.begin(),list1.end(),s3[i]) == list1.end()){<br>            if(flag &amp;&amp; s2[i]!=’+’){<br>                if(s2[i]&lt;’A’||s2[i]&gt;’Z’){<br>                    cout&lt;&lt;s2[i];<br>                }<br>            }<br>            else{<br>                cout&lt;&lt;s2[i];<br>            }<br>        }<br>    }<br>    cout&lt;&lt;endl;<br>    return 0;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2081,7 +2085,7 @@ aaaaaaaaaa</code></pre><p>代码：</p>
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">251</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2111,6 +2115,13 @@ aaaaaaaaaa</code></pre><p>代码：</p>
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
