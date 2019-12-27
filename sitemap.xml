@@ -3,22 +3,22 @@
 
 
     <sitemap>
-        <loc>http://yoursite.com/post-sitemap.xml</loc>
+        <loc>http://strivezs.com/post-sitemap.xml</loc>
         <lastmod>2019-12-27T05:16:59.137Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite.com/page-sitemap.xml</loc>
+        <loc>http://strivezs.com/page-sitemap.xml</loc>
         <lastmod>2019-12-27T02:15:57.216Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite.com/category-sitemap.xml</loc>
+        <loc>http://strivezs.com/category-sitemap.xml</loc>
         <lastmod>2019-12-27T02:15:57.214Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite.com/tag-sitemap.xml</loc>
+        <loc>http://strivezs.com/tag-sitemap.xml</loc>
         <lastmod>2019-12-27T02:15:57.205Z</lastmod>
     </sitemap>
 

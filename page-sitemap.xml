@@ -2,62 +2,62 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://yoursite.com</loc>
+        <loc>http://strivezs.com</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/deng-lu/</loc>
+        <loc>http://strivezs.com/deng-lu/</loc>
         <lastmod>2019-12-27T02:15:57.216Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/di-qiu-fang-ke/</loc>
+        <loc>http://strivezs.com/di-qiu-fang-ke/</loc>
         <lastmod>2019-12-27T02:15:57.216Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/fang-ke-tong-ji/</loc>
+        <loc>http://strivezs.com/fang-ke-tong-ji/</loc>
         <lastmod>2019-12-27T02:15:57.216Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/hou-yuan-tuan/</loc>
+        <loc>http://strivezs.com/hou-yuan-tuan/</loc>
         <lastmod>2019-12-27T02:15:57.216Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/tong-ji/</loc>
+        <loc>http://strivezs.com/tong-ji/</loc>
         <lastmod>2019-12-27T02:15:57.216Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/liu-yan-ban/</loc>
+        <loc>http://strivezs.com/liu-yan-ban/</loc>
         <lastmod>2019-12-27T02:15:57.216Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/wen-zhang-ye/</loc>
+        <loc>http://strivezs.com/wen-zhang-ye/</loc>
         <lastmod>2019-12-27T02:15:57.216Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/zai-xian-gong-ju/</loc>
+        <loc>http://strivezs.com/zai-xian-gong-ju/</loc>
         <lastmod>2019-12-27T02:15:57.216Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
