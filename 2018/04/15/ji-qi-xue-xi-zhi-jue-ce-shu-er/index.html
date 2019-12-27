@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,21 +48,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -76,7 +76,7 @@
   
 
 
-  <link rel="alternate" href="/atom.xml" title="StriveZs的博客专栏" type="application/atom+xml" />
+  <link rel="alternate" href="/blog/atom.xml" title="StriveZs的博客专栏" type="application/atom+xml" />
 
 
 
@@ -86,7 +86,7 @@
 <meta name="description" content="这里使用ID3算法划分数据集。 ID3算法的伪代码： ID3（例子，目标属性，属性） 为树创建一个根节点 如果所有示例都是肯定的，则返回单节点树Root，其中label &#x3D; +。 如果所有示例均为负数，则返回单节点树Root，标签为 - 。 如果预测属性的数量为空，则返回单节点树Root， 标签&#x3D;示例中目标属性的最常见值。 否则开始 A←最佳分类示例的属性。 Root &#x3D; A的决策树属性 对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习之决策树（二）">
-<meta property="og:url" content="http://strivezs.com/2018/04/15/ji-qi-xue-xi-zhi-jue-ce-shu-er/index.html">
+<meta property="og:url" content="https://zs670980918.github.io/2018/04/15/ji-qi-xue-xi-zhi-jue-ce-shu-er/index.html">
 <meta property="og:site_name" content="StriveZs的博客专栏">
 <meta property="og:description" content="这里使用ID3算法划分数据集。 ID3算法的伪代码： ID3（例子，目标属性，属性） 为树创建一个根节点 如果所有示例都是肯定的，则返回单节点树Root，其中label &#x3D; +。 如果所有示例均为负数，则返回单节点树Root，标签为 - 。 如果预测属性的数量为空，则返回单节点树Root， 标签&#x3D;示例中目标属性的最常见值。 否则开始 A←最佳分类示例的属性。 Root &#x3D; A的决策树属性 对">
 <meta property="og:locale" content="en_US">
@@ -110,7 +110,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '/blog/',
     scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="http://strivezs.com/2018/04/15/ji-qi-xue-xi-zhi-jue-ce-shu-er/"/>
+  <link rel="canonical" href="https://zs670980918.github.io/2018/04/15/ji-qi-xue-xi-zhi-jue-ce-shu-er/"/>
 
 
 
@@ -177,7 +177,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/blog/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">StriveZs的博客专栏</span>
         <span class="logo-line-after"><i></i></span>
@@ -205,7 +205,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/blog/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -215,7 +215,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/%20" rel="section">
+          <a href="/blog/about/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -225,7 +225,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/%20" rel="section">
+          <a href="/blog/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -235,7 +235,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/%20" rel="section">
+          <a href="/blog/categories/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -245,7 +245,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/blog/archives/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -255,7 +255,7 @@
       
         
         <li class="menu-item menu-item-schedule">
-          <a href="/schedule/%20" rel="section">
+          <a href="/blog/schedule/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
@@ -265,7 +265,7 @@
       
         
         <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml%20" rel="section">
+          <a href="/blog/sitemap.xml%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
             
@@ -306,12 +306,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://strivezs.com/2018/04/15/ji-qi-xue-xi-zhi-jue-ce-shu-er/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/blog/2018/04/15/ji-qi-xue-xi-zhi-jue-ce-shu-er/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="image" content="/blog/images/avatar.JPG">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -358,7 +358,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%86%B3%E7%AD%96%E6%A0%91/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E5%86%B3%E7%AD%96%E6%A0%91/" itemprop="url" rel="index">
                     <span itemprop="name">决策树</span>
                   </a>
                 </span>
@@ -369,7 +369,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
                     <span itemprop="name">文章页</span>
                   </a>
                 </span>
@@ -380,7 +380,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%96%87%E7%AB%A0%E9%A1%B5/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                  <a href="/blog/categories/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%96%87%E7%AB%A0%E9%A1%B5/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
                     <span itemprop="name">机器学习</span>
                   </a>
                 </span>
@@ -455,7 +455,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/14/pyqt5-xue-xi-bi-ji-qi/" rel="next" title="PyQt5学习笔记（七）">
+              <a href="/blog/2018/04/14/pyqt5-xue-xi-bi-ji-qi/" rel="next" title="PyQt5学习笔记（七）">
                 <i class="fa fa-chevron-left"></i> PyQt5学习笔记（七）
               </a>
             
@@ -465,7 +465,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/16/ji-qi-xue-xi-zhi-jue-ce-shu-san/" rel="prev" title="机器学习之决策树（三）">
+              <a href="/blog/2018/04/16/ji-qi-xue-xi-zhi-jue-ce-shu-san/" rel="prev" title="机器学习之决策树（三）">
                 机器学习之决策树（三） <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -525,7 +525,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar.JPG"
+                src="/blog/images/avatar.JPG"
                 alt="StriveZs" />
             
               <p class="site-author-name" itemprop="name">StriveZs</p>
@@ -537,7 +537,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/blog/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">posts</span>
@@ -571,7 +571,7 @@
 
           
             <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
+              <a href="/blog/atom.xml" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -682,64 +682,64 @@
 
   
   
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
