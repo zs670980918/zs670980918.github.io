@@ -289,198 +289,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/pat-1003-yi-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/11/pat-1003-yi-ji/" itemprop="url">Pat_1003（乙级）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-11T22:52:07+08:00">
-                2019-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
-                    <span itemprop="name">乙级</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">文章页</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1003 我要通过！ （20 分）  地址：<a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805323154440192" target="_blank" rel="noopener">https://pintia.cn/problem-sets/994805260223102976/problems/994805323154440192</a></p>
-<p>“<strong>答案正确</strong>”是自动判题系统给出的最令人欢喜的回复。本题属于 PAT 的“<strong>答案正确</strong>”大派送 —— 只要读入的字符串满足下列条件，系统就输出“<strong>答案正确</strong>”，否则输出“<strong>答案错误</strong>”。 得到“<strong>答案正确</strong>”的条件是：</p>
-<ol>
-<li>字符串中必须仅有 <code>P</code>、 <code>A</code>、 <code>T</code>这三种字符，不可以包含其它字符；</li>
-<li>任意形如 <code>xPATx</code> 的字符串都可以获得“<strong>答案正确</strong>”，其中 <code>x</code> 或者是空字符串，或者是仅由字母 <code>A</code> 组成的字符串；</li>
-<li>如果 <code>aPbTc</code> 是正确的，那么 <code>aPbATca</code> 也是正确的，其中 <code>a</code>、 <code>b</code>、 <code>c</code> 均或者是空字符串，或者是仅由字母 <code>A</code> 组成的字符串。</li>
-</ol>
-<p>现在就请你为 PAT 写一个自动裁判程序，判定哪些字符串是可以获得“<strong>答案正确</strong>”的。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>每个测试输入包含 1 个测试用例。第 1 行给出一个正整数 n (&lt;10)，是需要检测的字符串个数。接下来每个字符串占一行，字符串长度不超过 100，且不包含空格。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>每个字符串的检测结果占一行，如果该字符串可以获得“<strong>答案正确</strong>”，则输出 <code>YES</code>，否则输出 <code>NO</code>。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>8
-PAT
-PAAT
-AAPATAA
-AAPAATAAAA
-xPATx
-PT
-Whatever
-APAAATAA</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>YES
-YES
-YES
-YES
-NO
-NO
-NO
-NO</code></pre><p>代码：</p>
-<p>#include &lt;stdio.h&gt;<br>#include <iostream><br>#include &lt;string.h&gt;<br>#include <string><br>#include <sstream></p>
-<p>using namespace std;</p>
-<p>int main(){<br>    int n;<br>    char c[101];<br>    scanf(“%d”, &amp;n);<br>    for(int i=0;i&lt;n;i++){<br>        bool result = true;<br>        int count1 = 0, count2 = 0, count3 = 0;<br>        int countP = 0, countT = 0;<br>        scanf(“%s”, c);<br>        for(int j=0;j&lt;strlen(c);j++){<br>            if(c[j] != ‘P’ &amp;&amp; c[j] != ‘A’ &amp;&amp; c[j] != ‘T’){<br>                result = false;<br>                break;<br>            }<br>            if(c[j] == ‘P’){<br>                countP ++;<br>                if(countP == 2){<br>                    result = false;<br>                    break;<br>                }<br>            }<br>            if(c[j] == ‘T’){<br>                countT ++;<br>                if(countT == 2){<br>                    result = false;<br>                    break;<br>                }<br>            }<br>        }<br>        if(result){<br>            string s = c;<br>            count1 = s.find(“P”);<br>            count2 = s.find(“A”);<br>            count3 = s.find(“T”);<br>            if(count1 == -1 || count2 == -1 || count3 == -1){<br>                result = false;<br>            }<br>            else{<br>                result = ((count1 * (count3 - count1 - 1)) == (strlen(c) - count3 - 1)) ? true : false;<br>            }<br>        }<br>        if(result){<br>            printf(“YES\n”);<br>        }<br>        else{<br>            printf(“NO\n”);<br>        }<br>    }<br>    return 0;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/pat-1002-yi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2161,6 +1969,173 @@ void print();       //输出大数</code></pre><p>};</p>
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/19/python-sui-ji-mi-ma-sheng-cheng-bing-pan-duan-qiang-du/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/19/python-sui-ji-mi-ma-sheng-cheng-bing-pan-duan-qiang-du/" itemprop="url">Python随机密码生成并判断强度</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-19T17:05:31+08:00">
+                2019-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%8A%9F%E8%83%BD/" itemprop="url" rel="index">
+                    <span itemprop="name">Python功能</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://47.100.4.8/wp-content/uploads/2019/01/QQ%E5%9B%BE%E7%89%8720190119165308.png" alt=""> 能够根据需求生成指定长度的密码。 密码满足的规则（密码至少包含以下四条规则中的三条）： 1.大写字母（A-Z） 2.小写字母（a-z） 3.数字（0-9） 4.特殊字符（!,%,@,#等等） 密码强度判断的规则： 1.打分规则说明 2.如果密码中小写字母和大写字母的个数相差不超过2 则认为得分应该较高 3.如果密码中数字的个数小于等于密码总长度的一般是认为得分较高 4.如果得到的密码中含有标签符号则认为得分较高 代码：</p>
+<p>import string<br>import random<br>lowercase = string.ascii_lowercase #所有小写字母<br>uppercase = string.ascii_uppercase #所有大写字母<br>digits = string.digits #所有数字<br>punction = string.punctuation #所有标点符号</p>
+<p>def judge(str1, r1, r2, r3, r4):<br>    grade = 0  # 计分器<br>    if abs(r1 - r2) &gt;= 0 and abs(r1 - r2) &lt;= 2:<br>        grade = grade + 50<br>    else:<br>        grade = grade + 30<br>    if r3 &lt;= round(int(length) / 2):<br>        grade = grade + 30<br>    else:<br>        grade = grade + 20<br>    if r4 == 0:<br>        grade = grade - 0  # 不加分<br>    else:<br>        grade = grade + 20</p>
+<pre><code>if grade &gt;= 80:
+    print(&quot;该密码强度为高&quot;)
+elif grade &lt; 80 and grade &gt;= 70:
+    print(&quot;该密码强度为较高&quot;)
+elif grade &lt; 70 and grade &gt;= 60:
+    print(&quot;该密码强度为中等&quot;)
+else:
+    print(&quot;该密码强度为较差&quot;)  # 由于采用随机生成也个字符所占的比例差不多 所以不存在很差的密码</code></pre><p>length = input(‘请输入你想要的密码长度：’)<br>#使用round防止在除法时得出小数<br>r1 = random.randint(1,round(int(length)<em>2/5)) #乘以五分之二来确保随机出来的小写字母的个数不会过大<br>r2 = random.randint(1,round((int(length)-r1)</em>2/5)) #乘以五分之二保证生成的大谢罪不会过多导致数字和标点符号过少<br>r3 = random.randint(1,(int(length)-r1-r2))<br>r4 = int(length)-r1-r2-r3<br>#保存用于密码强度判断<br>d1=r1<br>d2=r2<br>d3=r3<br>d4=r4<br>print(‘小写字母的长度:’,r1)<br>print(‘大写字母的长度:’,r2)<br>print(‘数字的长度:’,r3)<br>print(‘标点符号的长度:’,r4)</p>
+<p>list = [] #用来存储随机出来的数据<br>while r1 !=0 or r2!=0 or r3!=0 or r4!=0:<br>    m = random.randint(1,4)  #四选1来生成一种字符<br>    if m == 1 and r1&gt;0:<br>        num = random.randint(0,len(lowercase)-1)<br>        list.append(lowercase[num])<br>        r1 = r1-1<br>    if m == 2 and r2&gt;0:<br>        num = random.randint(0,len(uppercase)-1)<br>        list.append(uppercase[num])<br>        r2 = r2-1<br>    if m == 3 and r3&gt;0:<br>        num = random.randint(0,len(digits)-1)<br>        list.append(digits[num])<br>        r3 = r3-1<br>    if m==4 and r4&gt;0:<br>        num = random.randint(0,len(punction)-1)<br>        list.append(punction[num])<br>        r4 = r4-1</p>
+<p>print(‘随机生成的密码为’,end=’’)<br>str1 = ‘’.join(list)<br>print(str1)</p>
+<p>judge(str1,d1,d2,d3,d4)</p>
+<p>使用： <img src="http://47.100.4.8/wp-content/uploads/2019/01/QQ%E5%9B%BE%E7%89%8720190119170449.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2211,7 +2186,7 @@ void print();       //输出大数</code></pre><p>};</p>
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-count">251</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

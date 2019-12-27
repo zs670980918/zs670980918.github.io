@@ -289,261 +289,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/duo-zhong-qun-yi-chuan-suan-fa-de-han-shu-you-hua-suan-fa/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/28/duo-zhong-qun-yi-chuan-suan-fa-de-han-shu-you-hua-suan-fa/" itemprop="url">多种群遗传算法的函数优化算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-28T16:40:46+08:00">
-                2018-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
-                    <span itemprop="name">优化算法</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%A4%9A%E7%A7%8D%E7%BE%A4%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88MPGA%EF%BC%89/" itemprop="url" rel="index">
-                    <span itemprop="name">多种群遗传算法（MPGA）</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%A4%9A%E7%A7%8D%E7%BE%A4%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88MPGA%EF%BC%89/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">文章页</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%A4%9A%E7%A7%8D%E7%BE%A4%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88MPGA%EF%BC%89/%E6%96%87%E7%AB%A0%E9%A1%B5/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>多种群遗传算法的函数优化算法（MPGA）</strong> <strong>多种群遗传算法（MPGA）概述</strong> MPGA在GA的基础上主要引入了一下几个概念：</p>
-<ul>
-<li>突破GA仅靠单个群体进行遗传进化的框架，引入多个种群问题同时进行优化搜索；不同的种群赋以不用的控制参数，实现不同的搜索的目的。</li>
-<li>各个种群之间通过移民算子进行联系，实现多种群的协同进化；最优解的获取是多个种群协同进化的综合结果。</li>
-<li>通过人工选择算子保存各种群每个进化代中的最优个体，并作为判断算法收敛的依据。</li>
-</ul>
-<p>MPGA的算法结构示意图 <img src="http://47.100.4.8/wp-content/uploads/2018/08/1-1.png" alt="">   这里的SGA就是标准GA，由上图可以看出每个种群还是遵循GA中的算法准则，只不过是通过移民算子以及人工选择将最优的解结合到了一起。 各种群取不同的控制参数。交叉概率Pc和变异概率Pm的取值决定了算法全局搜索和拒不搜索能力的均衡。在GA中，交叉算子是产生新个体的主要算子，它决定了遗传算法全局搜索的能力；而变异算子只是产生新个体的辅助算子，它决定了遗传算法的局部搜索能力。大多数认为Pc在0.7<del>0.9最为合适，Pm在0.001</del>0.05之间最为合适。但是他们的取值方式还是有无数种的，对于不同的取值方式，优化结果差异也是很大的。MPGA弥补了GA的这一不足，通过多个设有不同控制参数的种群协同进化，同时兼顾了算法的全局搜索和局部搜索。 各种群是相对独立的，相互之间通过移民算子联系。移民算子将各种群在进化过程中出现的最优个体定期地（每隔一定的进化代数）引入其他的种群中，实现种群之间的信息交换。具体的操作规则是，将目标种群中的最差个体用源种群的最优个体替代。移民算子在MPGA中至关重要，如果没有银民算子，各种群之间失去联系，MPGA将等同于用不同的控制参数进行多次GA计算，从而是去了MPGA的特色。 精华种群和其他种群有很大不同。在金华的每一代，通过人工选择算子选出其他种群的 最优个体放入精华种群加以保存。精华种群不进行选择、交叉、变异等遗传操作，保证进化过程中各种群产生的最优个体不被破坏和丢失。同时，精华种群也是判断算法终止的依据。这里采用最优个体最少保持代数作为最终判断依据。这种判断充分利用了遗传算法在进化过程中的知识积累，较最大遗传代数判据更为合理。   <strong>问题描述</strong> 复杂二元函数求最值： <strong>max f(x,y) = 21.5 + xsin(4πx) + ysin(20πy)</strong> 图像生成代码：  </p>
-<p>clear;</p>
-<p>[X,Y] = meshgrid(-10:0.355:10);</p>
-<p>Z = 21.5 + X.*sin(4*pi.*X) + Y.*sin(20*pi.*Y);</p>
-<p>surf(X,Y,Z);</p>
-<p>图像： <img src="http://47.100.4.8/wp-content/uploads/2018/08/2-1.png" alt=""> 由上图可以看出该函数在区间内分布着多个局部极值，这样如果使用普通的遗传算法很容易出现早熟的现象，因此多种群遗传算法比较适合。 该问题所使用到的遗传算法工具箱的函数列表：</p>
-<p>算子</p>
-<p>函数</p>
-<p>功能</p>
-<p>创建种群</p>
-<p>Crtbp</p>
-<p>创建基向量</p>
-<p>适应度计算</p>
-<p>Ranking</p>
-<p>常用的基于秩的适应度计算</p>
-<p>  选择函数</p>
-<p>Select</p>
-<p>高级选择函数</p>
-<p>Sus</p>
-<p>随机变异采样</p>
-<p>Reins</p>
-<p>一致随机和基于适应度的重插入</p>
-<p>交叉算子</p>
-<p>Recombin</p>
-<p>高级重组算子</p>
-<p>Xovsp</p>
-<p>单点交叉</p>
-<p>变异算子</p>
-<p>Mut</p>
-<p>离散变异</p>
-<p>  <strong>移民算子</strong> 函数名为immigrant，函数的输入、输出参数如下：</p>
-<p>变量名</p>
-<p>类型</p>
-<p>意义</p>
-<p>输入参数</p>
-<p>Chrom</p>
-<p>Cell</p>
-<p>每个元细胞单元为一个种群的编码（移民前）</p>
-<p>ObjV</p>
-<p>Cell</p>
-<p>每个元细胞为一个种群所有个体的目标值（移民前）</p>
-<p>输出参数</p>
-<p>Chrom</p>
-<p>Cell</p>
-<p>每个元细胞单元为一个种群的编码（移民后）</p>
-<p>ObjV</p>
-<p>Cell</p>
-<p>每个元细胞为一个种群所有个体的目标值（移民后）</p>
-<p>代码：</p>
-<p>function [Chrom,ObjV]=immigrant(Chrom,ObjV)<br>%% 移民算子<br>MP=length(Chrom); %得到种群个数<br>% 遍历每个种群寻找到其中的最优解<br>for i=1:MP<br>    [MaxO,maxI]=max(ObjV{i});  % 找出第i种群中最优的个体的值以及它的序号<br>    next_i=i+1;                % 目标种群（移民操作中） 到下一个种群<br>    if next_i&gt;MP % 如果 i的值大于总的种群个数 使用取模操作回到开头<br>        next_i=mod(next_i,MP);<br>    end<br>    [MinO,minI]=min(ObjV{next_i});          %  找出目标种群中最劣的个体<br>    %% 目标种群最劣个体替换为源种群最优个体<br>    Chrom{next_i}(minI,:)=Chrom{i}(maxI,:);<br>    ObjV{next_i}(minI)=ObjV{i}(maxI); %目标值的替换<br>end </p>
-<p><strong>人工选择算子</strong> 函数名为EliteInduvidual，函数的输入、输出参数如下：</p>
-<p>变量名</p>
-<p>意义</p>
-<p>输入参数</p>
-<p>Chrom</p>
-<p>每个元细胞单元为一个种群的编码（移民前）</p>
-<p>ObjV</p>
-<p>每个元细胞为一个种群所有个体的目标值（移民前）</p>
-<p>MaxObjV</p>
-<p>各个种群当前最优个体的目标值（选择前）</p>
-<p>MaxChrom</p>
-<p>各个种群当前最优个体的编码（选择前）</p>
-<p>输出参数</p>
-<p>MaxObjV</p>
-<p>各个种群当前最优个体的目标值（选择后）</p>
-<p>MaxChrom</p>
-<p>各个种群当前最优的编码（选择后）</p>
-<p>代码：</p>
-<p>function [MaxObjV,MaxChrom]=EliteInduvidual(Chrom,ObjV,MaxObjV,MaxChrom)<br>%% 人工选择算子<br>MP=length(Chrom);  %种群数<br>for i=1:MP<br>    [MaxO,maxI]=max(ObjV{i});   %找出第i种群中最优个体以及编号<br>    if MaxO&gt;MaxObjV(i) %如果选择出来的最优个体的目标值大于当前种群最优的目标值<br>        MaxObjV(i)=MaxO;         %记录各种群的精华个体<br>        MaxChrom(i,:)=Chrom{i}(maxI,:);  %记录各种群精华个体的编码<br>    end<br>end </p>
-<p><strong>目标函数</strong> 针对提出问题写出来的目标函数 代码：</p>
-<p>function obj=ObjectFunction(X)<br>%% 待优化的目标函数<br>col=size(X,1); %得到个体个数<br>for i=1:col %计算种群每个个体对应的目标值<br>    obj(i,1)=21.5+X(i,1)*sin(4*pi*X(i,1))+X(i,2)*sin(20*pi*X(i,2));<br>end </p>
-<p><strong>MPGA：</strong></p>
-<p>%% 2、多种群遗传算法<br>clear;<br>clc<br>NIND=40;               %个体数目<br>NVAR=2;                %变量的维数<br>PRECI=20;              %变量的二进制位数<br>GGAP=0.9;              %代沟<br>MP=10;                 %种群数目<br>FieldD=[rep(PRECI,[1,NVAR]);[-3,4.1;12.1,5.8];rep([1;0;1;1],[1,NVAR])];  %译码矩阵<br>for i=1:MP<br>    Chrom{i}=crtbp(NIND, NVAR<em>PRECI);                       %创建初始种群<br>end<br>pc=0.7+(0.9-0.7)</em>rand(MP,1);    %在【0.7,0.9】范围i内随机产生交叉概率<br>pm=0.001+(0.05-0.001)<em>rand(MP,1);  %在【0.001,0.05】范围内随机产生变异概率<br>gen=0;  %初始遗传代数<br>gen0=0; %初始保持代数<br>MAXGEN=10;  %最优个体最少保持代数<br>maxY=0; %最优值<br>for i=1:MP<br>    ObjV{i}=ObjectFunction(bs2rv(Chrom{i}, FieldD));%计算各初始种群个体的目标函数值<br>end<br>MaxObjV=zeros(MP,1);           %记录精华种群<br>MaxChrom=zeros(MP,PRECI</em>NVAR); %记录精华种群的编码<br>% 结束条件为如果进行MAXGEN+1次优秀的迭代 则结束循环（即每次得到的最优结果都比前面的值好）<br>while gen0&lt;=MAXGEN<br>    gen=gen+1;       %遗传代数加1<br>    for i=1:MP<br>        FitnV{i}=ranking(-ObjV{i});                      % 各种群的适应度<br>        SelCh{i}=select(‘sus’, Chrom{i}, FitnV{i},GGAP); % 选择操作<br>        SelCh{i}=recombin(‘xovsp’,SelCh{i}, pc(i));      % 交叉操作<br>        SelCh{i}=mut(SelCh{i},pm(i));                    % 变异操作<br>        ObjVSel=ObjectFunction(bs2rv(SelCh{i}, FieldD)); % 计算子代目标函数值<br>        [Chrom{i},ObjV{i}]=reins(Chrom{i},SelCh{i},1,1,ObjV{i},ObjVSel);    %重插入操作<br>    end<br>    [Chrom,ObjV]=immigrant(Chrom,ObjV);     % 移民操作<br>    [MaxObjV,MaxChrom]=EliteInduvidual(Chrom,ObjV,MaxObjV,MaxChrom);     % 人工选择精华种群<br>    YY(gen)=max(MaxObjV);    %找出精华种群中最优的个体<br>    if YY(gen)&gt;maxY   %判断当前优化值是否与前一次优化值相同<br>        maxY=YY(gen); %更新最优值<br>        gen0=0;<br>    else<br>        gen0=gen0+1; %最优值保持次数加1<br>    end<br>end<br>%% 进化过程图<br>plot(1:gen,YY);<br>xlabel(‘进化代数’)<br>ylabel(‘最优解变化’)<br>title(‘MPGA进化过程’)</p>
-<p>%% 输出最优解<br>[Y,I]=max(MaxObjV);    %找出精华种群中最优的个体<br>X=(bs2rv(MaxChrom(I,:), FieldD));   %最优个体的解码解<br>disp([‘最优值为：’,num2str(Y)])<br>disp([‘对应的自变量取值：’,num2str(X)]) </p>
-<p>结果： 最优值为：38.8503 对应的自变量取值：11.6255      5.72504 <img src="http://47.100.4.8/wp-content/uploads/2018/08/3-1.png" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/yi-chuan-suan-fa-de-zao-shu-wen-ti/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2676,6 +2421,284 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/yong-yi-chuan-suan-fa-ga-qiu-yi-yuan-han-shu-zui-xiao-zhi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/yong-yi-chuan-suan-fa-ga-qiu-yi-yuan-han-shu-zui-xiao-zhi/" itemprop="url">用遗传算法（GA）求一元函数最小值</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T13:09:42+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GA/" itemprop="url" rel="index">
+                    <span itemprop="name">GA</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GA/MatLab/" itemprop="url" rel="index">
+                    <span itemprop="name">MatLab</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GA/MatLab/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">优化算法</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GA/MatLab/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GA/MatLab/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E6%96%87%E7%AB%A0%E9%A1%B5/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://47.100.4.8/wp-content/uploads/2018/07/QQ%E5%9B%BE%E7%89%8720180710130810.png" alt=""> <strong>遗传算法简介：</strong> 该算法是一种进化算法，其基本原理是效仿生物界中的“物竞天择，适者生存”的演化原则，遗传算法是把问题参数编码为染色体，然后利用迭代的方式进行选择、交叉以及变异等运算来交换群中染色体的信息最终生成符合优化目标的染色体。   在遗传算法中，染色体对应的是数据或数组，通常是由一维的串结构数据来表示，串各个位置对应的基因的取值。基因组成的串就是染色体、或者称为基因型个体。一定数量的个体组成了群体。群体中个体的数目称为群体大小，也成为群体规模，而各个个体对应的适应程度叫做适应度。 **  遗传算法的步骤：**</p>
+<ul>
+<li>编码：将解空间的解数据表示成遗传算法的基因型串数据，串数据的组合便构成了解</li>
+<li>初始种群产生：随机产生N个基因型串数据，这N个染色体构成一个群体</li>
+<li>适应度评估：评价染色体个体的优劣性</li>
+<li>选择：从群体中选择出好的染色体，让它们生存下去，这样有机会把优良的基因遗传给子代。</li>
+<li>交叉：使用基因型的交叉可以得到新一代的个体</li>
+<li>变异：：变异首先在群体种随机选择一个个体，对于选中的个体以一定的概率随机地改变串结构数据中的某个值。</li>
+</ul>
+<p><strong>在Matlab中可以使用遗传算法工具箱（gatbx），关于工具箱安装我会出一个具体的博文。</strong> 介绍一下遗传算法工具箱的主要函数列表：</p>
+<p>函数分类</p>
+<p>函数</p>
+<p>功能  </p>
+<p>  选择函数</p>
+<p>reins</p>
+<p>一致随机和基于适应度的重插入</p>
+<p>rws</p>
+<p>轮盘选择</p>
+<p>select</p>
+<p>高级选择例程</p>
+<p>sus</p>
+<p>随机便利采样</p>
+<pre><code>交叉算子</code></pre><p>recdis</p>
+<p>离散重组</p>
+<p>recint</p>
+<p>中间重组</p>
+<p>recline</p>
+<p>线性重组</p>
+<p>recmut</p>
+<p>具有变异特征的线性重组</p>
+<p>recombin</p>
+<p>高级重组算子</p>
+<p>xovdp</p>
+<p>两点交叉算子</p>
+<p>xovdprs</p>
+<p>减少代理的两点交叉</p>
+<p>xovmp</p>
+<p>通常多点交叉</p>
+<p>xovsh</p>
+<p>洗牌交叉</p>
+<p>xovshrs</p>
+<p>减少代理的洗牌交叉</p>
+<p>xovsp</p>
+<p>单点交叉</p>
+<p>xovsprs</p>
+<p>减少代理的单点交叉</p>
+<p>  变异算子</p>
+<p>mut</p>
+<p>离散变异</p>
+<p>mutate</p>
+<p>高级变异函数</p>
+<p>mutbga</p>
+<p>减少代理的单点交叉</p>
+<p>子种群的支持</p>
+<p>migrate</p>
+<p>在子种群间交换个体</p>
+<p>实用函数</p>
+<p>bs2rv</p>
+<p>二进制串到实值的转换</p>
+<p>rep</p>
+<p>矩阵的复制</p>
+<p>  创建种群</p>
+<p>crtbase</p>
+<p>创建基向量</p>
+<p>crtbp</p>
+<p>创建任意离散随机种群</p>
+<p>crtrp</p>
+<p>创建实值初始种群</p>
+<p>硬度计算</p>
+<p>ranking</p>
+<p>基于排序的适用度分配</p>
+<p>scaling</p>
+<p>比率适应度计算</p>
+<p>  先用遗传算法解决简单的一元函数求最小值的问题：<img src="http://47.100.4.8/wp-content/uploads/2018/07/1-4.png" alt=""> 参数设置</p>
+<p>种群大小</p>
+<p>最大遗传代数</p>
+<p>个体长度</p>
+<p>代沟</p>
+<p>交叉概率</p>
+<p>变异概率</p>
+<p>40</p>
+<p>20</p>
+<p>20</p>
+<p>0.95</p>
+<p>0.7</p>
+<p>0.01</p>
+<p>代沟：上一代总数为100，通过选择之后剩下80（舍弃20），代沟 = 80/100 = 0.8 <strong>这里给出代码和注解：</strong></p>
+<p>clc<br>clear all<br>close all<br>%画出函数图<br>figure(1);  %设置控制窗口的名<br>hold on ; %保存axes内图像用的，确保之前的图像不会被新图像覆盖<br>lb = 1;<br>ub = 2;  %设置变量范围[1,2]<br>ezplot(‘sin(10*pi*x)/x’,[lb,ub]);  %根据变量范围画图<br>xlabel(‘自变量/x’)  %设置xy轴名称<br>ylabel(‘函数值/y’)</p>
+<p>%定义遗传算法参数<br>Nind = 40;  %种群大小<br>Lind = 20; %个体基因长度<br>MaxGen = 30; %遗传代数（迭代次数）<br>GGAP = 0.95 %代沟<br>px = 0.7; %交叉概率<br>pm = 0.01; %bianyigailv<br>FieldD = [Lind;lb;ub;1;0;1;1] %设置矩阵转换器配置<br>trace = zeros(2,MaxGen);  %用于记录每一代的最优解以及对应的x的值</p>
+<p>%初始化<br>Chrom = crtbp(Nind,Lind)  %创建任意离散随机种群<br>gen = 0; %迭代计数器<br>x = bs2rv(Chrom,FieldD); %将初始化中群转换为十进制<br>ObjV = sin(10*pi*x)./x;  %计算初始种群的对应的函数值<br>%进行迭代优化<br>while gen&lt;MaxGen<br>    FitnV = ranking(ObjV);  %计算适应度<br>    SelCh = select(‘sus’,Chrom,FitnV,GGAP);  %根据代沟选择遗传下来的个体数=（种群总书<em>代沟）<br>    SelCh = recombin(‘xovsp’,SelCh,px);  %进行交叉重组<br>    SelCh = mut(SelCh,pm);  %进行变异，只是有一定几率变异<br>    x = bs2rv(SelCh,FieldD); %重新计算新生成的子代的十进制群<br>    ObjVSel = sin(10\</em>pi*x)./x;  %计算子代的函数值<br>    [Chrom,ObjV] = reins(Chrom,SelCh,1,1,ObjV,ObjVSel); %重新将子代插入到父代中，得到新的种群<br>    x = bs2rv(Chrom,FieldD); %求出新的种群对应的函数值<br>    gen = gen+1; %迭代次数+1<br>    %获得没代最优解以及序号<br>    [Y,I] = min(ObjV);  %Y为最优解  I为个体的序号<br>    trace(1,gen) = x(I); %记录最优解对应x的值<br>    trace(2,gen) = Y;  %记录下最优解的值<br>end</p>
+<p>plot(trace(1,:),trace(2,:),’bo’);   %根据每代的最优点画出图形<br>grid on;<br>plot(x,ObjV,’b*’);  %画出最后一代的种群<br>hold off;</p>
+<p>%画出进化图<br>figure(2);<br>plot(1:MaxGen,trace(2,:));<br>grid on;<br>xlabel(‘遗传代数’);<br>ylabel(‘解的变化’);<br>title(‘进化过程’);<br>bestY = trace(2,end);<br>bestX = trace(1,end);<br>fprintf([‘最优解：\nx=’,num2str(bestX),’\ny=’,num2str(bestY),’\n’]);</p>
+<p><strong>结果：（这里是进行30次的结果）</strong> <img src="http://47.100.4.8/wp-content/uploads/2018/07/2-2.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/07/3-1.png" alt=""> 有上面的结果可以看出随着迭代次数的增加，结果趋于稳定，我自己也试了迭代100次的结果到后面几乎就是一条平的线。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2726,7 +2749,7 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-count">251</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
