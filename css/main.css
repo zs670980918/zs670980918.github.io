@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff74;
+  background: #8ecfff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3122,8 +3122,18 @@ pre .javascript .function {
   }
 }
 body {
-  background: url("https://gitee.com/zyp521/upload_image/raw/master/wallhaven-gj7yl3.png");
-  background-repeat: no-repeat;
+  background-image: url("https://gitee.com/zyp521/upload_image/raw/master/wallhaven-gj7yl3.png");
   background-attachment: fixed;
-  background-position: 20% 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body ；,
+body #header {
+  opacity: 0.9;
+}
+body .main-inner {
+  opacity: 0.9;
+}
+body .main {
+  margin-bottom: 45px;
 }

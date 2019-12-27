@@ -40,8 +40,8 @@
   
   <entry>
     <title>装饰模式编程实现</title>
-    <link href="https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/"/>
-    <id>https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/</id>
+    <link href="https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian/"/>
+    <id>https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian/</id>
     <published>2019-05-13T07:04:12.000Z</published>
     <updated>2019-05-13T07:04:12.000Z</updated>
     
@@ -74,8 +74,8 @@
   
   <entry>
     <title>装饰模式编程实现</title>
-    <link href="https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian/"/>
-    <id>https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian/</id>
+    <link href="https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/"/>
+    <id>https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/</id>
     <published>2019-05-13T07:04:12.000Z</published>
     <updated>2019-05-13T07:04:12.000Z</updated>
     
@@ -172,42 +172,6 @@
   
   <entry>
     <title>生成器模式和原型模式编程实现</title>
-    <link href="https://zs670980918.github.io/2019/05/06/sheng-cheng-qi-mo-shi-he-yuan-xing-mo-shi-bian-cheng-shi-xian-1/"/>
-    <id>https://zs670980918.github.io/2019/05/06/sheng-cheng-qi-mo-shi-he-yuan-xing-mo-shi-bian-cheng-shi-xian-1/</id>
-    <published>2019-05-06T04:36:54.000Z</published>
-    <updated>2019-05-06T04:36:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>1、生成器模式的原理：</p><ul><li>Builder</li></ul><p>为创建一个Product对象的各个部件指定抽象接口</p><ul><li>ConcreteBuilder</li></ul><p>实现Builder的接口以构造和装配该产品的各个部件 定义并明确它所创建的表示 提供一个检索产品的接口</p><ul><li>Director</li></ul><p>构造一个使用Builder接口的对象</p><ul><li>Product</li></ul><p>表示被构造的复杂对象。ConcreteBuilder创建该产品的内部表示并定义它的装配过程。 包含定义组成部件的类，包括将这些部件装配成最终产品的接口 <strong>结构图：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/1.png" alt=""> <strong>2、原型模式原理：</strong></p><ul><li>Prototype</li></ul><p>声明一个克隆自身的接口</p><ul><li>ConcretePrototype</li></ul><p>实现一个克隆自身的操作</p><ul><li>Client</li></ul><p>让一个原型克隆自身从而创建一个新的对象 <strong>结构图：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/2.png" alt=""> <strong>题目要求：</strong> 使用生成器模式模拟实现IBM电脑的生产，其中IBM电脑的主要结构用如下表示： class IBM{   string monitor=”IBM的显示器”;   string keyboard=”IBM的键盘”;   string mouse=”IBM的鼠标”;   Motherboard* MB;   void display(); } 其中MB是一个主板类，其主要结构如下： class Motherboard{ string CPU; string RAM; } 即主板包含CPU和RAM。display是一个打印各个组件的函数，主要用于检查是否生产正确。 建造顺序为先生产主板，再依次生产显示器、键盘和鼠标。 使用生成器模式生产出第一台IBM电脑后，利用原型模式，将该电脑再复制两台。 <strong>UML类图：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/3.jpg" alt=""> <strong>代码：</strong></p><p>#include<iostream><br>#include&lt;string.h&gt;</p><p>using namespace std;</p><p>//Product<br>//主板<br>class Motherboard{<br>public:<br>    Motherboard(){}<br>    string CPU;<br>    string RAM;<br>    void set_CPU(string CPU){<br>      this-&gt;CPU = CPU;<br>    }<br>    void set_RAM(string RAM){<br>      this-&gt;RAM = RAM;<br>    }<br>    void display(){<br>        cout&lt;&lt;”Elements of motherboards!”&lt;&lt;endl;<br>        cout&lt;&lt;”CPU:”&lt;&lt;CPU&lt;&lt;endl;<br>        cout&lt;&lt;”RAM:”&lt;&lt;RAM&lt;&lt;endl;<br>    }<br>    Motherboard* Clone(){<br>        return new Motherboard(<em>this);<br>    }<br>private:<br>    Motherboard(Motherboard</em> tt){<br>        tt-&gt;CPU = CPU;<br>        tt-&gt;RAM = RAM;<br>    }<br>};<br>//IBM<br>class IBM{<br>public:<br>  IBM(){<br>      MB = new Motherboard();<br>  }<br>  Motherboard* MB;<br>  string monitor;<br>  string keyboard;<br>  string mouse;<br>  void set_monitor(string monitor){<br>      this-&gt;monitor = monitor;<br>  }<br>  void set_keyboard(string keyboard){<br>      this-&gt;keyboard = keyboard;<br>  }<br>  void set_mouse(string mouse){<br>      this-&gt;mouse = mouse;<br>  }<br>  void display(){<br>      MB-&gt;display();<br>      cout&lt;&lt;”IBM’s monitor:”&lt;&lt;monitor&lt;&lt;endl;<br>      cout&lt;&lt;”IBM’s keyboard:”&lt;&lt;keyboard&lt;&lt;endl;<br>      cout&lt;&lt;”IBM’s mouse:”&lt;&lt;mouse&lt;&lt;endl;<br>      cout&lt;&lt;”IBM has produced!”&lt;&lt;endl;<br>  };<br>  IBM* Clone(){<br>      IBM* obj = new IBM();<br>      obj-&gt;MB = MB-&gt;Clone();<br>      obj-&gt;monitor = monitor;<br>      obj-&gt;keyboard = keyboard;<br>      obj-&gt;mouse = mouse;<br>      return obj;<br>  }<br>};</p><p>//Builder<br>class IBM_Builder{<br>public:<br>    virtual void BuildPart_Motherboard()=0;<br>    virtual void BuildPart_monitor()=0;<br>    virtual void BuildPart_keyboard()=0;<br>    virtual void BuildPart_mouse()=0;<br>    virtual IBM* GetComputer()=0;<br>};</p><p>//ConcreteBuilder<br>class IBM_ConcreteBuilder:public IBM_Builder{<br>public:<br>    void BuildPart_Motherboard(){<br>        computer-&gt;MB-&gt;set_CPU(“i9-9900K”);<br>        computer-&gt;MB-&gt;set_RAM(“Kingston 3800MHZ”);<br>    }<br>    void BuildPart_monitor(){<br>        computer-&gt;set_monitor(“SamSung”);<br>    }<br>    void BuildPart_keyboard(){<br>        computer-&gt;set_keyboard(“cherry”);<br>    }<br>    void BuildPart_mouse(){<br>        computer-&gt;set_mouse(“G903”);<br>    }<br>    IBM* GetComputer(){<br>        return computer;<br>    }<br>private:<br>    IBM* computer = new IBM();<br>};</p><p>//Director<br>class IBM_Director{<br>public:<br>    void Construct(IBM_Builder *builder){<br>        builder-&gt;BuildPart_Motherboard();<br>        builder-&gt;BuildPart_monitor();<br>        builder-&gt;BuildPart_keyboard();<br>        builder-&gt;BuildPart_mouse();<br>    }<br>};</p><p>int main(){<br>    IBM_ConcreteBuilder* t1 = new IBM_ConcreteBuilder();<br>    IBM_Director* t2 = new IBM_Director();<br>    t2-&gt;Construct(t1);<br>    IBM *p1 = t1-&gt;GetComputer();<br>    p1-&gt;display();<br>    IBM *p2 = p1-&gt;Clone();<br>    p2-&gt;display();<br>    IBM *p3 = p1-&gt;Clone();<br>    p3-&gt;display();<br>    p3-&gt;set_monitor(“1111”);<br>    p3-&gt;display();<br>    p1-&gt;display();<br>    return 0;<br>}</p><p><strong>结果：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/4.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1、生成器模式的原理：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Builder&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;为创建一个Product对象的各个部件指定抽象接口&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ConcreteBuilder&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;实现Builder的接口以构造和装配该产品
-      
-    
-    </summary>
-    
-    
-      <category term="C&amp;amp;C++" scheme="https://zs670980918.github.io/categories/C-amp-C/"/>
-    
-      <category term="文章页" scheme="https://zs670980918.github.io/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
-    
-      <category term="设计模式" scheme="https://zs670980918.github.io/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>生成器模式和原型模式编程实现</title>
     <link href="https://zs670980918.github.io/2019/05/06/sheng-cheng-qi-mo-shi-he-yuan-xing-mo-shi-bian-cheng-shi-xian/"/>
     <id>https://zs670980918.github.io/2019/05/06/sheng-cheng-qi-mo-shi-he-yuan-xing-mo-shi-bian-cheng-shi-xian/</id>
     <published>2019-05-06T04:36:54.000Z</published>
@@ -243,29 +207,37 @@
   </entry>
   
   <entry>
-    <title>Windows下配置VSCode</title>
-    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/"/>
-    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/</id>
-    <published>2019-04-17T11:46:00.000Z</published>
-    <updated>2019-04-17T11:46:00.000Z</updated>
+    <title>生成器模式和原型模式编程实现</title>
+    <link href="https://zs670980918.github.io/2019/05/06/sheng-cheng-qi-mo-shi-he-yuan-xing-mo-shi-bian-cheng-shi-xian-1/"/>
+    <id>https://zs670980918.github.io/2019/05/06/sheng-cheng-qi-mo-shi-he-yuan-xing-mo-shi-bian-cheng-shi-xian-1/</id>
+    <published>2019-05-06T04:36:54.000Z</published>
+    <updated>2019-05-06T04:36:54.000Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>弄了很久总算搞好了，这里分享一下，QWQ</strong> 一、软件安装 先去VSCode官网下载安装包 地址为：<a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a> 二、安装配置插件 先打开VSCode，打开扩展程序安装并安装如下插件： <img src="http://47.100.4.8/wp-content/uploads/2019/04/1-1.png" alt=""> 其中C/C++、C/C++ Clang和Code Runner是必备的，如果你需要中文版则可以安装Chinese language这个插件安装好后要重启以下VSCode 三、安装MinGW 首先如果没有codeblock或者DevC++的则可以考虑去官网下载MinGW的安装程序 网址为：<a href="https://osdn.net/projects/mingw/releases/p15522" target="_blank" rel="noopener">https://osdn.net/projects/mingw/releases/p15522</a> 具体安装过程详见：<a href="https://blog.csdn.net/bat67/article/details/76095813" target="_blank" rel="noopener">https://blog.csdn.net/bat67/article/details/76095813</a> 这里由于我已经安装过CodeBlock则不需要再次安装了，也就不过多的说了。 四、配置系统环境变量 如图操作即可，记得配置完环境变量要重启VSCode <img src="http://47.100.4.8/wp-content/uploads/2019/04/2-1.png" alt=""> 五、配置c_cpp_properties.json文件 首先要创建一个工作环境的文件夹，然后在这里面通过设置调出该文件，按照如下配置即可 <img src="http://47.100.4.8/wp-content/uploads/2019/04/QQ%E5%9B%BE%E7%89%8720190417194139.png" alt=""> 这里需要注意的是添加如下一行代码即可：</p><p>“E:/codeblock/CodeBlocks/MinGW/include/**”</p><p>添加完成之后在工作区创建一个Cpp文件使用运行即可。</p>]]></content>
+    <content type="html"><![CDATA[<p>1、生成器模式的原理：</p><ul><li>Builder</li></ul><p>为创建一个Product对象的各个部件指定抽象接口</p><ul><li>ConcreteBuilder</li></ul><p>实现Builder的接口以构造和装配该产品的各个部件 定义并明确它所创建的表示 提供一个检索产品的接口</p><ul><li>Director</li></ul><p>构造一个使用Builder接口的对象</p><ul><li>Product</li></ul><p>表示被构造的复杂对象。ConcreteBuilder创建该产品的内部表示并定义它的装配过程。 包含定义组成部件的类，包括将这些部件装配成最终产品的接口 <strong>结构图：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/1.png" alt=""> <strong>2、原型模式原理：</strong></p><ul><li>Prototype</li></ul><p>声明一个克隆自身的接口</p><ul><li>ConcretePrototype</li></ul><p>实现一个克隆自身的操作</p><ul><li>Client</li></ul><p>让一个原型克隆自身从而创建一个新的对象 <strong>结构图：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/2.png" alt=""> <strong>题目要求：</strong> 使用生成器模式模拟实现IBM电脑的生产，其中IBM电脑的主要结构用如下表示： class IBM{   string monitor=”IBM的显示器”;   string keyboard=”IBM的键盘”;   string mouse=”IBM的鼠标”;   Motherboard* MB;   void display(); } 其中MB是一个主板类，其主要结构如下： class Motherboard{ string CPU; string RAM; } 即主板包含CPU和RAM。display是一个打印各个组件的函数，主要用于检查是否生产正确。 建造顺序为先生产主板，再依次生产显示器、键盘和鼠标。 使用生成器模式生产出第一台IBM电脑后，利用原型模式，将该电脑再复制两台。 <strong>UML类图：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/3.jpg" alt=""> <strong>代码：</strong></p><p>#include<iostream><br>#include&lt;string.h&gt;</p><p>using namespace std;</p><p>//Product<br>//主板<br>class Motherboard{<br>public:<br>    Motherboard(){}<br>    string CPU;<br>    string RAM;<br>    void set_CPU(string CPU){<br>      this-&gt;CPU = CPU;<br>    }<br>    void set_RAM(string RAM){<br>      this-&gt;RAM = RAM;<br>    }<br>    void display(){<br>        cout&lt;&lt;”Elements of motherboards!”&lt;&lt;endl;<br>        cout&lt;&lt;”CPU:”&lt;&lt;CPU&lt;&lt;endl;<br>        cout&lt;&lt;”RAM:”&lt;&lt;RAM&lt;&lt;endl;<br>    }<br>    Motherboard* Clone(){<br>        return new Motherboard(<em>this);<br>    }<br>private:<br>    Motherboard(Motherboard</em> tt){<br>        tt-&gt;CPU = CPU;<br>        tt-&gt;RAM = RAM;<br>    }<br>};<br>//IBM<br>class IBM{<br>public:<br>  IBM(){<br>      MB = new Motherboard();<br>  }<br>  Motherboard* MB;<br>  string monitor;<br>  string keyboard;<br>  string mouse;<br>  void set_monitor(string monitor){<br>      this-&gt;monitor = monitor;<br>  }<br>  void set_keyboard(string keyboard){<br>      this-&gt;keyboard = keyboard;<br>  }<br>  void set_mouse(string mouse){<br>      this-&gt;mouse = mouse;<br>  }<br>  void display(){<br>      MB-&gt;display();<br>      cout&lt;&lt;”IBM’s monitor:”&lt;&lt;monitor&lt;&lt;endl;<br>      cout&lt;&lt;”IBM’s keyboard:”&lt;&lt;keyboard&lt;&lt;endl;<br>      cout&lt;&lt;”IBM’s mouse:”&lt;&lt;mouse&lt;&lt;endl;<br>      cout&lt;&lt;”IBM has produced!”&lt;&lt;endl;<br>  };<br>  IBM* Clone(){<br>      IBM* obj = new IBM();<br>      obj-&gt;MB = MB-&gt;Clone();<br>      obj-&gt;monitor = monitor;<br>      obj-&gt;keyboard = keyboard;<br>      obj-&gt;mouse = mouse;<br>      return obj;<br>  }<br>};</p><p>//Builder<br>class IBM_Builder{<br>public:<br>    virtual void BuildPart_Motherboard()=0;<br>    virtual void BuildPart_monitor()=0;<br>    virtual void BuildPart_keyboard()=0;<br>    virtual void BuildPart_mouse()=0;<br>    virtual IBM* GetComputer()=0;<br>};</p><p>//ConcreteBuilder<br>class IBM_ConcreteBuilder:public IBM_Builder{<br>public:<br>    void BuildPart_Motherboard(){<br>        computer-&gt;MB-&gt;set_CPU(“i9-9900K”);<br>        computer-&gt;MB-&gt;set_RAM(“Kingston 3800MHZ”);<br>    }<br>    void BuildPart_monitor(){<br>        computer-&gt;set_monitor(“SamSung”);<br>    }<br>    void BuildPart_keyboard(){<br>        computer-&gt;set_keyboard(“cherry”);<br>    }<br>    void BuildPart_mouse(){<br>        computer-&gt;set_mouse(“G903”);<br>    }<br>    IBM* GetComputer(){<br>        return computer;<br>    }<br>private:<br>    IBM* computer = new IBM();<br>};</p><p>//Director<br>class IBM_Director{<br>public:<br>    void Construct(IBM_Builder *builder){<br>        builder-&gt;BuildPart_Motherboard();<br>        builder-&gt;BuildPart_monitor();<br>        builder-&gt;BuildPart_keyboard();<br>        builder-&gt;BuildPart_mouse();<br>    }<br>};</p><p>int main(){<br>    IBM_ConcreteBuilder* t1 = new IBM_ConcreteBuilder();<br>    IBM_Director* t2 = new IBM_Director();<br>    t2-&gt;Construct(t1);<br>    IBM *p1 = t1-&gt;GetComputer();<br>    p1-&gt;display();<br>    IBM *p2 = p1-&gt;Clone();<br>    p2-&gt;display();<br>    IBM *p3 = p1-&gt;Clone();<br>    p3-&gt;display();<br>    p3-&gt;set_monitor(“1111”);<br>    p3-&gt;display();<br>    p1-&gt;display();<br>    return 0;<br>}</p><p><strong>结果：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/4.png" alt=""></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;strong&gt;弄了很久总算搞好了，这里分享一下，QWQ&lt;/strong&gt; 一、软件安装 先去VSCode官网下载安装包 地址为：&lt;a href=&quot;https://code.visualstudio.com/Download&quot; target=&quot;_blank&quot; rel=&quot;no
+        &lt;p&gt;1、生成器模式的原理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Builder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为创建一个Product对象的各个部件指定抽象接口&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ConcreteBuilder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;实现Builder的接口以构造和装配该产品
       
     
     </summary>
     
     
-      <category term="VSCode" scheme="https://zs670980918.github.io/categories/VSCode/"/>
+      <category term="C&amp;amp;C++" scheme="https://zs670980918.github.io/categories/C-amp-C/"/>
     
-      <category term="文章页" scheme="https://zs670980918.github.io/categories/VSCode/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
+      <category term="文章页" scheme="https://zs670980918.github.io/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
     
-      <category term="软件分享" scheme="https://zs670980918.github.io/categories/VSCode/%E6%96%87%E7%AB%A0%E9%A1%B5/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/"/>
+      <category term="设计模式" scheme="https://zs670980918.github.io/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -299,9 +271,37 @@
   </entry>
   
   <entry>
+    <title>Windows下配置VSCode</title>
+    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/"/>
+    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/</id>
+    <published>2019-04-17T11:46:00.000Z</published>
+    <updated>2019-04-17T11:46:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>弄了很久总算搞好了，这里分享一下，QWQ</strong> 一、软件安装 先去VSCode官网下载安装包 地址为：<a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a> 二、安装配置插件 先打开VSCode，打开扩展程序安装并安装如下插件： <img src="http://47.100.4.8/wp-content/uploads/2019/04/1-1.png" alt=""> 其中C/C++、C/C++ Clang和Code Runner是必备的，如果你需要中文版则可以安装Chinese language这个插件安装好后要重启以下VSCode 三、安装MinGW 首先如果没有codeblock或者DevC++的则可以考虑去官网下载MinGW的安装程序 网址为：<a href="https://osdn.net/projects/mingw/releases/p15522" target="_blank" rel="noopener">https://osdn.net/projects/mingw/releases/p15522</a> 具体安装过程详见：<a href="https://blog.csdn.net/bat67/article/details/76095813" target="_blank" rel="noopener">https://blog.csdn.net/bat67/article/details/76095813</a> 这里由于我已经安装过CodeBlock则不需要再次安装了，也就不过多的说了。 四、配置系统环境变量 如图操作即可，记得配置完环境变量要重启VSCode <img src="http://47.100.4.8/wp-content/uploads/2019/04/2-1.png" alt=""> 五、配置c_cpp_properties.json文件 首先要创建一个工作环境的文件夹，然后在这里面通过设置调出该文件，按照如下配置即可 <img src="http://47.100.4.8/wp-content/uploads/2019/04/QQ%E5%9B%BE%E7%89%8720190417194139.png" alt=""> 这里需要注意的是添加如下一行代码即可：</p><p>“E:/codeblock/CodeBlocks/MinGW/include/**”</p><p>添加完成之后在工作区创建一个Cpp文件使用运行即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;弄了很久总算搞好了，这里分享一下，QWQ&lt;/strong&gt; 一、软件安装 先去VSCode官网下载安装包 地址为：&lt;a href=&quot;https://code.visualstudio.com/Download&quot; target=&quot;_blank&quot; rel=&quot;no
+      
+    
+    </summary>
+    
+    
+      <category term="VSCode" scheme="https://zs670980918.github.io/categories/VSCode/"/>
+    
+      <category term="文章页" scheme="https://zs670980918.github.io/categories/VSCode/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
+    
+      <category term="软件分享" scheme="https://zs670980918.github.io/categories/VSCode/%E6%96%87%E7%AB%A0%E9%A1%B5/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>抽象工厂模式与单件模式编程实现</title>
-    <link href="https://zs670980918.github.io/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian-1/"/>
-    <id>https://zs670980918.github.io/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian-1/</id>
+    <link href="https://zs670980918.github.io/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian/"/>
+    <id>https://zs670980918.github.io/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian/</id>
     <published>2019-04-14T05:20:58.000Z</published>
     <updated>2019-04-14T05:20:58.000Z</updated>
     
@@ -328,8 +328,8 @@
   
   <entry>
     <title>抽象工厂模式与单件模式编程实现</title>
-    <link href="https://zs670980918.github.io/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian/"/>
-    <id>https://zs670980918.github.io/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian/</id>
+    <link href="https://zs670980918.github.io/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian-1/"/>
+    <id>https://zs670980918.github.io/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian-1/</id>
     <published>2019-04-14T05:20:58.000Z</published>
     <updated>2019-04-14T05:20:58.000Z</updated>
     
@@ -412,34 +412,6 @@
   
   <entry>
     <title>Pat_1001（甲级）</title>
-    <link href="https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji/"/>
-    <id>https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji/</id>
-    <published>2019-03-25T15:17:04.000Z</published>
-    <updated>2019-03-25T15:17:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>1001 A+B Format （20 分) <a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400" target="_blank" rel="noopener">原文地址</a></p><p>Calculate a+b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).</p><h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. Each case contains a pair of integers a and b where −10​6​​≤a,b≤10​6​​. The numbers are separated by a space.</p><h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.</p><h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><pre><code>-1000000 9</code></pre><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><pre><code>-999,991</code></pre><p>代码：（这里自己写过一个可以使所有数据进行相加减的大数运算 但是会发生time out 因此这个参考了网上大佬写的，基本上能看懂所以在这里就贴大佬的了）</p><p>#include<iostream><br>#include<cstdio><br>#include<cmath><br>#include<cstring><br>using namespace std;<br>int main(){<br>    int a,b;<br>    cin&gt;&gt;a&gt;&gt;b;<br>    int c=a+b;<br>    if(c&lt;0) cout&lt;&lt;’-‘;<br>    c=abs(c);<br>    char s[20];<br>    sprintf(s,”%d”,c);<br>    int len=strlen(s);<br>    //if(len&lt;=3) {cout&lt;&lt;s;return 0;}<br>    int m=len/3,n=len%3,start=0;<br>    //cout&lt;&lt;”m=”&lt;&lt;m&lt;&lt;’ ‘&lt;&lt;”n=”&lt;&lt;n&lt;&lt;endl;<br>    if(n==0) {cout&lt;&lt;s[0]&lt;&lt;s[1]&lt;&lt;s[2];start=3;m–;}<br>    else if(n==1) {cout&lt;&lt;s[0];start=1;}<br>    else if(n==2) {cout&lt;&lt;s[0]&lt;&lt;s[1];start=2;}<br>    while(m!=0){<br>        cout&lt;&lt;’,’;<br>        cout&lt;&lt;s[start]&lt;&lt;s[start+1]&lt;&lt;s[start+2];<br>        start+=3;<br>        m–;<br>    }<br>    return 0;<br>}</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1001 A+B Format （20 分) &lt;a href=&quot;https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400&quot; target=&quot;_blank&quot; rel=&quot;noope
-      
-    
-    </summary>
-    
-    
-      <category term="PAT" scheme="https://zs670980918.github.io/categories/PAT/"/>
-    
-      <category term="乙级" scheme="https://zs670980918.github.io/categories/PAT/%E4%B9%99%E7%BA%A7/"/>
-    
-      <category term="文章页" scheme="https://zs670980918.github.io/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Pat_1001（甲级）</title>
     <link href="https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji-1/"/>
     <id>https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji-1/</id>
     <published>2019-03-25T15:17:04.000Z</published>
@@ -467,9 +439,37 @@
   </entry>
   
   <entry>
+    <title>Pat_1001（甲级）</title>
+    <link href="https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji/"/>
+    <id>https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji/</id>
+    <published>2019-03-25T15:17:04.000Z</published>
+    <updated>2019-03-25T15:17:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>1001 A+B Format （20 分) <a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400" target="_blank" rel="noopener">原文地址</a></p><p>Calculate a+b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).</p><h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. Each case contains a pair of integers a and b where −10​6​​≤a,b≤10​6​​. The numbers are separated by a space.</p><h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.</p><h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><pre><code>-1000000 9</code></pre><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><pre><code>-999,991</code></pre><p>代码：（这里自己写过一个可以使所有数据进行相加减的大数运算 但是会发生time out 因此这个参考了网上大佬写的，基本上能看懂所以在这里就贴大佬的了）</p><p>#include<iostream><br>#include<cstdio><br>#include<cmath><br>#include<cstring><br>using namespace std;<br>int main(){<br>    int a,b;<br>    cin&gt;&gt;a&gt;&gt;b;<br>    int c=a+b;<br>    if(c&lt;0) cout&lt;&lt;’-‘;<br>    c=abs(c);<br>    char s[20];<br>    sprintf(s,”%d”,c);<br>    int len=strlen(s);<br>    //if(len&lt;=3) {cout&lt;&lt;s;return 0;}<br>    int m=len/3,n=len%3,start=0;<br>    //cout&lt;&lt;”m=”&lt;&lt;m&lt;&lt;’ ‘&lt;&lt;”n=”&lt;&lt;n&lt;&lt;endl;<br>    if(n==0) {cout&lt;&lt;s[0]&lt;&lt;s[1]&lt;&lt;s[2];start=3;m–;}<br>    else if(n==1) {cout&lt;&lt;s[0];start=1;}<br>    else if(n==2) {cout&lt;&lt;s[0]&lt;&lt;s[1];start=2;}<br>    while(m!=0){<br>        cout&lt;&lt;’,’;<br>        cout&lt;&lt;s[start]&lt;&lt;s[start+1]&lt;&lt;s[start+2];<br>        start+=3;<br>        m–;<br>    }<br>    return 0;<br>}</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1001 A+B Format （20 分) &lt;a href=&quot;https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400&quot; target=&quot;_blank&quot; rel=&quot;noope
+      
+    
+    </summary>
+    
+    
+      <category term="PAT" scheme="https://zs670980918.github.io/categories/PAT/"/>
+    
+      <category term="乙级" scheme="https://zs670980918.github.io/categories/PAT/%E4%B9%99%E7%BA%A7/"/>
+    
+      <category term="文章页" scheme="https://zs670980918.github.io/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Pat_1095（乙级）</title>
-    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/"/>
-    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/</id>
+    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/"/>
+    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/</id>
     <published>2019-03-18T03:36:54.000Z</published>
     <updated>2019-03-18T03:36:54.000Z</updated>
     
@@ -496,8 +496,8 @@
   
   <entry>
     <title>Pat_1095（乙级）</title>
-    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/"/>
-    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/</id>
+    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/"/>
+    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/</id>
     <published>2019-03-18T03:36:54.000Z</published>
     <updated>2019-03-18T03:36:54.000Z</updated>
     

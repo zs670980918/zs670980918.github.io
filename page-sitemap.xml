@@ -43,13 +43,6 @@
     </url>
     
     <url>
-        <loc>https://zs670980918.github.io/zai-xian-gong-ju/</loc>
-        <lastmod>2018-06-05T10:06:09.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
         <loc>https://zs670980918.github.io/zai-xian-gong-ju/index-1.html</loc>
         <lastmod>2018-06-05T10:06:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -57,8 +50,8 @@
     </url>
     
     <url>
-        <loc>https://zs670980918.github.io/di-qiu-fang-ke/</loc>
-        <lastmod>2018-03-16T04:31:04.000Z</lastmod>
+        <loc>https://zs670980918.github.io/zai-xian-gong-ju/</loc>
+        <lastmod>2018-06-05T10:06:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -71,14 +64,21 @@
     </url>
     
     <url>
-        <loc>https://zs670980918.github.io/tong-ji/</loc>
-        <lastmod>2018-03-04T03:26:19.000Z</lastmod>
+        <loc>https://zs670980918.github.io/di-qiu-fang-ke/</loc>
+        <lastmod>2018-03-16T04:31:04.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://zs670980918.github.io/tong-ji/index-1.html</loc>
+        <lastmod>2018-03-04T03:26:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://zs670980918.github.io/tong-ji/</loc>
         <lastmod>2018-03-04T03:26:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -99,14 +99,14 @@
     </url>
     
     <url>
-        <loc>https://zs670980918.github.io/wen-zhang-ye/index-1.html</loc>
+        <loc>https://zs670980918.github.io/wen-zhang-ye/</loc>
         <lastmod>2018-03-04T01:47:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://zs670980918.github.io/wen-zhang-ye/</loc>
+        <loc>https://zs670980918.github.io/wen-zhang-ye/index-1.html</loc>
         <lastmod>2018-03-04T01:47:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
