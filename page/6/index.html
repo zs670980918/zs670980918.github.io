@@ -192,7 +192,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -202,7 +202,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/%20" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -212,7 +212,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/%20" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -222,7 +222,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/%20" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -232,7 +232,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -242,7 +242,7 @@
       
         
         <li class="menu-item menu-item-schedule">
-          <a href="/schedule/%20" rel="section">
+          <a href="/schedule/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
@@ -252,7 +252,7 @@
       
         
         <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml%20" rel="section">
+          <a href="/sitemap.xml" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
             
@@ -262,9 +262,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -293,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1053-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1078-yi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -312,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/18/pat-1053-yi-ji/" itemprop="url">Pat_1053（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1078-yi-ji/" itemprop="url">Pat_1078（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -324,7 +358,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:34:29+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:16:17+08:00">
                 2019-03-18
               </time>
             
@@ -408,27 +442,16 @@
       
         
           
-            <p>1053 住房空置率 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805273284165632" target="_blank" rel="noopener">原文地址</a></p>
-<p>在不打扰居民的前提下，统计住房空置率的一种方法是根据每户用电量的连续变化规律进行判断。判断方法如下：</p>
-<ul>
-<li>在观察期内，若存在超过一半的日子用电量低于某给定的阈值 e，则该住房为“可能空置”；</li>
-<li>若观察期超过某给定阈值 D 天，且满足上一个条件，则该住房为“空置”。</li>
-</ul>
-<p>现给定某居民区的住户用电量数据，请你统计“可能空置”的比率和“空置”比率，即以上两种状态的住房占居民区住房总套数的百分比。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出正整数 N（≤1000），为居民区住房总套数；正实数 e，即低电量阈值；正整数 D，即观察期阈值。随后 N 行，每行按以下格式给出一套住房的用电量数据： K E​1​​ E​2​​ … E​K​​ 其中 K 为观察的天数，E​i​​ 为第 i 天的用电量。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出“可能空置”的比率和“空置”比率的百分比值，其间以一个空格分隔，保留小数点后 1 位。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>5 0.5 10
-6 0.3 0.4 0.5 0.2 0.8 0.6
-10 0.0 0.1 0.2 0.3 0.0 0.8 0.6 0.7 0.0 0.5
-5 0.4 0.3 0.5 0.1 0.7
-11 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
-11 2 2 2 1 1 0.1 1 0.1 0.1 0.1 0.1</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>40.0% 20.0%</code></pre><p>（样例解释：第2、3户为“可能空置”，第4户为“空置”，其他户不是空置。）</p>
-<p>代码：</p>
-<p>#include<iostream><br>#include<cstdio></p>
-<p>using namespace std;</p>
-<p>int main(){<br>    int num;<br>    float e,D,maybe_num=0,must_num=0;<br>    cin&gt;&gt;num&gt;&gt;e&gt;&gt;D;<br>    for(int i=0;i&lt;num;i++){<br>        bool maybe_flag = false,must_flag = false;<br>        int temp;<br>        float t=0,sum=0;<br>        cin&gt;&gt;temp;<br>        for(int j=0;j&lt;temp;j++){<br>            cin&gt;&gt;t;<br>            if(t &lt; e){<br>                sum++;<br>            }<br>        }<br>        if(sum &gt; temp/2){<br>            maybe_flag = true;<br>        }<br>        if(maybe_flag &amp;&amp; temp &gt; D){<br>            must_flag = true;<br>        }<br>        if(must_flag){<br>            must_num++;<br>        }<br>        else if(maybe_flag){<br>            maybe_num++;<br>        }<br>    }<br>    printf(“%0.1f%% %0.1f%%\n”,(maybe_num/num)*100,(must_num/num)*100);<br>    return 0;<br>}</p>
-
-          
+          1078 字符串压缩与解压 （20 分) 原文地址
+文本压缩有很多种方法，这里我们只考虑最简单的一种：把由相同字符组成的一个连续的片段用这个字符和片段中含有这个字符的个数来表示。例如 ccccc 就用 5c 来表示。如果字符没有重复，就原样输出。例如 aba 压缩后仍然是 aba。 解压方法就是反过
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1078-yi-ji/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -475,7 +498,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1052-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1077-yi-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -494,7 +517,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/18/pat-1052-yi-ji/" itemprop="url">Pat_1052（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1077-yi-ji-1/" itemprop="url">Pat_1077（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -506,7 +529,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:32:20+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:15:17+08:00">
                 2019-03-18
               </time>
             
@@ -590,30 +613,16 @@
       
         
           
-            <p>1052 卖个萌 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805273883951104" target="_blank" rel="noopener">原文地址</a></p>
-<p>萌萌哒表情符号通常由“手”、“眼”、“口”三个主要部分组成。简单起见，我们假设一个表情符号是按下列格式输出的：</p>
-<pre><code>[左手]([左眼][口][右眼])[右手]</code></pre><p>现给出可选用的符号集合，请你按用户的要求输出表情。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入首先在前三行顺序对应给出手、眼、口的可选符号集。每个符号括在一对方括号 <code>[]</code>内。题目保证每个集合都至少有一个符号，并不超过 10 个符号；每个符号包含 1 到 4 个非空字符。 之后一行给出一个正整数 K，为用户请求的个数。随后 K 行，每行给出一个用户的符号选择，顺序为左手、左眼、口、右眼、右手——这里只给出符号在相应集合中的序号（从 1 开始），数字间以空格分隔。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对每个用户请求，在一行中输出生成的表情。若用户选择的序号不存在，则输出 <code>Are you kidding me? @\/@</code>。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>[╮][╭][o][~\][/~]  [&lt;][&gt;]
- [╯][╰][^][-][=][&gt;][&lt;][@][⊙]
-[Д][▽][_][ε][^]  ...
-4
-1 1 2 2 2
-6 8 1 5 5
-3 3 4 3 3
-2 10 3 9 3</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>╮(╯▽╰)╭
-&lt;(@Д=)/~
-o(^ε^)o
-Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）：</p>
-<p>#include<iostream><br>#include<cstdio><br>#include<vector></p>
-<p>using namespace std;</p>
-<p>int main(){<br>    vector&lt;vector<string> &gt; str;<br>    for(int i=0;i&lt;3;i++){<br>        vector<string> list1;<br>        string temp;<br>        getline(cin,temp);<br>        for(int j=0;j&lt;temp.length();j++){<br>            if(temp[j] == ‘[‘){<br>                int k = j+1;<br>                while(k++ &lt; temp.length()){<br>                    if(temp[k] == ‘]‘){<br>                        list1.push_back(temp.substr(j+1,k-j-1));<br>                        break;<br>                    }<br>                }<br>            }<br>        }<br>        str.push_back(list1);<br>    }<br>    /<em>for(int i=0;i&lt;3;i++){<br>        for(int j=0;j&lt;str[i].size();j++){<br>            cout&lt;&lt;str[i][j]&lt;&lt;” “;<br>        }<br>        cout&lt;&lt;endl;<br>    }</em>/<br>    int num;<br>    cin&gt;&gt;num;<br>    for(int i=0;i&lt;num;i++){<br>        int a,b,c,d,e;<br>        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d&gt;&gt;e;<br>        if(a &gt; str[0].size()|| b &gt; str[1].size() || c &gt; str[2].size() || d &gt; str[1].size() || e &gt; str[0].size()){<br>            cout&lt;&lt;”Are you kidding me? @\/@”&lt;&lt;endl;<br>        }<br>        else{<br>            cout&lt;&lt;str[0][a-1]&lt;&lt;”(“&lt;&lt;str[1][b-1]&lt;&lt;str[2][c-1]&lt;&lt;str[1][d-1]&lt;&lt;”)”&lt;&lt;str[0][e-1]&lt;&lt;endl;<br>        }<br>    }</p>
-<pre><code>return 0;</code></pre><p>}</p>
-<p>修改版本：</p>
-<p>#include <iostream><br>#include <vector><br>using namespace std;<br>int main() {<br>    vector&lt;vector<string> &gt; v;<br>    for(int i = 0; i &lt; 3; i++) {<br>        string s;<br>        getline(cin, s);<br>        vector<string> row;<br>        int j = 0, k = 0;<br>        while(j &lt; s.length()) {<br>            if(s[j] == ‘[‘) {<br>                while(k++ &lt; s.length()) {<br>                    if(s[k] == ‘]‘) {<br>                        row.push_back(s.substr(j+1, k-j-1));<br>                        break;<br>                    }<br>                }<br>            }<br>            j++;<br>        }<br>        v.push_back(row);<br>    }<br>    int n;<br>    cin &gt;&gt; n;<br>    for(int i = 0; i &lt; n; i++) {<br>        int a, b, c, d, e;<br>        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d &gt;&gt; e;<br>        if(a &gt; v[0].size() || b &gt; v[1].size() || c &gt; v[2].size() || d &gt; v[1].size() || e &gt; v[0].size() || a &lt; 1 || b &lt; 1 || c &lt; 1 || d &lt; 1 || e &lt; 1) {<br>            cout &lt;&lt; “Are you kidding me? @\/@” &lt;&lt; endl;<br>            continue;<br>        }<br>        cout &lt;&lt; v[0][a-1] &lt;&lt; “(“ &lt;&lt; v[1][b-1] &lt;&lt; v[2][c-1] &lt;&lt; v[1][d-1] &lt;&lt; “)” &lt;&lt; v[0][e-1] &lt;&lt; endl;<br>    }<br>    return 0;<br>}</p>
-
-          
+          1077 互评成绩计算 （20 分) 原文地址
+在浙大的计算机专业课中，经常有互评分组报告这个环节。一个组上台介绍自己的工作，其他组在台下为其表现评分。最后这个组的互评成绩是这样计算的：所有其他组的评分中，去掉一个最高分和一个最低分，剩下的分数取平均分记为 G​1​​；老师给这个组的评分记为 G​2
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1077-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -660,7 +669,7 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1051-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1077-yi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -679,7 +688,7 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/18/pat-1051-yi-ji/" itemprop="url">Pat_1051（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1077-yi-ji/" itemprop="url">Pat_1077（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -691,7 +700,7 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:29:52+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:15:17+08:00">
                 2019-03-18
               </time>
             
@@ -775,14 +784,16 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
       
         
           
-            <p>1051 复数乘法 （15 分)  <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805274496319488" target="_blank" rel="noopener">原文地址</a></p>
-<p>复数可以写成 (A+Bi) 的常规形式，其中 A 是实部，B 是虚部，i 是虚数单位，满足 i​2​​=−1；也可以写成极坐标下的指数形式 (R×e​(Pi)​​)，其中 R 是复数模，P 是辐角，i 是虚数单位，其等价于三角形式 (R(cos(P)+isin(P))。 现给定两个复数的 R 和 P，要求输出两数乘积的常规形式。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在一行中依次给出两个复数的 R​1​​, P​1​​, R​2​​, P​2​​，数字间以空格分隔。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中按照 <code>A+Bi</code> 的格式输出两数乘积的常规形式，实部和虚部均保留 2 位小数。注意：如果 <code>B</code> 是负数，则应该写成 <code>A-|B|i</code> 的形式。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>2.3 3.5 5.2 0.4</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>-8.68-8.23i</code></pre><p>代码：</p>
-<p>#include &lt;stdio.h&gt;<br>#include &lt;math.h&gt;<br>//思路：根据提供指数形式进行乘法，然后在转换为sin（） cos（）的形式<br>int main()<br>{<br>    double R1, P1, R2, P2;<br>    double A, B;<br>    scanf(“%lf %lf %lf %lf”, &amp;R1, &amp;P1, &amp;R2, &amp;P2);<br>    A = R1 * R2 * cos(P1 + P2);<br>    B = R1 * R2 * sin(P1 + P2);<br>    if(A &lt; 0 &amp;&amp; A &gt; -0.005){<br>        A = 0;<br>    }<br>    if(B &lt; 0 &amp;&amp; B &gt; -0.005){<br>        B = 0;<br>    }<br>    printf(“%.2lf%+.2lfi”, A, B);<br>    return 0;<br>}</p>
-
-          
+          1077 互评成绩计算 （20 分) 原文地址
+在浙大的计算机专业课中，经常有互评分组报告这个环节。一个组上台介绍自己的工作，其他组在台下为其表现评分。最后这个组的互评成绩是这样计算的：所有其他组的评分中，去掉一个最高分和一个最低分，剩下的分数取平均分记为 G​1​​；老师给这个组的评分记为 G​2
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1077-yi-ji/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -829,7 +840,7 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1050-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1076-yi-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -848,7 +859,7 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1050-yi-ji/" itemprop="url">Pat_1050（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1076-yi-ji-1/" itemprop="url">Pat_1076（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -860,8 +871,8 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T18:30:36+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:14:14+08:00">
+                2019-03-18
               </time>
             
 
@@ -944,20 +955,16 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
       
         
           
-            <p>1050 螺旋矩阵 （25 分）<a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805275146436608" target="_blank" rel="noopener">原文地址</a></p>
-<p>本题要求将给定的 N 个正整数按非递增的顺序，填入“螺旋矩阵”。所谓“螺旋矩阵”，是指从左上角第 1 个格子开始，按顺时针螺旋方向填充。要求矩阵的规模为 m 行 n 列，满足条件：m×n 等于 N；m≥n；且 m−n 取所有可能值中的最小值。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在第 1 行中给出一个正整数 N，第 2 行给出 N 个待填充的正整数。所有数字不超过 10​4​​，相邻数字以空格分隔。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>输出螺旋矩阵。每行 n 个数字，共 m 行。相邻数字以 1 个空格分隔，行末不得有多余空格。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>12
-37 76 20 98 76 42 53 95 60 81 58 93</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>98 95 93
-42 37 81
-53 20 76
-58 60 76</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include&lt;math.h&gt;<br>#include<algorithm></p>
-<p>using namespace std;</p>
-<p>bool cmp(int a,int b){<br>    return a &gt; b;<br>}<br>int main(){<br>    int m,n,num,t;<br>    cin&gt;&gt;num;<br>    int list1[num];<br>    for(int i=0;i&lt;num;i++){<br>        cin&gt;&gt;list1[i];<br>    }<br>    sort(list1,list1+num,cmp);<br>    /<em>for(int i=0;i&lt;num;i++){<br>        cout&lt;&lt;list1[i]&lt;&lt;” “;<br>    }<br>    cout&lt;&lt;endl;</em>/<br>    n = floor(sqrt(num));<br>    m = int(num / n);<br>    while(n*m != num){<br>        n–;<br>        m = int(num / n);<br>    }<br>    if(n &gt; m){<br>        t = n;<br>        n = m;<br>        m = t;<br>    }<br>    int result[m][n];<br>    for(int i=0;i&lt;m;i++){<br>        for(int j=0;j&lt;n;j++){<br>            result[i][j] = 0;<br>        }<br>    }<br>    int heng,zong,index=0,dire=0; //dire为方向 0向右移动  1向下移动  2向左移动 3向上移动<br>    heng = 0;<br>    zong = 0;<br>    while(index &lt; num){<br>        result[heng][zong] = list1[index];<br>        //cout&lt;&lt;heng&lt;&lt;” “&lt;&lt;zong&lt;&lt;endl;<br>        if(dire == 0){ //向右<br>            if(zong &lt; n-1){<br>                if(result[heng][zong+1] == 0){<br>                    zong++;<br>                }<br>                else{<br>                    dire = 1;<br>                    heng++;<br>                }<br>            }<br>            else{<br>                dire = 1;<br>                heng++;<br>            }<br>        }<br>        else if(dire == 1){<br>            if(heng &lt; m-1){ //向下<br>                if(result[heng+1][zong] == 0){<br>                    heng++;<br>                }<br>                else{<br>                    dire = 2;<br>                    zong–;<br>                }<br>            }<br>            else{<br>                dire = 2;<br>                zong–;<br>            }<br>        }<br>        else if(dire == 2){<br>            if(zong &gt; 0){ //向左<br>                if(result[heng][zong-1] == 0){<br>                    zong–;<br>                }<br>                else{<br>                    dire = 3;<br>                    heng–;<br>                }<br>            }<br>            else{<br>                dire = 3;<br>                heng–;<br>            }<br>        }<br>        else if(dire == 3){<br>            if(heng &gt; 0){ //向上<br>                if(result[heng-1][zong] == 0){<br>                    heng–;<br>                }<br>                else{<br>                    dire = 0;<br>                    zong++;<br>                }<br>            }<br>            else{<br>                dire = 0;<br>                zong++;<br>            }<br>        }<br>        index++;<br>    }<br>    for(int i=0;i&lt;m;i++){<br>        for(int j=0;j&lt;n;j++){<br>            if(j == 0){<br>                cout&lt;&lt;result[i][j];<br>            }<br>            else{<br>                cout&lt;&lt;” “&lt;&lt;result[i][j];<br>            }<br>        }<br>        cout&lt;&lt;endl;<br>    }<br>    return 0;<br>}</p>
-
-          
+          1076 Wifi密码 （15 分) 原文地址
+下面是微博上流传的一张照片：“各位亲爱的同学们，鉴于大家有时需要使用 wifi，又怕耽误亲们的学习，现将 wifi 密码设置为下列数学题答案：A-1；B-2；C-3；D-4；请同学们自己作答，每两日一换。谢谢合作！！~”—— 老师们为了促进学生学习也是
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1076-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1004,7 +1011,7 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1049-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1076-yi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -1023,7 +1030,7 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1049-yi-ji/" itemprop="url">Pat_1049（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1076-yi-ji/" itemprop="url">Pat_1076（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -1035,8 +1042,8 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T18:29:20+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:14:14+08:00">
+                2019-03-18
               </time>
             
 
@@ -1119,16 +1126,16 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
       
         
           
-            <p>1049 数列的片段和 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805275792359424" target="_blank" rel="noopener">原文地址</a></p>
-<p>给定一个正数数列，我们可以从中截取任意的连续的几个数，称为片段。例如，给定数列 { 0.1, 0.2, 0.3, 0.4 }，我们有 (0.1) (0.1, 0.2) (0.1, 0.2, 0.3) (0.1, 0.2, 0.3, 0.4) (0.2) (0.2, 0.3) (0.2, 0.3, 0.4) (0.3) (0.3, 0.4) (0.4) 这 10 个片段。 给定正整数数列，求出全部片段包含的所有的数之和。如本例中 10 个片段总和是 0.1 + 0.3 + 0.6 + 1.0 + 0.2 + 0.5 + 0.9 + 0.3 + 0.7 + 0.4 = 5.0。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出一个不超过 10​5​​ 的正整数 N，表示数列中数的个数，第二行给出 N 个不超过 1.0 的正数，是数列中的数，其间以空格分隔。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出该序列所有片段包含的数之和，精确到小数点后 2 位。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>4
-0.1 0.2 0.3 0.4</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>5.00</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<iomanip><br>#include<cstdio><br>//思路：因为是累加可以考虑重复次数乘原来的数来得到累加纵向考虑<br>/*例如: 1<br>        1 2<br>        1 2 3<br>        1 2 3 4<br>          2<br>          2 3<br>          2 3 4<br>            3<br>            3 4<br>              4<br>        1<br>        1 2<br>        1 2 3<br>        1 2 3 4<br>        1 2 3 4 5<br>        1 2 3 4 5 6<br>          2<br>          2 3<br>          2 3 4<br>          2 3 4 5<br>          2 3 4 5 6<br>            3<br>            3 4<br>            3 4 5<br>            3 4 5 6<br>              4<br>              4 5<br>              4 5 6<br>                5<br>                5 6<br>                  6<br>                */<br>using namespace std;</p>
-<p>int main(){<br>    int num,m=0;<br>    scanf(“%d”,&amp;num);<br>    double list1[num];<br>    double sum = 0;<br>    for(int i=0;i&lt;num;i++){<br>        cin&gt;&gt;list1[i];<br>    }<br>    for(int i=0;i&lt;num;i++){<br>        sum += (double)(num - i) * (double)(i + 1) * list1[i]; //根据上面的规律总结出来的<br>    }<br>    cout&lt;&lt;setiosflags(ios::fixed)&lt;&lt;setprecision(2)&lt;&lt;sum&lt;&lt;endl;<br>    return 0;<br>}</p>
-
-          
+          1076 Wifi密码 （15 分) 原文地址
+下面是微博上流传的一张照片：“各位亲爱的同学们，鉴于大家有时需要使用 wifi，又怕耽误亲们的学习，现将 wifi 密码设置为下列数学题答案：A-1；B-2；C-3；D-4；请同学们自己作答，每两日一换。谢谢合作！！~”—— 老师们为了促进学生学习也是
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1076-yi-ji/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1175,7 +1182,7 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1048-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1075-yi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -1194,7 +1201,7 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1048-yi-ji/" itemprop="url">Pat_1048（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1075-yi-ji/" itemprop="url">Pat_1075（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -1206,8 +1213,328 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T18:28:26+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:13:04+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1075 链表元素分类 （25 分) 原文地址
+给定一个单链表，请编写程序将链表元素进行分类排列，使得所有负值元素都排在非负值元素的前面，而 [0, K] 区间内的元素都排在大于 K 的元素前面。但每一类内部元素的顺序是不能改变的。例如：给定链表为 18→7→-4→0→5→-6→10→11→-2，K
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1075-yi-ji/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1075-yi-ji-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="StriveZs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="StriveZs的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1075-yi-ji-1/" itemprop="url">Pat_1075（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:13:04+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1075 链表元素分类 （25 分) 原文地址
+给定一个单链表，请编写程序将链表元素进行分类排列，使得所有负值元素都排在非负值元素的前面，而 [0, K] 区间内的元素都排在大于 K 的元素前面。但每一类内部元素的顺序是不能改变的。例如：给定链表为 18→7→-4→0→5→-6→10→11→-2，K
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1075-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1074-yi-ji-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="StriveZs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="StriveZs的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1074-yi-ji-1/" itemprop="url">Pat_1074（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:09:50+08:00">
+                2019-03-18
               </time>
             
 
@@ -1290,51 +1617,16 @@ Are you kidding me? @\/@</code></pre><p>代码（有一个测试点没通过）�
       
         
           
-            <p>1048 数字加密 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805276438282240" target="_blank" rel="noopener">原文地址</a></p>
-<p>本题要求实现一种数字加密方法。首先固定一个加密用正整数 A，对任一正整数 B，将其每 1 位数字与 A 的对应位置上的数字进行以下运算：对奇数位，对应位的数字相加后对 13 取余——这里用 J 代表 10、Q 代表 11、K 代表 12；对偶数位，用 B 的数字减去 A 的数字，若结果为负数，则再加 10。这里令个位为第 1 位。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在一行中依次给出 A 和 B，均为不超过 100 位的正整数，其间以空格分隔。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出加密后的结果。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>1234567 368782971</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>3695Q8118</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include<algorithm><br>//比较两个长度对 长度较短的那个补0<br>using namespace std;</p>
-<p>int main(){<br>    string s1,s2,result=””;<br>    cin&gt;&gt;s1&gt;&gt;s2;<br>    int cha = 0;<br>    if(s1.length() &lt; s2.length()){<br>        cha = s2.length() - s1.length();<br>        string temp(cha,’0’);<br>        s1 = temp + s1;<br>    }<br>    if(s1.length() &gt; s2.length()){<br>        cha = s1.length() - s2.length();<br>        string temp(cha,’0’);<br>        s2 = temp + s2;<br>    }</p>
-<pre><code>for(int i=0;i&lt;s2.length();i++){
-    int temp1,temp2,sum;
-    int j = i+1;
-    if(j%2 != 0){
-        temp1 = s1\[i\] - &apos;0&apos;;
-        temp2 = s2\[i\] - &apos;0&apos;;
-        sum = temp1 + temp2;
-        sum = sum % 13;
-        //cout&lt;&lt;sum&lt;&lt;endl;
-        if(sum &lt; 10){
-            char s3 = (sum + &apos;0&apos;);
-            result = result + s3;
-        }
-        else if(sum == 10){
-            result = result + &apos;J&apos;;
-        }
-        else if(sum == 11){
-            result = result + &apos;Q&apos;;
-        }
-        else if(sum == 12){
-            result = result + &apos;K&apos;;
-        }
-    }
-    else{
-        temp1 = s1\[i\] - &apos;0&apos;;
-        temp2 = s2\[i\] - &apos;0&apos;;
-        sum = temp2 - temp1;
-        if(sum &lt; 0){
-            sum += 10;
-        }
-        char s3 = (sum + &apos;0&apos;);
-        result = result + s3;
-    }
-}
-cout&lt;&lt;result&lt;&lt;endl;
-return 0;</code></pre><p>}</p>
-
-          
+          1074 宇宙无敌加法器 （20 分) 原文地址
+地球人习惯使用十进制数，并且默认一个数字的每一位都是十进制的。而在 PAT 星人开挂的世界里，每个数字的每一位都是不同进制的，这种神奇的数字称为“PAT数”。每个 PAT 星人都必须熟记各位数字的进制表，例如“……0527”就表示最低位是 7 进制数
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1074-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1381,7 +1673,7 @@ return 0;</code></pre><p>}</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1047-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1074-yi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -1400,7 +1692,7 @@ return 0;</code></pre><p>}</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1047-yi-ji/" itemprop="url">Pat_1047（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1074-yi-ji/" itemprop="url">Pat_1074（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -1412,8 +1704,8 @@ return 0;</code></pre><p>}</p>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T18:27:21+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:09:50+08:00">
+                2019-03-18
               </time>
             
 
@@ -1496,22 +1788,16 @@ return 0;</code></pre><p>}</p>
       
         
           
-            <p>1047 编程团体赛 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805277163896832" target="_blank" rel="noopener">原文地址</a></p>
-<p>编程团体赛的规则为：每个参赛队由若干队员组成；所有队员独立比赛；参赛队的成绩为所有队员的成绩和；成绩最高的队获胜。 现给定所有队员的比赛成绩，请你编写程序找出冠军队。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出一个正整数 N（≤10​4​​），即所有参赛队员总数。随后 N 行，每行给出一位队员的成绩，格式为：<code>队伍编号-队员编号 成绩</code>，其中<code>队伍编号</code>为 1 到 1000 的正整数，<code>队员编号</code>为 1 到 10 的正整数，<code>成绩</code>为 0 到 100 的整数。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出冠军队的编号和总成绩，其间以一个空格分隔。注意：题目保证冠军队是唯一的。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>6
-3-10 99
-11-5 87
-102-1 0
-102-3 100
-11-9 89
-3-2 61</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>11 176</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<cstdio><br>#include<map></p>
-<p>using namespace std;</p>
-<p>int main(){<br>    map&lt;int,int&gt; dir;<br>    int num,t1,t2,t3,index=0;<br>    cin&gt;&gt;num;<br>    for(int i=0;i&lt;num;i++){<br>        scanf(“%d-%d %d”,&amp;t1,&amp;t2,&amp;t3);<br>        if(dir.count(t1) == 0){<br>            dir[t1] = t3;<br>        }<br>        else{<br>            dir[t1] += t3;<br>        }<br>        if(dir[t1] &gt; dir[index]){<br>            index = t1;<br>        }<br>    }<br>    cout&lt;&lt;index&lt;&lt;” “&lt;&lt;dir[index]&lt;&lt;endl;<br>    return 0;<br>}</p>
-
-          
+          1074 宇宙无敌加法器 （20 分) 原文地址
+地球人习惯使用十进制数，并且默认一个数字的每一位都是十进制的。而在 PAT 星人开挂的世界里，每个数字的每一位都是不同进制的，这种神奇的数字称为“PAT数”。每个 PAT 星人都必须熟记各位数字的进制表，例如“……0527”就表示最低位是 7 进制数
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1074-yi-ji/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1558,7 +1844,7 @@ return 0;</code></pre><p>}</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1046-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1073-yi-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -1577,7 +1863,7 @@ return 0;</code></pre><p>}</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1046-yi-ji/" itemprop="url">Pat_1046（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1073-yi-ji-1/" itemprop="url">Pat_1073（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -1589,8 +1875,8 @@ return 0;</code></pre><p>}</p>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T18:24:38+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T11:06:57+08:00">
+                2019-03-18
               </time>
             
 
@@ -1673,380 +1959,16 @@ return 0;</code></pre><p>}</p>
       
         
           
-            <p>1046 划拳 （15 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805277847568384" target="_blank" rel="noopener">原文地址</a></p>
-<p>划拳是古老中国酒文化的一个有趣的组成部分。酒桌上两人划拳的方法为：每人口中喊出一个数字，同时用手比划出一个数字。如果谁比划出的数字正好等于两人喊出的数字之和，谁就赢了，输家罚一杯酒。两人同赢或两人同输则继续下一轮，直到唯一的赢家出现。 下面给出甲、乙两人的划拳记录，请你统计他们最后分别喝了多少杯酒。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行先给出一个正整数 N（≤100），随后 N 行，每行给出一轮划拳的记录，格式为：</p>
-<pre><code>甲喊 甲划 乙喊 乙划</code></pre><p>其中<code>喊</code>是喊出的数字，<code>划</code>是划出的数字，均为不超过 100 的正整数（两只手一起划）。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中先后输出甲、乙两人喝酒的杯数，其间以一个空格分隔。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>5
-8 10 9 12
-5 10 5 10
-3 8 5 12
-12 18 1 13
-4 16 12 15</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>1 2</code></pre><p>代码：</p>
-<p>#include<iostream></p>
-<p>using namespace std;</p>
-<p>int main(){<br>    int num=0,Jia=0,Yi=0;<br>    cin&gt;&gt;num;<br>    for(int i=0;i&lt;num;i++){<br>        int jia_han,jia_hua,yi_han,yi_hua,sum;<br>        cin&gt;&gt;jia_han&gt;&gt;jia_hua&gt;&gt;yi_han&gt;&gt;yi_hua;<br>        sum = jia_han + yi_han;<br>        if(jia_hua == sum &amp;&amp; yi_hua == sum){<br>            continue;<br>        }<br>        else if(sum == jia_hua){<br>            Yi++;<br>        }<br>        else if(sum == yi_hua){<br>            Jia++;<br>        }<br>    }<br>    cout&lt;&lt;Jia&lt;&lt;” “&lt;&lt;Yi&lt;&lt;endl;<br>    return 0;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1045-yi-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="StriveZs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="StriveZs的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/12/pat-1045-yi-ji/" itemprop="url">Pat_1045（乙级）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T18:23:06+08:00">
-                2019-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
-                    <span itemprop="name">乙级</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
-                    <span itemprop="name">文章页</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1045 快速排序 （25 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805278589960192" target="_blank" rel="noopener">原文地址</a></p>
-<p>著名的快速排序算法里有一个经典的划分过程：我们通常采用某种方法取一个元素作为主元，通过交换，把比主元小的元素放到它的左边，比主元大的元素放到它的右边。 给定划分后的 N 个互不相同的正整数的排列，请问有多少个元素可能是划分前选取的主元？ 例如给定 $N = 5$, 排列是1、3、2、4、5。则：</p>
-<ul>
-<li>1 的左边没有元素，右边的元素都比它大，所以它可能是主元；</li>
-<li>尽管 3 的左边元素都比它小，但其右边的 2 比它小，所以它不能是主元；</li>
-<li>尽管 2 的右边元素都比它大，但其左边的 3 比它大，所以它不能是主元；</li>
-<li>类似原因，4 和 5 都可能是主元。</li>
-</ul>
-<p>因此，有 3 个元素可能是主元。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在第 1 行中给出一个正整数 N（≤10​5​​）； 第 2 行是空格分隔的 N 个不同的正整数，每个数不超过 10​9​​。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在第 1 行中输出有可能是主元的元素个数；在第 2 行中按递增顺序输出这些元素，其间以 1 个空格分隔，行首尾不得有多余空格。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>5
-1 3 2 4 5</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>3
-1 4 5</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<algorithm></p>
-<p>using namespace std;<br>//思路：将数组排序，排序后的结果和原来的数组比较如果相同位置的数字相同也是不会小于之前（包含自己）的最大值 则为主元<br>bool cmp(int a,int b){<br>    return a &lt; b;<br>}</p>
-<p>int main(){<br>    long int len,sum=0;<br>    cin&gt;&gt;len;<br>    long int num[len],goal[len],result[len];<br>    for(long int i=0;i&lt;len;i++){<br>        cin&gt;&gt;num[i];<br>        goal[i] = num[i];<br>    }<br>    sort(num,num+len,cmp);<br>    long int maxx = 0;<br>    for(long int i=0;i&lt;len;i++){<br>        if(goal[i] &gt; maxx){<br>            maxx = goal[i];<br>        }<br>        if(goal[i] == num[i] &amp;&amp; num[i] == maxx){<br>            result[sum] = num[i];<br>            sum++;<br>        }<br>    }<br>    cout&lt;&lt;sum&lt;&lt;endl;<br>    for(long int i=0;i&lt;sum;i++){<br>        if(i == sum-1){<br>            cout&lt;&lt;result[i];<br>        }<br>        else{<br>            cout&lt;&lt;result[i]&lt;&lt;” “;<br>        }<br>    }<br>    cout&lt;&lt;endl;<br>    return 0;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1044-yi-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="StriveZs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="StriveZs的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/12/pat-1044-yi-ji/" itemprop="url">Pat_1044（乙级）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T18:19:26+08:00">
-                2019-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
-                    <span itemprop="name">乙级</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1044 火星数字 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805279328157696" target="_blank" rel="noopener">原文地址</a></p>
-<p>火星人是以 13 进制计数的：</p>
-<ul>
-<li>地球人的 0 被火星人称为 tret。</li>
-<li>地球人数字 1 到 12 的火星文分别为：jan, feb, mar, apr, may, jun, jly, aug, sep, oct, nov, dec。</li>
-<li>火星人将进位以后的 12 个高位数字分别称为：tam, hel, maa, huh, tou, kes, hei, elo, syy, lok, mer, jou。</li>
-</ul>
-<p>例如地球人的数字 <code>29</code> 翻译成火星文就是 <code>hel mar</code>；而火星文 <code>elo nov</code> 对应地球数字 <code>115</code>。为了方便交流，请你编写程序实现地球和火星数字之间的互译。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出一个正整数 N（&lt;100），随后 N 行，每行给出一个 [0, 169) 区间内的数字 —— 或者是地球文，或者是火星文。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对应输入的每一行，在一行中输出翻译后的另一种语言的数字。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>4
-29
-5
-elo nov
-tam</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>hel mar
-may
-115
-13</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include&lt;math.h&gt;<br>#include<algorithm></p>
-<p>using namespace std;</p>
-<p>string num1[25] = {“tret”,”jan”, “feb”, “mar”, “apr”, “may”, “jun”, “jly”, “aug”, “sep”, “oct”, “nov”, “dec”,”tam”, “hel”, “maa”, “huh”, “tou”, “kes”, “hei”, “elo”, “syy”, “lok”, “mer”, “jou”};<br>string num2[13] = {“”,”tam”, “hel”, “maa”, “huh”, “tou”, “kes”, “hei”, “elo”, “syy”, “lok”, “mer”, “jou”};</p>
-<p>//字符串变为数字<br>int strToNum(string s1){<br>    int len = s1.length();<br>    int num = 0;<br>    reverse(s1.begin(),s1.end());<br>    while(len &gt; 0){<br>        num += (s1[len-1] - ‘0’)*round(pow(10,len-1));<br>        len–;<br>    }<br>    return num;<br>}</p>
-<p>//地球转火星<br>void EarthToMars(string s1){<br>    int temp = strToNum(s1);<br>    if(temp &lt; 13){<br>        cout&lt;&lt;num1[temp]&lt;&lt;endl;<br>    }<br>    else if(temp%13 == 0){<br>        cout&lt;&lt;num2[temp/13]&lt;&lt;endl;<br>    }<br>    else{<br>        cout&lt;&lt;num2[temp/13]&lt;&lt;” “&lt;&lt;num1[temp%13]&lt;&lt;endl;<br>    }<br>}</p>
-<p>//火星转地球<br>void MarsToEarth(string s1){<br>    string a[13] = {“###”, “jan”, “feb”, “mar”, “apr”, “may”, “jun”, “jly”, “aug”, “sep”, “oct”, “nov”, “dec”};<br>    string b[13] = {“###”, “tam”, “hel”, “maa”, “huh”, “tou”, “kes”, “hei”, “elo”, “syy”, “lok”, “mer”, “jou”};<br>    int len = s1.length();<br>    if(len == 3){<br>        for(int i=1;i&lt;13;i++){<br>            if(s1 == a[i]){<br>                cout&lt;&lt;i&lt;&lt;endl;<br>            }<br>            else if(s1 == b[i]){<br>                cout&lt;&lt;i * 13&lt;&lt;endl;<br>            }<br>        }<br>    }else{<br>        int temp1=0,temp2=0;<br>        string t1 = s1.substr(0,3);<br>        string t2 = s1.substr(4,3);<br>        for(int i=1;i&lt;13;i++){<br>            if(t1 == b[i]){<br>                temp1 = i;<br>            }<br>            if(t2 == a[i]){<br>                temp2 = i;<br>            }<br>        }<br>        cout&lt;&lt;temp1 * 13 + temp2&lt;&lt;endl;<br>    }</p>
-<p>}</p>
-<p>int main(){<br>    int num,t;<br>    cin&gt;&gt;num;<br>    t = num;<br>    string str;<br>    while(num &gt; 0){<br>        if(t == num){<br>            cin.get();<br>        }<br>        getline(cin,str);<br>        //cout&lt;&lt;s1;<br>        if(str[0]&gt;=’0’ &amp;&amp; str[0]&lt;=’9’){<br>            EarthToMars(str);<br>        }<br>        else{<br>            MarsToEarth(str);<br>        }<br>        num–;<br>    }<br>    return 0;<br>}</p>
-
-          
+          1073 多选题常见计分法 （20 分) 原文地址
+批改多选题是比较麻烦的事情，有很多不同的计分方法。有一种最常见的计分方法是：如果考生选择了部分正确选项，并且没有选择任何错误选项，则得到 50% 分数；如果考生选择了任何一个错误的选项，则不能得分。本题就请你写个程序帮助老师批改多选题，并且指出哪道
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1073-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2084,7 +2006,7 @@ may
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/7/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/7/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -2132,9 +2054,9 @@ may
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-count">503</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2219,7 +2141,6 @@ may
 
 
   <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
-
 
 
 
@@ -2368,6 +2289,323 @@ may
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 

@@ -192,7 +192,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -202,7 +202,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/%20" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -212,7 +212,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/%20" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -222,7 +222,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/%20" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -232,7 +232,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -242,7 +242,7 @@
       
         
         <li class="menu-item menu-item-schedule">
-          <a href="/schedule/%20" rel="section">
+          <a href="/schedule/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
@@ -252,7 +252,7 @@
       
         
         <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml%20" rel="section">
+          <a href="/sitemap.xml" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
             
@@ -262,9 +262,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -293,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1033-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1068-yi-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -312,7 +346,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1033-yi-ji/" itemprop="url">Pat_1033（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1068-yi-ji-1/" itemprop="url">Pat_1068（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -324,8 +358,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:48:21+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:59:23+08:00">
+                2019-03-18
               </time>
             
 
@@ -408,16 +442,17 @@
       
         
           
-            <p>1033 旧键盘打字 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805288530460672" target="_blank" rel="noopener">原文地址</a></p>
-<p>旧键盘上坏了几个键，于是在敲一段文字的时候，对应的字符就不会出现。现在给出应该输入的一段文字、以及坏掉的那些键，打出的结果文字会是怎样？</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在 2 行中分别给出坏掉的那些键、以及应该输入的文字。其中对应英文字母的坏键以大写给出；每段文字是不超过 10​5​​ 个字符的串。可用的字符包括字母 [<code>a</code>-<code>z</code>, <code>A</code>-<code>Z</code>]、数字 <code>0</code>-<code>9</code>、以及下划线 <code>_</code>（代表空格）、<code>,</code>、<code>.</code>、<code>-</code>、<code>+</code>（代表上档键）。题目保证第 2 行输入的文字串非空。 注意：如果上档键坏掉了，那么大写的英文字母无法被打出。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出能够被打出的结果文字。如果没有一个字符能被打出，则输出空行。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>7+IE.
-7_This_is_a_test.</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>_hs_s_a_tst</code></pre><p>代码：（这里要仔细理解题意 只有+是上档键）</p>
-<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include<vector><br>#include<algorithm><br>//这里只有+是上档键<br>using namespace std;</p>
-<p>int main(){<br>    string s1,s2,s3;<br>    vector<char> list1;<br>    vector<char>::iterator pos;<br>    getline(cin,s1);<br>    getline(cin,s2);<br>    s3 = s2;<br>    bool flag = false,flag1 = true;<br>    transform(s1.begin(),s1.end(),s1.begin(),::toupper);<br>    transform(s3.begin(),s3.end(),s3.begin(),::toupper);<br>    for(int i=0;i&lt;s1.length();i++){<br>        list1.push_back(s1[i]);<br>    }<br>    if(s1.find(‘+’) != string::npos){<br>        flag = true;<br>    }<br>    for(int i=0;i&lt;s2.length();i++){<br>        if(find(list1.begin(),list1.end(),s3[i]) == list1.end()){<br>            if(flag &amp;&amp; s2[i]!=’+’){<br>                if(s2[i]&lt;’A’||s2[i]&gt;’Z’){<br>                    cout&lt;&lt;s2[i];<br>                }<br>            }<br>            else{<br>                cout&lt;&lt;s2[i];<br>            }<br>        }<br>    }<br>    cout&lt;&lt;endl;<br>    return 0;<br>}</p>
-
-          
+          1068 万绿丛中一点红 （20 分) 原文地址
+对于计算机而言，颜色不过是像素点对应的一个 24 位的数值。现给定一幅分辨率为 M×N 的画，要求你找出万绿丛中的一点红，即有独一无二颜色的那个像素点，并且该点的颜色与其周围 8 个相邻像素的颜色差充分大。
+输入格式：输入第一行给出三个正整数，分别是
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1068-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -464,7 +499,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1032-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1067-yi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -483,7 +518,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1032-yi-ji/" itemprop="url">Pat_1032（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1067-yi-ji/" itemprop="url">Pat_1067（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -495,8 +530,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:46:39+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:57:48+08:00">
+                2019-03-18
               </time>
             
 
@@ -579,22 +614,17 @@
       
         
           
-            <p>1032 挖掘机技术哪家强 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805289432236032" target="_blank" rel="noopener">原文地址</a></p>
-<p>为了用事实说明挖掘机技术到底哪家强，PAT 组织了一场挖掘机技能大赛。现请你根据比赛结果统计出技术最强的那个学校。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在第 1 行给出不超过 10​5​​ 的正整数 N，即参赛人数。随后 N 行，每行给出一位参赛者的信息和成绩，包括其所代表的学校的编号（从 1 开始连续编号）、及其比赛成绩（百分制），中间以空格分隔。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中给出总得分最高的学校的编号、及其总分，中间以空格分隔。题目保证答案唯一，没有并列。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>6
-3 65
-2 80
-1 100
-2 70
-3 40
-3 0</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>2 150</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<map><br>#include<algorithm></p>
-<p>using namespace std;</p>
-<p>int main(){<br>    map&lt;int,int&gt; list1;<br>    map&lt;int,int&gt;::iterator pos;<br>    int num,temp,temp1;<br>    cin&gt;&gt;num;<br>    for(int i=0;i&lt;num;i++){<br>        cin&gt;&gt;temp&gt;&gt;temp1;<br>        if(list1.count(temp) != 0){<br>            list1[temp] += temp1;<br>        }<br>        else{<br>            list1[temp] = temp1;<br>        }<br>    }<br>    int index,maxnum=0;<br>    for(pos=list1.begin();pos!=list1.end();pos++){<br>        if(pos-&gt;second &gt; maxnum){<br>            index = pos-&gt;first;<br>            maxnum = pos-&gt;second;<br>        }<br>    }<br>    cout&lt;&lt;index&lt;&lt;” “&lt;&lt;list1[index]&lt;&lt;endl;<br>    return 0;<br>}</p>
-
-          
+          1067 试密码 （20 分) 原文地址
+当你试图登录某个系统却忘了密码时，系统一般只会允许你尝试有限多次，当超出允许次数时，账号就会被锁死。本题就请你实现这个小功能。
+输入格式：输入在第一行给出一个密码（长度不超过 20 的、不包含空格、Tab、回车的非空字符串）和一个正整数 N（≤ 10），分别
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1067-yi-ji/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -641,7 +671,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1031-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1067-yi-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -660,7 +690,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1031-yi-ji/" itemprop="url">Pat_1031（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1067-yi-ji-1/" itemprop="url">Pat_1067（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -672,8 +702,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:45:40+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:57:48+08:00">
+                2019-03-18
               </time>
             
 
@@ -756,26 +786,17 @@
       
         
           
-            <p>1031 查验身份证 （15 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805290334011392" target="_blank" rel="noopener">原文地址</a></p>
-<p>一个合法的身份证号码由17位地区、日期编号和顺序编号加1位校验码组成。校验码的计算规则如下： 首先对前17位数字加权求和，权重分配为：{7，9，10，5，8，4，2，1，6，3，7，9，10，5，8，4，2}；然后将计算的和对11取模得到值<code>Z</code>；最后按照以下关系对应<code>Z</code>值与校验码<code>M</code>的值：</p>
-<pre><code>Z：0 1 2 3 4 5 6 7 8 9 10
-M：1 0 X 9 8 7 6 5 4 3 2</code></pre><p>现在给定一些身份证号码，请你验证校验码的有效性，并输出有问题的号码。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出正整数N（≤100）是输入的身份证号码的个数。随后N行，每行给出1个18位身份证号码。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>按照输入的顺序每行输出1个有问题的身份证号码。这里并不检验前17位是否合理，只检查前17位是否全为数字且最后1位校验码计算准确。如果所有号码都正常，则输出<code>All passed</code>。</p>
-<h3 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h3><pre><code>4
-320124198808240056
-12010X198901011234
-110108196711301866
-37070419881216001X</code></pre><h3 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h3><pre><code>12010X198901011234
-110108196711301866
-37070419881216001X</code></pre><h3 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h3><pre><code>2
-320124198808240056
-110108196711301862</code></pre><h3 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h3><pre><code>All passed</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<map><br>#include&lt;string.h&gt;</p>
-<p>using namespace std;</p>
-<p>int main(){<br>    map&lt;int,char&gt; dir;<br>    dir[0] = ‘1’;<br>    dir[1] = ‘0’;<br>    dir[2] = ‘X’;<br>    dir[3] = ‘9’;<br>    dir[4] = ‘8’;<br>    dir[5] = ‘7’;<br>    dir[6] = ‘6’;<br>    dir[7] = ‘5’;<br>    dir[8] = ‘4’;<br>    dir[9] = ‘3’;<br>    dir[10] = ‘2’;<br>    int quan[17] = {7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2};<br>    int num;<br>    cin&gt;&gt;num;<br>    bool flag = true;<br>    string str[num];<br>    for(int i=0;i&lt;num;i++){<br>        cin&gt;&gt;str[i];<br>    }<br>    for(int i=0;i&lt;num;i++){<br>        int temp1,sum = 0;<br>        char temp;<br>        for(int j=0;j&lt;17;j++){<br>            temp = str[i][j];<br>            if(temp == ‘X’){<br>                sum = sum + quan[j]<em>10;<br>            }<br>            else{<br>                sum = sum + quan[j]</em>(temp-‘0’);<br>            }<br>        }<br>        sum = sum%11;<br>        //cout&lt;&lt;sum&lt;&lt;endl;<br>        temp = str[i][17];<br>        if(temp == ‘X’){<br>            temp1 = ‘X’;<br>        }<br>        else{<br>            temp1 = temp;<br>        }<br>        if(dir[sum] != temp1){<br>            flag = false;<br>            cout&lt;&lt;str[i]&lt;&lt;endl;<br>        }<br>     }<br>     if(flag){<br>        cout&lt;&lt;”All passed”&lt;&lt;endl;<br>     }<br>    return 0;<br>}</p>
-
-          
+          1067 试密码 （20 分) 原文地址
+当你试图登录某个系统却忘了密码时，系统一般只会允许你尝试有限多次，当超出允许次数时，账号就会被锁死。本题就请你实现这个小功能。
+输入格式：输入在第一行给出一个密码（长度不超过 20 的、不包含空格、Tab、回车的非空字符串）和一个正整数 N（≤ 10），分别
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1067-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -822,7 +843,7 @@ M：1 0 X 9 8 7 6 5 4 3 2</code></pre><p>现在给定一些身份证号码，请
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1030-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1066-yi-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -841,7 +862,7 @@ M：1 0 X 9 8 7 6 5 4 3 2</code></pre><p>现在给定一些身份证号码，请
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1030-yi-ji/" itemprop="url">Pat_1030（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1066-yi-ji-1/" itemprop="url">Pat_1066（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -853,8 +874,8 @@ M：1 0 X 9 8 7 6 5 4 3 2</code></pre><p>现在给定一些身份证号码，请
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:42:44+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:56:44+08:00">
+                2019-03-18
               </time>
             
 
@@ -937,17 +958,17 @@ M：1 0 X 9 8 7 6 5 4 3 2</code></pre><p>现在给定一些身份证号码，请
       
         
           
-            <p>1030 完美数列 （25 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805291311284224" target="_blank" rel="noopener">原文地址</a></p>
-<p>给定一个正整数数列，和正整数 p，设这个数列中的最大值是 M，最小值是 m，如果 M≤mp，则称这个数列是完美数列。 现在给定参数 p 和一些正整数，请你从中选择尽可能多的数构成一个完美数列。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出两个正整数 N 和 p，其中 N（≤10​5​​）是输入的正整数的个数，p（≤10​9​​）是给定的参数。第二行给出 N 个正整数，每个数不超过 10​9​​。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出最多可以选择多少个数可以用它们组成一个完美数列。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>10 8
-2 3 20 4 5 1 6 7 8 9</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>8</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<algorithm></p>
-<p>using namespace std;</p>
-<p>bool cmp(int a,int b){<br>    return a&lt;b;<br>}<br>int main(){<br>    long int num,q;<br>    cin&gt;&gt;num&gt;&gt;q;<br>    long int li[num];<br>    for(int i=0;i&lt;num;i++){<br>        cin&gt;&gt;li[i];<br>    }<br>    sort(li,li+num,cmp);<br>    int temp,maxnum = 0;<br>    for(int i=0;i+maxnum&lt;=num;i++){<br>        for(temp=i+maxnum;temp&lt;num;temp++){<br>            long int mq = li[i] * q;<br>            if(li[temp]&lt;=mq){<br>                maxnum = temp+1-i;<br>            }<br>            else{<br>                break;<br>            }<br>        }<br>    }<br>    cout&lt;&lt;maxnum&lt;&lt;endl;<br>    return 0;<br>}</p>
-
-          
+          1066 图像过滤 （15 分) 原文地址
+图像过滤是把图像中不重要的像素都染成背景色，使得重要部分被凸显出来。现给定一幅黑白图像，要求你将灰度值位于某指定区间内的所有像素颜色都用一种指定的颜色替换。
+输入格式：输入在第一行给出一幅图像的分辨率，即两个正整数 M 和 N（0&lt;M,N≤500），
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1066-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -994,7 +1015,7 @@ M：1 0 X 9 8 7 6 5 4 3 2</code></pre><p>现在给定一些身份证号码，请
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1029-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1066-yi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -1013,7 +1034,7 @@ M：1 0 X 9 8 7 6 5 4 3 2</code></pre><p>现在给定一些身份证号码，请
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1029-yi-ji/" itemprop="url">Pat_1029（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1066-yi-ji/" itemprop="url">Pat_1066（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -1025,8 +1046,8 @@ M：1 0 X 9 8 7 6 5 4 3 2</code></pre><p>现在给定一些身份证号码，请
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:41:36+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:56:44+08:00">
+                2019-03-18
               </time>
             
 
@@ -1109,17 +1130,17 @@ M：1 0 X 9 8 7 6 5 4 3 2</code></pre><p>现在给定一些身份证号码，请
       
         
           
-            <p>1029 旧键盘 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805292322111488" target="_blank" rel="noopener">原文地址</a></p>
-<p>旧键盘上坏了几个键，于是在敲一段文字的时候，对应的字符就不会出现。现在给出应该输入的一段文字、以及实际被输入的文字，请你列出肯定坏掉的那些键。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在 2 行中分别给出应该输入的文字、以及实际被输入的文字。每段文字是不超过 80 个字符的串，由字母 A-Z（包括大、小写）、数字 0-9、以及下划线 <code>_</code>（代表空格）组成。题目保证 2 个字符串均非空。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>按照发现顺序，在一行中输出坏掉的键。其中英文字母只输出大写，每个坏键只输出一次。题目保证至少有 1 个坏键。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>7_This_is_a_test
-_hs_s_a_es</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>7TI</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include<algorithm><br>#include<vector></p>
-<p>using namespace std;</p>
-<p>int main(){<br>    int index = 0,i=0;<br>    string s1,s2;<br>    vector<char> result;<br>    vector<char>::iterator pos;<br>    cin&gt;&gt;s1&gt;&gt;s2;<br>    transform(s1.begin(),s1.end(),s1.begin(),::toupper);<br>    transform(s2.begin(),s2.end(),s2.begin(),::toupper);<br>    while(i!=s2.length()){<br>        if(s1[index] != s2[i]){<br>            pos = find(result.begin(),result.end(),s1[index]);<br>            if(pos == result.end()){<br>                result.push_back(s1[index]);<br>            }<br>            index++;<br>        }<br>        else{<br>            i++;<br>            index++;<br>        }<br>    }<br>    if(index != (s1.length()-1)){<br>        for(int i=index;index&lt;s1.length();index++){<br>            pos = find(result.begin(),result.end(),s1[index]);<br>            if(pos == result.end()){<br>                result.push_back(s1[index]);<br>            }<br>        }<br>    }<br>    for(pos=result.begin();pos!=result.end();pos++){<br>        cout&lt;&lt;*pos;<br>    }<br>    cout&lt;&lt;endl;<br>    return 0;<br>}</p>
-
-          
+          1066 图像过滤 （15 分) 原文地址
+图像过滤是把图像中不重要的像素都染成背景色，使得重要部分被凸显出来。现给定一幅黑白图像，要求你将灰度值位于某指定区间内的所有像素颜色都用一种指定的颜色替换。
+输入格式：输入在第一行给出一幅图像的分辨率，即两个正整数 M 和 N（0&lt;M,N≤500），
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1066-yi-ji/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1166,7 +1187,7 @@ _hs_s_a_es</code></pre><h3 id="输出样例："><a href="#输出样例：" class
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1028-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1065-yi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -1185,7 +1206,7 @@ _hs_s_a_es</code></pre><h3 id="输出样例："><a href="#输出样例：" class
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1028-yi-ji/" itemprop="url">Pat_1028（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1065-yi-ji/" itemprop="url">Pat_1065（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -1197,8 +1218,8 @@ _hs_s_a_es</code></pre><h3 id="输出样例："><a href="#输出样例：" class
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:40:21+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:52:53+08:00">
+                2019-03-18
               </time>
             
 
@@ -1281,42 +1302,17 @@ _hs_s_a_es</code></pre><h3 id="输出样例："><a href="#输出样例：" class
       
         
           
-            <p>1028 人口普查 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805293282607104" target="_blank" rel="noopener">原文地址</a></p>
-<p>某城镇进行人口普查，得到了全体居民的生日。现请你写个程序，找出镇上最年长和最年轻的人。 这里确保每个输入的日期都是合法的，但不一定是合理的——假设已知镇上没有超过 200 岁的老人，而今天是 2014 年 9 月 6 日，所以超过 200 岁的生日和未出生的生日都是不合理的，应该被过滤掉。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在第一行给出正整数 N，取值在(0,10​5​​]；随后 N 行，每行给出 1 个人的姓名（由不超过 5 个英文字母组成的字符串）、以及按 <code>yyyy/mm/dd</code>（即年/月/日）格式给出的生日。题目保证最年长和最年轻的人没有并列。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中顺序输出有效生日的个数、最年长人和最年轻人的姓名，其间以空格分隔。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>5
-John 2001/05/12
-Tom 1814/09/06
-Ann 2121/01/30
-James 1814/09/05
-Steve 1967/11/20</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>3 Tom John</code></pre><p>代码：</p>
-<p>#include<iostream><br>using namespace std;</p>
-<p>int main()<br>{<br>    int n,cnt=0;<br>    scanf(“%d”,&amp;n);<br>    struct birth{<br>        char name[6];<br>        int y;<br>        int m;<br>        int d;<br>    }a,max,min;</p>
-<pre><code>max.y=2014;max.m=9;max.d=7;
-min.y=1814;max.m=9;max.d=5; 
-for(int i = 0;i&lt;n;i++){
-    scanf(&quot;%s %d/%d/%d&quot;,&amp;a.name,&amp;a.y,&amp;a.m,&amp;a.d);
-    cnt++;
-    if(a.y&gt;2014||(a.y==2014&amp;&amp;a.m&gt;9)||(a.y==2014&amp;&amp;a.m==9&amp;&amp;a.d&gt;6)||a.y&lt;1814||(a.y==1814&amp;&amp;a.m&lt;9)||(a.y==1814&amp;&amp;a.m==9&amp;&amp;a.d&lt;6)){
-        cnt--;
-        continue;
-    }
-    if(a.y&lt;max.y||(a.y==max.y&amp;&amp;a.m&lt;max.m)||(a.y==max.y&amp;&amp;a.m==max.m&amp;&amp;a.d&lt;max.d)){
-        max=a;
-    }
-    if(a.y&gt;min.y||(a.y==min.y&amp;&amp;a.m&gt;min.m)||(a.y==min.y&amp;&amp;a.m==min.m&amp;&amp;a.d&gt;min.d)){
-        min=a;
-    }
-}
-printf(&quot;%d&quot;,cnt);
-if(cnt!=0){
-    printf(&quot; %s %s&quot;,max.name,min.name);
-}
-
-return 0;</code></pre><p>}</p>
-
-          
+          1065 单身狗 （25 分) 原文地址
+“单身狗”是中文对于单身人士的一种爱称。本题请你从上万人的大型派对中找出落单的客人，以便给予特殊关爱。
+输入格式：输入第一行给出一个正整数 N（≤ 50 000），是已知夫妻/伴侣的对数；随后 N 行，每行给出一对夫妻/伴侣——为方便起见，每人对应一个 ID
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1065-yi-ji/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1363,7 +1359,7 @@ return 0;</code></pre><p>}</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1027-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1065-yi-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -1382,7 +1378,7 @@ return 0;</code></pre><p>}</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1027-yi-ji/" itemprop="url">Pat_1027（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1065-yi-ji-1/" itemprop="url">Pat_1065（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -1394,178 +1390,8 @@ return 0;</code></pre><p>}</p>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:38:52+08:00">
-                2019-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
-                    <span itemprop="name">乙级</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1027 打印沙漏 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805294251491328" target="_blank" rel="noopener">原文地址</a></p>
-<p>本题要求你写个程序把给定的符号打印成沙漏的形状。例如给定17个“*”，要求按下列格式打印</p>
-<pre><code>*****
- ***
-  *
- ***
-*****</code></pre><p>所谓“沙漏形状”，是指每行输出奇数个符号；各行符号中心对齐；相邻两行符号数差2；符号数先从大到小顺序递减到1，再从小到大顺序递增；首尾符号数相等。 给定任意N个符号，不一定能正好组成一个沙漏。要求打印出的沙漏能用掉尽可能多的符号。</p>
-<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h3><p>输入在一行给出1个正整数N（≤1000）和一个符号，中间以空格分隔。</p>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h3><p>首先打印出由给定符号组成的最大的沙漏形状，最后在一行中输出剩下没用掉的符号数。</p>
-<h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h3><pre><code>19 *</code></pre><h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h3><pre><code>*****
- ***
-  *
- ***
-*****
-2</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include&lt;string.h&gt;</p>
-<p>using namespace std;</p>
-<p>int main(){<br>    int num,maxnum,sum=0,temp = 1;<br>    char te;<br>    cin&gt;&gt;num&gt;&gt;te;<br>    if(num == 0){<br>        cout&lt;&lt;num;<br>    }<br>    else{<br>        num -= temp;<br>        if(num == 0){<br>            cout&lt;&lt;te&lt;&lt;endl;<br>            cout&lt;&lt;num&lt;&lt;endl;<br>            return 0;<br>        }<br>        while(num &gt; 0){<br>            temp = temp + 2;<br>            num -= 2<em>temp;<br>        }<br>        if(num &lt; 0){<br>            num += temp*2;<br>            temp -= 2;<br>            sum = num;<br>            num = 0;<br>        }<br>        //cout&lt;&lt;num&lt;&lt;” “&lt;&lt;temp&lt;&lt;endl;<br>        if(num == 0){<br>            maxnum = temp; //最大个数的</em><br>            string s1(temp,te);<br>            int flag1 = 0;<br>            cout&lt;&lt;s1&lt;&lt;endl;<br>            if(temp &gt;= 3){<br>            temp = temp - 2;<br>            while(temp != maxnum){<br>                int n = maxnum - temp;<br>                string s1(temp,te);<br>                string s2(n/2,’ ‘);<br>                cout&lt;&lt;s2+s1+s2&lt;&lt;endl;<br>                if(flag1 == 0){<br>                    temp = temp - 2;<br>                    if(temp == 1){<br>                        flag1 = 1;<br>                    }<br>                }<br>                else{<br>                    temp = temp + 2;<br>                }<br>            }<br>            string s3(maxnum,te);<br>            cout&lt;&lt;s3&lt;&lt;endl;<br>            }<br>        }<br>        cout&lt;&lt;sum;<br>    }<br>    return 0;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1026-yi-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="StriveZs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="StriveZs的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/12/pat-1026-yi-ji/" itemprop="url">Pat_1026（乙级）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:37:24+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:52:53+08:00">
+                2019-03-18
               </time>
             
 
@@ -1648,17 +1474,17 @@ return 0;</code></pre><p>}</p>
       
         
           
-            <p>1026 程序运行时间 （15 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805295203598336" target="_blank" rel="noopener">原文地址</a></p>
-<p>要获得一个 C 语言程序的运行时间，常用的方法是调用头文件 time.h，其中提供了 clock() 函数，可以捕捉从程序开始运行到 clock() 被调用时所耗费的时间。这个时间单位是 clock tick，即“时钟打点”。同时还有一个常数 CLK_TCK，给出了机器时钟每秒所走的时钟打点数。于是为了获得一个函数 f 的运行时间，我们只要在调用 f 之前先调用 clock()，获得一个时钟打点数 C1；在 f 执行完成后再调用 clock()，获得另一个时钟打点数 C2；两次获得的时钟打点数之差 (C2-C1) 就是 f 运行所消耗的时钟打点数，再除以常数 CLK_TCK，就得到了以秒为单位的运行时间。 这里不妨简单假设常数 CLK_TCK 为 100。现给定被测函数前后两次获得的时钟打点数，请你给出被测函数运行的时间。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入在一行中顺序给出 2 个整数 C1 和 C2。注意两次获得的时钟打点数肯定不相同，即 C1 &lt; C2，并且取值在 [0,10​7​​]。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出被测函数运行的时间。运行时间必须按照 <code>hh:mm:ss</code>（即2位的 <code>时:分:秒</code>）格式输出；不足 1 秒的时间四舍五入到秒。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>123 4577973</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>12:42:59</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include&lt;time.h&gt;<br>#include&lt;math.h&gt;</p>
-<p>#define CLK 100</p>
-<p>using namespace std;</p>
-<p>void test(){<br>    int a,b,c;<br>    cin&gt;&gt;a&gt;&gt;b;<br>    c = b - a;<br>    int hour = c/(3600<em>CLK);<br>    c = c%(3600</em>CLK);<br>    int minu = c/(60<em>CLK);<br>    c = c%(60</em>CLK);<br>    int q=round((double)c/CLK);<br>    cout.fill(‘0’); //填充只能用字符串<br>    cout.width(2); //指定宽度 只对下面一个cout有用<br>    cout&lt;&lt;hour&lt;&lt;”:”;<br>    cout.width(2);<br>    cout&lt;&lt;minu&lt;&lt;”:”;<br>    cout.width(2);<br>    cout&lt;&lt;q&lt;&lt;endl;<br>}<br>int main(){<br>    test();<br>    return 0;<br>}</p>
-
-          
+          1065 单身狗 （25 分) 原文地址
+“单身狗”是中文对于单身人士的一种爱称。本题请你从上万人的大型派对中找出落单的客人，以便给予特殊关爱。
+输入格式：输入第一行给出一个正整数 N（≤ 50 000），是已知夫妻/伴侣的对数；随后 N 行，每行给出一对夫妻/伴侣——为方便起见，每人对应一个 ID
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1065-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1705,7 +1531,7 @@ return 0;</code></pre><p>}</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1025-yi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1064-yi-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -1724,7 +1550,7 @@ return 0;</code></pre><p>}</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/12/pat-1025-yi-ji/" itemprop="url">Pat_1025（乙级）</a></h1>
+                <a class="post-title-link" href="/2019/03/18/pat-1064-yi-ji-1/" itemprop="url">Pat_1064（乙级）</a></h1>
         
 
         <div class="post-meta">
@@ -1736,182 +1562,8 @@ return 0;</code></pre><p>}</p>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:36:11+08:00">
-                2019-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
-                    <span itemprop="name">乙级</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1025 反转链表 （25 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805296180871168" target="_blank" rel="noopener">原文地址</a></p>
-<p>给定一个常数 K 以及一个单链表 L，请编写程序将 L 中每 K 个结点反转。例如：给定 L 为 1→2→3→4→5→6，K 为 3，则输出应该为 3→2→1→6→5→4；如果 K 为 4，则输出应该为 4→3→2→1→5→6，即最后不到 K 个元素不反转。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>每个输入包含 1 个测试用例。每个测试用例第 1 行给出第 1 个结点的地址、结点总个数正整数 N (≤10​5​​)、以及正整数 K (≤N)，即要求反转的子链结点的个数。结点的地址是 5 位非负整数，NULL 地址用 −1 表示。 接下来有 N 行，每行格式为：</p>
-<pre><code>Address Data Next</code></pre><p>其中 <code>Address</code> 是结点地址，<code>Data</code> 是该结点保存的整数数据，<code>Next</code> 是下一结点的地址。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对每个测试用例，顺序输出反转后的链表，其上每个结点占一行，格式与输入相同。</p>
-<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><pre><code>00100 6 4
-00000 4 99999
-00100 1 12309
-68237 6 -1
-33218 3 00000
-99999 5 68237
-12309 2 33218</code></pre><h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><pre><code>00000 4 33218
-33218 3 12309
-12309 2 00100
-00100 1 99999
-99999 5 68237
-68237 6 -1</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<map><br>#include<algorithm></p>
-<p>/<em>这里一定要注意 对于链表的排序 一定不能使用排序算法  应该采用map类似字典的方式去寻找下一个节点<br>对于逆序的话则是采用reverse来进行高效的逆置</em>/<br>using namespace std;</p>
-<p>struct Node{<br>    string address;<br>    int data;<br>    string next;<br>};</p>
-<p>void sorted(Node nodes[],int num){<br>    string s1,s2;<br>    int t;<br>    for(int i=0;i&lt;num-1;i++){<br>        for(int j = i+1;j&lt;num;j++){<br>            if(nodes[i].next == nodes[j].address){<br>                s1 = nodes[i+1].address;<br>                t = nodes[i+1].data;<br>                s2 = nodes[i+1].next;<br>                nodes[i+1].address = nodes[j].address;<br>                nodes[i+1].data = nodes[j].data;<br>                nodes[i+1].next = nodes[j].next;<br>                nodes[j].address = s1;<br>                nodes[j].data = t;<br>                nodes[j].next = s2;<br>            }<br>        }<br>    }<br>}</p>
-<p>int main(){<br>    map&lt;string,Node&gt; qwe;<br>    string start;<br>    int num,temp;<br>    cin&gt;&gt;start&gt;&gt;num&gt;&gt;temp;<br>    Node nodes[num];<br>    for(int i=0;i&lt;num;i++){<br>        string s1,s2,s3,s4;<br>        int t,t1;<br>        cin&gt;&gt;s1&gt;&gt;t&gt;&gt;s2;<br>        qwe[s1].data = t;<br>        qwe[s1].next = s2;<br>    }<br>    int num1=0;<br>    for(int i=0;i&lt;num;i++){<br>        nodes[i] = {start,qwe[start].data,”0”};<br>        start = qwe[start].next;<br>        if(start == “-1”){<br>            num1 = i+1;<br>            break;<br>        }<br>    }<br>    //sorted(nodes,num);<br>    /<em>cout&lt;&lt;endl;<br>    for(int i=0;i&lt;num1;i++){<br>        cout&lt;&lt;nodes[i].address&lt;&lt;” “&lt;&lt;nodes[i].data&lt;&lt;” “&lt;&lt;nodes[i].next&lt;&lt;endl;<br>    }<br>    cout&lt;&lt;endl;</em>/<br>    if(temp &gt; num1){ //不足temp个的情况<br>        for(int i=0;i&lt;num1;i++){<br>            cout&lt;&lt;nodes[i].address&lt;&lt;” “&lt;&lt;nodes[i].data&lt;&lt;” “&lt;&lt;nodes[i].next&lt;&lt;endl;<br>        }<br>    }<br>    else if(temp == num1){<br>        reverse(nodes,nodes+num1);<br>        for(int i=0;i&lt;num1;i++){<br>            if(i == num1-1){<br>                cout&lt;&lt;nodes[i].address&lt;&lt;” “&lt;&lt;nodes[i].data&lt;&lt;” -1”&lt;&lt;endl;<br>            }<br>            else{<br>                cout&lt;&lt;nodes[i].address&lt;&lt;” “&lt;&lt;nodes[i].data&lt;&lt;” “&lt;&lt;nodes[i+1].address&lt;&lt;endl;<br>            }<br>        }<br>    }<br>    else{<br>        int sum,rez,m,n,step=0;<br>        sum = num1 / temp; //总共sum次反转<br>        rez = num1 % temp; //剩余rez个不反转<br>        for(int i=0;i&lt;sum;i++){<br>            m = i * temp;<br>            n = (i + 1) * temp;<br>            reverse(nodes+m,nodes+n);<br>        }<br>        for(int i=0;i&lt;num1;i++){<br>            if(i == num1-1){<br>                cout&lt;&lt;nodes[i].address&lt;&lt;” “&lt;&lt;nodes[i].data&lt;&lt;” -1”&lt;&lt;endl;<br>            }<br>            else{<br>                cout&lt;&lt;nodes[i].address&lt;&lt;” “&lt;&lt;nodes[i].data&lt;&lt;” “&lt;&lt;nodes[i+1].address&lt;&lt;endl;<br>            }<br>        }<br>    }<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/12/pat-1024-yi-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="StriveZs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="StriveZs的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/12/pat-1024-yi-ji/" itemprop="url">Pat_1024（乙级）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T11:34:50+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:51:56+08:00">
+                2019-03-18
               </time>
             
 
@@ -1994,16 +1646,360 @@ return 0;</code></pre><p>}</p>
       
         
           
-            <p>1024 科学计数法 （20 分） <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805297229447168" target="_blank" rel="noopener">原文地址</a></p>
-<p>科学计数法是科学家用来表示很大或很小的数字的一种方便的方法，其满足正则表达式 [+-][1-9]<code>.</code>[0-9]+E[+-][0-9]+，即数字的整数部分只有 1 位，小数部分至少有 1 位，该数字及其指数部分的正负号即使对正数也必定明确给出。 现以科学计数法的格式给出实数 A，请编写程序按普通数字表示法输出 A，并保证所有有效位都被保留。</p>
-<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>每个输入包含 1 个测试用例，即一个以科学计数法表示的实数 A。该数字的存储长度不超过 9999 字节，且其指数的绝对值不超过 9999。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对每个测试用例，在一行中按普通数字表示法输出 A，并保证所有有效位都被保留，包括末尾的 0。</p>
-<h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例 1："></a>输入样例 1：</h3><pre><code>+1.23400E-03</code></pre><h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例 1："></a>输出样例 1：</h3><pre><code>0.00123400</code></pre><h3 id="输入样例-2："><a href="#输入样例-2：" class="headerlink" title="输入样例 2："></a>输入样例 2：</h3><pre><code>-1.2E+10</code></pre><h3 id="输出样例-2："><a href="#输出样例-2：" class="headerlink" title="输出样例 2："></a>输出样例 2：</h3><pre><code>-12000000000</code></pre><p>代码:</p>
-<p>#include<iostream><br>#include&lt;string.h&gt;<br>#include&lt;math.h&gt;</p>
-<p>using namespace std;</p>
-<p>int main(){<br>    string s1,s3,qwe;<br>    cin&gt;&gt;s1;<br>    int pointBack,flag = 0,flag1=0;<br>    pointBack = 0; //小数点后面的位数<br>    qwe += s1[0];<br>    qwe += s1[1];<br>    for(int i=2;i&lt;s1.length();i++){<br>        if(s1[i] == ‘.’){<br>            flag = 1;<br>            continue;<br>        }<br>        if(s1[i] == ‘E’){<br>            flag = 0;<br>            flag1 = 1;<br>            continue;<br>        }<br>        if(flag == 1){<br>            pointBack++;<br>            qwe += s1[i];<br>        }<br>        if(flag1 == 1){<br>            s3 += s1[i];<br>        }<br>    }<br>    //cout&lt;&lt;qwe&lt;&lt;” “&lt;&lt;s3&lt;&lt;endl;<br>    int a,b,sum = 0;<br>    char t = s3[0];<br>    s3[0] = ‘0’;<br>    int index = s3.find_first_not_of(‘0’);<br>    s3[0] = t;<br>    //cout&lt;&lt;index&lt;&lt;endl;<br>    for(int i=index;i&lt;s3.length();i++){<br>        a = s3[i] - ‘0’;<br>        b = round(pow(10,s3.length()-1-i));<br>        sum += (a*b);<br>        //cout&lt;&lt;a&lt;&lt;” “&lt;&lt;b&lt;&lt;” “&lt;&lt;sum&lt;&lt;endl;<br>    }<br>    //cout&lt;&lt;qwe&lt;&lt;” “&lt;&lt;s3&lt;&lt;endl;<br>    if(s3[0] == ‘-‘){<br>        //cout&lt;&lt;”qqwe”&lt;&lt;endl;<br>        string temp(sum,’0’),result;<br>        //cout&lt;&lt;sum&lt;&lt;endl;<br>        if(qwe[0] == ‘-‘){<br>            qwe = qwe[0] + temp + qwe.substr(1,qwe.length());<br>            result = qwe.substr(0,2) + ‘.’ + qwe.substr(2,qwe.length());<br>        }<br>        else{<br>            qwe = temp + qwe.substr(1,qwe.length());<br>            result = qwe.substr(0,1) + ‘.’ + qwe.substr(1,qwe.length());<br>        }<br>        cout&lt;&lt;result&lt;&lt;endl;<br>    }<br>    else{<br>        string result;<br>        if(sum &gt; pointBack){<br>            string temp1(sum-pointBack,’0’);<br>            result = qwe + temp1;<br>        }<br>        else if(sum == pointBack){<br>            result = qwe;<br>        }<br>        else{<br>            //cout&lt;&lt;sum&lt;&lt;” “&lt;&lt;pointBack&lt;&lt;endl;<br>            result = qwe.substr(0,sum+2) + ‘.’ + qwe.substr(sum+2,qwe.length());<br>        }<br>        if(qwe[0] == ‘+’){<br>            result = result.substr(1,result.length());<br>        }<br>        cout&lt;&lt;result&lt;&lt;endl;<br>    }<br>    return 0;<br>}</p>
+          1064 朋友数 （20 分) 原文地址
+如果两个整数各位数字的和是一样的，则被称为是“朋友数”，而那个公共的和就是它们的“朋友证号”。例如 123 和 51 就是朋友数，因为 1+2+3 = 5+1 = 6，而 6 就是它们的朋友证号。给定一些整数，要求你统计一下它们中有多少个不同的朋友证号。
+输
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1064-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1064-yi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="StriveZs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="StriveZs的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1064-yi-ji/" itemprop="url">Pat_1064（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:51:56+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1064 朋友数 （20 分) 原文地址
+如果两个整数各位数字的和是一样的，则被称为是“朋友数”，而那个公共的和就是它们的“朋友证号”。例如 123 和 51 就是朋友数，因为 1+2+3 = 5+1 = 6，而 6 就是它们的朋友证号。给定一些整数，要求你统计一下它们中有多少个不同的朋友证号。
+输
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1064-yi-ji/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1063-yi-ji-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="StriveZs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="StriveZs的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/pat-1063-yi-ji-1/" itemprop="url">Pat_1063（乙级）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T10:50:58+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1063 计算谱半径 （20 分) 原文地址
+在数学中，矩阵的“谱半径”是指其特征值的模集合的上确界。换言之，对于给定的 n 个复数空间的特征值 { a​1​​+b​1​​i,⋯,a​n​​+b​n​​i }，它们的模为实部与虚部的平方和的开方，而“谱半径”就是最大模。 现在给定一些复数空间的特征值
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/pat-1063-yi-ji-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2041,7 +2037,7 @@ return 0;</code></pre><p>}</p>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/9/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/9/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -2089,9 +2085,9 @@ return 0;</code></pre><p>}</p>
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">252</span>
+                  <span class="site-state-item-count">503</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2176,7 +2172,6 @@ return 0;</code></pre><p>}</p>
 
 
   <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
-
 
 
 
@@ -2325,6 +2320,323 @@ return 0;</code></pre><p>}</p>
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
