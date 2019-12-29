@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>StriveZs的博客</title>
   
-  
+  <subtitle>Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zs670980918.github.io/"/>
@@ -40,8 +40,8 @@
   
   <entry>
     <title>装饰模式编程实现</title>
-    <link href="https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian/"/>
-    <id>https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian/</id>
+    <link href="https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/"/>
+    <id>https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/</id>
     <published>2019-05-13T07:04:12.000Z</published>
     <updated>2019-05-13T07:04:12.000Z</updated>
     
@@ -74,8 +74,8 @@
   
   <entry>
     <title>装饰模式编程实现</title>
-    <link href="https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/"/>
-    <id>https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/</id>
+    <link href="https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian/"/>
+    <id>https://zs670980918.github.io/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian/</id>
     <published>2019-05-13T07:04:12.000Z</published>
     <updated>2019-05-13T07:04:12.000Z</updated>
     
@@ -244,8 +244,8 @@
   
   <entry>
     <title>Windows下配置VSCode</title>
-    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/"/>
-    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/</id>
+    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode/"/>
+    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode/</id>
     <published>2019-04-17T11:46:00.000Z</published>
     <updated>2019-04-17T11:46:00.000Z</updated>
     
@@ -272,8 +272,8 @@
   
   <entry>
     <title>Windows下配置VSCode</title>
-    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode/"/>
-    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode/</id>
+    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/"/>
+    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/</id>
     <published>2019-04-17T11:46:00.000Z</published>
     <updated>2019-04-17T11:46:00.000Z</updated>
     
@@ -468,8 +468,8 @@
   
   <entry>
     <title>Pat_1095（乙级）</title>
-    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/"/>
-    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/</id>
+    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/"/>
+    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/</id>
     <published>2019-03-18T03:36:54.000Z</published>
     <updated>2019-03-18T03:36:54.000Z</updated>
     
@@ -496,8 +496,8 @@
   
   <entry>
     <title>Pat_1095（乙级）</title>
-    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/"/>
-    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/</id>
+    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/"/>
+    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/</id>
     <published>2019-03-18T03:36:54.000Z</published>
     <updated>2019-03-18T03:36:54.000Z</updated>
     
@@ -580,8 +580,8 @@
   
   <entry>
     <title>Pat_1093（乙级）</title>
-    <link href="https://zs670980918.github.io/2019/03/18/pat-1093-yi-ji/"/>
-    <id>https://zs670980918.github.io/2019/03/18/pat-1093-yi-ji/</id>
+    <link href="https://zs670980918.github.io/2019/03/18/pat-1093-yi-ji-1/"/>
+    <id>https://zs670980918.github.io/2019/03/18/pat-1093-yi-ji-1/</id>
     <published>2019-03-18T03:35:13.000Z</published>
     <updated>2019-03-18T03:35:13.000Z</updated>
     
