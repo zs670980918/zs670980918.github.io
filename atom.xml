@@ -244,8 +244,8 @@
   
   <entry>
     <title>Windows下配置VSCode</title>
-    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode/"/>
-    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode/</id>
+    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/"/>
+    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/</id>
     <published>2019-04-17T11:46:00.000Z</published>
     <updated>2019-04-17T11:46:00.000Z</updated>
     
@@ -272,8 +272,8 @@
   
   <entry>
     <title>Windows下配置VSCode</title>
-    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/"/>
-    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode-1/</id>
+    <link href="https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode/"/>
+    <id>https://zs670980918.github.io/2019/04/17/windows-xia-pei-zhi-vscode/</id>
     <published>2019-04-17T11:46:00.000Z</published>
     <updated>2019-04-17T11:46:00.000Z</updated>
     
@@ -412,34 +412,6 @@
   
   <entry>
     <title>Pat_1001（甲级）</title>
-    <link href="https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji-1/"/>
-    <id>https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji-1/</id>
-    <published>2019-03-25T15:17:04.000Z</published>
-    <updated>2019-03-25T15:17:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>1001 A+B Format （20 分) <a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400" target="_blank" rel="noopener">原文地址</a></p><p>Calculate a+b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).</p><h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. Each case contains a pair of integers a and b where −10​6​​≤a,b≤10​6​​. The numbers are separated by a space.</p><h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.</p><h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><pre><code>-1000000 9</code></pre><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><pre><code>-999,991</code></pre><p>代码：（这里自己写过一个可以使所有数据进行相加减的大数运算 但是会发生time out 因此这个参考了网上大佬写的，基本上能看懂所以在这里就贴大佬的了）</p><p>#include<iostream><br>#include<cstdio><br>#include<cmath><br>#include<cstring><br>using namespace std;<br>int main(){<br>    int a,b;<br>    cin&gt;&gt;a&gt;&gt;b;<br>    int c=a+b;<br>    if(c&lt;0) cout&lt;&lt;’-‘;<br>    c=abs(c);<br>    char s[20];<br>    sprintf(s,”%d”,c);<br>    int len=strlen(s);<br>    //if(len&lt;=3) {cout&lt;&lt;s;return 0;}<br>    int m=len/3,n=len%3,start=0;<br>    //cout&lt;&lt;”m=”&lt;&lt;m&lt;&lt;’ ‘&lt;&lt;”n=”&lt;&lt;n&lt;&lt;endl;<br>    if(n==0) {cout&lt;&lt;s[0]&lt;&lt;s[1]&lt;&lt;s[2];start=3;m–;}<br>    else if(n==1) {cout&lt;&lt;s[0];start=1;}<br>    else if(n==2) {cout&lt;&lt;s[0]&lt;&lt;s[1];start=2;}<br>    while(m!=0){<br>        cout&lt;&lt;’,’;<br>        cout&lt;&lt;s[start]&lt;&lt;s[start+1]&lt;&lt;s[start+2];<br>        start+=3;<br>        m–;<br>    }<br>    return 0;<br>}</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1001 A+B Format （20 分) &lt;a href=&quot;https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400&quot; target=&quot;_blank&quot; rel=&quot;noope
-      
-    
-    </summary>
-    
-    
-      <category term="PAT" scheme="https://zs670980918.github.io/categories/PAT/"/>
-    
-      <category term="乙级" scheme="https://zs670980918.github.io/categories/PAT/%E4%B9%99%E7%BA%A7/"/>
-    
-      <category term="文章页" scheme="https://zs670980918.github.io/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Pat_1001（甲级）</title>
     <link href="https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji/"/>
     <id>https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji/</id>
     <published>2019-03-25T15:17:04.000Z</published>
@@ -467,9 +439,37 @@
   </entry>
   
   <entry>
+    <title>Pat_1001（甲级）</title>
+    <link href="https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji-1/"/>
+    <id>https://zs670980918.github.io/2019/03/25/pat-1001-jia-ji-1/</id>
+    <published>2019-03-25T15:17:04.000Z</published>
+    <updated>2019-03-25T15:17:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>1001 A+B Format （20 分) <a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400" target="_blank" rel="noopener">原文地址</a></p><p>Calculate a+b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).</p><h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. Each case contains a pair of integers a and b where −10​6​​≤a,b≤10​6​​. The numbers are separated by a space.</p><h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.</p><h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><pre><code>-1000000 9</code></pre><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><pre><code>-999,991</code></pre><p>代码：（这里自己写过一个可以使所有数据进行相加减的大数运算 但是会发生time out 因此这个参考了网上大佬写的，基本上能看懂所以在这里就贴大佬的了）</p><p>#include<iostream><br>#include<cstdio><br>#include<cmath><br>#include<cstring><br>using namespace std;<br>int main(){<br>    int a,b;<br>    cin&gt;&gt;a&gt;&gt;b;<br>    int c=a+b;<br>    if(c&lt;0) cout&lt;&lt;’-‘;<br>    c=abs(c);<br>    char s[20];<br>    sprintf(s,”%d”,c);<br>    int len=strlen(s);<br>    //if(len&lt;=3) {cout&lt;&lt;s;return 0;}<br>    int m=len/3,n=len%3,start=0;<br>    //cout&lt;&lt;”m=”&lt;&lt;m&lt;&lt;’ ‘&lt;&lt;”n=”&lt;&lt;n&lt;&lt;endl;<br>    if(n==0) {cout&lt;&lt;s[0]&lt;&lt;s[1]&lt;&lt;s[2];start=3;m–;}<br>    else if(n==1) {cout&lt;&lt;s[0];start=1;}<br>    else if(n==2) {cout&lt;&lt;s[0]&lt;&lt;s[1];start=2;}<br>    while(m!=0){<br>        cout&lt;&lt;’,’;<br>        cout&lt;&lt;s[start]&lt;&lt;s[start+1]&lt;&lt;s[start+2];<br>        start+=3;<br>        m–;<br>    }<br>    return 0;<br>}</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1001 A+B Format （20 分) &lt;a href=&quot;https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400&quot; target=&quot;_blank&quot; rel=&quot;noope
+      
+    
+    </summary>
+    
+    
+      <category term="PAT" scheme="https://zs670980918.github.io/categories/PAT/"/>
+    
+      <category term="乙级" scheme="https://zs670980918.github.io/categories/PAT/%E4%B9%99%E7%BA%A7/"/>
+    
+      <category term="文章页" scheme="https://zs670980918.github.io/categories/PAT/%E4%B9%99%E7%BA%A7/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Pat_1095（乙级）</title>
-    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/"/>
-    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/</id>
+    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/"/>
+    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/</id>
     <published>2019-03-18T03:36:54.000Z</published>
     <updated>2019-03-18T03:36:54.000Z</updated>
     
@@ -496,8 +496,8 @@
   
   <entry>
     <title>Pat_1095（乙级）</title>
-    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/"/>
-    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji/</id>
+    <link href="https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/"/>
+    <id>https://zs670980918.github.io/2019/03/18/pat-1095-yi-ji-1/</id>
     <published>2019-03-18T03:36:54.000Z</published>
     <updated>2019-03-18T03:36:54.000Z</updated>
     
