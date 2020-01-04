@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,Game,tkinter," />
 
 
 
@@ -78,7 +78,7 @@
 <meta name="description" content="写了一个弹球小游戏，能够实现的简单的通过键盘的左右键来进行木板的移动，还有小球弹到边界反弹，以及随机出生点还有速度的改变、最后是游戏结束的提示，感觉还有改进的地方，比如：可以手动选择游戏难度，游戏结束后重新开始等，这个后续可能会加上去。 截图：   代码总共下来也就不到100行，也是看了网上写的一些东西自己在编写得到的。 下载地址:https:&#x2F;&#x2F;download.csdn.net&#x2F;downlo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用tkinter实现弹球小游戏">
-<meta property="og:url" content="https://zs670980918.github.io/2018/06/06/shi-yong-tkinter-shi-xian-dan-qiu-xiao-you-xi-1/index.html">
+<meta property="og:url" content="blog.strivezs.com/2018/06/06/shi-yong-tkinter-shi-xian-dan-qiu-xiao-you-xi-1/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
 <meta property="og:description" content="写了一个弹球小游戏，能够实现的简单的通过键盘的左右键来进行木板的移动，还有小球弹到边界反弹，以及随机出生点还有速度的改变、最后是游戏结束的提示，感觉还有改进的地方，比如：可以手动选择游戏难度，游戏结束后重新开始等，这个后续可能会加上去。 截图：   代码总共下来也就不到100行，也是看了网上写的一些东西自己在编写得到的。 下载地址:https:&#x2F;&#x2F;download.csdn.net&#x2F;downlo">
 <meta property="og:locale" content="en_US">
@@ -88,6 +88,9 @@
 <meta property="article:published_time" content="2018-06-06T13:27:32.000Z">
 <meta property="article:modified_time" content="2018-06-06T13:27:32.000Z">
 <meta property="article:author" content="StriveZs">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Game">
+<meta property="article:tag" content="tkinter">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/05/u407244128253124607fm27gp0.jpg">
 
@@ -119,13 +122,16 @@
 
 
 
-  <link rel="canonical" href="https://zs670980918.github.io/2018/06/06/shi-yong-tkinter-shi-xian-dan-qiu-xiao-you-xi-1/"/>
+  <link rel="canonical" href="blog.strivezs.com/2018/06/06/shi-yong-tkinter-shi-xian-dan-qiu-xiao-you-xi-1/"/>
 
 
 
 
 
   <title>使用tkinter实现弹球小游戏 | StriveZs的博客</title>
+  <!-- 球型气泡标签云 -->
+    <script type="text/javascript" src="/js/src/bubble.js"></script>
+    
   
 
 
@@ -157,7 +163,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
-    <a href="https://github.com/zs670980918" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/zs670980918" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -328,7 +334,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2018/06/06/shi-yong-tkinter-shi-xian-dan-qiu-xiao-you-xi-1/">
+    <link itemprop="mainEntityOfPage" href="blog.strivezs.com/2018/06/06/shi-yong-tkinter-shi-xian-dan-qiu-xiao-you-xi-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -439,47 +445,8 @@
       
 
       
-        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/u407244128253124607fm27gp0.jpg" alt=""> 写了一个弹球小游戏，能够实现的简单的通过键盘的左右键来进行木板的移动，还有小球弹到边界反弹，以及随机出生点还有速度的改变、最后是游戏结束的提示，感觉还有改进的地方，比如：可以手动选择游戏难度，游戏结束后重新开始等，这个后续可能会加上去。 截图： <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180606155956.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180606160006.png" alt=""> 代码总共下来也就不到100行，也是看了网上写的一些东西自己在编写得到的。 下载地址:<a href="https://download.csdn.net/download/qq_16184125/10463456" target="_blank" rel="noopener">https://download.csdn.net/download/qq_16184125/10463456</a> 代码：</p>
-<p>import tkinter<br>import random<br>import time<br>import tkinter.messagebox</p>
-<p>tk = tkinter.Tk()  # 创建一个tk实例<br>tk.title(“弹球游戏”)  #窗口名称<br>tk.resizable(0,0)  #设置窗口管理器调整布局大小，  0,0表示不能被拉升<br>tk.wm_attributes(“-topmost”,1)<br>canvas = tkinter.Canvas(tk,width=500,height=400,bd=0,highlightthickness=0)#创建一个400*500的界面，背景色为默认，边框为厚度为0<br>canvas.pack()  #通知窗口管理器注册组件<br>tk.update()  #刷新一下界面</p>
-<p>class Ball():  #小球<br>    def __init__(self,canvas,color):  #canvas，画图用来画一个球，一个是color表示球的颜色<br>        self.canvas = canvas<br>        self.id = canvas.create_oval(10,10,25,25,fill=color)  #画球<br>        self.canvas.move(self.id,245,100)  #记录球的id<br>        #设置小球的初始位置<br>        starts = [-1,-2,-3,0,1,2,3]<br>        random.shuffle(starts)<br>        #随机从上面的starts列表中取出一个数<br>        self.x = starts[0]<br>        self.y = -1<br>        self.flag2 = 0<br>        self.canvas_height = self.canvas.winfo_height()<br>        self.canvas_width = self.canvas.winfo_width()</p>
-<pre><code>def hit_paddle(self):
-    paddle_pos = self.canvas.coords(id1)
-    if self.pos\[2\] &gt;= paddle\_pos\[0\] and self.pos\[0\]&lt;= paddle\_pos\[2\]:
-        if self.pos\[3\] &gt;= paddle\_pos\[1\] and self.pos\[3\] &lt;= paddle\_pos\[3\]:
-            return True
-    return False
-
-def draw(self):
-    self.canvas.move(self.id,self.x,self.y)  #表示运动
-    self.pos = self.canvas.coords(self.id)
-    if self.pos\[1\]&lt;=0:  #向下运动
-        self.y = 2
-    if self.pos\[0\]&lt;=0: #向右运动
-        self.x = 2
-    if self.pos\[2\]&gt;=self.canvas_width:  #向左运动
-        self.x = -2
-    if self.pos\[3\] &gt;= self.canvas_height:  #向上运动
-        self.flag2 = 1  #游戏结束标志</code></pre><p>class Paddle:<br>    def __init__(self,canvas,color):<br>        self.canvas = canvas<br>        global id1<br>        id1 = canvas.create_rectangle(0,0,100,10,fill=color)<br>        self.canvas.move(id1,200,350)<br>        self.x = 0<br>        self.canvas_width = self.canvas.winfo_width()<br>        self.canvas.bind_all(‘<KeyPress-Left>‘,self.turn_left)  #事件响应键盘的左右按键<br>        self.canvas.bind_all(‘<KeyPress-Right>‘, self.turn_right)</p>
-<pre><code>def draw(self):
-    self.canvas.move(id1,self.x,0)
-    pos = self.canvas.coords(id1)  #得到当前的位置
-    if pos\[0\]&lt;=0:
-        self.x = 0
-    elif pos\[2\]&gt;=self.canvas_width:
-        self.x=0
-    else:
-        self.x=0
-
-
-def turn_left(self, evt):
-    self.x = -20
-
-def turn_right(self, evt):
-    self.x = 20</code></pre><p>ball = Ball(canvas,”red”)<br>paddle = Paddle(canvas,”blue”)</p>
-<p>while 1:<br>    ball.draw()<br>    paddle.draw()<br>    flag = ball.hit_paddle()<br>    if flag == True:<br>        ball.y = -4<br>    if ball.flag2 == 1:<br>        flag1 = 1<br>        break<br>    tk.update_idletasks()<br>    tk.update()<br>    time.sleep(0.01)</p>
-<p>if flag1 == 1:<br>    tkinter.messagebox.showinfo(title=’Python tkinter’,message=’游戏结束’)</p>
-
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/u407244128253124607fm27gp0.jpg" alt=""> 写了一个弹球小游戏，能够实现的简单的通过键盘的左右键来进行木板的移动，还有小球弹到边界反弹，以及随机出生点还有速度的改变、最后是游戏结束的提示，感觉还有改进的地方，比如：可以手动选择游戏难度，游戏结束后重新开始等，这个后续可能会加上去。 截图： <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180606155956.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180606160006.png" alt=""> 代码总共下来也就不到100行，也是看了网上写的一些东西自己在编写得到的。 下载地址:<a href="https://download.csdn.net/download/qq_16184125/10463456">https://download.csdn.net/download/qq_16184125/10463456</a> 代码：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">import tkinter</span><br><span class="line">import random</span><br><span class="line">import time</span><br><span class="line">import tkinter.messagebox</span><br><span class="line"></span><br><span class="line">tk = tkinter.Tk()  <span class="comment"># 创建一个tk实例</span></span><br><span class="line">tk.title(<span class="string">"弹球游戏"</span>)  <span class="comment">#窗口名称</span></span><br><span class="line">tk.resizable(<span class="number">0</span>,<span class="number">0</span>)  <span class="comment">#设置窗口管理器调整布局大小，  0,0表示不能被拉升</span></span><br><span class="line">tk.wm_attributes(<span class="string">"-topmost"</span>,<span class="number">1</span>)</span><br><span class="line">canvas = tkinter.Canvas(tk,width=<span class="number">500</span>,height=<span class="number">400</span>,bd=<span class="number">0</span>,highlightthickness=<span class="number">0</span>)<span class="comment">#创建一个400*500的界面，背景色为默认，边框为厚度为0</span></span><br><span class="line">canvas.pack()  <span class="comment">#通知窗口管理器注册组件</span></span><br><span class="line">tk.update()  <span class="comment">#刷新一下界面</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ball</span>():  <span class="comment">#小球</span></span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> \<span class="title">_</span>\<span class="title">_init</span>\<span class="title">_</span>\<span class="title">_</span><span class="params">(<span class="keyword">self</span>,canvas,color)</span></span>:  <span class="comment">#canvas，画图用来画一个球，一个是color表示球的颜色</span></span><br><span class="line">        <span class="keyword">self</span>.canvas = canvas</span><br><span class="line">        <span class="keyword">self</span>.id = canvas.create_oval(<span class="number">10</span>,<span class="number">10</span>,<span class="number">25</span>,<span class="number">25</span>,fill=color)  <span class="comment">#画球</span></span><br><span class="line">        <span class="keyword">self</span>.canvas.move(<span class="keyword">self</span>.id,<span class="number">245</span>,<span class="number">100</span>)  <span class="comment">#记录球的id</span></span><br><span class="line">        <span class="comment">#设置小球的初始位置</span></span><br><span class="line">        starts = \[-<span class="number">1</span>,-<span class="number">2</span>,-<span class="number">3</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\]</span><br><span class="line">        random.shuffle(starts)</span><br><span class="line">        <span class="comment">#随机从上面的starts列表中取出一个数</span></span><br><span class="line">        <span class="keyword">self</span>.x = starts\[<span class="number">0</span>\]</span><br><span class="line">        <span class="keyword">self</span>.y = -<span class="number">1</span></span><br><span class="line">        <span class="keyword">self</span>.flag2 = <span class="number">0</span></span><br><span class="line">        <span class="keyword">self</span>.canvas\_height = <span class="keyword">self</span>.canvas.winfo\_height()</span><br><span class="line">        <span class="keyword">self</span>.canvas\_width = <span class="keyword">self</span>.canvas.winfo\_width()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hit_paddle</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        paddle_pos = <span class="keyword">self</span>.canvas.coords(id1)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">self</span>.pos\[<span class="number">2</span>\] &gt;= paddle\_pos\[<span class="number">0</span>\] <span class="keyword">and</span> <span class="keyword">self</span>.pos\[<span class="number">0</span>\]&lt;= paddle\_pos\[<span class="number">2</span>\]<span class="symbol">:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">self</span>.pos\[<span class="number">3</span>\] &gt;= paddle\_pos\[<span class="number">1</span>\] <span class="keyword">and</span> <span class="keyword">self</span>.pos\[<span class="number">3</span>\] &lt;= paddle\_pos\[<span class="number">3</span>\]<span class="symbol">:</span></span><br><span class="line">                <span class="keyword">return</span> True</span><br><span class="line">        <span class="keyword">return</span> False</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.canvas.move(<span class="keyword">self</span>.id,<span class="keyword">self</span>.x,<span class="keyword">self</span>.y)  <span class="comment">#表示运动</span></span><br><span class="line">        <span class="keyword">self</span>.pos = <span class="keyword">self</span>.canvas.coords(<span class="keyword">self</span>.id)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">self</span>.pos\[<span class="number">1</span>\]&lt;=<span class="number">0</span>:  <span class="comment">#向下运动</span></span><br><span class="line">            <span class="keyword">self</span>.y = <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">self</span>.pos\[<span class="number">0</span>\]&lt;=<span class="number">0</span>: <span class="comment">#向右运动</span></span><br><span class="line">            <span class="keyword">self</span>.x = <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">self</span>.pos\[<span class="number">2</span>\]&gt;=<span class="keyword">self</span>.<span class="symbol">canvas_width:</span>  <span class="comment">#向左运动</span></span><br><span class="line">            <span class="keyword">self</span>.x = -<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">self</span>.pos\[<span class="number">3</span>\] &gt;= <span class="keyword">self</span>.<span class="symbol">canvas_height:</span>  <span class="comment">#向上运动</span></span><br><span class="line">            <span class="keyword">self</span>.flag2 = <span class="number">1</span>  <span class="comment">#游戏结束标志</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Paddle</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> \<span class="title">_</span>\<span class="title">_init</span>\<span class="title">_</span>\<span class="title">_</span><span class="params">(<span class="keyword">self</span>,canvas,color)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.canvas = canvas</span><br><span class="line">        global id1</span><br><span class="line">        id1 = canvas.create_rectangle(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">10</span>,fill=color)</span><br><span class="line">        <span class="keyword">self</span>.canvas.move(id1,<span class="number">200</span>,<span class="number">350</span>)</span><br><span class="line">        <span class="keyword">self</span>.x = <span class="number">0</span></span><br><span class="line">        <span class="keyword">self</span>.canvas\_width = <span class="keyword">self</span>.canvas.winfo\_width()</span><br><span class="line">        <span class="keyword">self</span>.canvas.bind\_all(<span class="string">'&lt;KeyPress-Left&gt;'</span>,<span class="keyword">self</span>.turn\_left)  <span class="comment">#事件响应键盘的左右按键</span></span><br><span class="line">        <span class="keyword">self</span>.canvas.bind\_all(<span class="string">'&lt;KeyPress-Right&gt;'</span>, <span class="keyword">self</span>.turn\_right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.canvas.move(id1,<span class="keyword">self</span>.x,<span class="number">0</span>)</span><br><span class="line">        pos = <span class="keyword">self</span>.canvas.coords(id1)  <span class="comment">#得到当前的位置</span></span><br><span class="line">        <span class="keyword">if</span> pos\[<span class="number">0</span>\]&lt;=<span class="number">0</span><span class="symbol">:</span></span><br><span class="line">            <span class="keyword">self</span>.x = <span class="number">0</span></span><br><span class="line">        elif pos\[<span class="number">2</span>\]&gt;=<span class="keyword">self</span>.<span class="symbol">canvas_width:</span></span><br><span class="line">            <span class="keyword">self</span>.x=<span class="number">0</span></span><br><span class="line">        <span class="symbol">else:</span></span><br><span class="line">            <span class="keyword">self</span>.x=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">turn_left</span><span class="params">(<span class="keyword">self</span>, evt)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.x = -<span class="number">20</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">turn_right</span><span class="params">(<span class="keyword">self</span>, evt)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.x = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ball = Ball(canvas,<span class="string">"red"</span>)</span><br><span class="line">paddle = Paddle(canvas,<span class="string">"blue"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span><span class="symbol">:</span></span><br><span class="line">    ball.draw()</span><br><span class="line">    paddle.draw()</span><br><span class="line">    flag = ball.hit_paddle()</span><br><span class="line">    <span class="keyword">if</span> flag == <span class="symbol">True:</span></span><br><span class="line">        ball.y = -<span class="number">4</span></span><br><span class="line">    <span class="keyword">if</span> ball.flag2 == <span class="number">1</span><span class="symbol">:</span></span><br><span class="line">        flag1 = <span class="number">1</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    tk.update_idletasks()</span><br><span class="line">    tk.update()</span><br><span class="line">    time.sleep(<span class="number">0</span>.<span class="number">01</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> flag1 == <span class="number">1</span><span class="symbol">:</span></span><br><span class="line">    tkinter.messagebox.showinfo(title=<span class="string">'Python tkinter'</span>,message=<span class="string">'游戏结束'</span>)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -502,6 +469,16 @@ def turn_right(self, evt):
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Game/" rel="tag"># Game</a>
+          
+            <a href="/tags/tkinter/" rel="tag"># tkinter</a>
+          
+        </div>
+      
 
       
       
@@ -511,8 +488,8 @@ def turn_right(self, evt):
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/06/shi-yong-tkinter-shi-xian-dan-qiu-xiao-you-xi/" rel="next" title="使用tkinter实现弹球小游戏">
-                <i class="fa fa-chevron-left"></i> 使用tkinter实现弹球小游戏
+              <a href="/2018/06/05/di-zhi-bian-huan-suan-fa-1/" rel="next" title="地址变换算法">
+                <i class="fa fa-chevron-left"></i> 地址变换算法
               </a>
             
           </div>
@@ -521,7 +498,7 @@ def turn_right(self, evt):
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/08/c-shi-xian-chuang-jian-mo-ban-template-jie-dian-lei/" rel="prev" title="c++实现创建模板（template）结点类">
+              <a href="/2018/06/08/c-shi-xian-chuang-jian-mo-ban-template-jie-dian-lei-1/" rel="prev" title="c++实现创建模板（template）结点类">
                 c++实现创建模板（template）结点类 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -595,7 +572,7 @@ def turn_right(self, evt):
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">503</span>
+                  <span class="site-state-item-count">258</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -605,10 +582,10 @@ def turn_right(self, evt):
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">162</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">169</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -616,10 +593,10 @@ def turn_right(self, evt):
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">162</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -651,6 +628,276 @@ def turn_right(self, evt):
 
       
 
+      
+      
+        <!-- canvas粒子时钟 -->
+        
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+      
+
     </div>
   </aside>
 
@@ -662,7 +909,7 @@ def turn_right(self, evt):
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1185,5 +1432,5 @@ def turn_right(self, evt):
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>

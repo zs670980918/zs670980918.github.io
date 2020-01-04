@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MatLab,GA,优化算法,非线性规划," />
 
 
 
@@ -78,7 +78,7 @@
 <meta name="description" content="非线性规划研究一个n元实函数在一组等式或不等式的约束条件下的极值问题。 非线性规划函数： 函数fmincon是MatLab最优化工具箱中求解非线性规划问题的函数，它从一个预估值触发，搜索约束条件下非线性多元函数的最小值。 函数fmincon的约束条件为：  其中，x、b、beq、lb和ub是矢量，A和Aeq为矩阵；c（x）和ceq（x）返回矢量的函数；f（x）、c（x）和ceq（x）是非线性函数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于遗传算法和非线性规划的函数寻优算法">
-<meta property="og:url" content="https://zs670980918.github.io/2018/07/15/ji-yu-yi-chuan-suan-fa-he-fei-xian-xing-gui-hua-de-han-shu-xun-you-suan-fa-1/index.html">
+<meta property="og:url" content="blog.strivezs.com/2018/07/15/ji-yu-yi-chuan-suan-fa-he-fei-xian-xing-gui-hua-de-han-shu-xun-you-suan-fa-1/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
 <meta property="og:description" content="非线性规划研究一个n元实函数在一组等式或不等式的约束条件下的极值问题。 非线性规划函数： 函数fmincon是MatLab最优化工具箱中求解非线性规划问题的函数，它从一个预估值触发，搜索约束条件下非线性多元函数的最小值。 函数fmincon的约束条件为：  其中，x、b、beq、lb和ub是矢量，A和Aeq为矩阵；c（x）和ceq（x）返回矢量的函数；f（x）、c（x）和ceq（x）是非线性函数。">
 <meta property="og:locale" content="en_US">
@@ -90,6 +90,10 @@
 <meta property="article:published_time" content="2018-07-15T03:37:08.000Z">
 <meta property="article:modified_time" content="2018-07-15T03:37:08.000Z">
 <meta property="article:author" content="StriveZs">
+<meta property="article:tag" content="MatLab">
+<meta property="article:tag" content="GA">
+<meta property="article:tag" content="优化算法">
+<meta property="article:tag" content="非线性规划">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/07/111.png">
 
@@ -121,13 +125,16 @@
 
 
 
-  <link rel="canonical" href="https://zs670980918.github.io/2018/07/15/ji-yu-yi-chuan-suan-fa-he-fei-xian-xing-gui-hua-de-han-shu-xun-you-suan-fa-1/"/>
+  <link rel="canonical" href="blog.strivezs.com/2018/07/15/ji-yu-yi-chuan-suan-fa-he-fei-xian-xing-gui-hua-de-han-shu-xun-you-suan-fa-1/"/>
 
 
 
 
 
   <title>基于遗传算法和非线性规划的函数寻优算法 | StriveZs的博客</title>
+  <!-- 球型气泡标签云 -->
+    <script type="text/javascript" src="/js/src/bubble.js"></script>
+    
   
 
 
@@ -159,7 +166,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
-    <a href="https://github.com/zs670980918" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/zs670980918" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -330,7 +337,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2018/07/15/ji-yu-yi-chuan-suan-fa-he-fei-xian-xing-gui-hua-de-han-shu-xun-you-suan-fa-1/">
+    <link itemprop="mainEntityOfPage" href="blog.strivezs.com/2018/07/15/ji-yu-yi-chuan-suan-fa-he-fei-xian-xing-gui-hua-de-han-shu-xun-you-suan-fa-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -489,329 +496,19 @@
 <li>非线性寻优</li>
 </ol>
 <p>每进化一定代数后，以所得到的结果为初始值，采用fmincon进行局部寻优，并把局部寻优的结果作为染色体继续进化 <strong>实现：</strong> 计算目标值的函数文件  </p>
-<p>function y = fun(x)</p>
-<p>y=-5*sin(x(1))*sin(x(2))*sin(x(3))*sin(x(4))*sin(x(5))-sin(5*x(1))*sin(5*x(2))*sin(5*x(3))*sin(5*x(4))*sin(5*x(5))+8;</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function <span class="symbol">y</span> = fun(<span class="symbol">x</span>)</span><br><span class="line"></span><br><span class="line"><span class="symbol">y</span>=<span class="number">-5</span>\*<span class="built_in">sin</span>(<span class="symbol">x</span>(<span class="number">1</span>))\*<span class="built_in">sin</span>(<span class="symbol">x</span>(<span class="number">2</span>))\*<span class="built_in">sin</span>(<span class="symbol">x</span>(<span class="number">3</span>))\*<span class="built_in">sin</span>(<span class="symbol">x</span>(<span class="number">4</span>))\*<span class="built_in">sin</span>(<span class="symbol">x</span>(<span class="number">5</span>))-<span class="built_in">sin</span>(<span class="number">5</span>\*<span class="symbol">x</span>(<span class="number">1</span>))\*<span class="built_in">sin</span>(<span class="number">5</span>\*<span class="symbol">x</span>(<span class="number">2</span>))\*<span class="built_in">sin</span>(<span class="number">5</span>\*<span class="symbol">x</span>(<span class="number">3</span>))\*<span class="built_in">sin</span>(<span class="number">5</span>\*<span class="symbol">x</span>(<span class="number">4</span>))\*<span class="built_in">sin</span>(<span class="number">5</span>\*<span class="symbol">x</span>(<span class="number">5</span>))+<span class="number">8</span>;</span><br></pre></td></tr></table></figure>
+
+
 <p>选择函数</p>
-<p>%%选择操作  该函数对每一代种群中的染色体进行选择，以进行后面的交叉和变异</p>
-<p>function ret = select(indivduals,sizepop) %indivduals为种群信息   sizepop为种群规模</p>
-<p>%indivduals input :种群信息</p>
-<p>%sizepop input :种群规模</p>
-<p>%opts input :选择方法的选择</p>
-<p>%ret output :经过选择后的种群</p>
-<p>indivduals.fitness = 1./(indivduals.fitness); %计算适应度</p>
-<p>sumfitness = sum(individuals.fitness); %计算适应度之和</p>
-<p>sumf = indivduals.fitness./sumfitness;  %计算适应度占比</p>
-<p>index = [];   %创建一个空数组 用来存储选择出来的染色体的下标</p>
-<p>for i=1:sizepop  %循环sizepop</p>
-<pre><code>pick = rand;  %将pick赋值为一个随机小数范围在0-1
-
-while pick == 0  %设置一下防止rand 出来的值使pick为0
-
-    pick = rand;
-
-end
-
-for j = 1 :sizepop %遍历每一个染色体的适应度占比
-
-    pick = pick - sumf(j); %如果pick - 某个染色体的适应度占比小于0 则将该染色体对应的下表添加到index中
-
-    if pick &lt; 0
-
-        index = \[index j\];
-
-        break;
-
-    end
-
-end</code></pre><p>end</p>
-<p>indivduals.chrom = indivduals.chrom(index,:);  %将选择出来的染色体存到一个子种群中</p>
-<p>indivduals.fitness = indivduals.fitness(index);  %将对应的适应度也存储到一起</p>
-<p>ret = indivduals;</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%%选择操作  该函数对每一代种群中的染色体进行选择，以进行后面的交叉和变异</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ret</span> = <span class="title">select</span><span class="params">(indivduals,sizepop)</span> %<span class="title">indivduals</span>为种群信息   <span class="title">sizepop</span>为种群规模</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%indivduals input :种群信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%sizepop input :种群规模</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%opts input :选择方法的选择</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%ret output :经过选择后的种群</span></span><br><span class="line"></span><br><span class="line">indivduals.fitness = <span class="number">1.</span>/(indivduals.fitness); <span class="comment">%计算适应度</span></span><br><span class="line"></span><br><span class="line">sumfitness = sum(individuals.fitness); <span class="comment">%计算适应度之和</span></span><br><span class="line"></span><br><span class="line">sumf = indivduals.fitness./sumfitness;  <span class="comment">%计算适应度占比</span></span><br><span class="line"></span><br><span class="line">index = \[\];   <span class="comment">%创建一个空数组 用来存储选择出来的染色体的下标</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:sizepop  <span class="comment">%循环sizepop</span></span><br><span class="line"></span><br><span class="line">    pick = <span class="built_in">rand</span>;  <span class="comment">%将pick赋值为一个随机小数范围在0-1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> pick == <span class="number">0</span>  <span class="comment">%设置一下防止rand 出来的值使pick为0</span></span><br><span class="line"></span><br><span class="line">        pick = <span class="built_in">rand</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span> :sizepop <span class="comment">%遍历每一个染色体的适应度占比</span></span><br><span class="line"></span><br><span class="line">        pick = pick - sumf(<span class="built_in">j</span>); <span class="comment">%如果pick - 某个染色体的适应度占比小于0 则将该染色体对应的下表添加到index中</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> pick &lt; <span class="number">0</span></span><br><span class="line"></span><br><span class="line">            index = \[index <span class="built_in">j</span>\];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">indivduals.chrom = indivduals.chrom(index,:);  <span class="comment">%将选择出来的染色体存到一个子种群中</span></span><br><span class="line"></span><br><span class="line">indivduals.fitness = indivduals.fitness(index);  <span class="comment">%将对应的适应度也存储到一起</span></span><br><span class="line"></span><br><span class="line">ret = indivduals;</span><br></pre></td></tr></table></figure>
 <p>交叉操作函数：  </p>
-<p>%%交叉操作</p>
-<p>function ret = Cross(pl,lenchrom,chrom,sizepop,bound)</p>
-<p>%pl input :交叉概率</p>
-<p>%lenchrom input :染色体的长度</p>
-<p>%chrom input:染色体种群</p>
-<p>%sizepop input:种群规模</p>
-<p>%ret ouput:交叉后的染色体</p>
-<p>for i=1:sizepop     %是否进行交叉由交叉概率决定</p>
-<pre><code>%随机选择两个染色体进行交叉
-
-pick = rand(1,2);  %产生两个0-1的随机数
-
-while prod(pick) == 0
-
-    pick = rand(1,2);
-
-end
-
-index = ceil(pick.*sizepop);  %将随机到的数转换为对应的染色体编号  ceil（x）是取比x大的最小整数
-
-%交叉概率决定是否进行交叉
-
-pick  = rand;  %随机出来一个交叉概率
-
-while pick == 0
-
-    pick = rand;
-
-end
-
-%如何随机出来的交叉概率大于给定的交叉概率则结束本次循环
-
-if pick &gt; pcross
-
-    continue;
-
-end
-
-flag = 0;
-
-while flag == 0
-
-    %随机选择交叉位置
-
-    pick = rand;
-
-    while pick ==0
-
-        pick = rand ;
-
-    end
-
-    pos = ceil(pick.*sum(lenchrom));  %将随机出来的数转换为染色体对应的某个基因
-
-    pick = rand;  %随即一个数用于在交叉时选择基因位置时作为参数
-
-    v1 = chrom(index(1),pos);
-
-    v2 = chrom(index(2),pos);
-
-    %交叉公式
-
-    chrom(index(1),pos) = pick * v2 + (1-pick) * v1;
-
-    chrom(index(2),pos) = pick * v1 + (1-pick) * v2;
-
-    flag1 = test(lenchrom,bound,chrom(index(1),:),fcode);
-
-    flag2 = test(lenchrom,bound,chrom(index(2),:),fcode);
-
-    if flag1*flag2 == 0
-
-        flag = 0;
-
-    else
-
-        flag =1;
-
-    end
-
-end</code></pre><p>end</p>
-<p>ret = chrom;</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%%交叉操作</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ret</span> = <span class="title">Cross</span><span class="params">(pl,lenchrom,chrom,sizepop,bound)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">%pl input :交叉概率</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%lenchrom input :染色体的长度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%chrom input:染色体种群</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%sizepop input:种群规模</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%ret ouput:交叉后的染色体</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:sizepop     <span class="comment">%是否进行交叉由交叉概率决定</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">%随机选择两个染色体进行交叉</span></span><br><span class="line"></span><br><span class="line">    pick = <span class="built_in">rand</span>(<span class="number">1</span>,<span class="number">2</span>);  <span class="comment">%产生两个0-1的随机数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> prod(pick) == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        pick = <span class="built_in">rand</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    index = <span class="built_in">ceil</span>(pick.*sizepop);  <span class="comment">%将随机到的数转换为对应的染色体编号  ceil（x）是取比x大的最小整数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">%交叉概率决定是否进行交叉</span></span><br><span class="line"></span><br><span class="line">    pick  = <span class="built_in">rand</span>;  <span class="comment">%随机出来一个交叉概率</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> pick == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        pick = <span class="built_in">rand</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">%如何随机出来的交叉概率大于给定的交叉概率则结束本次循环</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> pick &gt; pcross</span><br><span class="line"></span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> flag == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">%随机选择交叉位置</span></span><br><span class="line"></span><br><span class="line">        pick = <span class="built_in">rand</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> pick ==<span class="number">0</span></span><br><span class="line"></span><br><span class="line">            pick = <span class="built_in">rand</span> ;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">        pos = <span class="built_in">ceil</span>(pick.*sum(lenchrom));  <span class="comment">%将随机出来的数转换为染色体对应的某个基因</span></span><br><span class="line"></span><br><span class="line">        pick = <span class="built_in">rand</span>;  <span class="comment">%随即一个数用于在交叉时选择基因位置时作为参数</span></span><br><span class="line"></span><br><span class="line">        v1 = chrom(index(<span class="number">1</span>),pos);</span><br><span class="line"></span><br><span class="line">        v2 = chrom(index(<span class="number">2</span>),pos);</span><br><span class="line"></span><br><span class="line">        <span class="comment">%交叉公式</span></span><br><span class="line"></span><br><span class="line">        chrom(index(<span class="number">1</span>),pos) = pick * v2 + (<span class="number">1</span>-pick) * v1;</span><br><span class="line"></span><br><span class="line">        chrom(index(<span class="number">2</span>),pos) = pick * v1 + (<span class="number">1</span>-pick) * v2;</span><br><span class="line"></span><br><span class="line">        flag1 = test(lenchrom,bound,chrom(index(<span class="number">1</span>),:),fcode);</span><br><span class="line"></span><br><span class="line">        flag2 = test(lenchrom,bound,chrom(index(<span class="number">2</span>),:),fcode);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> flag1*flag2 == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">            flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">            flag =<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">ret = chrom;</span><br></pre></td></tr></table></figure>
 <p>变异操作：</p>
-<p>%%变异操作</p>
-<p>function ret = Mutation(pm,lenchrom,chrom,sizepop,bound)</p>
-<p>%本函数完成变异操作</p>
-<p>%pcorss input :变异概率</p>
-<p>%lenchrom input : 染色体长度</p>
-<p>%chrom input:染色体群’</p>
-<p>%sizepop input :种群规模</p>
-<p>%pop input:当前种群的进化代数和最大的进化代数信息</p>
-<p>% ret output:变异后的染色体</p>
-<p>for i =1;sizepop</p>
-<pre><code>%随机选择一个染色体进行变异
-
-pick = rand;
-
-while pick == 0
-
-    pick = rand;
-
-end
-
-index = ceil(pick * sizepop);  %将随机出来的数转换为对应的染色体的编号
-
-%决定该轮是否进行变异
-
-pick = rand;
-
-if pick &gt; pm
-
-    continue;
-
-end
-
-flag = 0;
-
-while flag == 0
-
-    %随机一个变异位置
-
-    pick = rand;
-
-    while pick == 0
-
-        pick = rand;
-
-    end
-
-    pos = ceil(pick * sum(lenchrom));  %转换为对应染色体基因的位置
-
-    v = chrom(i,pos);  %得到该位置的值
-
-    v1 = v - bound(pos,1);
-
-    v2 = bound(pos,2) - v;
-
-    pick = rand;  %变异开始
-
-    if pick &gt; 0.5  %变异分为两种情况
-
-        delta = v2 * (1 - pick((1 - pop(1)/pop(2))^2));
-
-        chrom (i,pos) = v + delta;
-
-    else
-
-        delta = v1 * (1 - pick((1 - pop(1)/pop(2))^2));
-
-        chrom (i,pos) = v - delta;
-
-    end
-
-    flag = test(lenchrom,bound,chrom(i,:),fcode);
-
-end</code></pre><p>end</p>
-<p>ret = chrom;</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%%变异操作</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ret</span> = <span class="title">Mutation</span><span class="params">(pm,lenchrom,chrom,sizepop,bound)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">%本函数完成变异操作</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%pcorss input :变异概率</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%lenchrom input : 染色体长度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%chrom input:染色体群'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%sizepop input :种群规模</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%pop input:当前种群的进化代数和最大的进化代数信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% ret output:变异后的染色体</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> =<span class="number">1</span>;sizepop</span><br><span class="line"></span><br><span class="line">    <span class="comment">%随机选择一个染色体进行变异</span></span><br><span class="line"></span><br><span class="line">    pick = <span class="built_in">rand</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> pick == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        pick = <span class="built_in">rand</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    index = <span class="built_in">ceil</span>(pick * sizepop);  <span class="comment">%将随机出来的数转换为对应的染色体的编号</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">%决定该轮是否进行变异</span></span><br><span class="line"></span><br><span class="line">    pick = <span class="built_in">rand</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> pick &gt; pm</span><br><span class="line"></span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> flag == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">%随机一个变异位置</span></span><br><span class="line"></span><br><span class="line">        pick = <span class="built_in">rand</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> pick == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">            pick = <span class="built_in">rand</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">        pos = <span class="built_in">ceil</span>(pick * sum(lenchrom));  <span class="comment">%转换为对应染色体基因的位置</span></span><br><span class="line"></span><br><span class="line">        v = chrom(<span class="built_in">i</span>,pos);  <span class="comment">%得到该位置的值</span></span><br><span class="line"></span><br><span class="line">        v1 = v - bound(pos,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        v2 = bound(pos,<span class="number">2</span>) - v;</span><br><span class="line"></span><br><span class="line">        pick = <span class="built_in">rand</span>;  <span class="comment">%变异开始</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> pick &gt; <span class="number">0.5</span>  <span class="comment">%变异分为两种情况</span></span><br><span class="line"></span><br><span class="line">            delta = v2 * (<span class="number">1</span> - pick((<span class="number">1</span> - pop(<span class="number">1</span>)/pop(<span class="number">2</span>))^<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">            chrom (<span class="built_in">i</span>,pos) = v + delta;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">            delta = v1 * (<span class="number">1</span> - pick((<span class="number">1</span> - pop(<span class="number">1</span>)/pop(<span class="number">2</span>))^<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">            chrom (<span class="built_in">i</span>,pos) = v - delta;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">        flag = test(lenchrom,bound,chrom(<span class="built_in">i</span>,:),fcode);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">ret = chrom;</span><br></pre></td></tr></table></figure>
 <p>随机编码函数：</p>
-<p>function ret=Code(lenchrom,bound)</p>
-<p>%本函数将变量编码成染色体，用于随机初始化一个种群</p>
-<p>% lenchrom   input : 染色体长度</p>
-<p>% bound      input : 变量的取值范围</p>
-<p>% ret        output: 染色体的编码值</p>
-<p>flag=0;</p>
-<p>while flag==0</p>
-<pre><code>pick=rand(1,length(lenchrom));
-
-ret=bound(:,1)&apos;+(bound(:,2)-bound(:,1))&apos;.*pick; %线性插值
-
-flag=test(lenchrom,bound,ret);             %检验染色体的可行性</code></pre><p>end</p>
-<p>非线性优化函数：</p>
-<p>function ret = nonlinear(chrom,sizepop)</p>
-<p>for i=1:sizepop</p>
-<pre><code>x=fmincon(inline(&apos;-5\*sin(x(1))\*sin(x(2))\*sin(x(3))\*sin(x(4))\*sin(x(5))-sin(5\*x(1))\*sin(5\*x(2))\*sin(5\*x(3))\*sin(5\*x(4))\*sin(5\*x(5))&apos;),chrom(i,:)&apos;,\[\],\[\],\[\],\[\],\[0 0 0 0 0\],\[2.8274 2.8274 2.8274 2.8274 2.8274\]);
-
-ret(i,:)=x&apos;;</code></pre><p>end</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">function ret=Code(lenchrom,bound)</span><br><span class="line"></span><br><span class="line"><span class="variable">%本函数将变量编码成染色体，用于随机初始化一个种群</span></span><br><span class="line"><span class="variable"></span></span><br><span class="line"><span class="variable">%</span> lenchrom   input : 染色体长度</span><br><span class="line"></span><br><span class="line"><span class="variable">% bound      input : 变量的取值范围</span></span><br><span class="line"><span class="variable"></span></span><br><span class="line"><span class="variable">%</span> ret        output: 染色体的编码值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag=0;</span><br><span class="line"></span><br><span class="line">while flag==0</span><br><span class="line"></span><br><span class="line">    pick=rand(1,length(lenchrom));</span><br><span class="line"></span><br><span class="line">    ret=bound(:,1)'+(bound(:,2)-bound(:,1))'.*pick; <span class="variable">%线性插值</span></span><br><span class="line"><span class="variable"></span></span><br><span class="line"><span class="variable">    flag=test(lenchrom,bound,ret);             %</span>检验染色体的可行性</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">非线性优化函数：</span><br><span class="line"></span><br><span class="line">function ret = nonlinear(chrom,sizepop)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i=1:sizepop</span><br><span class="line"></span><br><span class="line">    x=fmincon(inline('-5<span class="symbol">\*</span>sin(x(1))<span class="symbol">\*</span>sin(x(2))<span class="symbol">\*</span>sin(x(3))<span class="symbol">\*</span>sin(x(4))<span class="symbol">\*</span>sin(x(5))-sin(5<span class="symbol">\*</span>x(1))<span class="symbol">\*</span>sin(5<span class="symbol">\*</span>x(2))<span class="symbol">\*</span>sin(5<span class="symbol">\*</span>x(3))<span class="symbol">\*</span>sin(5<span class="symbol">\*</span>x(4))<span class="symbol">\*</span>sin(5<span class="symbol">\*</span>x(5))'),chrom(i,:)',<span class="symbol">\[</span><span class="symbol">\]</span>,<span class="symbol">\[</span><span class="symbol">\]</span>,<span class="symbol">\[</span><span class="symbol">\]</span>,<span class="symbol">\[</span><span class="symbol">\]</span>,<span class="symbol">\[</span>0 0 0 0 0<span class="symbol">\]</span>,<span class="symbol">\[</span>2.8274 2.8274 2.8274 2.8274 2.8274<span class="symbol">\]</span>);</span><br><span class="line"></span><br><span class="line">    ret(i,:)=x';</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <p>主函数：</p>
-<p>%% 清空环境</p>
-<p>clc</p>
-<p>clear</p>
-<p>warning off</p>
-<p>%% 遗传算法参数</p>
-<p>maxgen=30;                         %进化代数</p>
-<p>sizepop=100;                       %种群规模</p>
-<p>pcross=[0.6];                      %交叉概率</p>
-<p>pmutation=[0.01];                  %变异概率</p>
-<p>lenchrom=[1 1 1 1 1];              %变量字串长度</p>
-<p>bound=[0 0.9*pi;0 0.9*pi;0 0.9*pi;0 0.9*pi;0 0.9*pi];  %变量范围</p>
-<p>%% 个体初始化</p>
-<p>individuals=struct(‘fitness’,zeros(1,sizepop), ‘chrom’,[]);  %种群结构体</p>
-<p>avgfitness=[];                                               %种群平均适应度</p>
-<p>bestfitness=[];                                              %种群最佳适应度</p>
-<p>bestchrom=[];                                                %适应度最好染色体</p>
-<p>% 初始化种群</p>
-<p>for i=1:sizepop</p>
-<pre><code>individuals.chrom(i,:)=Code(lenchrom,bound);       %随机产生个体
-
-x=individuals.chrom(i,:);  %得到每一个个体的值
-
-individuals.fitness(i)=fun(x);                     %进行个体适应度的计算</code></pre><p>end</p>
-<p>%对初代进行操作   找最好的染色体</p>
-<p>[bestfitness bestindex]=min(individuals.fitness);   %得到本代中计算出目标函数值的最小的值</p>
-<p>bestchrom=individuals.chrom(bestindex,:);  %得到最好的染色体</p>
-<p>avgfitness=sum(individuals.fitness)/sizepop; %计算总染色体的平均适应度</p>
-<p>% 记录每一代进化中最好的适应度和平均适应度</p>
-<p>trace=[];</p>
-<p>%% 进化开始</p>
-<p>for i=1:maxgen</p>
-<pre><code>% 选择操作
-
-individuals=Select(individuals,sizepop);  %选择出好的个体组成一个种群
-
-avgfitness=sum(individuals.fitness)/sizepop; %计算出子代种群的平均适应度
-
-% 交叉操作
-
-individuals.chrom=Cross(pcross,lenchrom,individuals.chrom,sizepop,bound);
-
-% 变异操作
-
-individuals.chrom=Mutation(pmutation,lenchrom,individuals.chrom,sizepop,\[i maxgen\],bound);
-
-
-
-if mod(i,10)==0  %如果进化代数为10的倍数则进行非线性优化
-
-    individuals.chrom=nonlinear(individuals.chrom,sizepop);
-
-end
-
-
-
-% 计算进行交叉变异之后的新种群适应度
-
-for j=1:sizepop
-
-    x=individuals.chrom(j,:);
-
-    individuals.fitness(j)=fun(x);
-
-end
-
-
-
-%找到最小和最大适应度的染色体及它们在种群中的位置
-
-\[newbestfitness,newbestindex\]=min(individuals.fitness);
-
-\[worestfitness,worestindex\]=max(individuals.fitness);
-
-% 代替上一次进化中最好的染色体
-
-if bestfitness&gt;newbestfitness  %如果上一代中最好的适应度大于当前代中最好的适应度则将它代替
-
-    bestfitness=newbestfitness;
-
-    bestchrom=individuals.chrom(newbestindex,:);
-
-end
-
-individuals.chrom(worestindex,:)=bestchrom;
-
-individuals.fitness(worestindex)=bestfitness;
-
-
-
-avgfitness=sum(individuals.fitness)/sizepop;
-
-
-
-trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应度和平均适应度</code></pre><p>end</p>
-<p>%进化结束</p>
-<p>%% 结果显示</p>
-<p>figure</p>
-<p>[r c]=size(trace);</p>
-<p>plot([1:r]‘,trace(:,1),’r-‘,[1:r]‘,trace(:,2),’b–’);</p>
-<p>title([‘函数值曲线  ‘ ‘终止代数＝’ num2str(maxgen)],’fontsize’,12);</p>
-<p>xlabel(‘进化代数’,’fontsize’,12);ylabel(‘函数值’,’fontsize’,12);</p>
-<p>legend(‘各代平均值’,’各代最佳值’,’fontsize’,12);</p>
-<p>ylim([1.5 8])</p>
-<p>disp(‘函数值                   变量’);</p>
-<p>% 窗口显示</p>
-<p>disp([bestfitness x]);</p>
-<p>grid on</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 清空环境</span></span><br><span class="line"></span><br><span class="line">clc</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line"></span><br><span class="line">warning off</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%% 遗传算法参数</span></span><br><span class="line"></span><br><span class="line">maxgen=<span class="number">30</span>;                         <span class="comment">%进化代数</span></span><br><span class="line"></span><br><span class="line">sizepop=<span class="number">100</span>;                       <span class="comment">%种群规模</span></span><br><span class="line"></span><br><span class="line">pcross=\[<span class="number">0.6</span>\];                      <span class="comment">%交叉概率</span></span><br><span class="line"></span><br><span class="line">pmutation=\[<span class="number">0.01</span>\];                  <span class="comment">%变异概率</span></span><br><span class="line"></span><br><span class="line">lenchrom=\[<span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>\];              <span class="comment">%变量字串长度</span></span><br><span class="line"></span><br><span class="line">bound=\[<span class="number">0</span> <span class="number">0.9</span>\*<span class="built_in">pi</span>;<span class="number">0</span> <span class="number">0.9</span>\*<span class="built_in">pi</span>;<span class="number">0</span> <span class="number">0.9</span>\*<span class="built_in">pi</span>;<span class="number">0</span> <span class="number">0.9</span>\*<span class="built_in">pi</span>;<span class="number">0</span> <span class="number">0.9</span>*<span class="built_in">pi</span>\];  <span class="comment">%变量范围</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%% 个体初始化</span></span><br><span class="line"></span><br><span class="line">individuals=struct(<span class="string">'fitness'</span>,<span class="built_in">zeros</span>(<span class="number">1</span>,sizepop), <span class="string">'chrom'</span>,\[\]);  <span class="comment">%种群结构体</span></span><br><span class="line"></span><br><span class="line">avgfitness=\[\];                                               <span class="comment">%种群平均适应度</span></span><br><span class="line"></span><br><span class="line">bestfitness=\[\];                                              <span class="comment">%种群最佳适应度</span></span><br><span class="line"></span><br><span class="line">bestchrom=\[\];                                                <span class="comment">%适应度最好染色体</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 初始化种群</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:sizepop</span><br><span class="line"></span><br><span class="line">    individuals.chrom(<span class="built_in">i</span>,:)=Code(lenchrom,bound);       <span class="comment">%随机产生个体</span></span><br><span class="line"></span><br><span class="line">    x=individuals.chrom(<span class="built_in">i</span>,:);  <span class="comment">%得到每一个个体的值</span></span><br><span class="line"></span><br><span class="line">    individuals.fitness(<span class="built_in">i</span>)=fun(x);                     <span class="comment">%进行个体适应度的计算</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%对初代进行操作   找最好的染色体</span></span><br><span class="line"></span><br><span class="line">\[bestfitness bestindex\]=<span class="built_in">min</span>(individuals.fitness);   <span class="comment">%得到本代中计算出目标函数值的最小的值</span></span><br><span class="line"></span><br><span class="line">bestchrom=individuals.chrom(bestindex,:);  <span class="comment">%得到最好的染色体</span></span><br><span class="line"></span><br><span class="line">avgfitness=sum(individuals.fitness)/sizepop; <span class="comment">%计算总染色体的平均适应度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 记录每一代进化中最好的适应度和平均适应度</span></span><br><span class="line"></span><br><span class="line">trace=\[\];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%% 进化开始</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:maxgen</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="comment">% 选择操作</span></span><br><span class="line"></span><br><span class="line">    individuals=Select(individuals,sizepop);  <span class="comment">%选择出好的个体组成一个种群</span></span><br><span class="line"></span><br><span class="line">    avgfitness=sum(individuals.fitness)/sizepop; <span class="comment">%计算出子代种群的平均适应度</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% 交叉操作</span></span><br><span class="line"></span><br><span class="line">    individuals.chrom=Cross(pcross,lenchrom,individuals.chrom,sizepop,bound);</span><br><span class="line"></span><br><span class="line">    <span class="comment">% 变异操作</span></span><br><span class="line"></span><br><span class="line">    individuals.chrom=Mutation(pmutation,lenchrom,individuals.chrom,sizepop,\[<span class="built_in">i</span> maxgen\],bound);</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">mod</span>(<span class="built_in">i</span>,<span class="number">10</span>)==<span class="number">0</span>  <span class="comment">%如果进化代数为10的倍数则进行非线性优化</span></span><br><span class="line"></span><br><span class="line">        individuals.chrom=nonlinear(individuals.chrom,sizepop);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="comment">% 计算进行交叉变异之后的新种群适应度</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:sizepop</span><br><span class="line"></span><br><span class="line">        x=individuals.chrom(<span class="built_in">j</span>,:);</span><br><span class="line"></span><br><span class="line">        individuals.fitness(<span class="built_in">j</span>)=fun(x);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="comment">%找到最小和最大适应度的染色体及它们在种群中的位置</span></span><br><span class="line"></span><br><span class="line">    \[newbestfitness,newbestindex\]=<span class="built_in">min</span>(individuals.fitness);</span><br><span class="line"></span><br><span class="line">    \[worestfitness,worestindex\]=<span class="built_in">max</span>(individuals.fitness);</span><br><span class="line"></span><br><span class="line">    <span class="comment">% 代替上一次进化中最好的染色体</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> bestfitness&gt;newbestfitness  <span class="comment">%如果上一代中最好的适应度大于当前代中最好的适应度则将它代替</span></span><br><span class="line"></span><br><span class="line">        bestfitness=newbestfitness;</span><br><span class="line"></span><br><span class="line">        bestchrom=individuals.chrom(newbestindex,:);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    individuals.chrom(worestindex,:)=bestchrom;</span><br><span class="line"></span><br><span class="line">    individuals.fitness(worestindex)=bestfitness;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    avgfitness=sum(individuals.fitness)/sizepop;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    trace=\[trace;avgfitness bestfitness\]; <span class="comment">%记录每一代进化中最好的适应度和平均适应度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%进化结束</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%% 结果显示</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"></span><br><span class="line">\[r c\]=<span class="built_in">size</span>(trace);</span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(\[<span class="number">1</span>:r\]',trace(:,<span class="number">1</span>),<span class="string">'r-'</span>,\[<span class="number">1</span>:r\]',trace(:,<span class="number">2</span>),<span class="string">'b--'</span>);</span><br><span class="line"></span><br><span class="line">title(\[<span class="string">'函数值曲线  '</span> <span class="string">'终止代数＝'</span> num2str(maxgen)\],<span class="string">'fontsize'</span>,<span class="number">12</span>);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">'进化代数'</span>,<span class="string">'fontsize'</span>,<span class="number">12</span>);ylabel(<span class="string">'函数值'</span>,<span class="string">'fontsize'</span>,<span class="number">12</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">legend</span>(<span class="string">'各代平均值'</span>,<span class="string">'各代最佳值'</span>,<span class="string">'fontsize'</span>,<span class="number">12</span>);</span><br><span class="line"></span><br><span class="line">ylim(\[<span class="number">1.5</span> <span class="number">8</span>\])</span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">'函数值                   变量'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 窗口显示</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(\[bestfitness x\]);</span><br><span class="line"></span><br><span class="line">grid on</span><br></pre></td></tr></table></figure>
 <p>  结果： <img src="http://47.100.4.8/wp-content/uploads/2018/07/114.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/07/115.png" alt=""> 根据数值分析也可以看出随着迭代次数的增加，最好适应度的值变化减小，直道不在变化</p>
 
       
@@ -836,6 +533,18 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/MatLab/" rel="tag"># MatLab</a>
+          
+            <a href="/tags/GA/" rel="tag"># GA</a>
+          
+            <a href="/tags/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" rel="tag"># 优化算法</a>
+          
+            <a href="/tags/%E9%9D%9E%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92/" rel="tag"># 非线性规划</a>
+          
+        </div>
+      
 
       
       
@@ -845,8 +554,8 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/15/ji-yu-yi-chuan-suan-fa-he-fei-xian-xing-gui-hua-de-han-shu-xun-you-suan-fa/" rel="next" title="基于遗传算法和非线性规划的函数寻优算法">
-                <i class="fa fa-chevron-left"></i> 基于遗传算法和非线性规划的函数寻优算法
+              <a href="/2018/07/13/shi-yong-yi-chuan-suan-fa-gong-ju-xiang-jie-jue-er-yuan-han-shu-qiu-ji-zhi-wen-ti-1/" rel="next" title="使用遗传算法工具箱解决二元函数求极值问题">
+                <i class="fa fa-chevron-left"></i> 使用遗传算法工具箱解决二元函数求极值问题
               </a>
             
           </div>
@@ -855,7 +564,7 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/23/shu-ju-ku-zhi-shi-tu-cao-zuo/" rel="prev" title="数据库之视图操作">
+              <a href="/2018/07/23/shu-ju-ku-zhi-shi-tu-cao-zuo-1/" rel="prev" title="数据库之视图操作">
                 数据库之视图操作 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -929,7 +638,7 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">503</span>
+                  <span class="site-state-item-count">258</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -939,10 +648,10 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">162</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">169</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -950,10 +659,10 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">162</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -985,6 +694,276 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
 
       
 
+      
+      
+        <!-- canvas粒子时钟 -->
+        
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+      
+
     </div>
   </aside>
 
@@ -996,7 +975,7 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1519,5 +1498,5 @@ trace=\[trace;avgfitness bestfitness\]; %记录每一代进化中最好的适应
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>

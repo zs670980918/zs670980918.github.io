@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="pat," />
 
 
 
@@ -78,13 +78,14 @@
 <meta name="description" content="1002 A+B for Polynomials （25 分) 原文地址 This time, you are supposed to find A+B where A and B are two polynomials. Input Specification:Each input file contains one test case. Each case occupies 2 lines,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pat_1002（甲级）">
-<meta property="og:url" content="https://zs670980918.github.io/2019/03/25/pat-1002-jia-ji-1/index.html">
+<meta property="og:url" content="blog.strivezs.com/2019/03/25/pat-1002-jia-ji-1/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
 <meta property="og:description" content="1002 A+B for Polynomials （25 分) 原文地址 This time, you are supposed to find A+B where A and B are two polynomials. Input Specification:Each input file contains one test case. Each case occupies 2 lines,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-03-25T15:22:13.000Z">
 <meta property="article:modified_time" content="2019-03-25T15:22:13.000Z">
 <meta property="article:author" content="StriveZs">
+<meta property="article:tag" content="pat">
 <meta name="twitter:card" content="summary">
 
 
@@ -115,13 +116,16 @@
 
 
 
-  <link rel="canonical" href="https://zs670980918.github.io/2019/03/25/pat-1002-jia-ji-1/"/>
+  <link rel="canonical" href="blog.strivezs.com/2019/03/25/pat-1002-jia-ji-1/"/>
 
 
 
 
 
   <title>Pat_1002（甲级） | StriveZs的博客</title>
+  <!-- 球型气泡标签云 -->
+    <script type="text/javascript" src="/js/src/bubble.js"></script>
+    
   
 
 
@@ -153,7 +157,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
-    <a href="https://github.com/zs670980918" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/zs670980918" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -324,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/25/pat-1002-jia-ji-1/">
+    <link itemprop="mainEntityOfPage" href="blog.strivezs.com/2019/03/25/pat-1002-jia-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -435,18 +439,13 @@
       
 
       
-        <p>1002 A+B for Polynomials （25 分) <a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805526272000000" target="_blank" rel="noopener">原文地址</a></p>
+        <p>1002 A+B for Polynomials （25 分) <a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805526272000000">原文地址</a></p>
 <p>This time, you are supposed to find A+B where A and B are two polynomials.</p>
 <h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial: K N​1​​ a​N​1​​​​ N​2​​ a​N​2​​​​ … N​K​​ a​N​K​​​​ where K is the number of nonzero terms in the polynomial, N​i​​ and a​N​i​​​​ (i=1,2,⋯,K) are the exponents and coefficients, respectively. It is given that 1≤K≤10，0≤N​K​​&lt;⋯&lt;N​2​​&lt;N​1​​≤1000.</p>
 <h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case you should output the sum of A and B in one line, with the same format as the input. Notice that there must be NO extra space at the end of each line. Please be accurate to 1 decimal place.</p>
 <h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><pre><code>2 1 2.4 0 3.2
 2 2 1.5 1 0.5</code></pre><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><pre><code>3 2 1.5 1 2.9 0 3.2</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<map><br>#include<cstdio><br>#include<vector><br>#include<algorithm></p>
-<p>//这里面不需要输出系数为0的<br>using namespace std;</p>
-<p>struct Plot{<br>    int exponents; //指数<br>    float coefficients; //系数<br>};</p>
-<p>bool cmp(Plot a,Plot b){<br>    return a.exponents &gt; b.exponents;<br>}</p>
-<p>int main(){<br>    vector<Plot> list1;<br>    vector<Plot>::iterator poss;<br>    map&lt;int,float&gt; Ploy;<br>    map&lt;int,float&gt;::iterator pos;<br>    int K1,K2,sum=0;<br>    cin&gt;&gt;K1;<br>    for(int i=0;i&lt;K1;i++){<br>        int t1;<br>        float t2;<br>        cin&gt;&gt;t1&gt;&gt;t2;<br>        if(Ploy.count(t1) == 0){<br>            Ploy[t1] = t2;<br>        }<br>        else{<br>            Ploy[t1] += t2;<br>        }<br>    }<br>    cin&gt;&gt;K2;<br>    for(int i=0;i&lt;K2;i++){<br>        int t1;<br>        float t2;<br>        cin&gt;&gt;t1&gt;&gt;t2;<br>        if(Ploy.count(t1) == 0){<br>            Ploy[t1] = t2;<br>        }<br>        else{<br>            Ploy[t1] += t2;<br>        }<br>    }<br>    for(pos=Ploy.begin();pos!=Ploy.end();pos++){<br>        if((<em>pos).second != 0){<br>            Plot tt;<br>            tt.exponents = (<em>pos).first;<br>            tt.coefficients = (</em>pos).second;<br>            sum++;<br>            list1.push_back(tt);<br>        }<br>    }<br>    sort(list1.begin(),list1.end(),cmp);<br>    cout&lt;&lt;sum;<br>    for(poss=list1.begin();poss!=list1.end();poss++){<br>        printf(“ %d %.1f”,(*poss).exponents,(*poss).coefficients);<br>    }<br>    /</em><br>    if(sum != 1 &amp;&amp; sum != 0){<br>        pos = –Ploy.end();<br>        for(;pos!=Ploy.begin();pos–){<br>            printf(“ %d %.1f”,(*pos).first,(*pos).second);<br>        }<br>        pos = Ploy.begin();<br>        printf(“ %d %.1f”,(*pos).first,(*pos).second);<br>        cout&lt;&lt;endl;<br>    }<br>    else if(sum == 1){<br>        pos = Ploy.begin();<br>        printf(“ %d %.1f”,(*pos).first,(*pos).second);<br>        cout&lt;&lt;endl;<br>    }*/<br>    return 0;<br>}</p>
-
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这里面不需要输出系数为0的</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Plot</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> exponents; <span class="comment">//指数</span></span><br><span class="line">    <span class="keyword">float</span> coefficients; <span class="comment">//系数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Plot a,Plot b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.exponents &gt; b.exponents;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;Plot&gt; list1;</span><br><span class="line">    <span class="built_in">vector</span>&lt;Plot&gt;::iterator poss;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">float</span>&gt; Ploy;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">float</span>&gt;::iterator pos;</span><br><span class="line">    <span class="keyword">int</span> K1,K2,sum=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;K1;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;K1;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> t1;</span><br><span class="line">        <span class="keyword">float</span> t2;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;t1&gt;&gt;t2;</span><br><span class="line">        <span class="keyword">if</span>(Ploy.count(t1) == <span class="number">0</span>)&#123;</span><br><span class="line">            Ploy\[t1\] = t2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            Ploy\[t1\] += t2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;K2;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;K2;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> t1;</span><br><span class="line">        <span class="keyword">float</span> t2;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;t1&gt;&gt;t2;</span><br><span class="line">        <span class="keyword">if</span>(Ploy.count(t1) == <span class="number">0</span>)&#123;</span><br><span class="line">            Ploy\[t1\] = t2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            Ploy\[t1\] += t2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(pos=Ploy.<span class="built_in">begin</span>();pos!=Ploy.<span class="built_in">end</span>();pos++)&#123;</span><br><span class="line">        <span class="keyword">if</span>((*pos).second != <span class="number">0</span>)&#123;</span><br><span class="line">            Plot tt;</span><br><span class="line">            tt.exponents = (*pos).first;</span><br><span class="line">            tt.coefficients = (*pos).second;</span><br><span class="line">            sum++;</span><br><span class="line">            list1.push_back(tt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(list1.<span class="built_in">begin</span>(),list1.<span class="built_in">end</span>(),cmp);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;sum;</span><br><span class="line">    <span class="keyword">for</span>(poss=list1.<span class="built_in">begin</span>();poss!=list1.<span class="built_in">end</span>();poss++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %d %.1f"</span>,(\*poss).exponents,(\*poss).coefficients);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    if(sum != 1 &amp;&amp; sum != 0)&#123;</span></span><br><span class="line"><span class="comment">        pos = --Ploy.end();</span></span><br><span class="line"><span class="comment">        for(;pos!=Ploy.begin();pos--)&#123;</span></span><br><span class="line"><span class="comment">            printf(" %d %.1f",(\*pos).first,(\*pos).second);</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        pos = Ploy.begin();</span></span><br><span class="line"><span class="comment">        printf(" %d %.1f",(\*pos).first,(\*pos).second);</span></span><br><span class="line"><span class="comment">        cout&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    else if(sum == 1)&#123;</span></span><br><span class="line"><span class="comment">        pos = Ploy.begin();</span></span><br><span class="line"><span class="comment">        printf(" %d %.1f",(\*pos).first,(\*pos).second);</span></span><br><span class="line"><span class="comment">        cout&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">    &#125;*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -469,6 +468,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/pat/" rel="tag"># pat</a>
+          
+        </div>
+      
 
       
       
@@ -478,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/25/pat-1002-jia-ji/" rel="next" title="Pat_1002（甲级）">
-                <i class="fa fa-chevron-left"></i> Pat_1002（甲级）
+              <a href="/2019/03/25/pat-1001-jia-ji-1/" rel="next" title="Pat_1001（甲级）">
+                <i class="fa fa-chevron-left"></i> Pat_1001（甲级）
               </a>
             
           </div>
@@ -488,7 +493,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian/" rel="prev" title="抽象工厂模式与单件模式编程实现">
+              <a href="/2019/04/14/chou-xiang-gong-chang-mo-shi-yu-dan-jian-mo-shi-bian-cheng-shi-xian-1/" rel="prev" title="抽象工厂模式与单件模式编程实现">
                 抽象工厂模式与单件模式编程实现 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -571,7 +576,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">503</span>
+                  <span class="site-state-item-count">258</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -581,10 +586,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">162</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">169</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -592,10 +597,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">162</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -643,6 +648,276 @@
 
       
 
+      
+      
+        <!-- canvas粒子时钟 -->
+        
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+      
+
     </div>
   </aside>
 
@@ -654,7 +929,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1177,5 +1452,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>

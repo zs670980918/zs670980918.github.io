@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="pat," />
 
 
 
@@ -78,13 +78,14 @@
 <meta name="description" content="1068 万绿丛中一点红 （20 分) 原文地址 对于计算机而言，颜色不过是像素点对应的一个 24 位的数值。现给定一幅分辨率为 M×N 的画，要求你找出万绿丛中的一点红，即有独一无二颜色的那个像素点，并且该点的颜色与其周围 8 个相邻像素的颜色差充分大。 输入格式：输入第一行给出三个正整数，分别是 M 和 N（≤ 1000），即图像的分辨率；以及 TOL，是所求像素点与相邻点的颜色差阈值，色差超">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pat_1068（乙级）">
-<meta property="og:url" content="https://zs670980918.github.io/2019/03/18/pat-1068-yi-ji-1/index.html">
+<meta property="og:url" content="blog.strivezs.com/2019/03/18/pat-1068-yi-ji-1/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
 <meta property="og:description" content="1068 万绿丛中一点红 （20 分) 原文地址 对于计算机而言，颜色不过是像素点对应的一个 24 位的数值。现给定一幅分辨率为 M×N 的画，要求你找出万绿丛中的一点红，即有独一无二颜色的那个像素点，并且该点的颜色与其周围 8 个相邻像素的颜色差充分大。 输入格式：输入第一行给出三个正整数，分别是 M 和 N（≤ 1000），即图像的分辨率；以及 TOL，是所求像素点与相邻点的颜色差阈值，色差超">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-03-18T02:59:23.000Z">
 <meta property="article:modified_time" content="2019-03-18T02:59:23.000Z">
 <meta property="article:author" content="StriveZs">
+<meta property="article:tag" content="pat">
 <meta name="twitter:card" content="summary">
 
 
@@ -115,13 +116,16 @@
 
 
 
-  <link rel="canonical" href="https://zs670980918.github.io/2019/03/18/pat-1068-yi-ji-1/"/>
+  <link rel="canonical" href="blog.strivezs.com/2019/03/18/pat-1068-yi-ji-1/"/>
 
 
 
 
 
   <title>Pat_1068（乙级） | StriveZs的博客</title>
+  <!-- 球型气泡标签云 -->
+    <script type="text/javascript" src="/js/src/bubble.js"></script>
+    
   
 
 
@@ -153,7 +157,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
-    <a href="https://github.com/zs670980918" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/zs670980918" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -324,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2019/03/18/pat-1068-yi-ji-1/">
+    <link itemprop="mainEntityOfPage" href="blog.strivezs.com/2019/03/18/pat-1068-yi-ji-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -435,7 +439,7 @@
       
 
       
-        <p>1068 万绿丛中一点红 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805265579229184" target="_blank" rel="noopener">原文地址</a></p>
+        <p>1068 万绿丛中一点红 （20 分) <a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805265579229184">原文地址</a></p>
 <p>对于计算机而言，颜色不过是像素点对应的一个 24 位的数值。现给定一幅分辨率为 M×N 的画，要求你找出万绿丛中的一点红，即有独一无二颜色的那个像素点，并且该点的颜色与其周围 8 个相邻像素的颜色差充分大。</p>
 <h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入第一行给出三个正整数，分别是 M 和 N（≤ 1000），即图像的分辨率；以及 TOL，是所求像素点与相邻点的颜色差阈值，色差超过 TOL 的点才被考虑。随后 N 行，每行给出 M 个像素的颜色值，范围在 [0,2​24​​) 内。所有同行数字间用空格或 TAB 分开。</p>
 <h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中按照 <code>(x, y): color</code> 的格式输出所求像素点的位置以及颜色值，其中位置 <code>x</code> 和 <code>y</code> 分别是该像素在图像矩阵中的列、行编号（从 1 开始编号）。如果这样的点不唯一，则输出 <code>Not Unique</code>；如果这样的点不存在，则输出 <code>Not Exist</code>。</p>
@@ -454,9 +458,7 @@
 1 2 3
 3 4 5
 5 6 7</code></pre><h3 id="输出样例-3："><a href="#输出样例-3：" class="headerlink" title="输出样例 3："></a>输出样例 3：</h3><pre><code>Not Exist</code></pre><p>代码：</p>
-<p>#include<iostream><br>#include<cmath></p>
-<p>using namespace std;<br>//要注意的是其中如果一个点满足和其他点之间差值大于阈值时 同样要没有另外一个点也满足该条件 同样该点不能多次出现<br>//题目中说周围八个点感觉迷惑性比较强应该算上边界值的 不应该去掉 可以是四个点或者三个点之类的。<br>//注意点：1.该元素是否唯一     2.该元素是否比周围元素相差TOL    3.输出的坐标是（列，行）<br>int main(){<br>    int M,N,TOL;<br>    cin&gt;&gt;N&gt;&gt;M&gt;&gt;TOL;<br>    long int pic[M][N] = {0};<br>    for(int i=0;i&lt;M;i++){<br>        for(int j=0;j&lt;N;j++){<br>            cin&gt;&gt;pic[i][j];<br>        }<br>    }<br>    int num=0,x=-1,y=-1,t1 = -1,t2 = -1;<br>    bool flag = false;<br>    for(int i=0;i&lt;M;i++){<br>        for(int j=0;j&lt;N;j++){<br>            if(abs(pic[i][j]-pic[i-1][j-1])&gt;TOL &amp;&amp; abs(pic[i][j]-pic[i+1][j-1])&gt;TOL &amp;&amp; abs(pic[i][j]-pic[i+1][j+1])&gt;TOL &amp;&amp; abs(pic[i][j]-pic[i-1][j+1])&gt;TOL &amp;&amp; abs(pic[i][j]-pic[i-1][j])&gt;TOL &amp;&amp; abs(pic[i][j]-pic[i+1][j])&gt;TOL &amp;&amp; abs(pic[i][j]-pic[i][j-1])&gt;TOL &amp;&amp; abs(pic[i][j]-pic[i][j+1])&gt;TOL){<br>                x = i;<br>                y = j;<br>                bool unique_pixel = true;<br>                for(int m=0;m&lt;M;m++){<br>                    for(int n=0;n&lt;N;n++){<br>                        if(m!=x &amp;&amp; n!=y){<br>                            if(pic[m][n] == pic[x][y]){<br>                                unique_pixel = false;<br>                                break;<br>                            }<br>                        }<br>                    }<br>                }<br>                if(unique_pixel){<br>                    t1 = x;<br>                    t2 = y;<br>                    num++;<br>                    if(num == 2){<br>                        flag = true;<br>                        break;<br>                    }<br>                }<br>                else{<br>                    x = -1;<br>                    y = -1;<br>                }<br>            }<br>        }<br>    }<br>    if(flag){<br>        cout&lt;&lt;”Not Unique”&lt;&lt;endl;<br>    }<br>    else if(num == 0){<br>        cout&lt;&lt;”Not Exist”&lt;&lt;endl;<br>    }<br>    else{<br>        cout&lt;&lt;”(“&lt;&lt;t2+1&lt;&lt;”, “&lt;&lt;t1+1&lt;&lt;”): “&lt;&lt;pic[t1][t2]&lt;&lt;endl;<br>    }<br>    return 0;<br>}</p>
-
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cmath&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">//要注意的是其中如果一个点满足和其他点之间差值大于阈值时 同样要没有另外一个点也满足该条件 同样该点不能多次出现</span><br><span class="line">//题目中说周围八个点感觉迷惑性比较强应该算上边界值的 不应该去掉 可以是四个点或者三个点之类的。</span><br><span class="line">//注意点：1.该元素是否唯一     2.该元素是否比周围元素相差TOL    3.输出的坐标是（列，行）</span><br><span class="line">int main()&#123;</span><br><span class="line">    int M,N,TOL;</span><br><span class="line">    cin&gt;&gt;N&gt;&gt;M&gt;&gt;TOL;</span><br><span class="line">    long int pic<span class="symbol">\[</span>M<span class="symbol">\]</span><span class="symbol">\[</span>N<span class="symbol">\]</span> = &#123;0&#125;;</span><br><span class="line">    for(int i=0;i&lt;M;i++)&#123;</span><br><span class="line">        for(int j=0;j&lt;N;j++)&#123;</span><br><span class="line">            cin&gt;&gt;pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int num=0,x=-1,y=-1,t1 = -1,t2 = -1;</span><br><span class="line">    bool flag = false;</span><br><span class="line">    for(int i=0;i&lt;M;i++)&#123;</span><br><span class="line">        for(int j=0;j&lt;N;j++)&#123;</span><br><span class="line">            if(abs(pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>-pic<span class="symbol">\[</span>i-1<span class="symbol">\]</span><span class="symbol">\[</span>j-1<span class="symbol">\]</span>)&gt;TOL &amp;&amp; abs(pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>-pic<span class="symbol">\[</span>i+1<span class="symbol">\]</span><span class="symbol">\[</span>j-1<span class="symbol">\]</span>)&gt;TOL &amp;&amp; abs(pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>-pic<span class="symbol">\[</span>i+1<span class="symbol">\]</span><span class="symbol">\[</span>j+1<span class="symbol">\]</span>)&gt;TOL &amp;&amp; abs(pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>-pic<span class="symbol">\[</span>i-1<span class="symbol">\]</span><span class="symbol">\[</span>j+1<span class="symbol">\]</span>)&gt;TOL &amp;&amp; abs(pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>-pic<span class="symbol">\[</span>i-1<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>)&gt;TOL &amp;&amp; abs(pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>-pic<span class="symbol">\[</span>i+1<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>)&gt;TOL &amp;&amp; abs(pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>-pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j-1<span class="symbol">\]</span>)&gt;TOL &amp;&amp; abs(pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j<span class="symbol">\]</span>-pic<span class="symbol">\[</span>i<span class="symbol">\]</span><span class="symbol">\[</span>j+1<span class="symbol">\]</span>)&gt;TOL)&#123;</span><br><span class="line">                x = i;</span><br><span class="line">                y = j;</span><br><span class="line">                bool unique_pixel = true;</span><br><span class="line">                for(int m=0;m&lt;M;m++)&#123;</span><br><span class="line">                    for(int n=0;n&lt;N;n++)&#123;</span><br><span class="line">                        if(m!=x &amp;&amp; n!=y)&#123;</span><br><span class="line">                            if(pic<span class="symbol">\[</span>m<span class="symbol">\]</span><span class="symbol">\[</span>n<span class="symbol">\]</span> == pic<span class="symbol">\[</span>x<span class="symbol">\]</span><span class="symbol">\[</span>y<span class="symbol">\]</span>)&#123;</span><br><span class="line">                                unique_pixel = false;</span><br><span class="line">                                break;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                if(unique_pixel)&#123;</span><br><span class="line">                    t1 = x;</span><br><span class="line">                    t2 = y;</span><br><span class="line">                    num++;</span><br><span class="line">                    if(num == 2)&#123;</span><br><span class="line">                        flag = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                else&#123;</span><br><span class="line">                    x = -1;</span><br><span class="line">                    y = -1;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(flag)&#123;</span><br><span class="line">        cout&lt;&lt;"Not Unique"&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(num == 0)&#123;</span><br><span class="line">        cout&lt;&lt;"Not Exist"&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        cout&lt;&lt;"("&lt;&lt;t2+1&lt;&lt;", "&lt;&lt;t1+1&lt;&lt;"): "&lt;&lt;pic<span class="symbol">\[</span>t1<span class="symbol">\]</span><span class="symbol">\[</span>t2<span class="symbol">\]</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -479,6 +481,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/pat/" rel="tag"># pat</a>
+          
+        </div>
+      
 
       
       
@@ -488,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/18/pat-1068-yi-ji/" rel="next" title="Pat_1068（乙级）">
-                <i class="fa fa-chevron-left"></i> Pat_1068（乙级）
+              <a href="/2019/03/18/pat-1067-yi-ji-1/" rel="next" title="Pat_1067（乙级）">
+                <i class="fa fa-chevron-left"></i> Pat_1067（乙级）
               </a>
             
           </div>
@@ -581,7 +589,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">503</span>
+                  <span class="site-state-item-count">258</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -591,10 +599,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">162</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">169</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -602,10 +610,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">162</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -653,6 +661,276 @@
 
       
 
+      
+      
+        <!-- canvas粒子时钟 -->
+        
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+      
+
     </div>
   </aside>
 
@@ -664,7 +942,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1187,5 +1465,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>

@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="DataBase,视图操作," />
 
 
 
@@ -75,25 +75,20 @@
 
 
 
-<meta name="description" content="建立计算机系学生视图CS_S ；  代码： create view CS_S as select * from S where SDEPT &#x3D; ‘计算机’   结果：   建立计算机系女生视图CS_S1 ；  代码： create view CS_S1 as select * from S where SDEPT &#x3D; ‘计算机’ and SSEX &#x3D; ‘女’   截图：   建立无先修课（Cp">
+<meta name="description" content="建立计算机系学生视图CS_S ；  代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库之视图操作">
-<meta property="og:url" content="https://zs670980918.github.io/2018/07/23/shu-ju-ku-zhi-shi-tu-cao-zuo-1/index.html">
+<meta property="og:url" content="blog.strivezs.com/2018/07/23/shu-ju-ku-zhi-shi-tu-cao-zuo-1/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="建立计算机系学生视图CS_S ；  代码： create view CS_S as select * from S where SDEPT &#x3D; ‘计算机’   结果：   建立计算机系女生视图CS_S1 ；  代码： create view CS_S1 as select * from S where SDEPT &#x3D; ‘计算机’ and SSEX &#x3D; ‘女’   截图：   建立无先修课（Cp">
+<meta property="og:description" content="建立计算机系学生视图CS_S ；  代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180621230739.png">
-<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/1-5.png">
-<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/2-3.png">
-<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/3-2.png">
-<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/4-1.png">
-<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/5-1.png">
-<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/6-1.png">
-<meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/7.png">
 <meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/07/8.png">
 <meta property="article:published_time" content="2018-07-23T07:58:16.000Z">
 <meta property="article:modified_time" content="2018-07-23T07:58:16.000Z">
 <meta property="article:author" content="StriveZs">
+<meta property="article:tag" content="DataBase">
+<meta property="article:tag" content="视图操作">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180621230739.png">
 
@@ -125,13 +120,16 @@
 
 
 
-  <link rel="canonical" href="https://zs670980918.github.io/2018/07/23/shu-ju-ku-zhi-shi-tu-cao-zuo-1/"/>
+  <link rel="canonical" href="blog.strivezs.com/2018/07/23/shu-ju-ku-zhi-shi-tu-cao-zuo-1/"/>
 
 
 
 
 
   <title>数据库之视图操作 | StriveZs的博客</title>
+  <!-- 球型气泡标签云 -->
+    <script type="text/javascript" src="/js/src/bubble.js"></script>
+    
   
 
 
@@ -163,7 +161,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
-    <a href="https://github.com/zs670980918" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/zs670980918" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -334,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zs670980918.github.io/2018/07/23/shu-ju-ku-zhi-shi-tu-cao-zuo-1/">
+    <link itemprop="mainEntityOfPage" href="blog.strivezs.com/2018/07/23/shu-ju-ku-zhi-shi-tu-cao-zuo-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="StriveZs">
@@ -450,76 +448,7 @@
 <li>建立计算机系学生视图CS_S ；</li>
 </ul>
 <p>代码：</p>
-<p>create view CS_S</p>
-<p>as</p>
-<p>select *</p>
-<p>from S</p>
-<p>where SDEPT = ‘计算机’</p>
-<p>  结果： <img src="http://47.100.4.8/wp-content/uploads/2018/07/1-5.png" alt=""></p>
-<ul>
-<li>建立计算机系女生视图CS_S1 ；</li>
-</ul>
-<p>代码：</p>
-<p>create view CS_S1</p>
-<p>as</p>
-<p>select *</p>
-<p>from S</p>
-<p>where SDEPT = ‘计算机’ and SSEX = ‘女’</p>
-<p>  截图： <img src="http://47.100.4.8/wp-content/uploads/2018/07/2-3.png" alt=""></p>
-<ul>
-<li>建立无先修课（Cpno为NULL）的课程视图NP_C；</li>
-</ul>
-<p>代码：</p>
-<p>create view NP_C</p>
-<p>as</p>
-<p>select *</p>
-<p>from C</p>
-<p>where CPNO is NULL</p>
-<p>  截图： <img src="http://47.100.4.8/wp-content/uploads/2018/07/3-2.png" alt=""></p>
-<ul>
-<li>建立计算机系选修1号课程的学生视图CS_S2 ；</li>
-</ul>
-<p>代码：</p>
-<p>create view CS_S2</p>
-<p>as</p>
-<p>select S.*</p>
-<p>from S,SC</p>
-<p>where S.SNO = SC.SNO and SC.CNO = ‘1’</p>
-<p>  截图： <img src="http://47.100.4.8/wp-content/uploads/2018/07/4-1.png" alt=""></p>
-<ul>
-<li>建立计算机系选修数据库课程学生视图CS_S3 ；</li>
-</ul>
-<p>代码：</p>
-<p>create view CS_S#</p>
-<p>as</p>
-<p>select S.*</p>
-<p>from S,SC,C</p>
-<p>where S.SNO = SC.SNO and C.CNO = SC.CNO and C.CNAME = ‘数据库’ and SDEPT = ‘计算机’</p>
-<p>  截图： <img src="http://47.100.4.8/wp-content/uploads/2018/07/5-1.png" alt=""></p>
-<ul>
-<li>将计算机系女生的年龄增加1岁；</li>
-</ul>
-<p>代码：</p>
-<p>update CS_S1</p>
-<p>set SAGE = SAGE + 1</p>
-<p>  截图： <img src="http://47.100.4.8/wp-content/uploads/2018/07/6-1.png" alt=""></p>
-<ul>
-<li>对CS_S3中学生专业修改为电子；</li>
-</ul>
-<p>代码：</p>
-<p>update CS_S3</p>
-<p>set SDEPT = ‘电子’</p>
-<p>where SNO = ‘E0002’</p>
-<p>  截图： 该学生被移出该视图了就 <img src="http://47.100.4.8/wp-content/uploads/2018/07/7.png" alt=""></p>
-<ul>
-<li>分别删除以上定义的各个视图。</li>
-</ul>
-<p>代码：</p>
-<p>drop view CS_S</p>
-<p>drop view CS_S1</p>
-<p>drop view CS_S2</p>
-<p>drop view CS_S3</p>
-<p>drop view NP_C</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> CS_S</span><br><span class="line"></span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> S</span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span> SDEPT = <span class="string">'计算机'</span></span><br><span class="line"></span><br><span class="line">  结果： ![](<span class="keyword">http</span>://<span class="number">47.100</span><span class="number">.4</span><span class="number">.8</span>/wp-<span class="keyword">content</span>/uploads/<span class="number">2018</span>/<span class="number">07</span>/<span class="number">1</span><span class="number">-5.</span>png)</span><br><span class="line"></span><br><span class="line">*   建立计算机系女生视图CS_S1 ；</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> CS_S1</span><br><span class="line"></span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> S</span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span> SDEPT = <span class="string">'计算机'</span> <span class="keyword">and</span> SSEX = <span class="string">'女'</span></span><br><span class="line"></span><br><span class="line">  截图： ![](<span class="keyword">http</span>://<span class="number">47.100</span><span class="number">.4</span><span class="number">.8</span>/wp-<span class="keyword">content</span>/uploads/<span class="number">2018</span>/<span class="number">07</span>/<span class="number">2</span><span class="number">-3.</span>png)</span><br><span class="line"></span><br><span class="line">*   建立无先修课（Cpno为<span class="literal">NULL</span>）的课程视图NP_C；</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> NP_C</span><br><span class="line"></span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> C</span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span> CPNO <span class="keyword">is</span> <span class="literal">NULL</span></span><br><span class="line"></span><br><span class="line">  截图： ![](<span class="keyword">http</span>://<span class="number">47.100</span><span class="number">.4</span><span class="number">.8</span>/wp-<span class="keyword">content</span>/uploads/<span class="number">2018</span>/<span class="number">07</span>/<span class="number">3</span><span class="number">-2.</span>png)</span><br><span class="line"></span><br><span class="line">*   建立计算机系选修<span class="number">1</span>号课程的学生视图CS_S2 ；</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> CS_S2</span><br><span class="line"></span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> S.*</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> S,SC</span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span> S.SNO = SC.SNO <span class="keyword">and</span> SC.CNO = <span class="string">'1'</span></span><br><span class="line"></span><br><span class="line">  截图： ![](<span class="keyword">http</span>://<span class="number">47.100</span><span class="number">.4</span><span class="number">.8</span>/wp-<span class="keyword">content</span>/uploads/<span class="number">2018</span>/<span class="number">07</span>/<span class="number">4</span><span class="number">-1.</span>png)</span><br><span class="line"></span><br><span class="line">*   建立计算机系选修数据库课程学生视图CS_S3 ；</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> CS_S<span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> S.*</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> S,SC,C</span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span> S.SNO = SC.SNO <span class="keyword">and</span> C.CNO = SC.CNO <span class="keyword">and</span> C.CNAME = <span class="string">'数据库'</span> <span class="keyword">and</span> SDEPT = <span class="string">'计算机'</span></span><br><span class="line"></span><br><span class="line">  截图： ![](<span class="keyword">http</span>://<span class="number">47.100</span><span class="number">.4</span><span class="number">.8</span>/wp-<span class="keyword">content</span>/uploads/<span class="number">2018</span>/<span class="number">07</span>/<span class="number">5</span><span class="number">-1.</span>png)</span><br><span class="line"></span><br><span class="line">*   将计算机系女生的年龄增加<span class="number">1</span>岁；</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> CS_S1</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> SAGE = SAGE + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  截图： ![](<span class="keyword">http</span>://<span class="number">47.100</span><span class="number">.4</span><span class="number">.8</span>/wp-<span class="keyword">content</span>/uploads/<span class="number">2018</span>/<span class="number">07</span>/<span class="number">6</span><span class="number">-1.</span>png)</span><br><span class="line"></span><br><span class="line">*   对CS_S3中学生专业修改为电子；</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> CS_S3</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> SDEPT = <span class="string">'电子'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span> SNO = <span class="string">'E0002'</span></span><br><span class="line"></span><br><span class="line">  截图： 该学生被移出该视图了就 ![](<span class="keyword">http</span>://<span class="number">47.100</span><span class="number">.4</span><span class="number">.8</span>/wp-<span class="keyword">content</span>/uploads/<span class="number">2018</span>/<span class="number">07</span>/<span class="number">7.</span>png)</span><br><span class="line"></span><br><span class="line">*   分别删除以上定义的各个视图。</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> CS_S</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> CS_S1</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> CS_S2</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> CS_S3</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> NP_C</span><br></pre></td></tr></table></figure>
 <p>  截图： <img src="http://47.100.4.8/wp-content/uploads/2018/07/8.png" alt=""></p>
 
       
@@ -544,6 +473,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/DataBase/" rel="tag"># DataBase</a>
+          
+            <a href="/tags/%E8%A7%86%E5%9B%BE%E6%93%8D%E4%BD%9C/" rel="tag"># 视图操作</a>
+          
+        </div>
+      
 
       
       
@@ -553,8 +490,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/23/shu-ju-ku-zhi-shi-tu-cao-zuo/" rel="next" title="数据库之视图操作">
-                <i class="fa fa-chevron-left"></i> 数据库之视图操作
+              <a href="/2018/07/15/ji-yu-yi-chuan-suan-fa-he-fei-xian-xing-gui-hua-de-han-shu-xun-you-suan-fa-1/" rel="next" title="基于遗传算法和非线性规划的函数寻优算法">
+                <i class="fa fa-chevron-left"></i> 基于遗传算法和非线性规划的函数寻优算法
               </a>
             
           </div>
@@ -563,7 +500,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/25/hui-bian-yu-yan-shi-xian-pan-duan-shi-fou-wei-run-nian/" rel="prev" title="汇编语言实现判断是否为闰年">
+              <a href="/2018/07/25/hui-bian-yu-yan-shi-xian-pan-duan-shi-fou-wei-run-nian-1/" rel="prev" title="汇编语言实现判断是否为闰年">
                 汇编语言实现判断是否为闰年 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -637,7 +574,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">503</span>
+                  <span class="site-state-item-count">258</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -647,10 +584,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">162</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">169</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -658,10 +595,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">162</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -693,6 +630,276 @@
 
       
 
+      
+      
+        <!-- canvas粒子时钟 -->
+        
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+      
+
     </div>
   </aside>
 
@@ -704,7 +911,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1227,5 +1434,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
