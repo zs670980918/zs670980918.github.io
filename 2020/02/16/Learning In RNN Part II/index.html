@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,Machine Learning,RNN," />
 
 
 
@@ -75,13 +75,52 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="StriveZs的博客">
-<meta property="og:url" content="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/page/3/index.html">
+<meta name="description" content="Learning In RNN Part II Learning Tager: Make the loss be minimize that evaluating by cost function.  ¶Unfortunately  RNN-based network is not always easy to learn.    Th error surface is rought   ¶Hel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learning In RNN Part II">
+<meta property="og:url" content="www.strivezs.com/2020/02/16/Learning%20In%20RNN%20Part%20II/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
+<meta property="og:description" content="Learning In RNN Part II Learning Tager: Make the loss be minimize that evaluating by cost function.  ¶Unfortunately  RNN-based network is not always easy to learn.    Th error surface is rought   ¶Hel">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/kHcMXX.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/8bJy2V.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/dy4doG.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/EDrdli.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/K5bxC0.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/XKwMQM.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/QuBJ2j.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/kCJIsg.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/WPPHRn.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/3yexBF.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/HjyAMK.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/8Gu1j2.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/BRp1UF.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/By7XBu.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/wYKkpA.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/eCiGf3.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/RARIzh.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/zYlxJy.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/tTKbLU.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/CGfD3r.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/0szRES.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/Ajbf8o.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/h4FdpY.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/ErGx83.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/opnM0d.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/QyhNhJ.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/ADclLS.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/JKDhvu.jpg">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/ssXaWg.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/zryrFy.jpg">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/GJhyYd.png">
+<meta property="article:published_time" content="2020-02-16T04:04:20.591Z">
+<meta property="article:modified_time" content="2020-02-16T04:04:20.591Z">
 <meta property="article:author" content="StriveZs">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="RNN">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zyp521/upload_image/raw/master/kHcMXX.png">
 
 
 
@@ -111,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="www.strivezs.com/categories/文章页/page/3/"/>
+  <link rel="canonical" href="www.strivezs.com/2020/02/16/Learning In RNN Part II/"/>
 
 
 
 
 
-  <title>Category: 文章页 | StriveZs的博客</title>
+  <title>Learning In RNN Part II | StriveZs的博客</title>
   <!-- 球型气泡标签云 -->
     <script type="text/javascript" src="/js/src/bubble.js"></script>
     
@@ -149,7 +188,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
     <a href="https://github.com/zs670980918" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -299,169 +338,367 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>文章页<small>Category</small>
-        </h1>
-      </div>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.strivezs.com/2020/02/16/Learning%20In%20RNN%20Part%20II/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="StriveZs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="StriveZs的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learning In RNN Part II</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-16T12:04:20+08:00">
+                2020-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/" itemprop="url" rel="index">
+                    <span itemprop="name">文章页</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/Python/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/Python/Machine-Learning/Neural-NetWork/" itemprop="url" rel="index">
+                    <span itemprop="name">Neural NetWork</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2019-12-27T13:16:59+08:00"
-              content="2019-12-27" >
-          12-27
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2019/12/27/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/" itemprop="url">
-              
-                <span itemprop="name">博客迁移</span>
-              
-            </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2018-07-25T09:50:47+08:00"
-              content="2018-07-25" >
-          07-25
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2018/07/25/hui-bian-yu-yan-shi-xian-pan-duan-shi-fou-wei-run-nian-1/" itemprop="url">
-              
-                <span itemprop="name">汇编语言实现判断是否为闰年</span>
-              
-            </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2018-07-07T20:25:33+08:00"
-              content="2018-07-07" >
-          07-07
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2018/07/07/hao-dong-xi-fen-xiang-kan-dai-ma-shen-qi-1/" itemprop="url">
-              
-                <span itemprop="name">(好东西分享）看代码神器</span>
-              
-            </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2018-04-23T18:13:43+08:00"
-              content="2018-04-23" >
-          04-23
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2018/04/23/ji-qi-xue-xi-zhi-pu-su-bei-ye-si-1/" itemprop="url">
-              
-                <span itemprop="name">机器学习之朴素贝叶斯</span>
-              
-            </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2018-04-04T18:30:17+08:00"
-              content="2018-04-04" >
-          04-04
-        </time>
-      </div>
-
-      <h2 class="my-post-title">
-        
-            <a class="my-post-title-link" href="/2018/04/04/di-zhi-1-1-1-1cloudflare-tui-xin-de-dns-fu-wu-1/" itemprop="url">
-              
-                <span itemprop="name">地址 1.1.1.1，Cloudflare 推新的 DNS 服务</span>
-              
-            </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
+        <h1>Learning In RNN Part II</h1>
+<p><strong>Learning Tager:</strong> Make the loss be minimize that evaluating by cost function.</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/kHcMXX.png" alt="figure1"></p>
+<h2 id="Unfortunately"><a class="header-anchor" href="#Unfortunately">¶</a>Unfortunately</h2>
+<ul>
+<li>RNN-based network is not always easy to learn.</li>
+</ul>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/8bJy2V.png" alt="figure2"></p>
+<ul>
+<li>Th error surface is rought</li>
+</ul>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/dy4doG.png" alt="figure3"></p>
+<h2 id="Helpful-Techniques"><a class="header-anchor" href="#Helpful-Techniques">¶</a>Helpful Techniques</h2>
+<h3 id="Long-Short-term-Memory-LSTM"><a class="header-anchor" href="#Long-Short-term-Memory-LSTM">¶</a>Long Short-term Memory(LSTM)</h3>
+<h4 id="Why-replace-RNN-to-LSTM"><a class="header-anchor" href="#Why-replace-RNN-to-LSTM">¶</a>Why replace RNN to LSTM?</h4>
+<p>Can deal with gradient vanishing(消灭，等于0) (not gradient explode爆炸激增)<br>
+It can make your error surface to be flatting nor not steep.<br>
+The specify performance is that it can remove the flat regions and solve the problem of gradient vanishing, but not gradient explode.</p>
+<h4 id="How-to-work"><a class="header-anchor" href="#How-to-work">¶</a>How to work:</h4>
+<p>The different operation between RNN and LSTM is that RNN can reomve value in memory after each computation and store new value. But LSTM can add the previous value to new value in cell memory after each computation.(Concretely depend on the value of forget gate)<br>
+So the difference of RNN and LSTM is if a weight influence value of memory, the influence never disappears unless forget gate is closed.<br>
+If forget gate is opened, there no gradient vanishing.</p>
+<h4 id="Summarization"><a class="header-anchor" href="#Summarization">¶</a>Summarization</h4>
+<ul>
+<li>can deal with gradient vanishing(not gradient explode)</li>
+<li>Memory and input are <ins>added</ins></li>
+<li>The influence never disappears<br>
+unless forget gate is closed</li>
+<li>No Gradient vanishing(If forget gate is opened)</li>
+</ul>
+<p>Gated Recurrent Unit(GRU):simpier thant LSTM</p>
+<p><strong>Other helpful techniques:</strong></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/EDrdli.png" alt="figure4"></p>
+<h2 id="More-Applications"><a class="header-anchor" href="#More-Applications">¶</a>More Applications</h2>
+<h3 id="Many-to-one"><a class="header-anchor" href="#Many-to-one">¶</a>Many to one</h3>
+<ul>
+<li>Input is a vector sequence, but output is only one vector.</li>
+</ul>
+<p><strong>Sentiment Analysis:(意见分析)</strong></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/K5bxC0.png" alt="figure5"></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/XKwMQM.png" alt="figure6"></p>
+<h3 id="Many-to-Many-Output-is-shorter"><a class="header-anchor" href="#Many-to-Many-Output-is-shorter">¶</a>Many to Many (Output is shorter)</h3>
+<ul>
+<li>Both input and output are both sequences, <strong>but the output is shorter</strong>.</li>
+</ul>
+<p><strong>Speech Recognition:</strong></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/QuBJ2j.png" alt="figure7"></p>
+<h4 id="How-to-differentiate"><a class="header-anchor" href="#How-to-differentiate">¶</a>How to differentiate?</h4>
+<ul>
+<li>Connectionist Temporal Classification(<strong>CTC</strong>，联结主义时间分类)</li>
+</ul>
+<p>==Add an extra symbol “Φ” representing “null”.==</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/kCJIsg.png" alt="figure8"></p>
+<p>Use this method to slove the problem like differentiate “好棒” or “好棒棒”.</p>
+<h4 id="CTC-Training"><a class="header-anchor" href="#CTC-Training">¶</a>CTC Training</h4>
+<p><strong>Acoustic Features:(声音特征)</strong><br>
+ALL possible alignments(序列/顺序) are considered as correct because we don’t know what alignment is correct. So we can list all alignments to train.</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/WPPHRn.png" alt="figure9"></p>
+<h4 id="CTC-example"><a class="header-anchor" href="#CTC-example">¶</a>CTC: example</h4>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/3yexBF.png" alt="figure10"></p>
+<h3 id="Many-to-Many-No-Limitation"><a class="header-anchor" href="#Many-to-Many-No-Limitation">¶</a>Many to Many (No Limitation)</h3>
+<ul>
+<li>Both input and output are both sequences <strong>with differnet lengths</strong>. ➡ <strong>Sequence to sequence learning</strong><br>
+<strong>Machine Translate</strong>(Machine Learning ➡ 机器学习)</li>
+</ul>
+<p><strong>bag-of-word:</strong></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/HjyAMK.png" alt="figure11"></p>
+<p>Above model can’t stop until it’s interrupted.</p>
+<h4 id="How-to-make-the-network-stop"><a class="header-anchor" href="#How-to-make-the-network-stop">¶</a>How to make the network stop</h4>
+<ul>
+<li>Adda a symbol ‘===’(断)</li>
+</ul>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/8Gu1j2.png" alt="figure12"></p>
+<h3 id="Beyond-Sequence"><a class="header-anchor" href="#Beyond-Sequence">¶</a>Beyond Sequence</h3>
+<ul>
+<li>Syntactic parsing(句法分析)</li>
+</ul>
+<h4 id="Transform-Tree-Structure-to-sequence"><a class="header-anchor" href="#Transform-Tree-Structure-to-sequence">¶</a>Transform Tree Structure to sequence</h4>
+<p><strong>Conversion principle:</strong></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/BRp1UF.png" alt="figure13"></p>
+<p>We can transform sentence tree to sequence by using this principle and train a sequence model to recognize sentence.</p>
+<h3 id="Sequence-to-sequence"><a class="header-anchor" href="#Sequence-to-sequence">¶</a>Sequence-to-sequence</h3>
+<h4 id="Auto-encoder-Text"><a class="header-anchor" href="#Auto-encoder-Text">¶</a>Auto-encoder-Text</h4>
+<ul>
+<li>To understand the meaning of a word sequence, the order of the words can not be ignored.</li>
+</ul>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/By7XBu.png" alt="figure14"></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/wYKkpA.png" alt="figure15"></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/eCiGf3.png" alt="figure16"></p>
+<h4 id="Auto-encoder-Speech"><a class="header-anchor" href="#Auto-encoder-Speech">¶</a>Auto-encoder-Speech</h4>
+<ul>
+<li>Dimension reduction for a sequence with variable length</li>
+</ul>
+<p>audio segments()word-level-&gt;Fixed-length vector</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/RARIzh.png" alt="figure17"></p>
+<h5 id="Audio-Search-Principle"><a class="header-anchor" href="#Audio-Search-Principle">¶</a><strong>Audio Search Principle:</strong></h5>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/zYlxJy.png" alt="figure18"></p>
+<h5 id="How-to-transform-audio-segment-to-vector"><a class="header-anchor" href="#How-to-transform-audio-segment-to-vector">¶</a>How to transform audio segment to vector</h5>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/tTKbLU.png" alt="figure19"></p>
+<p>ps: jointly 共同地 同时地 similarity 相似 类似 embedding 埋入/埋葬</p>
+<h5 id="Visualizing-embedding-vectors-of-the-words"><a class="header-anchor" href="#Visualizing-embedding-vectors-of-the-words">¶</a>Visualizing embedding vectors of the words</h5>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/CGfD3r.png" alt="figure20"></p>
+<h4 id="Sequence-to-sequence-Learning-Demo-Chat-bot"><a class="header-anchor" href="#Sequence-to-sequence-Learning-Demo-Chat-bot">¶</a>Sequence-to-sequence Learning Demo:Chat-bot</h4>
+<p><strong>Learning Principle:</strong></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/0szRES.png" alt="figure21"></p>
+<p><strong>Data Set:</strong><br>
+40000 sentences in Movie album and discussion of presidential election in American.</p>
+<h2 id="Attention-based-Model"><a class="header-anchor" href="#Attention-based-Model">¶</a>Attention-based Model</h2>
+<p><strong>Structure Version 1:</strong></p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/Ajbf8o.png" alt="figure22"></p>
+<p><strong>Structure Version 2:</strong><br>
+==Neural Turing Machine(神经图灵机)==</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/h4FdpY.png" alt="figure23"></p>
+<h3 id="Reading-Comprehension"><a class="header-anchor" href="#Reading-Comprehension">¶</a>Reading Comprehension</h3>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/ErGx83.png" alt="figure24"></p>
+<h3 id="Visual-Question-Answering"><a class="header-anchor" href="#Visual-Question-Answering">¶</a>Visual Question Answering</h3>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/opnM0d.png" alt="figure25"></p>
+<p><strong>Principle:</strong><br>
+==A vector for each region==</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/QyhNhJ.png" alt="figure26"></p>
+<h3 id="Speech-Question-Answering"><a class="header-anchor" href="#Speech-Question-Answering">¶</a>Speech Question Answering</h3>
+<ul>
+<li>TOEFL Listening Comprehension Test By Machine</li>
+</ul>
+<p><strong>Example:</strong></p>
+<ol>
+<li>Audio Story: the original story is 5 min long</li>
+<li>Question: “what is possible of Venus’ clouds?”</li>
+<li>Choices:
+<ol>
+<li>gased released as a result of volcanic activity</li>
+<li>chemical reactions caused by high surface temperatures</li>
+<li>bursts of radio energy from the plane’s surface</li>
+<li>strong winds that blow dust into the atmosphere</li>
+</ol>
+</li>
+</ol>
+<h4 id="Model-Architecture"><a class="header-anchor" href="#Model-Architecture">¶</a>Model Architecture</h4>
+<p>Everything is learned from training examples.</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/ADclLS.png" alt="figure27"></p>
+<h2 id="Deep-Structure"><a class="header-anchor" href="#Deep-Structure">¶</a>Deep &amp; Structure</h2>
+<h3 id="Integrated-together"><a class="header-anchor" href="#Integrated-together">¶</a>Integrated together</h3>
+<ul>
+<li>Speech Recognition: CNN/LSTM/DNN+HMM<br>
+<img src="https://gitee.com/zyp521/upload_image/raw/master/JKDhvu.jpg" alt="figure28"></li>
+</ul>
+<p>Bayes theorem</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/ssXaWg.png" alt="figure29"></p>
+<ul>
+<li>Sematic Tagging: Bi-directional LSTM+CRF/Structured SVM<br>
+Testing:<br>
+<img src="https://gitee.com/zyp521/upload_image/raw/master/zryrFy.jpg" alt="figure31"></li>
+</ul>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/GJhyYd.png" alt="figure30"></p>
 
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="StriveZs wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Where is will, there is a way.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          
+            <a href="/tags/RNN/" rel="tag"># RNN</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/16/%E5%B0%86%E5%9F%9F%E5%90%8D%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%A3%E6%9E%90%E5%88%B0github%20page%E4%B8%8A/" rel="next" title="将域名从服务器解析到github page上">
+                <i class="fa fa-chevron-left"></i> 将域名从服务器解析到github page上
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
- <nav class="pagination">
-   <a class="extend prev" rel="prev" href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/page/2/"><i class="fa fa-angle-left" aria-label="accessibility.prev_page"></i></a><a class="page-number" href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/">1</a><a class="page-number" href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/page/4/">4</a><a class="page-number" href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/page/5/">5</a><a class="extend next" rel="next" href="/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/page/4/"><i class="fa fa-angle-right" aria-label="accessibility.next_page"></i></a>
- </nav>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -469,6 +706,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -489,8 +730,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -561,6 +811,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Learning In RNN Part II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unfortunately"><span class="nav-number">1.1.</span> <span class="nav-text">¶Unfortunately</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Helpful-Techniques"><span class="nav-number">1.2.</span> <span class="nav-text">¶Helpful Techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Long-Short-term-Memory-LSTM"><span class="nav-number">1.2.1.</span> <span class="nav-text">¶Long Short-term Memory(LSTM)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Why-replace-RNN-to-LSTM"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">¶Why replace RNN to LSTM?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-work"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">¶How to work:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summarization"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">¶Summarization</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#More-Applications"><span class="nav-number">1.3.</span> <span class="nav-text">¶More Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Many-to-one"><span class="nav-number">1.3.1.</span> <span class="nav-text">¶Many to one</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Many-to-Many-Output-is-shorter"><span class="nav-number">1.3.2.</span> <span class="nav-text">¶Many to Many (Output is shorter)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-differentiate"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">¶How to differentiate?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CTC-Training"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">¶CTC Training</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CTC-example"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">¶CTC: example</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Many-to-Many-No-Limitation"><span class="nav-number">1.3.3.</span> <span class="nav-text">¶Many to Many (No Limitation)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-make-the-network-stop"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">¶How to make the network stop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-Sequence"><span class="nav-number">1.3.4.</span> <span class="nav-text">¶Beyond Sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Transform-Tree-Structure-to-sequence"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">¶Transform Tree Structure to sequence</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequence-to-sequence"><span class="nav-number">1.3.5.</span> <span class="nav-text">¶Sequence-to-sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Auto-encoder-Text"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">¶Auto-encoder-Text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Auto-encoder-Speech"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">¶Auto-encoder-Speech</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Audio-Search-Principle"><span class="nav-number">1.3.5.2.1.</span> <span class="nav-text">¶Audio Search Principle:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#How-to-transform-audio-segment-to-vector"><span class="nav-number">1.3.5.2.2.</span> <span class="nav-text">¶How to transform audio segment to vector</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Visualizing-embedding-vectors-of-the-words"><span class="nav-number">1.3.5.2.3.</span> <span class="nav-text">¶Visualizing embedding vectors of the words</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sequence-to-sequence-Learning-Demo-Chat-bot"><span class="nav-number">1.3.5.3.</span> <span class="nav-text">¶Sequence-to-sequence Learning Demo:Chat-bot</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attention-based-Model"><span class="nav-number">1.4.</span> <span class="nav-text">¶Attention-based Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-Comprehension"><span class="nav-number">1.4.1.</span> <span class="nav-text">¶Reading Comprehension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visual-Question-Answering"><span class="nav-number">1.4.2.</span> <span class="nav-text">¶Visual Question Answering</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Speech-Question-Answering"><span class="nav-number">1.4.3.</span> <span class="nav-text">¶Speech Question Answering</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Model-Architecture"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">¶Model Architecture</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Structure"><span class="nav-number">1.5.</span> <span class="nav-text">¶Deep &amp; Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Integrated-together"><span class="nav-number">1.5.1.</span> <span class="nav-text">¶Integrated together</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -986,6 +1252,10 @@ if(canvas.getContext){
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
