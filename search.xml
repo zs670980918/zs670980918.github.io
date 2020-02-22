@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>使用CDN加速github page访问</title>
+      <link href="/2020/02/22/%E4%BD%BF%E7%94%A8CDN%E5%8A%A0%E9%80%9Fgithub%20page%E8%AE%BF%E9%97%AE/"/>
+      <url>/2020/02/22/%E4%BD%BF%E7%94%A8CDN%E5%8A%A0%E9%80%9Fgithub%20page%E8%AE%BF%E9%97%AE/</url>
+      
+        <content type="html"><![CDATA[<h1>使用CDN加速github page访问</h1><p>这里我使用的<a href="https://portal.qiniu.com/">七牛云</a>来加速网站的访问.</p><p><strong>特别注意：你的域名一定要备案了才能用CDN！！！</strong></p><h2 id="步骤"><a class="header-anchor" href="#步骤">¶</a>步骤</h2><h3 id="创建CDN域名加速实例"><a class="header-anchor" href="#创建CDN域名加速实例">¶</a>创建CDN域名加速实例</h3><p><img src="https://gitee.com/zyp521/upload_image/raw/master/099ePA.png" alt="figure1"></p><h3 id="配置实例"><a class="header-anchor" href="#配置实例">¶</a>配置实例</h3><p><img src="https://gitee.com/zyp521/upload_image/raw/master/MNex84.png" alt="figure2"></p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/m4lIay.png" alt="figure3"></p><p>配置完如上实例后，需要等待实例状态变为成功:</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/XbWs3j.png" alt="figure4"></p><h3 id="添加到CNAME解析"><a class="header-anchor" href="#添加到CNAME解析">¶</a>添加到CNAME解析</h3><p>打开你自己的域名管理控制台。这里我用的是阿里云的域名管理控制台，进行域名就解析的配置：</p><h4 id="配置www"><a class="header-anchor" href="#配置www">¶</a>配置www</h4><p><img src="https://gitee.com/zyp521/upload_image/raw/master/LnLHLc.png" alt="figure5"></p><h4 id="配置"><a class="header-anchor" href="#配置">¶</a>配置@</h4><p><img src="https://gitee.com/zyp521/upload_image/raw/master/opB6nc.png" alt="figure6"></p><h2 id="验证解析成功没有"><a class="header-anchor" href="#验证解析成功没有">¶</a>验证解析成功没有</h2><h3 id="mac-linux"><a class="header-anchor" href="#mac-linux">¶</a>mac/linux</h3><p>在命令台输入</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dig </span>你的网址</span><br></pre></td></tr></table></figure><p>如果返回如下结果则表明解释成功了.</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/eI5g8q.png" alt="figure7"></p><h3 id="Windows"><a class="header-anchor" href="#Windows">¶</a>Windows</h3><p>由于这里我是mac系统所以windows我就贴出网上找到的验证方式：</p><p>windows系统可以通过Win+R 或 点击左下角的“开始”按钮打开“开始”菜单，打开“运行”，输入cmd回车。</p><p>在命令行模式下输入nslookup 您的加速域名，例如 nslookup qn.vinchi.club,在结果中可以看到您复制的cname值即可</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/Uz6PkK.jpg" alt="figure8"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 文章页 </category>
+          
+          <category> Github </category>
+          
+          <category> 域名 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 域名解析 </tag>
+            
+            <tag> Github Page </tag>
+            
+            <tag> CDN加速 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Learning In RNN Part II</title>
       <link href="/2020/02/16/Learning%20In%20RNN%20Part%20II/"/>
       <url>/2020/02/16/Learning%20In%20RNN%20Part%20II/</url>
