@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>www.strivezs.com/tags/CUDA/</loc>
+        <lastmod>2020-03-18T02:22:12.072Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/PyTorch/</loc>
+        <lastmod>2020-03-18T02:22:12.072Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/NVIDIA/</loc>
+        <lastmod>2020-03-18T02:22:12.072Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/PyCharm/</loc>
+        <lastmod>2020-03-18T02:22:12.072Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/CDN%25E5%258A%25A0%25E9%2580%259F/</loc>
         <lastmod>2020-02-22T03:15:36.268Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1068,13 +1096,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/whl/</loc>
-        <lastmod>2018-03-10T10:33:03.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/PyCharm/</loc>
         <lastmod>2018-03-10T10:33:03.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
