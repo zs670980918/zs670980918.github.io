@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>www.strivezs.com/tags/word-embedding/</loc>
+        <lastmod>2020-04-04T09:54:30.990Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/CUDA/</loc>
         <lastmod>2020-03-18T02:22:12.072Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -479,13 +486,6 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/MatLab/</loc>
-        <lastmod>2018-08-28T08:40:46.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>www.strivezs.com/tags/%25E6%2599%25BA%25E8%2583%25BD%25E4%25BC%2598%25E5%258C%2596/</loc>
         <lastmod>2018-08-28T08:40:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -501,6 +501,13 @@
 
     <url>
         <loc>www.strivezs.com/tags/%25E9%2581%2597%25E4%25BC%25A0%25E7%25AE%2597%25E6%25B3%2595/</loc>
+        <lastmod>2018-08-28T08:40:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/MatLab/</loc>
         <lastmod>2018-08-28T08:40:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -612,14 +619,14 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/OS/</loc>
+        <loc>www.strivezs.com/tags/%25E8%25B0%2583%25E5%25BA%25A6/</loc>
         <lastmod>2018-07-02T05:57:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/%25E8%25B0%2583%25E5%25BA%25A6/</loc>
+        <loc>www.strivezs.com/tags/OS/</loc>
         <lastmod>2018-07-02T05:57:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
