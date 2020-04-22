@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Anaconda配置清华源并且安装PyTorch.md</title>
+      <link href="/2020/04/22/Anaconda%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%8E%E6%BA%90%E5%B9%B6%E4%B8%94%E5%AE%89%E8%A3%85PyTorch.md/"/>
+      <url>/2020/04/22/Anaconda%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%8E%E6%BA%90%E5%B9%B6%E4%B8%94%E5%AE%89%E8%A3%85PyTorch.md/</url>
+      
+        <content type="html"><![CDATA[<h1>Anaconda配置清华源并且安装PyTorch</h1><h2 id="配置清华源"><a class="header-anchor" href="#配置清华源">¶</a>配置清华源</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">配置基础包：</span><br><span class="line">conda config --add channels http:<span class="regexp">//mi</span>rror.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/main/</span></span><br><span class="line">conda config --add channels http:<span class="regexp">//mi</span>rror.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span></span><br><span class="line"></span><br><span class="line">配置拓展包比如PyTorch</span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/conda-forge/</span> </span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/msys2/</span> </span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/bioconda/</span> </span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/menpo/</span> </span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/pytorch/</span></span><br><span class="line"></span><br><span class="line">执行：</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure><h2 id="安装PyTorch"><a class="header-anchor" href="#安装PyTorch">¶</a>安装PyTorch</h2><p>去官网选择对应的版本安装，<strong>需要注意的是要去掉 -c pytorch 否则安装的源来自于官网而不是自己之前设置的源</strong></p><p>如下：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision <span class="attribute">cudatoolkit</span>=9.0 -c pytorch</span><br><span class="line">改为</span><br><span class="line">conda install pytorch torchvision <span class="attribute">cudatoolkit</span>=9.0</span><br></pre></td></tr></table></figure><p>建议：在我们搭建好环境之后，最好就先添加镜像站到Anaconda中，这样安装包的时候，速度会得到大大的提升</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Word Embedding</title>
       <link href="/2020/04/04/Word%20Embedding/"/>
       <url>/2020/04/04/Word%20Embedding/</url>
