@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-04-22T03:36:21.885Z</updated>
+  <updated>2020-05-06T03:13:22.764Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MAC+XAMPP+PHPStorm+XDebug</title>
+    <link href="www.strivezs.com/2020/05/06/MAC+XAMPP+PHPStorm+XDebug/"/>
+    <id>www.strivezs.com/2020/05/06/MAC+XAMPP+PHPStorm+XDebug/</id>
+    <published>2020-05-06T03:13:22.764Z</published>
+    <updated>2020-05-06T03:13:22.764Z</updated>
+    
+    <content type="html"><![CDATA[<h1>MAC+XAMPP+PHPStorm+XDebug</h1><p>在网上找了半天，花费了很长时间，总结了网上的内容，发现写的都不是十分全面，这里我写了从头到尾的配置过程。</p><h2 id="下载并安装XAMPP"><a class="header-anchor" href="#下载并安装XAMPP">¶</a>下载并安装XAMPP</h2><p>首先先去官网下载：<a href="https://www.apachefriends.org/zh_cn/index.html">click here</a></p><p>ps:个人补充一点，由于我上来先安装的是最新版本的导致我出现了许多问题，后来我尝试更换成了php7.3版本的XAMPP使用。</p><h2 id="下载并安装PHPStorm"><a class="header-anchor" href="#下载并安装PHPStorm">¶</a>下载并安装PHPStorm</h2><p>直接去官网下载并且安装即可，注意如果你不是教育版或者企业版，则需要购买或者使用密钥（自行查找吧）。 <a href="https://www.jetbrains.com/phpstorm/">click here</a></p><h2 id="配置XAMPP"><a class="header-anchor" href="#配置XAMPP">¶</a>配置XAMPP</h2><p>安装XMAPP之后，我们首先要配置一下conf文件.</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/U8PIJ1.png" alt="figure.1"></p><p>添加上你的端口，这里phpstorm默认使用的63342端口，因此我在配置文件中添加上了63342端口。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/gEdJga.png" alt="figure.2"></p><p>修改成你想要的主站文件夹地址，由于它默认需要你将写好的文件放入到htdocs文件夹中，因此这里我为了方便自定义，我就修改了默认的主站地址。<strong>注意这里写的内容将会成为你的localhost映射的地址</strong>，在后面phpstorm项目配置的时候要注意，这里建议给一个比较大的文件范围作为默认的主站地址。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/URpdu4.png" alt="figure.3"></p><p>如果没有权限的话，则将User 改成你自己的用户名即可。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/IiOE3f.png" alt="figure.4"></p><p>按照上述过程配置好之后，重启以下apache就可以监听对应端口了。至于MySQL的我暂时没有到放在以后去写了。</p><h2 id="PHPStorm配置"><a class="header-anchor" href="#PHPStorm配置">¶</a>PHPStorm配置</h2><p>首先是创建一个PHP项目，然后打开Preferences-&gt;Debugger设置一下端口号，这里我们直接使用的默认63342的，如果你不使用默认的话，这里修改了对应着conf配置文件也要修改。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/Ql0vJT.png" alt="figure.5"></p><p>然后打开Deployment设置部署事宜。</p><p>创建一个local or mounted folder，然后设置一下项目地址，以及启动的网站，这里如果不是默认80端口的话，都要添加上自己端口号。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/POJUXS.png" alt="figure.6"></p><p>点开映射部分，设置一下自己的映射，<strong>注意这里之前在conf文件夹中设置了父级主站目录</strong>，因此我们需要在Web Path一栏中设置一下详细的目录，并且在local path中添加上项目地址。具体如下：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/4DEfk5.png" alt="figure.7"></p><p>配置完成之后一定要点一下那个小对勾，将该服务器设置为默认服务器。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/DdckXH.png" alt="figure.8"></p><h2 id="配置PHP"><a class="header-anchor" href="#配置PHP">¶</a>配置PHP</h2><p>注意如果你是mac系统的话，则不需要使用xampp的php，可以直接使用你mac自导的php，在终端输入php-version可以查看当前php的版本，然后你打开Preferences-&gt;-&gt; Language -&gt; PHP 来选择你的解释器，默认是没有选择的。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/mNJ27O.png" alt="figure.9"></p><p>注意两个栏的版本要一直，如果想要使用xampp中的php，则新建一个php，然后找到XAMPP/xamppfiles/bin/php-7.3.17来创建一个新的php。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/SQdQUu.png" alt="figure.13"></p><h2 id="配置XDebug"><a class="header-anchor" href="#配置XDebug">¶</a>配置XDebug</h2><h3 id="安装xdebug扩展"><a class="header-anchor" href="#安装xdebug扩展">¶</a>安装xdebug扩展</h3><ul><li>查询与当前环境匹配的 xdebug 版本 <a href="https://xdebug.org/wizard">click here</a></li><li>进入bin文件夹，cd /Applications/XAMPP/bin</li><li>sudo ./pecl search xdebug-2.x.x 这里的版本号根据上面查找到的</li><li>sudo ./pecl install xdebug-2.x.x  安装</li><li>在etc文件夹中找到php.ini的最后添加如下内容</li></ul><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zend_extension</span>=/Applications/XAMPP/xamppfiles/lib/php/extensions/<span class="literal">no</span>-debug-non-zts-<span class="number">20180731</span>/xdebug.so <span class="comment">;该行内容在安装完 xdebug 后，可从安装结束语中获取</span></span><br><span class="line"><span class="attr">xdebug.remote_enable</span> = <span class="number">1</span></span><br><span class="line"><span class="attr">xdebug.remote_host</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">xdebug.remote_port</span> = <span class="number">9000</span></span><br><span class="line"><span class="attr">xdebug.idekey</span> = PHPSTORM</span><br><span class="line"><span class="attr">xdebug.auto_start</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure><ul><li>重启apache服务器</li></ul><h3 id="配置PHP-v2"><a class="header-anchor" href="#配置PHP-v2">¶</a>配置PHP</h3><p>打开Perference-&gt;Language-&gt;Debuger, 设置端口号为9000</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/fz3haO.png" alt="figure.13"></p><p>打开Perference-&gt;Language-&gt;Debuger-&gt;DBGp Proxy 配置代理信息</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/dlnNw2.png" alt="figure.14"></p><p>配置Server</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/fFrJL9.png" alt="figure.15"></p><p>创建PHP Web并进行配置</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/4uL0fc.png" alt="figure.16"></p><h3 id="安装Chrome插件"><a class="header-anchor" href="#安装Chrome插件">¶</a>安装Chrome插件</h3><p>安装Chrome xdebug 插件，并且配置为debug模式 <a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc?utm_source=chrome-ntp-icon">click here</a></p><h3 id="PHPSTORM开启监听"><a class="header-anchor" href="#PHPSTORM开启监听">¶</a>PHPSTORM开启监听</h3><p>绿色小电话！！！</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/t2AJ2X.png" alt="figure.17"></p><h2 id="运行"><a class="header-anchor" href="#运行">¶</a>运行</h2><p>当你配置完成之后，创建一个php文件。</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>id<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"> <span class="keyword">echo</span> <span class="string">"hello world"</span>;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p>单击chrome运行即可以在浏览器中查看项目。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/ENYizv.png" alt="figure.10"></p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/HSYcz5.png" alt="figure.11"></p><p>ps：补充一年，如果你想设置运行按钮单击直接显示网页的话，则添加一个PHP Web Page</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/yCmBS9.png" alt="figure.12"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;MAC+XAMPP+PHPStorm+XDebug&lt;/h1&gt;
+&lt;p&gt;在网上找了半天，花费了很长时间，总结了网上的内容，发现写的都不是十分全面，这里我写了从头到尾的配置过程。&lt;/p&gt;
+&lt;h2 id=&quot;下载并安装XAMPP&quot;&gt;&lt;a class=&quot;header-anchor&quot; 
+      
+    
+    </summary>
+    
+    
+      <category term="文章页" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
+    
+      <category term="PHP" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/PHP/"/>
+    
+    
+      <category term="PHP" scheme="www.strivezs.com/tags/PHP/"/>
+    
+      <category term="PHPStorm" scheme="www.strivezs.com/tags/PHPStorm/"/>
+    
+      <category term="XAMPP" scheme="www.strivezs.com/tags/XAMPP/"/>
+    
+      <category term="XDebug" scheme="www.strivezs.com/tags/XDebug/"/>
+    
+  </entry>
   
   <entry>
     <title>Anaconda配置清华源并且安装PyTorch.md</title>
@@ -690,38 +726,6 @@ The chinese name is 循环神经网络.&lt;/p&gt;
       <category term="generator pattern" scheme="www.strivezs.com/tags/generator-pattern/"/>
     
       <category term="prototype pattern" scheme="www.strivezs.com/tags/prototype-pattern/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows下配置VSCode</title>
-    <link href="www.strivezs.com/2019/04/17/windows-xia-pei-zhi-vscode-1/"/>
-    <id>www.strivezs.com/2019/04/17/windows-xia-pei-zhi-vscode-1/</id>
-    <published>2019-04-17T11:46:00.000Z</published>
-    <updated>2019-04-17T11:46:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>弄了很久总算搞好了，这里分享一下，QWQ</strong> 一、软件安装 先去VSCode官网下载安装包 地址为：<a href="https://code.visualstudio.com/Download">https://code.visualstudio.com/Download</a> 二、安装配置插件 先打开VSCode，打开扩展程序安装并安装如下插件： <img src="http://47.100.4.8/wp-content/uploads/2019/04/1-1.png" alt=""> 其中C/C++、C/C++ Clang和Code Runner是必备的，如果你需要中文版则可以安装Chinese language这个插件安装好后要重启以下VSCode 三、安装MinGW 首先如果没有codeblock或者DevC++的则可以考虑去官网下载MinGW的安装程序 网址为：<a href="https://osdn.net/projects/mingw/releases/p15522">https://osdn.net/projects/mingw/releases/p15522</a> 具体安装过程详见：<a href="https://blog.csdn.net/bat67/article/details/76095813">https://blog.csdn.net/bat67/article/details/76095813</a> 这里由于我已经安装过CodeBlock则不需要再次安装了，也就不过多的说了。 四、配置系统环境变量 如图操作即可，记得配置完环境变量要重启VSCode <img src="http://47.100.4.8/wp-content/uploads/2019/04/2-1.png" alt=""> 五、配置c_cpp_properties.json文件 首先要创建一个工作环境的文件夹，然后在这里面通过设置调出该文件，按照如下配置即可 <img src="http://47.100.4.8/wp-content/uploads/2019/04/QQ%E5%9B%BE%E7%89%8720190417194139.png" alt=""> 这里需要注意的是添加如下一行代码即可：</p><p>“E:/codeblock/CodeBlocks/MinGW/include/**”</p><p>添加完成之后在工作区创建一个Cpp文件使用运行即可。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;弄了很久总算搞好了，这里分享一下，QWQ&lt;/strong&gt; 一、软件安装 先去VSCode官网下载安装包 地址为：&lt;a href=&quot;https://code.visualstudio.com/Download&quot;&gt;https://code.visualstud
-      
-    
-    </summary>
-    
-    
-      <category term="VSCode" scheme="www.strivezs.com/categories/VSCode/"/>
-    
-      <category term="文章页" scheme="www.strivezs.com/categories/VSCode/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
-    
-      <category term="软件分享" scheme="www.strivezs.com/categories/VSCode/%E6%96%87%E7%AB%A0%E9%A1%B5/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="windows" scheme="www.strivezs.com/tags/windows/"/>
-    
-      <category term="vscode" scheme="www.strivezs.com/tags/vscode/"/>
     
   </entry>
   
