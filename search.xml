@@ -4,6 +4,68 @@
   
     
     <entry>
+      <title>百度AI studio+Encoder_Decoder+Anaconda+ V100+ Linux+PyTorch环境配置</title>
+      <link href="/2020/05/22/%E7%99%BE%E5%BA%A6AI%20studio+Encoder_Decoder+Anaconda+%20V100+%20Linux+PyTorch%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+      <url>/2020/05/22/%E7%99%BE%E5%BA%A6AI%20studio+Encoder_Decoder+Anaconda+%20V100+%20Linux+PyTorch%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1>百度AI studio+Encoder_Decoder+Anaconda+ V100+ Linux+PyTorch环境配置</h1><p>这里主要以我的毕设代码需要的环境进行配置的，该内容配合miniconda可以扩展到其他的环境下。</p><h2 id="环境配置"><a class="header-anchor" href="#环境配置">¶</a>环境配置</h2><h3 id="dataset存储"><a class="header-anchor" href="#dataset存储">¶</a>dataset存储</h3><p>由于在百度AI Studio中每次项目终止后，data数据集文件夹会按照数据集中的内容重置，因此我需要将需要的数据自行解压到work文件夹下，这样需要的内容就可以保存下载来了。具体解压代码：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rar x abc.rar <span class="regexp">/home/</span>aistudio<span class="regexp">/work/</span>....<span class="regexp">/</span></span><br></pre></td></tr></table></figure><h3 id="Miniconda"><a class="header-anchor" href="#Miniconda">¶</a>Miniconda</h3><p><strong>问题</strong>：由于我之前直接在linux下的python进行pytorch的安装，这种情况只能在项目未关闭的情况下使用，但是当我第二天重启之后发现自动重置了，我之前安装的没了，因此下面我重新装了一个miniconda进行包管理，这样在下次重启之后不会被重置了。</p><h4 id="安装miniconda及其配置"><a class="header-anchor" href="#安装miniconda及其配置">¶</a>安装miniconda及其配置</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">下载：</span><br><span class="line">wget -<span class="keyword">c</span> http<span class="variable">s:</span>//mirrors.tuna.tsinghua.edu.<span class="keyword">cn</span>/anaconda/miniconda/Miniconda3-<span class="number">4.7</span>.<span class="number">12.1</span>-Linux-x86_64.<span class="keyword">sh</span></span><br><span class="line">安装：</span><br><span class="line">bash Miniconda3-<span class="number">4.7</span>.<span class="number">12.1</span>-Linux-x86_64.<span class="keyword">sh</span></span><br><span class="line"></span><br><span class="line">激活conda：</span><br><span class="line"><span class="keyword">source</span> ~/miniconda3/bin/avtivate</span><br><span class="line"></span><br><span class="line">更换清华源：</span><br><span class="line">conda config --<span class="built_in">add</span> channels http<span class="variable">s:</span>//mirrors.tuna.tsinghua.edu.<span class="keyword">cn</span>/anaconda/pkgs/free/ </span><br><span class="line">conda config --<span class="built_in">add</span> channels http<span class="variable">s:</span>//mirrors.tuna.tsinghua.edu.<span class="keyword">cn</span>/anaconda/pkgs/main/ </span><br><span class="line">conda config --<span class="keyword">set</span> show_channel_urls yes</span><br></pre></td></tr></table></figure><p>完成上述操作后，重启一下终端</p><h4 id="配置PyTorch环境"><a class="header-anchor" href="#配置PyTorch环境">¶</a>配置PyTorch环境</h4><p>创建conda新环境并且配置需要的包</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">激活conda</span><br><span class="line">source ~/miniconda3/bin/activate</span><br><span class="line"></span><br><span class="line">创建环境</span><br><span class="line">conda create --name Env_PyTorch <span class="attribute">python</span>=3.7</span><br><span class="line"></span><br><span class="line">进入创建好的环境</span><br><span class="line">conda activate Env_Pytoch</span><br><span class="line"></span><br><span class="line">安装PyTorch</span><br><span class="line">conda install <span class="attribute">pytorch</span>==1.2.0 <span class="attribute">torchvision</span>==0.4.0 <span class="attribute">cudatoolkit</span>=9.2</span><br><span class="line">(去除掉-c pytorch才是使用清华源进行安装的否则仍然是原有的源安装)</span><br><span class="line"></span><br><span class="line">配置其他的需要的包</span><br><span class="line">conda install ipython</span><br><span class="line">conda install scikit-image</span><br><span class="line">conda install <span class="attribute">scipy</span>==1.2.0</span><br><span class="line">conda install tqdm</span><br><span class="line">conda install <span class="attribute">pillow</span>=6.1</span><br><span class="line">conda install h5py</span><br><span class="line">conda install nltk</span><br></pre></td></tr></table></figure><h4 id="验证是否安装PyTorch成功"><a class="header-anchor" href="#验证是否安装PyTorch成功">¶</a>验证是否安装PyTorch成功</h4><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">&gt;&gt;&gt;import torch &gt;&gt;&gt;print(<span class="name">torch</span>.cuda.is_available()) </span><br><span class="line">&gt;&gt;&gt;print(<span class="name">torch</span>.__version__)</span><br></pre></td></tr></table></figure><p><strong>注意</strong>：每次重启终端都要重新运行</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> ~<span class="regexp">/work/mi</span>niconda3<span class="regexp">/bin/</span>activate </span><br><span class="line">conda activate Env_PyTorch</span><br></pre></td></tr></table></figure><h2 id="常见问题"><a class="header-anchor" href="#常见问题">¶</a>常见问题</h2><p>我想把本地项目文件上传至Notebook项目中, 但文件数量比较多, 怎么上传? （详见官方帮助文档）</p><ul><li>请将项目文件打成zip包后, 在Notebook环境中上传. 如果项目文件较大(&gt;30mb), 请使用数据集功能上传, 然后挂载到项目中.</li><li>最后在项目中通过unzip命令进行解压缩(请注意需要解压到work目录下)<br>如：将压缩文件text.zip在指定目录/tmp下解压缩，如果已有相同的文件存在，要求unzip命令不覆盖原 先的文件。</li></ul><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip -<span class="keyword">n</span> <span class="keyword">test</span>.<span class="keyword">zip</span> -<span class="keyword">d</span> /tmp</span><br></pre></td></tr></table></figure><ul><li>如执意需要.rar包, 由于该格式为RAR共享软件独有<br>使用如下语句：</li></ul><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rar 即可得到命令格式和所有参数</span><br><span class="line">rar x abc.rar <span class="regexp">/home/</span>aistudio<span class="regexp">/work/</span>....<span class="regexp">/</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Knowledge </category>
+          
+          <category> 毕设 </category>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Anaconda </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用百度 AI Studio来跑深度学习</title>
+      <link href="/2020/05/22/%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%20AI%20Studio%E6%9D%A5%E8%B7%91%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2020/05/22/%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%20AI%20Studio%E6%9D%A5%E8%B7%91%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h1>使用百度 AI Studio来跑深度学习</h1><p>ps：这里不仅限于跑深度学习，可运行python代码。</p><p>具体网站:<a href="https://aistudio.baidu.com/">click here</a></p><p><strong>这里做完四个任务可以得到100小时的计算时长，同样每天运行项目可以得到12小时的计算时长！太香了~</strong></p><h2 id="导入自己的项目"><a class="header-anchor" href="#导入自己的项目">¶</a>导入自己的项目</h2><h3 id="创建数据集"><a class="header-anchor" href="#创建数据集">¶</a>创建数据集</h3><p>创建数据集并上传数据集压缩包（这里可用用别人开源的数据集）</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/Oc0r22.png" alt="figure.1"></p><h3 id="创建项目"><a class="header-anchor" href="#创建项目">¶</a>创建项目</h3><p>这里建议创建jupyter notebook的项目，因为他可以操控终端，这样就给了我们很多的可能，嘿嘿。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/2qCy98.png" alt="figure.2"></p><p>直接启动环境打开终端，如果有计算时长可能选择高性能的tesla v100计算卡哦。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/HWwpSU.png" alt="figure.3"></p><h3 id="环境配置"><a class="header-anchor" href="#环境配置">¶</a>环境配置</h3><p>在终端中输入如下命令可以查看显卡配置</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">NVIDIA-smi</span></span><br></pre></td></tr></table></figure><p>如下：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/123.png" alt="figure.4"></p><p>在终端输入如下命令，可以查看cuda版本。</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvcc -V</span></span><br></pre></td></tr></table></figure><p>查看cuda环境配置，然后去PyTorch官方找到对应的pytorch版本进行命令行安装即可。</p><p>这样运行神经网络的基础配置就设置好了，</p><h3 id="上传项目"><a class="header-anchor" href="#上传项目">¶</a>上传项目</h3><p>进入项目后，点击上传按钮，将需要的代码文件上传到服务器即可。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/UGMnEc.png" alt="figure.5"></p><h2 id="Final"><a class="header-anchor" href="#Final">¶</a>Final</h2><p>最后这里特别说明一下，服务器的系统环境是linux内核，所以基本上各种数据集的解压（压缩包形式数据集）文件创建删除，代码的运行都是使用命令行来完成的。</p><p>将压缩包abc.rar 解压到指定路径</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rar x abc.rar <span class="regexp">/home/</span>aistudio<span class="regexp">/work/</span>....<span class="regexp">/</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Neural Network </category>
+          
+          <category> Artificial Intelligence </category>
+          
+          <category> Knowledge </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Neural Network </tag>
+            
+            <tag> Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MAC+XAMPP+PHPStorm+XDebug</title>
       <link href="/2020/05/06/MAC+XAMPP+PHPStorm+XDebug/"/>
       <url>/2020/05/06/MAC+XAMPP+PHPStorm+XDebug/</url>
