@@ -4173,13 +4173,13 @@
             
             <tag> 算法 </tag>
             
-            <tag> MatLab </tag>
-            
             <tag> 遗传算法 </tag>
             
             <tag> 多种群遗传算法 </tag>
             
             <tag> 智能优化 </tag>
+            
+            <tag> MatLab </tag>
             
         </tags>
       
@@ -4208,9 +4208,9 @@
       
         <tags>
             
-            <tag> GA </tag>
-            
             <tag> 遗传算法 </tag>
+            
+            <tag> GA </tag>
             
             <tag> 优化算法 </tag>
             
