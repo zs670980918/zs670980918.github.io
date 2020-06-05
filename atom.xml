@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-05-22T09:46:03.172Z</updated>
+  <updated>2020-06-05T07:48:57.625Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信公众号和CSDN的重新使用</title>
+    <link href="www.strivezs.com/2020/06/05/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8CCSDN%E7%9A%84%E9%87%8D%E6%96%B0%E4%BD%BF%E7%94%A8/"/>
+    <id>www.strivezs.com/2020/06/05/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8CCSDN%E7%9A%84%E9%87%8D%E6%96%B0%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-06-05T07:48:57.625Z</published>
+    <updated>2020-06-05T07:48:57.625Z</updated>
+    
+    <content type="html"><![CDATA[<h1>微信公众号和CSDN的重新使用</h1><p>最近计划将文章内容同步更新在个人博客、微信公众号和CSDN三个平台上，方便更多地用户进行访问和获取的内容。</p><h2 id="微信公众号"><a class="header-anchor" href="#微信公众号">¶</a>微信公众号</h2><p>近期刚刚开通了微信公众号，过段时间会慢慢的进行更新的。</p><p>下面是公众号的二维码，可以扫描关注。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/%E5%85%AC%E4%BC%97%E5%8F%B7.jpg" alt="figure.1"></p><p>同样可以搜索次猿技术进行关注。</p><h2 id="CSDN"><a class="header-anchor" href="#CSDN">¶</a>CSDN</h2><p>CSDN之前曾经使用过一段时间，但是由于时间上的安排，决定仅在博客上进行更新了，现在正值毕业季时间比较充裕，因此决定再次重新进行更新。</p><p>欢迎访问：<a href="https://blog.csdn.net/qq_16184125">我的CSDN</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;微信公众号和CSDN的重新使用&lt;/h1&gt;
+&lt;p&gt;最近计划将文章内容同步更新在个人博客、微信公众号和CSDN三个平台上，方便更多地用户进行访问和获取的内容。&lt;/p&gt;
+&lt;h2 id=&quot;微信公众号&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#微信公众号&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="www.strivezs.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="CSDN" scheme="www.strivezs.com/tags/CSDN/"/>
+    
+      <category term="微信公众号" scheme="www.strivezs.com/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>百度AI studio+Encoder_Decoder+Anaconda+ V100+ Linux+PyTorch环境配置</title>
@@ -685,42 +715,6 @@ The chinese name is 循环神经网络.&lt;/p&gt;
       <category term="next" scheme="www.strivezs.com/tags/next/"/>
     
       <category term="Hexo" scheme="www.strivezs.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>装饰模式编程实现</title>
-    <link href="www.strivezs.com/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/"/>
-    <id>www.strivezs.com/2019/05/13/zhuang-shi-mo-shi-bian-cheng-shi-xian-1/</id>
-    <published>2019-05-13T07:04:12.000Z</published>
-    <updated>2019-05-13T07:04:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>装饰模式</strong></p><p><strong>实验原理：</strong></p><ul><li>动态地给一个对象添加一些额外的职责。</li><li>就增加功能来说，装饰模式比生成子类更为灵活。</li></ul><p><strong>装饰模式的适用性：</strong></p><ul><li>在不影响其他对象的情况下，以动态、透明的方式给单个对象添加职责。</li><li>处理那些可以撤销的职责。</li><li>当不能采用生成子类的方法进行扩充时。</li><li>可能有大量独立的扩展，为支持每一种组合将产生大量的子类，使得子类数目呈爆炸性增长。</li><li>类定义被隐藏，或类定义不能用于生成子类。</li></ul><p><strong>装饰模式的结构：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/11.png" alt=""> <strong>例题：</strong> 给定两种初始的汽车类，例如丰田和沃尔沃，利用装饰模式分别给它们添加新的功能，其中丰田可以导航和自动驾驶，沃尔沃可以导航和语音控制。 <strong>代码：</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>=<span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//Decorator</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Decorator</span>:</span><span class="keyword">public</span> Car&#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    Car* car;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SetCar</span><span class="params">(Car* car)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;car = car;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(car != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            car-&gt;Operation();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//导航</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteFunction1</span>:</span><span class="keyword">public</span> Decorator&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Decorator::Operation();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Navigation"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//自动驾驶</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteFunction2</span>:</span><span class="keyword">public</span> Decorator&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Decorator::Operation();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Autopilot"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//语音控制</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteFunction3</span>:</span><span class="keyword">public</span> Decorator&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Decorator::Operation();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Voice control"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//丰田</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Toyota</span>:</span><span class="keyword">public</span> Car&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Toyota:"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//沃尔沃</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Volvo</span>:</span><span class="keyword">public</span> Car&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Operation</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"Volvo:"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Toyota* toyota = <span class="keyword">new</span> Toyota();</span><br><span class="line">    ConcreteFunction1* concreteFunction1 = <span class="keyword">new</span> ConcreteFunction1();</span><br><span class="line">    ConcreteFunction2* concreteFunction2 = <span class="keyword">new</span> ConcreteFunction2();</span><br><span class="line">    concreteFunction1-&gt;SetCar(toyota);</span><br><span class="line">    concreteFunction2-&gt;SetCar(concreteFunction1);</span><br><span class="line">    concreteFunction2-&gt;Operation();</span><br><span class="line">    Volvo* volvo = <span class="keyword">new</span> Volvo();</span><br><span class="line">    ConcreteFunction1* concreteFunction3 = <span class="keyword">new</span> ConcreteFunction1();</span><br><span class="line">    ConcreteFunction3* concreteFunction4 = <span class="keyword">new</span> ConcreteFunction3();</span><br><span class="line">    concreteFunction3-&gt;SetCar(volvo);</span><br><span class="line">    concreteFunction4-&gt;SetCar(concreteFunction3);</span><br><span class="line">    concreteFunction4-&gt;Operation();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>UML类图：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/2-2.png" alt=""> <strong>结果：</strong> <img src="http://47.100.4.8/wp-content/uploads/2019/05/3-1.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;装饰模式&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;实验原理：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;动态地给一个对象添加一些额外的职责。&lt;/li&gt;
-&lt;li&gt;就增加功能来说，装饰模式比生成子类更为灵活。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong
-      
-    
-    </summary>
-    
-    
-      <category term="C&amp;amp;C++" scheme="www.strivezs.com/categories/C-amp-C/"/>
-    
-      <category term="文章页" scheme="www.strivezs.com/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
-    
-      <category term="设计模式" scheme="www.strivezs.com/categories/C-amp-C/%E6%96%87%E7%AB%A0%E9%A1%B5/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="decorate pattern" scheme="www.strivezs.com/tags/decorate-pattern/"/>
     
   </entry>
   

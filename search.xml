@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>微信公众号和CSDN的重新使用</title>
+      <link href="/2020/06/05/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8CCSDN%E7%9A%84%E9%87%8D%E6%96%B0%E4%BD%BF%E7%94%A8/"/>
+      <url>/2020/06/05/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%92%8CCSDN%E7%9A%84%E9%87%8D%E6%96%B0%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h1>微信公众号和CSDN的重新使用</h1><p>最近计划将文章内容同步更新在个人博客、微信公众号和CSDN三个平台上，方便更多地用户进行访问和获取的内容。</p><h2 id="微信公众号"><a class="header-anchor" href="#微信公众号">¶</a>微信公众号</h2><p>近期刚刚开通了微信公众号，过段时间会慢慢的进行更新的。</p><p>下面是公众号的二维码，可以扫描关注。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/%E5%85%AC%E4%BC%97%E5%8F%B7.jpg" alt="figure.1"></p><p>同样可以搜索次猿技术进行关注。</p><h2 id="CSDN"><a class="header-anchor" href="#CSDN">¶</a>CSDN</h2><p>CSDN之前曾经使用过一段时间，但是由于时间上的安排，决定仅在博客上进行更新了，现在正值毕业季时间比较充裕，因此决定再次重新进行更新。</p><p>欢迎访问：<a href="https://blog.csdn.net/qq_16184125">我的CSDN</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSDN </tag>
+            
+            <tag> 微信公众号 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>百度AI studio+Encoder_Decoder+Anaconda+ V100+ Linux+PyTorch环境配置</title>
       <link href="/2020/05/22/%E7%99%BE%E5%BA%A6AI%20studio+Encoder_Decoder+Anaconda+%20V100+%20Linux+PyTorch%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
       <url>/2020/05/22/%E7%99%BE%E5%BA%A6AI%20studio+Encoder_Decoder+Anaconda+%20V100+%20Linux+PyTorch%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
@@ -4035,9 +4062,9 @@
       
         <tags>
             
-            <tag> TSP </tag>
-            
             <tag> 优化算法 </tag>
+            
+            <tag> TSP </tag>
             
             <tag> SA </tag>
             
@@ -4222,9 +4249,9 @@
             
             <tag> GA </tag>
             
-            <tag> TSP </tag>
-            
             <tag> 优化算法 </tag>
+            
+            <tag> TSP </tag>
             
         </tags>
       
@@ -4720,9 +4747,9 @@
       
         <tags>
             
-            <tag> OS </tag>
-            
             <tag> 调度 </tag>
+            
+            <tag> OS </tag>
             
         </tags>
       
@@ -4749,9 +4776,9 @@
       
         <tags>
             
-            <tag> OS </tag>
-            
             <tag> 调度 </tag>
+            
+            <tag> OS </tag>
             
         </tags>
       
@@ -7775,9 +7802,9 @@
             
             <tag> C/C++ </tag>
             
-            <tag> Linux </tag>
-            
             <tag> VWware </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -8034,9 +8061,9 @@
       
         <tags>
             
-            <tag> Xshell </tag>
-            
             <tag> 云服务器 </tag>
+            
+            <tag> Xshell </tag>
             
         </tags>
       
