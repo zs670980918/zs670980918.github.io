@@ -8,6 +8,13 @@
     </url>
     
     <url>
+        <loc>www.strivezs.com/about/</loc>
+        <lastmod>2020-03-01T02:28:10.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>www.strivezs.com/categories/</loc>
         <lastmod>2020-01-04T08:49:51.673Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -29,14 +36,14 @@
     </url>
     
     <url>
-        <loc>www.strivezs.com/fang-ke-tong-ji/</loc>
+        <loc>www.strivezs.com/fang-ke-tong-ji/index-1.html</loc>
         <lastmod>2018-06-09T14:50:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>www.strivezs.com/fang-ke-tong-ji/index-1.html</loc>
+        <loc>www.strivezs.com/fang-ke-tong-ji/</loc>
         <lastmod>2018-06-09T14:50:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -127,14 +134,14 @@
     </url>
     
     <url>
-        <loc>www.strivezs.com/liu-yan-ban/index-1.html</loc>
+        <loc>www.strivezs.com/liu-yan-ban/</loc>
         <lastmod>2018-03-04T01:44:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>www.strivezs.com/liu-yan-ban/</loc>
+        <loc>www.strivezs.com/liu-yan-ban/index-1.html</loc>
         <lastmod>2018-03-04T01:44:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
