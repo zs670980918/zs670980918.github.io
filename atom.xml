@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-06-05T07:48:57.625Z</updated>
+  <updated>2020-06-17T04:36:52.486Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac+PyCharm+Anaconda配置QtDesigner.md</title>
+    <link href="www.strivezs.com/2020/06/17/Mac+PyCharm+Anaconda%E9%85%8D%E7%BD%AEQtDesigner.md/"/>
+    <id>www.strivezs.com/2020/06/17/Mac+PyCharm+Anaconda%E9%85%8D%E7%BD%AEQtDesigner.md/</id>
+    <published>2020-06-17T04:36:52.486Z</published>
+    <updated>2020-06-17T04:36:52.486Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Mac+PyCharm+Anaconda配置QtDesigner</h1><p>打开Pycharm-&gt;Perference-&gt;Tools-&gt;ExternalTools 添加下面两个外部工具。</p><h2 id="配置QtDesigner"><a class="header-anchor" href="#配置QtDesigner">¶</a>配置QtDesigner</h2><p>首先说明一下由于我这里是使用Anaconda进行配置的，因此我的路径可能和你默认使用的路径不同，下面我给出两种路径:</p><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Anaconda:</span></span><br><span class="line">~opt<span class="meta-keyword">/anaconda3/</span>bin/Designer.app</span><br><span class="line"></span><br><span class="line">Mac默认路径：</span><br><span class="line"><span class="meta-keyword">/usr/</span>localCellar<span class="meta-keyword">/qt/</span><span class="number">5.10</span><span class="number">.1</span>/libexec</span><br></pre></td></tr></table></figure><p>下面是QtDesigner的配置信息，按照下图配置即可：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/H2IeEC.png" alt="figure.1"></p><h2 id="配置PyUIC"><a class="header-anchor" href="#配置PyUIC">¶</a>配置PyUIC</h2><p>下面添加将.ui文件转换为.py文件的外部工具。</p><p>具体配置如下图：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/GQ8xLh.png" alt="figure.2"></p><ul><li>Program：选择python就可以了地址为：~/opt/anaconda3/bin/python3.7</li><li>Arguments：-m PyQt5.uic.pyuic $FileName$ -o $<a href="http://FileNameWithoutExtension$.py">FileNameWithoutExtension$.py</a></li><li>Working directory：$ProjectFileDir$</li></ul><h2 id="启动"><a class="header-anchor" href="#启动">¶</a>启动</h2><p>直接在Tools-&gt;Externel Tools中选择QtDesigner。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/d0dsHg.png" alt="figure.3"></p><p>保存的文件一定要放在工作目录下，然后在选择PyUIC外部工具将ui选择为py文件。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;Mac+PyCharm+Anaconda配置QtDesigner&lt;/h1&gt;
+&lt;p&gt;打开Pycharm-&amp;gt;Perference-&amp;gt;Tools-&amp;gt;ExternalTools 添加下面两个外部工具。&lt;/p&gt;
+&lt;h2 id=&quot;配置QtDesigner&quot;&gt;&lt;a c
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>微信公众号和CSDN的重新使用</title>
@@ -679,42 +703,6 @@ The chinese name is 循环神经网络.&lt;/p&gt;
       <category term="Linux" scheme="www.strivezs.com/tags/Linux/"/>
     
       <category term="服务器" scheme="www.strivezs.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客迁移</title>
-    <link href="www.strivezs.com/2019/12/27/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/"/>
-    <id>www.strivezs.com/2019/12/27/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/</id>
-    <published>2019-12-27T05:16:59.136Z</published>
-    <updated>2019-12-27T05:16:59.136Z</updated>
-    
-    <content type="html"><![CDATA[<h1>博客迁移 for MAC</h1><h2 id="第一步：导出wordpress内容"><a class="header-anchor" href="#第一步：导出wordpress内容">¶</a>第一步：导出wordpress内容</h2><p>进入WordPress后台的工具栏界面，将所有内容导出为一个XML文件。<br><img src="https://gitee.com/zyp521/upload_image/raw/master/8U0iSE.png" alt="1"></p><h2 id="第二步：安装Hexo"><a class="header-anchor" href="#第二步：安装Hexo">¶</a>第二步：安装Hexo</h2><h3 id="环境准备"><a class="header-anchor" href="#环境准备">¶</a>环境准备</h3><h4 id="安装Node-js"><a class="header-anchor" href="#安装Node-js">¶</a>安装Node.js</h4><p>这里建议用<a href="https://note.youdao.com/">nvm</a>安装管理Node.js</p><p><strong>cURL:</strong></p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -<span class="keyword">o</span>- http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/nvm-<span class="keyword">sh</span>/nvm/v0.<span class="number">35.2</span>/install.<span class="keyword">sh</span> | bash</span><br></pre></td></tr></table></figure><p><strong>Wget:</strong></p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/nvm-<span class="keyword">sh</span>/nvm/v0.<span class="number">35.2</span>/install.<span class="keyword">sh</span> | bash</span><br></pre></td></tr></table></figure><p>nvm安装好后，重启终端，然后安装Node.js：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvm ls-remote</span></span><br></pre></td></tr></table></figure><p>使用上述命令来查看远程node版本，然后根据需要安装具体的版本：</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install <span class="number">13.5</span><span class="number">.0</span></span><br></pre></td></tr></table></figure><p>13.5.0是我安装的版本</p><h4 id="安装Git"><a class="header-anchor" href="#安装Git">¶</a>安装Git</h4><p>按照Github提示，创建SSH秘钥：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir ~/.ssh <span class="comment">#创建ssh命令</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/.ssh</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span> <span class="comment">#注意更改Email地址</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pbcopy &lt; ~/.ssh/id_rsa.pub</span></span><br></pre></td></tr></table></figure><p>此时，pdcopy命令已经将id_rsa.pub内容复制到剪切板.<br><img src="https://gitee.com/zyp521/upload_image/raw/master/XhajaO.png" alt="2"><br>登录 github：<a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a> 点击Add an SSH Key，Title 部分填写一个所用电脑的名称，然后在Key部分填写之前通过pdcopy命令复制的内容。生成 key<br><img src="https://gitee.com/zyp521/upload_image/raw/master/b0shL0.png" alt="3"><br>上述内容操作完成之后，在终端输入如下命令：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git<span class="built_in"> config </span>--global user.name <span class="string">"yourusername</span></span><br><span class="line"><span class="string">$ git config --global user.email "</span>youremail<span class="string">"</span></span><br></pre></td></tr></table></figure><h3 id="安装Hexo"><a class="header-anchor" href="#安装Hexo">¶</a>安装Hexo</h3><p><a href="https://hexo.io/">官网文档</a></p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure><p>如果报错的话，则加上sudo</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure><h2 id="第三步：配置Hexo"><a class="header-anchor" href="#第三步：配置Hexo">¶</a>第三步：配置Hexo</h2><p>在本地创建你的博客文件夹，然后用命令行进入:</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> 个人文件<span class="string">/MyBlog</span></span><br></pre></td></tr></table></figure><p><strong>初始化文件夹设置：</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo init</span></span><br></pre></td></tr></table></figure><p><strong>安装npm:</strong></p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure><p>初始化成功后，文件夹中会有如下东西：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml     <span class="comment">#配置文件</span></span><br><span class="line">├── package.json    <span class="comment">#应用程序数据</span></span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span>          <span class="comment">#网站内容</span></span><br><span class="line">|   ├── _drafts     <span class="comment">#草稿</span></span><br><span class="line">|   └── _posts      <span class="comment">#文章</span></span><br><span class="line">└── themes          <span class="comment">#主题</span></span><br></pre></td></tr></table></figure><h2 id="第四部：从WordPress迁移"><a class="header-anchor" href="#第四部：从WordPress迁移">¶</a>第四部：从WordPress迁移</h2><p>首先安装<ins>hexo-migrator-wordpress</ins>插件：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-migrator-wordpress <span class="comment">--save</span></span><br></pre></td></tr></table></figure><p>然后将wordpress导出的.xml文件放到当前目录下然后导出：</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo migrate wordpress wp-content.<span class="keyword">xml</span> <span class="title">#名字自行替换</span></span><br></pre></td></tr></table></figure><p>这样内容就导入进去了。</p><h2 id="第五步：访问本地博客"><a class="header-anchor" href="#第五步：访问本地博客">¶</a>第五步：访问本地博客</h2><p>生成静态文件：</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">generate</span> || hexo g</span><br></pre></td></tr></table></figure><p>启动本地服务：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo<span class="built_in"> server </span>|| hexo s</span><br></pre></td></tr></table></figure><p>带调试的启动本地服务：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo<span class="built_in"> server </span>--debug</span><br></pre></td></tr></table></figure><p>启动本地服务后提示：</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hexo is running <span class="keyword">at</span> <span class="keyword">http</span>://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">4000</span>/. Press Ctrl+C <span class="built_in">to</span> <span class="built_in">stop</span>.</span><br></pre></td></tr></table></figure><p>然后在浏览器打开 <a href="http://0.0.0.0:4000/%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%BF%81%E7%A7%BB%E5%A5%BD%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%95%A6%EF%BC%81">http://0.0.0.0:4000/，就可以看到迁移好的博客啦！</a></p><h2 id="第六步：设置主题"><a class="header-anchor" href="#第六步：设置主题">¶</a>第六步：设置主题</h2><p>可参考 <a href="https://www.zhihu.com/question/24422335">有那些好看的 Hexo 主题？</a></p><p>参考说明文档设置即可</p><h2 id="第七步：托管到GitHub"><a class="header-anchor" href="#第七步：托管到GitHub">¶</a>第七步：托管到GitHub</h2><p>==这里用到了之前配置好的ssh，一定要配置好，否则git会失败==</p><h3 id="创建一个新的repository"><a class="header-anchor" href="#创建一个新的repository">¶</a>创建一个新的repository</h3><p><strong>要注意</strong>：新建跟用户名同名的 repository，以“.github.io” 为后缀。</p><p><strong>配置Hexo的配置文件_config.yml文件中，找到==Deploymeny==，修改配置：</strong></p><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:yourname/yourname.github.io.git</span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure><h3 id="Git上传"><a class="header-anchor" href="#Git上传">¶</a>Git上传</h3><p>在终端中输入如下命令安装git部署插件：</p> <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git</span><br></pre></td></tr></table></figure> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure><p>安装完成之后，先进行静态文件生成</p> <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br></pre></td></tr></table></figure><p>然后将项目部署到github上即可</p> <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy <span class="params">||</span> hexo d</span><br></pre></td></tr></table></figure><p>==部署完成之后就可以通过yourname.github.io来访问了！==</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;博客迁移 for MAC&lt;/h1&gt;
-&lt;h2 id=&quot;第一步：导出wordpress内容&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#第一步：导出wordpress内容&quot;&gt;¶&lt;/a&gt;第一步：导出wordpress内容&lt;/h2&gt;
-&lt;p&gt;进入WordPre
-      
-    
-    </summary>
-    
-    
-      <category term="文章页" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
-    
-      <category term="博客" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="Hexo" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/%E5%8D%9A%E5%AE%A2/Hexo/"/>
-    
-      <category term="next主题" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/%E5%8D%9A%E5%AE%A2/Hexo/next%E4%B8%BB%E9%A2%98/"/>
-    
-    
-      <category term="next" scheme="www.strivezs.com/tags/next/"/>
-    
-      <category term="Hexo" scheme="www.strivezs.com/tags/Hexo/"/>
     
   </entry>
   
