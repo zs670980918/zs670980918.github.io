@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-06-17T04:36:52.486Z</updated>
+  <updated>2020-06-21T10:34:37.707Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyTorch中nn.Linear()理解</title>
+    <link href="www.strivezs.com/2020/06/21/PyTorch%E4%B8%ADnn.Linear()%E7%90%86%E8%A7%A3/"/>
+    <id>www.strivezs.com/2020/06/21/PyTorch%E4%B8%ADnn.Linear()%E7%90%86%E8%A7%A3/</id>
+    <published>2020-06-21T10:34:37.707Z</published>
+    <updated>2020-06-21T10:34:37.707Z</updated>
+    
+    <content type="html"><![CDATA[<h1>PyTorch中nn.Linear()理解</h1><h2 id="计算公式"><a class="header-anchor" href="#计算公式">¶</a>计算公式</h2><p><code>$ y = xA^{T}+b$</code></p><p>这里A为weight，b为bias。</p><h2 id="代码部分"><a class="header-anchor" href="#代码部分">¶</a>代码部分</h2><h3 id="初始化部分代码"><a class="header-anchor" href="#初始化部分代码">¶</a>初始化部分代码</h3><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="constructor">Linear(Module)</span>:</span><br><span class="line">...</span><br><span class="line">__constants__ = <span class="literal">['<span class="identifier">bias</span>']</span></span><br><span class="line"></span><br><span class="line">def <span class="constructor">__init__(<span class="params">self</span>, <span class="params">in_features</span>, <span class="params">out_features</span>, <span class="params">bias</span>=True)</span>:</span><br><span class="line">    super(Linear, self).<span class="constructor">__init__()</span></span><br><span class="line">    self.in_features = in_features</span><br><span class="line">    self.out_features = out_features</span><br><span class="line">    self.weight = <span class="constructor">Parameter(<span class="params">torch</span>.Tensor(<span class="params">out_features</span>, <span class="params">in_features</span>)</span>)</span><br><span class="line">    <span class="keyword">if</span> bias:</span><br><span class="line">        self.bias = <span class="constructor">Parameter(<span class="params">torch</span>.Tensor(<span class="params">out_features</span>)</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        self.register<span class="constructor">_parameter('<span class="params">bias</span>', None)</span></span><br><span class="line">    self.reset<span class="constructor">_parameters()</span></span><br></pre></td></tr></table></figure><h3 id="计算部分"><a class="header-anchor" href="#计算部分">¶</a>计算部分</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@weak_script_method</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(<span class="keyword">self</span>, input)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">return</span> F.linear(input, <span class="keyword">self</span>.weight, <span class="keyword">self</span>.bias)</span><br></pre></td></tr></table></figure><p>返回值为: input * weight + bias</p><h3 id="bias和weight"><a class="header-anchor" href="#bias和weight">¶</a>bias和weight</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">weight</span>: the learnable weights of the module of shape</span><br><span class="line">    :<span class="attribute">math</span>:<span class="built_in">`(\text&#123;out\_features&#125;, \text&#123;in\_features&#125;)`</span>. The values are</span><br><span class="line">    initialized <span class="attribute">from </span>:<span class="attribute">math</span>:<span class="built_in">`\mathcal&#123;U&#125;(-\sqrt&#123;k&#125;, \sqrt&#123;k&#125;)`</span>, where</span><br><span class="line">    :<span class="attribute">math</span>:<span class="built_in">`k = \frac&#123;1&#125;&#123;\text&#123;in\_features&#125;&#125;`</span></span><br><span class="line"><span class="attribute">bias</span>:   the learnable bias of the module of <span class="attribute">shape </span>:<span class="attribute">math</span>:<span class="built_in">`(\text&#123;out\_features&#125;)`</span>.</span><br><span class="line">        <span class="attribute">If </span>:<span class="attribute">attr</span>:<span class="built_in">`bias`</span> is <span class="built_in">``</span>True<span class="built_in">``</span>, the values are initialized from</span><br><span class="line">        :<span class="attribute">math</span>:<span class="built_in">`\mathcal&#123;U&#125;(-\sqrt&#123;k&#125;, \sqrt&#123;k&#125;)`</span> where</span><br><span class="line">        :<span class="attribute">math</span>:<span class="built_in">`k = \frac&#123;1&#125;&#123;\text&#123;in\_features&#125;&#125;`</span></span><br></pre></td></tr></table></figure><h2 id="示例"><a class="header-anchor" href="#示例">¶</a>示例</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; import torch</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; nn1 = torch.nn.Linear(<span class="number">100</span>, <span class="number">50</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; input1 = torch.randn(<span class="number">140</span>, <span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; output1 = nn1(input1)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; output1.size()</span><br><span class="line">torch.Size([<span class="number">140</span>, <span class="number">50</span>])</span><br></pre></td></tr></table></figure><p>对于上述描述，我们创建一个input的维度为[140,100], 通过声明线性层会得到根据维度初始化的权重和偏差，其中weight的维度为[50,100]。对于公式中A表示的就是weight，而b表示的就是bias。由于对A进行了转置所以这里weight的维度为[50,100]而不是[100,50]。</p><p>具体计算为[140,100] × [50,100]的转置 + bias = [140,100] × [100,50] + bias最后得到的维度为[140,50]。</p><p>至于对于bias和weight的初始化，根绝网上所讲的是来有关维度值得均匀分布。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;PyTorch中nn.Linear()理解&lt;/h1&gt;
+&lt;h2 id=&quot;计算公式&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#计算公式&quot;&gt;¶&lt;/a&gt;计算公式&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;$ y = xA^{T}+b$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这里A
+      
+    
+    </summary>
+    
+    
+      <category term="PyTorch" scheme="www.strivezs.com/categories/PyTorch/"/>
+    
+      <category term="Python" scheme="www.strivezs.com/categories/PyTorch/Python/"/>
+    
+    
+      <category term="Python" scheme="www.strivezs.com/tags/Python/"/>
+    
+      <category term="Pytorch" scheme="www.strivezs.com/tags/Pytorch/"/>
+    
+      <category term="Linear" scheme="www.strivezs.com/tags/Linear/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac+PyCharm+Anaconda配置QtDesigner.md</title>
@@ -670,39 +705,6 @@ The chinese name is 循环神经网络.&lt;/p&gt;
       <category term="next" scheme="www.strivezs.com/tags/next/"/>
     
       <category term="tags" scheme="www.strivezs.com/tags/tags/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用FileZilla通过sftp连接以Linux为内核的云服务器</title>
-    <link href="www.strivezs.com/2019/12/30/%E4%BD%BF%E7%94%A8FileZilla%E8%AE%BF%E9%97%AE%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8ESC%EF%BC%88Centos%EF%BC%89/"/>
-    <id>www.strivezs.com/2019/12/30/%E4%BD%BF%E7%94%A8FileZilla%E8%AE%BF%E9%97%AE%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8ESC%EF%BC%88Centos%EF%BC%89/</id>
-    <published>2019-12-30T05:19:27.410Z</published>
-    <updated>2019-12-30T05:19:27.410Z</updated>
-    
-    <content type="html"><![CDATA[<h1>使用FileZilla通过sftp连接以Linux为内核的云服务器</h1><h2 id="首先去FileZilla下载该软件进行安装"><a class="header-anchor" href="#首先去FileZilla下载该软件进行安装">¶</a>首先去FileZilla下载该软件进行安装</h2><p>下载地址：<a href="https://filezilla-project.org/">https://filezilla-project.org/</a></p><h2 id="登陆阿里云实例控制台"><a class="header-anchor" href="#登陆阿里云实例控制台">¶</a>登陆阿里云实例控制台</h2><h3 id="创建新的安全组规则"><a class="header-anchor" href="#创建新的安全组规则">¶</a>创建新的安全组规则</h3><p>打开端口22<br><img src="https://gitee.com/zyp521/upload_image/raw/master/NzEVB8.png" alt="规则"></p><h3 id="使用VNC连接使用终端"><a class="header-anchor" href="#使用VNC连接使用终端">¶</a>使用VNC连接使用终端</h3><p>连接VNC需要输入连接密码，这个是在购买阿里云服务器是已经给的。<br><img src="https://gitee.com/zyp521/upload_image/raw/master/TPs1tL.png" alt="VNC"></p><h3 id="配置ssh文件"><a class="header-anchor" href="#配置ssh文件">¶</a>配置ssh文件</h3><p>进入ssh文件夹</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/etc/ssh</span></span><br><span class="line"><span class="keyword">ls</span></span><br></pre></td></tr></table></figure><h3 id="使用vim编辑sshd-config文件"><a class="header-anchor" href="#使用vim编辑sshd-config文件">¶</a>使用vim编辑sshd_config文件</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">vim sshd_config</span></span><br></pre></td></tr></table></figure><p><strong>特别注意：</strong> 使用配置该文件时需要选择e模式，然后如果在网页上显示不全的话建议使用一个更大的屏幕去操作，这样方便去看提示。</p><h3 id="将配置添加到配置文件中"><a class="header-anchor" href="#将配置添加到配置文件中">¶</a>将配置添加到配置文件中</h3><p>==配置代码==</p><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">##注释掉这一行</span><br><span class="line"></span><br><span class="line">#Subsystem sftp/usr/libexec/openssh/sftp-server</span><br><span class="line"></span><br><span class="line">##修改为</span><br><span class="line"></span><br><span class="line">Subsystem sftp internal-sftp  ##指定sftp服务使用系统自带的internal-sftp</span><br><span class="line"></span><br><span class="line">Match Group sftp  ##匹配sftp组的用户</span><br><span class="line"></span><br><span class="line">ChrootDirectory /data ##sftp主目录指定到/data</span><br><span class="line"></span><br><span class="line">ForceCommand internal-sftp  ##指定sftp命令</span><br><span class="line"></span><br><span class="line">AllowTcpForwarding no   ##用户不能使用端口转发</span><br><span class="line"></span><br><span class="line">X11Forwarding no  ##用户不能使用端口转发</span><br></pre></td></tr></table></figure><p>==一定要注意== 将该配置添加到sshd_config文件最后，由于我之前添加到了UseDNS那一行的前面，导致ssh一直报错。</p><p>对于ssh报错可以使用如下命令调试：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh -t</span></span><br></pre></td></tr></table></figure><p>得到问题描述之后一次去解决就好了。</p><p>配置完成之后退出并且保存文件。</p><h3 id="重启ssh服务"><a class="header-anchor" href="#重启ssh服务">¶</a>重启ssh服务</h3><p>在终端输如下命令来重启ssh服务：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service sshd restart</span></span><br></pre></td></tr></table></figure><p>以上就大功告成了，下面只需要通过FileZilla来连接即可。</p><h2 id="使用FileZilla连接"><a class="header-anchor" href="#使用FileZilla连接">¶</a>使用FileZilla连接</h2><p><img src="https://gitee.com/zyp521/upload_image/raw/master/3vyTxz.png" alt="filezilla"><br>用户名和密码都是在购买云服务器时提供的ftp密码。</p><p>主机为你的公网ip地址，输入完成之后点击快速连接即可。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;使用FileZilla通过sftp连接以Linux为内核的云服务器&lt;/h1&gt;
-&lt;h2 id=&quot;首先去FileZilla下载该软件进行安装&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#首先去FileZilla下载该软件进行安装&quot;&gt;¶&lt;/a&gt;首先去Fil
-      
-    
-    </summary>
-    
-    
-      <category term="文章页" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
-    
-      <category term="服务器" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-      <category term="Linux" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/%E6%9C%8D%E5%8A%A1%E5%99%A8/Linux/"/>
-    
-    
-      <category term="Linux" scheme="www.strivezs.com/tags/Linux/"/>
-    
-      <category term="服务器" scheme="www.strivezs.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   

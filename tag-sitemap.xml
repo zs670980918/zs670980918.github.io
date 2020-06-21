@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>www.strivezs.com/tags/Linear/</loc>
+        <lastmod>2020-06-21T10:34:37.707Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Pytorch/</loc>
+        <lastmod>2020-06-21T10:34:37.707Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Python/</loc>
+        <lastmod>2020-06-21T10:34:37.707Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/%25E5%25BE%25AE%25E4%25BF%25A1%25E5%2585%25AC%25E4%25BC%2597%25E5%258F%25B7/</loc>
         <lastmod>2020-06-05T07:48:57.625Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -137,13 +158,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/Machine-Learning/</loc>
-        <lastmod>2020-02-16T04:04:20.591Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/Python/</loc>
         <lastmod>2020-02-16T04:04:20.591Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
