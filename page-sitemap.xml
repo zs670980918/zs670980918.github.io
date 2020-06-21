@@ -36,14 +36,14 @@
     </url>
     
     <url>
-        <loc>www.strivezs.com/fang-ke-tong-ji/</loc>
+        <loc>www.strivezs.com/fang-ke-tong-ji/index-1.html</loc>
         <lastmod>2018-06-09T14:50:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>www.strivezs.com/fang-ke-tong-ji/index-1.html</loc>
+        <loc>www.strivezs.com/fang-ke-tong-ji/</loc>
         <lastmod>2018-06-09T14:50:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -78,14 +78,14 @@
     </url>
     
     <url>
-        <loc>www.strivezs.com/tong-ji/index-1.html</loc>
+        <loc>www.strivezs.com/tong-ji/</loc>
         <lastmod>2018-03-04T03:26:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>www.strivezs.com/tong-ji/</loc>
+        <loc>www.strivezs.com/tong-ji/index-1.html</loc>
         <lastmod>2018-03-04T03:26:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -106,13 +106,6 @@
     </url>
     
     <url>
-        <loc>www.strivezs.com/wen-zhang-ye/index-1.html</loc>
-        <lastmod>2018-03-04T01:47:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
         <loc>www.strivezs.com/wen-zhang-ye/</loc>
         <lastmod>2018-03-04T01:47:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -120,14 +113,21 @@
     </url>
     
     <url>
-        <loc>www.strivezs.com/deng-lu/</loc>
-        <lastmod>2018-03-04T01:44:46.000Z</lastmod>
+        <loc>www.strivezs.com/wen-zhang-ye/index-1.html</loc>
+        <lastmod>2018-03-04T01:47:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>www.strivezs.com/deng-lu/index-1.html</loc>
+        <lastmod>2018-03-04T01:44:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>www.strivezs.com/deng-lu/</loc>
         <lastmod>2018-03-04T01:44:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
