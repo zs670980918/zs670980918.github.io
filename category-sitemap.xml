@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>www.strivezs.com/categories/Math/</loc>
+        <lastmod>2020-06-25T09:10:22.814Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/categories/PyTorch/Python/</loc>
         <lastmod>2020-06-21T10:34:37.707Z</lastmod>
         <changefreq>weekly</changefreq>
