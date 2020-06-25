@@ -375,6 +375,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/22/Anaconda%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%8E%E6%BA%90%E5%B9%B6%E4%B8%94%E5%AE%89%E8%A3%85PyTorch.md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/22/Anaconda%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%8E%E6%BA%90%E5%B9%B6%E4%B8%94%E5%AE%89%E8%A3%85PyTorch.md/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -503,6 +513,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -1161,6 +1174,28 @@ if(canvas.getContext){
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'KqICB5D6mxxGk3BP6KIJz0ar-gzGzoHsz',
+        appKey: 'YsAzygIOG5S4oWgdymQBthCv',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
