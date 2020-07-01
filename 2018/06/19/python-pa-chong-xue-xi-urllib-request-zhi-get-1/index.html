@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="Get请求实例分析： 代码： 12345678910import urllib.requesturl&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&#x2F;s?wd&#x3D;&quot;keyword &#x3D; &quot;strivez&quot;url1 &#x3D; url+keywordreq &#x3D; urllib.request.Request(url1)req.add_header(&#39;User-Agent&#39;, &#39;Mozilla&#x2F;5.0 (Windo">
+<meta name="description" content="Get请求实例分析： 代码：12345678910import urllib.requesturl&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&#x2F;s?wd&#x3D;&quot;keyword &#x3D; &quot;strivez&quot;url1 &#x3D; url+keywordreq &#x3D; urllib.request.Request(url1)req.add_header(&#39;User-Agent&#39;, &#39;Mozilla&#x2F;5.0 (Window">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python爬虫学习urllib.request之Get">
 <meta property="og:url" content="www.strivezs.com/2018/06/19/python-pa-chong-xue-xi-urllib-request-zhi-get-1/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="Get请求实例分析： 代码： 12345678910import urllib.requesturl&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&#x2F;s?wd&#x3D;&quot;keyword &#x3D; &quot;strivez&quot;url1 &#x3D; url+keywordreq &#x3D; urllib.request.Request(url1)req.add_header(&#39;User-Agent&#39;, &#39;Mozilla&#x2F;5.0 (Windo">
+<meta property="og:description" content="Get请求实例分析： 代码：12345678910import urllib.requesturl&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&#x2F;s?wd&#x3D;&quot;keyword &#x3D; &quot;strivez&quot;url1 &#x3D; url+keywordreq &#x3D; urllib.request.Request(url1)req.add_header(&#39;User-Agent&#39;, &#39;Mozilla&#x2F;5.0 (Window">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/%E9%98%BF%E8%BE%BE%E4%B8%8B%E6%AC%A1%E5%86%8D%E6%92%92.jpg">
 <meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180619230553.png">
@@ -465,13 +465,9 @@
       
 
       
-        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/%E9%98%BF%E8%BE%BE%E4%B8%8B%E6%AC%A1%E5%86%8D%E6%92%92.jpg" alt=""> <strong>Get请求实例分析：</strong> 代码：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="title">url</span>=<span class="string">"https://www.baidu.com/s?wd="</span></span><br><span class="line"><span class="title">keyword</span> = <span class="string">"strivez"</span></span><br><span class="line"><span class="title">url1</span> = url+keyword</span><br><span class="line"><span class="title">req</span> = urllib.request.<span class="type">Request</span>(url1)</span><br><span class="line"><span class="title">req</span>.add_header('<span class="type">User</span>-<span class="type">Agent'</span>, '<span class="type">Mozilla</span>/<span class="number">5.0</span> (<span class="type">Windows</span> <span class="type">NT</span> <span class="number">10.0</span>; <span class="type">Win64</span>; x64) <span class="type">AppleWebKit</span>/<span class="number">537.36</span> (<span class="type">KHTML</span>, like <span class="type">Gecko</span>) <span class="type">Chrome</span>/<span class="number">65.0</span><span class="number">.3325</span><span class="number">.181</span> <span class="type">Safari</span>/<span class="number">537.36</span>')</span><br><span class="line"><span class="class"><span class="keyword">data</span>= urllib.request.urlopen(<span class="title">req</span>,<span class="title">timeout</span>=80).read()</span></span><br><span class="line"><span class="title">filenanme</span> = open(<span class="string">"F:/a.html"</span>,<span class="string">"wb"</span>)</span><br><span class="line"><span class="title">filenanme</span>.write(<span class="class"><span class="keyword">data</span>)</span></span><br></pre></td></tr></table></figure>
-<p>结果： <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180619230553.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180619230615.png" alt=""> <strong>接下来对代码进行优化，由于之间介绍过的编码问题在地址中不能使用中文，因此要对想要查找的中文进行编码。</strong> 代码：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">url=<span class="string">"https://www.baidu.com/s?wd="</span></span><br><span class="line"><span class="type">key</span> = <span class="string">"你好"</span></span><br><span class="line">keyword = urllib.request.quote(<span class="type">key</span>)  #对中文进行编码</span><br><span class="line">url1 = url+keyword</span><br><span class="line">req = urllib.request.Request(url1)</span><br><span class="line">req.add_header('User-Agent', 'Mozilla/<span class="number">5.0</span> (Windows NT <span class="number">10.0</span>; Win64; x64) AppleWebKit/<span class="number">537.36</span> (KHTML, like Gecko) Chrome/<span class="number">65.0</span><span class="number">.3325</span><span class="number">.181</span> Safari/<span class="number">537.36</span>')</span><br><span class="line">data= urllib.request.urlopen(req,timeout=<span class="number">80</span>).read()</span><br><span class="line">filenanme = open(<span class="string">"F:/a.html"</span>,<span class="string">"wb"</span>)</span><br><span class="line">filenanme.write(data)</span><br><span class="line">filenanme.close()</span><br></pre></td></tr></table></figure>
-<p>结果： <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ%E5%9B%BE%E7%89%8720180619230648.png" alt=""> 使用Get的请求思路：</p>
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/阿达下次再撒.jpg" alt=""> <strong>Get请求实例分析：</strong> 代码：<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="title">url</span>=<span class="string">"https://www.baidu.com/s?wd="</span></span><br><span class="line"><span class="title">keyword</span> = <span class="string">"strivez"</span></span><br><span class="line"><span class="title">url1</span> = url+keyword</span><br><span class="line"><span class="title">req</span> = urllib.request.<span class="type">Request</span>(url1)</span><br><span class="line"><span class="title">req</span>.add_header('<span class="type">User</span>-<span class="type">Agent'</span>, '<span class="type">Mozilla</span>/<span class="number">5.0</span> (<span class="type">Windows</span> <span class="type">NT</span> <span class="number">10.0</span>; <span class="type">Win64</span>; x64) <span class="type">AppleWebKit</span>/<span class="number">537.36</span> (<span class="type">KHTML</span>, like <span class="type">Gecko</span>) <span class="type">Chrome</span>/<span class="number">65.0</span><span class="number">.3325</span><span class="number">.181</span> <span class="type">Safari</span>/<span class="number">537.36</span>')</span><br><span class="line"><span class="class"><span class="keyword">data</span>= urllib.request.urlopen(<span class="title">req</span>,<span class="title">timeout</span>=80).read()</span></span><br><span class="line"><span class="title">filenanme</span> = open(<span class="string">"F:/a.html"</span>,<span class="string">"wb"</span>)</span><br><span class="line"><span class="title">filenanme</span>.write(<span class="class"><span class="keyword">data</span>)</span></span><br></pre></td></tr></table></figure><br>结果： <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ图片20180619230553.png" alt=""> <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ图片20180619230615.png" alt=""> <strong>接下来对代码进行优化，由于之间介绍过的编码问题在地址中不能使用中文，因此要对想要查找的中文进行编码。</strong> 代码：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">url=<span class="string">"https://www.baidu.com/s?wd="</span></span><br><span class="line"><span class="type">key</span> = <span class="string">"你好"</span></span><br><span class="line">keyword = urllib.request.quote(<span class="type">key</span>)  #对中文进行编码</span><br><span class="line">url1 = url+keyword</span><br><span class="line">req = urllib.request.Request(url1)</span><br><span class="line">req.add_header('User-Agent', 'Mozilla/<span class="number">5.0</span> (Windows NT <span class="number">10.0</span>; Win64; x64) AppleWebKit/<span class="number">537.36</span> (KHTML, like Gecko) Chrome/<span class="number">65.0</span><span class="number">.3325</span><span class="number">.181</span> Safari/<span class="number">537.36</span>')</span><br><span class="line">data= urllib.request.urlopen(req,timeout=<span class="number">80</span>).read()</span><br><span class="line">filenanme = open(<span class="string">"F:/a.html"</span>,<span class="string">"wb"</span>)</span><br><span class="line">filenanme.write(data)</span><br><span class="line">filenanme.close()</span><br></pre></td></tr></table></figure><br>结果： <img src="http://47.100.4.8/wp-content/uploads/2018/06/QQ图片20180619230648.png" alt=""> 使用Get的请求思路：</p>
 <ul>
-<li>构建对应的URL地址（一般为一个模板URL+关键词），该URL地址包含Get请求的字段名和字段内容等信息，且URL地址满足GET请求的格式，即“<a href="http://xn--ses554g">http://网址</a>？字段名1=字段内容……”;（必要的时候要对字段内容进行编码）</li>
+<li>构建对应的URL地址（一般为一个模板URL+关键词），该URL地址包含Get请求的字段名和字段内容等信息，且URL地址满足GET请求的格式，即“<a href="http://网址？字段名1=字段内容……”;（必要的时候要对字段内容进行编码）">http://网址？字段名1=字段内容……”;（必要的时候要对字段内容进行编码）</a></li>
 <li>以对应的URL为参数，构建Request</li>
 <li>最好添加一下报头信息，以防止403错误</li>
 <li>通过urlopen（）打开构建的Request对象</li>
@@ -622,7 +618,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">275</span>
+                  <span class="site-state-item-count">276</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -633,7 +629,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">191</span>
+                  <span class="site-state-item-count">193</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -644,7 +640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">183</span>
+                  <span class="site-state-item-count">184</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1570,6 +1566,28 @@ if(canvas.getContext){
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
