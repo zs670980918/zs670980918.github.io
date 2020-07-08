@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favision.JPG?v=5.1.4">
+
+
+
+
+
+
+
+  <meta name="keywords" content="NMS,非极大值抑制," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="StriveZs的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Non-Maximum Suppression(NMS) 非极大值抑制概述非极大值抑制(NMS), 顾名思义就是抑制不是极大值的元素，可以理解为局部最大搜索。这个局部代表的就是一个邻域，邻域有两个参数可变，一个是邻域的维数，而是邻域的大小。这里不讨论通用的NMS算法, 而是用于目标检测中提取分数最高的窗口。   例如在行人检测中，滑动窗口经提取特征，经分类器识别后，每个窗口都会得到一个分数。但是滑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Non-Maximum Suppression(NMS)">
+<meta property="og:url" content="www.strivezs.com/2020/07/08/Non-Maximum%20Suppression(NMS)%20%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6/index.html">
+<meta property="og:site_name" content="StriveZs的博客">
+<meta property="og:description" content="Non-Maximum Suppression(NMS) 非极大值抑制概述非极大值抑制(NMS), 顾名思义就是抑制不是极大值的元素，可以理解为局部最大搜索。这个局部代表的就是一个邻域，邻域有两个参数可变，一个是邻域的维数，而是邻域的大小。这里不讨论通用的NMS算法, 而是用于目标检测中提取分数最高的窗口。   例如在行人检测中，滑动窗口经提取特征，经分类器识别后，每个窗口都会得到一个分数。但是滑">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/bWa7my.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/RKmAqi.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/dF8ON9.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/Fd380c.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/1SliMR.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/kSvvcn.png">
+<meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/6qkPNP.png">
+<meta property="article:published_time" content="2020-07-08T04:39:22.949Z">
+<meta property="article:modified_time" content="2020-07-08T04:39:22.949Z">
+<meta property="article:author" content="StriveZs">
+<meta property="article:tag" content="NMS">
+<meta property="article:tag" content="非极大值抑制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zyp521/upload_image/raw/master/bWa7my.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'StriveZs'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="www.strivezs.com/2020/07/08/Non-Maximum Suppression(NMS) 非极大值抑制/"/>
+
+
+
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WX4FBXXFKE4F",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "dark",
+      token: "cec3125e-f640-4fcf-b6f2-6f0cdc38a0ae",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+
+
+  <title>Non-Maximum Suppression(NMS) | StriveZs的博客</title>
+  <!-- 球型气泡标签云 -->
+    <script type="text/javascript" src="/js/src/bubble.js"></script>
+    
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c8bbf815dac51a855060f947b787303";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <a href="https://github.com/zs670980918" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">StriveZs的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.strivezs.com/2020/07/08/Non-Maximum%20Suppression(NMS)%20%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="StriveZs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="StriveZs的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Non-Maximum Suppression(NMS)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-08T12:39:22+08:00">
+                2020-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Object-Recognition/" itemprop="url" rel="index">
+                    <span itemprop="name">Object Recognition</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Object-Recognition/Object-Detection/" itemprop="url" rel="index">
+                    <span itemprop="name">Object Detection</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Object-Recognition/Object-Detection/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index">
+                    <span itemprop="name">科研</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/08/Non-Maximum%20Suppression(NMS)%20%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/08/Non-Maximum%20Suppression(NMS)%20%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Non-Maximum-Suppression-NMS-非极大值抑制"><a href="#Non-Maximum-Suppression-NMS-非极大值抑制" class="headerlink" title="Non-Maximum Suppression(NMS) 非极大值抑制"></a>Non-Maximum Suppression(NMS) 非极大值抑制</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>非极大值抑制(NMS), 顾名思义就是抑制不是极大值的元素，可以理解为局部最大搜索。这个局部代表的就是一个邻域，邻域有两个参数可变，一个是邻域的维数，而是邻域的大小。这里不讨论通用的NMS算法, 而是用于目标检测中提取分数最高的窗口。  </p>
+<p>例如在行人检测中，滑动窗口经提取特征，经分类器识别后，每个窗口都会得到一个分数。但是滑动窗口会导致很多窗口和其他窗口存在包含或者大部分交叉的情况。这时就需要用到NMS来选取这些邻域里分数最高(是行人几率最大)，并且一直那些分数低的窗口。  </p>
+<p>NMS在计算视觉领域有着非常重要的应用，如视频目标跟踪、数据挖掘、3D重建、目标识别以及纹理分析等。</p>
+<h2 id="NMS在目标检测中的应用"><a href="#NMS在目标检测中的应用" class="headerlink" title="NMS在目标检测中的应用"></a>NMS在目标检测中的应用</h2><h3 id="人脸检测框重叠例子"><a href="#人脸检测框重叠例子" class="headerlink" title="人脸检测框重叠例子"></a>人脸检测框重叠例子</h3><p><img src="https://gitee.com/zyp521/upload_image/raw/master/bWa7my.png" alt="figure.1"></p>
+<p>我们的目标就是要去除冗余的检测框，保留最好的一个。<br>有多种方式可以解决这个问题，Triggs建议使用<strong>Mean-shift</strong>算法，利用bbox的坐标和当前图片尺度的对数来检测bbox的多种模式，但是效果可能并没有使用强分类器结合NMS的效果好。  </p>
+<h3 id="检测目标-pipline"><a href="#检测目标-pipline" class="headerlink" title="检测目标 pipline"></a>检测目标 pipline</h3><p><img src="https://gitee.com/zyp521/upload_image/raw/master/RKmAqi.png" alt="figure.2"></p>
+<p>产生proposal后使用分类网络给吃每个框的每类置信度，使用回归网路修正位置，最终应用NMS。</p>
+<h2 id="NMS原理"><a href="#NMS原理" class="headerlink" title="NMS原理"></a>NMS原理</h2><p>对于Bounding Box的列表B以及对应的置信度S，采用下面的计算方式，选择具有最大score的检测框M，将其从B集合中移除并加入到最终的检测结果D中，通常将B中剩余检测框中与M的IoU大于阈值Nt的框从B中移除，重复这个过程，直到B为空。</p>
+<h3 id="IoU阈值和排序"><a href="#IoU阈值和排序" class="headerlink" title="IoU阈值和排序"></a>IoU阈值和排序</h3><p>通常阈值设置是0.3-0.5<br>其中用到的排序，可以按照右下角的坐标排序或者面积排序，也可以通过SVM等分类器得到的得分或者概率，<strong>R-CNN中就是按照得分进行排序的</strong>.  </p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><img src="https://gitee.com/zyp521/upload_image/raw/master/dF8ON9.png" alt="figure.3"></p>
+<p>如上面图片所示，定位一个车辆，最后算法就找出了一堆方框，我们需要判别哪些矩形框是没用的，<br>非极大值抑制的方法是: 假设有6个矩形框，根据分类器的类别分类概率做排序，假设从小到大属于车辆的概率，分别为A、B、C、D、E、F。  </p>
+<ul>
+<li>从最大概率矩形框F开始，分别判断A-E与F的重叠率IoU是否大于某个设定的阈值</li>
+<li>假设B、D和F的重叠度超过了阈值，那么就扔掉B、D；并表卷积第一个矩形框F，是我们保留下来的。</li>
+<li>从剩下的矩形框A、C、E中，选择概率最大的E，然后判断E和A、C的重叠度，重叠度大于阈值的就扔掉，将标记E是我们保留下来的第二个矩形框</li>
+<li>就这样重复上述步骤，直到剩余框集合中没有元素了，那么被保留下来的矩形框就是我们所需要的定位框。</li>
+</ul>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>在R-CNN中使用了NMS来确定最终的bounding-box，其对应每个候选框分别送入分类器，根据分类器的类别分类概率进行排序(greedy-NMS)， 但实际也可以在分类之前运用简单版本的NMS来去除一些框。  </p>
+<p>Python实现单类别的NMS:<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">def py_cpu_nms(dets, thresh): </span><br><span class="line">    <span class="string">""</span><span class="string">"Pure Python NMS baseline."</span><span class="string">""</span> </span><br><span class="line">    <span class="comment">#x1、y1、x2、y2、以及score赋值 </span></span><br><span class="line">    <span class="attr">x1</span> = dets[:, <span class="number">0</span>] </span><br><span class="line">    <span class="attr">y1</span> = dets[:, <span class="number">1</span>] </span><br><span class="line">    <span class="attr">x2</span> = dets[:, <span class="number">2</span>] </span><br><span class="line">    <span class="attr">y2</span> = dets[:, <span class="number">3</span>] </span><br><span class="line">    <span class="attr">scores</span> = dets[:, <span class="number">4</span>] </span><br><span class="line">    </span><br><span class="line">    <span class="comment">#每一个检测框的面积 </span></span><br><span class="line">    <span class="attr">areas</span> = (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>) </span><br><span class="line">    <span class="comment">#按照score置信度降序排序 </span></span><br><span class="line">    <span class="attr">order</span> = scores.argsort()[::-<span class="number">1</span>] </span><br><span class="line">    <span class="attr">keep</span> = [] </span><br><span class="line">    <span class="comment">#保留的结果框集合 </span></span><br><span class="line">    while order.size &gt; <span class="number">0</span>: </span><br><span class="line">        <span class="attr">i</span> = order[<span class="number">0</span>] </span><br><span class="line">        keep.append(i) </span><br><span class="line">        <span class="comment">#保留该类剩余box中得分最高的一个 </span></span><br><span class="line">        <span class="comment">#得到相交区域,左上及右下 </span></span><br><span class="line">        <span class="attr">xx1</span> = np.maximum(x1[i], x1[order[<span class="number">1</span>:]]) <span class="attr">yy1</span> = np.maximum(y1[i], y1[order[<span class="number">1</span>:]]) </span><br><span class="line">        <span class="attr">xx2</span> = np.minimum(x2[i], x2[order[<span class="number">1</span>:]]) <span class="attr">yy2</span> = np.minimum(y2[i], y2[order[<span class="number">1</span>:]]) <span class="comment">#计算相交的面积,不重叠时面积为0 </span></span><br><span class="line">        <span class="attr">w</span> = np.maximum(<span class="number">0.0</span>, xx2 - xx1 + <span class="number">1</span>) </span><br><span class="line">        <span class="attr">h</span> = np.maximum(<span class="number">0.0</span>, yy2 - yy1 + <span class="number">1</span>) <span class="attr">inter</span> = w * h <span class="comment">#计算IoU：重叠面积 /（面积1+面积2-重叠面积） </span></span><br><span class="line">        <span class="attr">ovr</span> = inter / (areas[i] + areas[order[<span class="number">1</span>:]] - inter) <span class="comment">#保留IoU小于阈值的box </span></span><br><span class="line">        <span class="attr">inds</span> = np.where(ovr &lt;= thresh)[<span class="number">0</span>] </span><br><span class="line">        <span class="attr">order</span> = order[inds + <span class="number">1</span>] <span class="comment">#因为ovr数组的长度比order数组少一个,所以这里要将所有下标后移一位 </span></span><br><span class="line">    return keep</span><br></pre></td></tr></table></figure></p>
+<p>Faster R-CNN的MATLAB和python版本实现一致，对于对类别的NMS，就是加了一层for循环来对每个类别进行NMS而已。</p>
+<h3 id="NMS-Loss"><a href="#NMS-Loss" class="headerlink" title="NMS Loss"></a>NMS Loss</h3><p>值得注意的是对多类别检测任务，如果对每类进行NMS，那么当检测结果中包含两个被分到不同的目标且其IoU较大时，会得到不可接受的结果，如下图所示:</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/Fd380c.png" alt="figure.4"></p>
+<p>一种改进方式便是在损失函数中加入一部分NMS损失。NMS损失可以定义为与分类损失相同：<script type="math/tex">L_{nms}=L_{cls}(p,u)=-log_{p_{u}}</script>, 即真实类别u对应log损失，p是C个类别的预测概率，实际相当于增加分类误差。</p>
+<h3 id="Sotf-NMS"><a href="#Sotf-NMS" class="headerlink" title="Sotf-NMS"></a>Sotf-NMS</h3><p>上述NMS算法的一个主要问题是当两个ground-truth的目标的重叠度很高时，NMS会将具有较低置信度的去掉, 如下图所示：</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/1SliMR.png" alt="figure.5"></p>
+<p>如上图所示，红框和绿框的重叠度很大，应该超过了一般大家所设定的阈值，因此在NMS算法中由于绿框的置信度为0.8而红框为0.95，因此NMS算法会将绿框去掉，这样是不正确的。  </p>
+<p>在Soft-NMS中对NMS这个缺陷进行改进：</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/kSvvcn.png" alt="figure.6"></p>
+<p>改进方法在于将置信度改为IoU的函数: f(IoU)，具有较低的值而不至于从排序列表中删去。</p>
+<p>两种形式的IoU函数:</p>
+<ul>
+<li>线性函数：即将需要取出的框的置信度改为1-重叠值, 函数值不连续，在某一点的值发生跳跃</li>
+</ul>
+<script type="math/tex; mode=display">s_{i}=\left\{\begin{matrix} s_{i}\:\:\:\:iou(M,b_{i})<N_{t} \\ s_{i}(1-iou(M,b_{i}))\:\:\:\: iou(M,b_{i}) \geq N_{t} \end{matrix}\right.</script><ul>
+<li>高斯函数，时间复杂度同传统的greedy-NMS, 为<script type="math/tex">\sigma (N^{2})</script></li>
+</ul>
+<script type="math/tex; mode=display">s_{i}=s_{i}e \frac{-iou(M,b_{i}^{2})}{\sigma},\forall b_{i} \notin D</script><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ua = float((tx2 - tx1 + <span class="number">1</span>) * (ty2 - ty1 + <span class="number">1</span>) + area - iw * ih) ov = iw * ih / ua #iou between max box <span class="keyword">and</span> detection box </span><br><span class="line"><span class="keyword">if</span> <span class="function"><span class="keyword">method</span> == 1:</span> # linear </span><br><span class="line">    <span class="keyword">if</span> ov &gt; Nt: </span><br><span class="line">        weight = <span class="number">1</span> - ov </span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        weight = <span class="number">1</span> </span><br><span class="line">elif <span class="function"><span class="keyword">method</span> == 2:</span> # gaussian </span><br><span class="line">    weight = np.exp(-(ov * ov)/sigma) </span><br><span class="line"><span class="keyword">else</span>: # original NMS </span><br><span class="line">    <span class="keyword">if</span> ov &gt; Nt: </span><br><span class="line">        weight = <span class="number">0</span> </span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        weight = <span class="number">1</span> </span><br><span class="line">        </span><br><span class="line"># re-scoring 修改置信度 </span><br><span class="line">boxes[pos, <span class="number">4</span>] = weight*boxes[pos, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<p>基于proposal方法的模型结果上应用比较好，检测效果提升:</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/6qkPNP.png" alt="figure.7"></p>
+<p>在R-FCN以及Faster R-CNN模型中的测试阶段运用Soft-NMS，在MS-COCO数据集上能够获得大约1%的提升。如果应用到训练阶段的proposal选取过程理论上也能获得提升，在自己的实验中发现确实对易重叠的目标类型有提高(目标不一定真在像素上重叠，切斜的目标的矩形边框会有较大的重叠)，而在SSD、YOLO等非proposal方法中没有提升。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="StriveZs wechat" style="width: 200px; max-width: 100%;"/>
+    <div>Hobby lead  creation, technology change world.</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    StriveZs
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="www.strivezs.com/2020/07/08/Non-Maximum%20Suppression(NMS)%20%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6/" title="Non-Maximum Suppression(NMS)">www.strivezs.com/2020/07/08/Non-Maximum%20Suppression(NMS)%20%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NMS/" rel="tag"># NMS</a>
+          
+            <a href="/tags/%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6/" rel="tag"># 非极大值抑制</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/01/IOU(%E9%87%8D%E5%8F%A0%E5%BA%A6)/" rel="next" title="IOU">
+                <i class="fa fa-chevron-left"></i> IOU
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="StriveZs" />
+            
+              <p class="site-author-name" itemprop="name">StriveZs</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">277</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">194</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">186</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.home.strivezs.com/" target="_blank" title="Home">
+                      
+                        <i class="fa fa-fw fa-home"></i>Home</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zs670980918" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="zs670980918@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_16184125" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-bug"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/32353303" target="_blank" title="BiLiBiLi">
+                      
+                        <i class="fa fa-fw fa-bold"></i>BiLiBiLi</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/5417471468/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/StriveZs" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UC3iJKUkUdlvN6DY2qP1x2Sg/featured?view_as=subscriber" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Non-Maximum-Suppression-NMS-非极大值抑制"><span class="nav-number">1.</span> <span class="nav-text">Non-Maximum Suppression(NMS) 非极大值抑制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NMS在目标检测中的应用"><span class="nav-number">1.2.</span> <span class="nav-text">NMS在目标检测中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人脸检测框重叠例子"><span class="nav-number">1.2.1.</span> <span class="nav-text">人脸检测框重叠例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测目标-pipline"><span class="nav-number">1.2.2.</span> <span class="nav-text">检测目标 pipline</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NMS原理"><span class="nav-number">1.3.</span> <span class="nav-text">NMS原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IoU阈值和排序"><span class="nav-number">1.3.1.</span> <span class="nav-text">IoU阈值和排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">1.3.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码示例"><span class="nav-number">1.3.3.</span> <span class="nav-text">代码示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NMS-Loss"><span class="nav-number">1.3.4.</span> <span class="nav-text">NMS Loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sotf-NMS"><span class="nav-number">1.3.5.</span> <span class="nav-text">Sotf-NMS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+      
+      
+        <!-- canvas粒子时钟 -->
+        
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">StriveZs</span>
+
+  
+</div>
+
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/5.js?i=5b3ac4cx0nk&amp;m=0&amp;c=ff0000&amp;cr1=ffffff" async="async"></script>
+
+<div class=BbeiAn-info">
+  皖ICP备 -
+  <a href="http://www.miitbeian.gov.cn/">18004602</a>
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'KqICB5D6mxxGk3BP6KIJz0ar-gzGzoHsz',
+        appKey: 'YsAzygIOG5S4oWgdymQBthCv',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
