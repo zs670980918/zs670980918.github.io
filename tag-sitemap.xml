@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>www.strivezs.com/tags/%25E8%25AF%258D%25E5%2585%25B8/</loc>
+        <lastmod>2020-07-12T14:15:17.830Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/DTD/</loc>
+        <lastmod>2020-07-12T14:15:17.830Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/XML/</loc>
+        <lastmod>2020-07-12T14:15:17.830Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/PHP/</loc>
+        <lastmod>2020-07-12T14:15:17.830Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/%25E9%259D%259E%25E6%259E%2581%25E5%25A4%25A7%25E5%2580%25BC%25E6%258A%2591%25E5%2588%25B6/</loc>
         <lastmod>2020-07-08T04:39:22.949Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -116,13 +144,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/PHPStorm/</loc>
-        <lastmod>2020-05-06T03:13:22.764Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/PHP/</loc>
         <lastmod>2020-05-06T03:13:22.764Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
