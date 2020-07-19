@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-07-12T14:15:17.830Z</updated>
+  <updated>2020-07-19T04:30:53.410Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>offset max-pooling</title>
+    <link href="www.strivezs.com/2020/07/19/offset%20max-pooling/"/>
+    <id>www.strivezs.com/2020/07/19/offset%20max-pooling/</id>
+    <published>2020-07-19T04:30:53.410Z</published>
+    <updated>2020-07-19T04:30:53.410Z</updated>
+    
+    <content type="html"><![CDATA[<h1>offset max-pooling</h1><p>下面再让我们来继续学习有关 offset 池化的内容，为了简单起见，我们暂时不用二维的图像作为例子，而是采用一维作为示例，来讲解池化:</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/QRMKRn.png" alt="figure.8"></p><p>如上图所示，我们在x轴上有20个神经元，如果我们选择池化size=3的非重叠池化，那么根据我们之前所学的方法应该是：对上面20个，从1位置开始进行分组，每3个连续的神经元为一组，然后计算魅族的最大值(最大池化)，19、20号神经元被丢弃，如下图所示:</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/Sk1PRb.png" alt="figure.9"></p><p>我们也可以在20号神经元后面，人为的添加一个数值为0的神经元编号21，与19、20成为一组，这样可以分成7组：[1,2,3],[4,5,6],…[19,20,21]，最后计算每组的最大值，这就是我们以前所学的CNN中池化层的源码实现方法。</p><p>上面我们说到，如果我们只分6组的话，我们除了以1作为初始位置进行连续组合之外，也可以从位置2或者3开始进行组合，也就是说我们其实有三种池化组合方法：</p><ul><li>从1开始：[1,2,3],…,[16,17,18]</li><li>从2开始：[2,3,4],…,[17,18,19]</li><li>从3开始：[3,4,5],…,[18,19,20]</li></ul><p>对应图片如下：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/uItSPi.png" alt="figure.10"></p><p>对于之前的CNN，一般只采用从第一种从1开始的组合就可以了，但是在OverFeat中，是把上述三种方法的池化结果，分别送入到网络的下一层，这样的话，我们的网络在最后输出的时候，就会出现3中预测结果了。</p><p>我们前面说的是一维的情况，如果是2维的图片的话，那么(x,y)就会有9种取值情况(3×3)；如果我们在做图片分类的时候，在网络的某一池化层加入了这种offset池化方法，然后把9种池化结果，分别送入后面的网络层，最后我们的图片分类输出结果就可以得到9个预测结果(每个类别都可以得到9种概率值，然后我们对每个类别的9种概率，取其最大值，做为此类别的概率预测值)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;offset max-pooling&lt;/h1&gt;
+&lt;p&gt;下面再让我们来继续学习有关 offset 池化的内容，为了简单起见，我们暂时不用二维的图像作为例子，而是采用一维作为示例，来讲解池化:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://gitee.com/zyp521
+      
+    
+    </summary>
+    
+    
+      <category term="Deep Learning" scheme="www.strivezs.com/categories/Deep-Learning/"/>
+    
+      <category term="Nerual Network" scheme="www.strivezs.com/categories/Deep-Learning/Nerual-Network/"/>
+    
+      <category term="Pooling" scheme="www.strivezs.com/categories/Deep-Learning/Nerual-Network/Pooling/"/>
+    
+    
+      <category term="offset pooling" scheme="www.strivezs.com/tags/offset-pooling/"/>
+    
+      <category term="pooling" scheme="www.strivezs.com/tags/pooling/"/>
+    
+      <category term="Nerual Network" scheme="www.strivezs.com/tags/Nerual-Network/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP+XML+DTD+HTML 编写的在线词典</title>
@@ -591,40 +627,6 @@
     
     
       <category term="社保" scheme="www.strivezs.com/tags/%E7%A4%BE%E4%BF%9D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Anaconda`s problem of pip</title>
-    <link href="www.strivezs.com/2020/01/13/Anaconda%E5%9C%A8%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%90%8E%E5%AE%89%E8%A3%85pip%E5%B9%B6%E8%A7%A3%E5%86%B3%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
-    <id>www.strivezs.com/2020/01/13/Anaconda%E5%9C%A8%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%90%8E%E5%AE%89%E8%A3%85pip%E5%B9%B6%E8%A7%A3%E5%86%B3%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</id>
-    <published>2020-01-13T08:09:08.493Z</published>
-    <updated>2020-01-13T08:09:08.493Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Anaconda-s-problem-of-pip"><a href="#Anaconda-s-problem-of-pip" class="headerlink" title="Anaconda`s problem of pip"></a>Anaconda`s problem of pip</h1><h2 id="Anaconda安装pip"><a href="#Anaconda安装pip" class="headerlink" title="Anaconda安装pip"></a>Anaconda安装pip</h2><p><strong>步骤</strong></p><ol><li>在对应的环境中打开terminal</li><li>输入conda install setuptools，安装相关的包下载工具</li><li>然后输入 conda install pip 即可安装</li></ol><h2 id="给pip更换国内源"><a href="#给pip更换国内源" class="headerlink" title="给pip更换国内源"></a>给pip更换国内源</h2><p><strong>步骤</strong></p><ol><li>使用windows+R打开运行</li><li>输入%HOMEPATH%</li><li>在用户目录文件夹下创建pip.ini用txt打开（如果有则直接打开）</li><li>更换国内源<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line">timeout = <span class="number">10</span> # 设置超时，单位s</span><br><span class="line"><span class="keyword">index</span>-url =  http://mirrors.aliyun.com/pypi/simple/   # 指定优先下载源</span><br><span class="line">extra-<span class="keyword">index</span>-url= http://pypi.douban.com/simple/   # 第二下载源</span><br><span class="line">[install]</span><br><span class="line"><span class="keyword">trusted</span>-host=</span><br><span class="line">    mirrors.aliyun.com</span><br><span class="line">    pypi.douban.com</span><br></pre></td></tr></table></figure></li></ol><h2 id="解决SSL问题"><a href="#解决SSL问题" class="headerlink" title="解决SSL问题"></a>解决SSL问题</h2><p>在更换完国内源之后仍然出现SSL，连接失败问题的话，则给出下述办法。<br><strong>步骤</strong></p><ol><li>找到该地址<strong>D:\Anaconda\pkgs\openssl-1.0.2p-hfa6e2cd_0\Library\bin</strong></li><li>然后将它添加到User的系统环境变量中即可。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Anaconda-s-problem-of-pip&quot;&gt;&lt;a href=&quot;#Anaconda-s-problem-of-pip&quot; class=&quot;headerlink&quot; title=&quot;Anaconda`s problem of pip&quot;&gt;&lt;/a&gt;Anaconda`s 
-      
-    
-    </summary>
-    
-    
-      <category term="文章页" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
-    
-      <category term="Python" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/Python/"/>
-    
-      <category term="Anaconda" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/Python/Anaconda/"/>
-    
-    
-      <category term="Python" scheme="www.strivezs.com/tags/Python/"/>
-    
-      <category term="Anaconda" scheme="www.strivezs.com/tags/Anaconda/"/>
-    
-      <category term="pip" scheme="www.strivezs.com/tags/pip/"/>
     
   </entry>
   
