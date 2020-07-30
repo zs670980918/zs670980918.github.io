@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>www.strivezs.com/tags/Gaussian-Blur/</loc>
+        <lastmod>2020-07-30T08:25:02.583Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E9%25AB%2598%25E6%2596%25AF%25E6%25BB%25A4%25E6%25B3%25A2/</loc>
+        <lastmod>2020-07-30T08:25:02.583Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E9%25AB%2598%25E6%2596%25AF%25E6%25A8%25A1%25E7%25B3%258A/</loc>
+        <lastmod>2020-07-30T08:25:02.583Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E5%25BD%2592%25E4%25B8%2580%25E5%258C%2596/</loc>
+        <lastmod>2020-07-26T05:12:23.630Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E7%2599%25BD%25E5%258C%2596/</loc>
+        <lastmod>2020-07-26T05:12:23.630Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/Nerual-Network/</loc>
         <lastmod>2020-07-19T04:30:53.410Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -598,14 +633,14 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/TSP/</loc>
+        <loc>www.strivezs.com/tags/%25E4%25BC%2598%25E5%258C%2596%25E7%25AE%2597%25E6%25B3%2595/</loc>
         <lastmod>2018-09-17T09:57:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/%25E4%25BC%2598%25E5%258C%2596%25E7%25AE%2597%25E6%25B3%2595/</loc>
+        <loc>www.strivezs.com/tags/TSP/</loc>
         <lastmod>2018-09-17T09:57:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

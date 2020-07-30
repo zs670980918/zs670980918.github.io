@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="遗传算法 （Genetic Algorithm）基础信息选择策略： 物竞天择，适者生存。即按照某一特定条件进行选择。 遗传因子: 在计算机中是用0&#x2F;1编码来完成的 遗传方式： 交叉、变异 选择策略轮盘赌选择法轮盘赌选择法是根据个体的适应度值计算每个个体在子代中出现的概率，并按照此概率随机选择个体构成子代种群。 常用步骤   将种群中个体的适应度值叠加，其中m为种群个体数。 $$ \sum_{i&#x3D;1">
+<meta name="description" content="遗传算法 （Genetic Algorithm） ¶基础信息 选择策略： 物竞天择，适者生存。即按照某一特定条件进行选择。 遗传因子: 在计算机中是用0&#x2F;1编码来完成的 遗传方式： 交叉、变异 ¶选择策略 ¶轮盘赌选择法 轮盘赌选择法是根据个体的适应度值计算每个个体在子代中出现的概率，并按照此概率随机选择个体构成子代种群。 常用步骤  将种群中个体的适应度值叠加，其中m为种群个体数。 $ \sum">
 <meta property="og:type" content="article">
 <meta property="og:title" content="遗传算法（Genetic Algorithm）">
 <meta property="og:url" content="www.strivezs.com/2020/06/28/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88Genetic%20Algorithm%EF%BC%89/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="遗传算法 （Genetic Algorithm）基础信息选择策略： 物竞天择，适者生存。即按照某一特定条件进行选择。 遗传因子: 在计算机中是用0&#x2F;1编码来完成的 遗传方式： 交叉、变异 选择策略轮盘赌选择法轮盘赌选择法是根据个体的适应度值计算每个个体在子代中出现的概率，并按照此概率随机选择个体构成子代种群。 常用步骤   将种群中个体的适应度值叠加，其中m为种群个体数。 $$ \sum_{i&#x3D;1">
+<meta property="og:description" content="遗传算法 （Genetic Algorithm） ¶基础信息 选择策略： 物竞天择，适者生存。即按照某一特定条件进行选择。 遗传因子: 在计算机中是用0&#x2F;1编码来完成的 遗传方式： 交叉、变异 ¶选择策略 ¶轮盘赌选择法 轮盘赌选择法是根据个体的适应度值计算每个个体在子代中出现的概率，并按照此概率随机选择个体构成子代种群。 常用步骤  将种群中个体的适应度值叠加，其中m为种群个体数。 $ \sum">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-28T04:45:59.023Z">
 <meta property="article:modified_time" content="2020-06-28T04:45:59.023Z">
@@ -448,27 +448,35 @@
       
 
       
-        <h1 id="遗传算法-（Genetic-Algorithm）"><a href="#遗传算法-（Genetic-Algorithm）" class="headerlink" title="遗传算法 （Genetic Algorithm）"></a>遗传算法 （Genetic Algorithm）</h1><h2 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h2><p><strong>选择策略：</strong> 物竞天择，适者生存。即按照某一特定条件进行选择。</p>
+        <h1>遗传算法 （Genetic Algorithm）</h1>
+<h2 id="基础信息"><a class="header-anchor" href="#基础信息">¶</a>基础信息</h2>
+<p><strong>选择策略：</strong> 物竞天择，适者生存。即按照某一特定条件进行选择。</p>
 <p><strong>遗传因子:</strong> 在计算机中是用0/1编码来完成的</p>
 <p><strong>遗传方式：</strong> 交叉、变异</p>
-<h2 id="选择策略"><a href="#选择策略" class="headerlink" title="选择策略"></a>选择策略</h2><h3 id="轮盘赌选择法"><a href="#轮盘赌选择法" class="headerlink" title="轮盘赌选择法"></a>轮盘赌选择法</h3><p>轮盘赌选择法是根据个体的适应度值计算每个个体在子代中出现的概率，并按照此概率随机选择个体构成子代种群。</p>
-<p><strong>常用步骤</strong> </p>
+<h2 id="选择策略"><a class="header-anchor" href="#选择策略">¶</a>选择策略</h2>
+<h3 id="轮盘赌选择法"><a class="header-anchor" href="#轮盘赌选择法">¶</a>轮盘赌选择法</h3>
+<p>轮盘赌选择法是根据个体的适应度值计算每个个体在子代中出现的概率，并按照此概率随机选择个体构成子代种群。</p>
+<p><strong>常用步骤</strong></p>
 <ol>
-<li>将种群中个体的适应度值叠加，其中m为种群个体数。<center> $$ \sum_{i=1}^{m}y(x_{i}) $$ </center></li>
+<li>将种群中个体的适应度值叠加，其中m为种群个体数。<center> <code>$ \sum_{i=1}^{m}y(x_{i}) $</code> </center></li>
 <li>每个个体的适应度值除以总适应度值得到个体被选择的概率。</li>
 <li>计算个体的累计概率以构造一个轮盘。</li>
 <li>轮盘选择：产生一个[0,1]区间内的随机数，若该随机数小于或等于个体的累积概率，选择个体进入子代种群。</li>
 </ol>
 <p>重复上述步骤，即可得到一个由新个体构成的种群。</p>
-<h3 id="随即遍历抽样法"><a href="#随即遍历抽样法" class="headerlink" title="随即遍历抽样法"></a>随即遍历抽样法</h3><p>像轮盘赌一样计算选择概率，只是在随机遍历选择中等距离的选择个体。设npoint为需要选择的个体数目，等距离的选择个体，选择指针的距离是 <script type="math/tex">[1,\frac{1}{npoint}]</script> ，第一个指针的位置由<script type="math/tex">[1,\frac{1}{npoint}]</script> 的均匀随机数决定。</p>
-<h3 id="锦标赛选择法"><a href="#锦标赛选择法" class="headerlink" title="锦标赛选择法"></a>锦标赛选择法</h3><p>锦标赛选择法选择策略每次从种群中选取出一定数量个体，然后选择其中最好的一个进入子代种群。重复该操作直到新的种群规模到达原来种群规。</p>
-<p><strong>步骤:</strong> </p>
+<h3 id="随即遍历抽样法"><a class="header-anchor" href="#随即遍历抽样法">¶</a>随即遍历抽样法</h3>
+<p>像轮盘赌一样计算选择概率，只是在随机遍历选择中等距离的选择个体。设npoint为需要选择的个体数目，等距离的选择个体，选择指针的距离是 <code>$ [1,\frac{1}{npoint}] $</code> ，第一个指针的位置由<code>$ [1,\frac{1}{npoint}] $</code> 的均匀随机数决定。</p>
+<h3 id="锦标赛选择法"><a class="header-anchor" href="#锦标赛选择法">¶</a>锦标赛选择法</h3>
+<p>锦标赛选择法选择策略每次从种群中选取出一定数量个体，然后选择其中最好的一个进入子代种群。重复该操作直到新的种群规模到达原来种群规。</p>
+<p><strong>步骤:</strong></p>
 <ol>
 <li>确定每次选择的个体数量（百分比）</li>
 <li>从种群中随机选择个体（每个概率相同）构成组，根据每个个体的适应度值，选择其中适应度值最好的个体进入子代种群。</li>
 </ol>
 <p>重复上述步骤，直到得到新一代种群。</p>
-<h2 id="遗传算法编码"><a href="#遗传算法编码" class="headerlink" title="遗传算法编码"></a>遗传算法编码</h2><h3 id="二进制编码法"><a href="#二进制编码法" class="headerlink" title="二进制编码法"></a>二进制编码法</h3><p>就像人类的基因有AGCT四种碱基序列一样，不过在这里我们只用0和1两种碱基，然后将他们串成一条链来形成一条染色体，一个为能表示出2种状态的信息量，因此足够长的二进制染色体便能够表示所有的特征。</p>
+<h2 id="遗传算法编码"><a class="header-anchor" href="#遗传算法编码">¶</a>遗传算法编码</h2>
+<h3 id="二进制编码法"><a class="header-anchor" href="#二进制编码法">¶</a>二进制编码法</h3>
+<p>就像人类的基因有AGCT四种碱基序列一样，不过在这里我们只用0和1两种碱基，然后将他们串成一条链来形成一条染色体，一个为能表示出2种状态的信息量，因此足够长的二进制染色体便能够表示所有的特征。</p>
 <p>例如：111000110101</p>
 <p><strong>优点：</strong></p>
 <ol>
@@ -482,7 +490,8 @@
 <li>高精度问题上面表现较差</li>
 <li>容易陷入局部最优</li>
 </ol>
-<h3 id="浮点编码法"><a href="#浮点编码法" class="headerlink" title="浮点编码法"></a>浮点编码法</h3><p>二进制编码虽然简单直观，但明显地存在着连续函数离散化时的映射误差。个体长度较短时，可能达不到精度要求，而个体编码长度较长时，虽然能够提高精度，但增加了解码的难度，使遗传算法的搜索空间急剧扩大。</p>
+<h3 id="浮点编码法"><a class="header-anchor" href="#浮点编码法">¶</a>浮点编码法</h3>
+<p>二进制编码虽然简单直观，但明显地存在着连续函数离散化时的映射误差。个体长度较短时，可能达不到精度要求，而个体编码长度较长时，虽然能够提高精度，但增加了解码的难度，使遗传算法的搜索空间急剧扩大。</p>
 <p><strong>浮点法：</strong> 是指个体的每个基因值用某一范围内的一个浮点数来表示。在浮点数码方法中，必须保证基因值在给定的区间限制范围内，遗传反中所使用的交叉、变异等遗传操作也必须保证其运算结果所产生的新个体的基因值也在这个区间限制范围内。</p>
 <p>例如：1.2-3.2-5.3-7.2-1.4-9.7</p>
 <p><strong>优点</strong></p>
@@ -495,23 +504,28 @@
 <li>便于设计针对问题的专门知识的知识型遗传算子</li>
 <li>便于处理复杂的决策变量约束条件</li>
 </ol>
-<h3 id="符号编码法"><a href="#符号编码法" class="headerlink" title="符号编码法"></a>符号编码法</h3><p>符号编码是指个体染色体编码串中的基因值取自一个无数值含义、而只有代码含义的符号集如（A,B,C…）</p>
+<h3 id="符号编码法"><a class="header-anchor" href="#符号编码法">¶</a>符号编码法</h3>
+<p>符号编码是指个体染色体编码串中的基因值取自一个无数值含义、而只有代码含义的符号集如（A,B,C…）</p>
 <p><strong>优点</strong></p>
 <ol>
 <li>符合有意义奇数块编码原则</li>
 <li>便于在遗传算法中利用所求解问题的专门知识</li>
 <li>便于遗传算法与相近似算法之间的混合使用</li>
 </ol>
-<h2 id="交叉"><a href="#交叉" class="headerlink" title="交叉"></a>交叉</h2><p><strong>交叉操作：</strong> 是指对两个相互配对的染色体按某种方式相互交换其余部分基因，从而形成两个新的个体。</p>
-<h3 id="适用于二进制编码个体或浮点数编码个体的交叉算子："><a href="#适用于二进制编码个体或浮点数编码个体的交叉算子：" class="headerlink" title="适用于二进制编码个体或浮点数编码个体的交叉算子："></a>适用于二进制编码个体或浮点数编码个体的交叉算子：</h3><ol>
+<h2 id="交叉"><a class="header-anchor" href="#交叉">¶</a>交叉</h2>
+<p><strong>交叉操作：</strong> 是指对两个相互配对的染色体按某种方式相互交换其余部分基因，从而形成两个新的个体。</p>
+<h3 id="适用于二进制编码个体或浮点数编码个体的交叉算子："><a class="header-anchor" href="#适用于二进制编码个体或浮点数编码个体的交叉算子：">¶</a>适用于二进制编码个体或浮点数编码个体的交叉算子：</h3>
+<ol>
 <li>单点交叉 (One-point Crossover):指在个体编码串中只随机设置一个交叉点，然后再该点相互交换两个配对个体的部分染色体。</li>
 <li>两点交叉 (Two-point Crossover)：在个体编码串中随机设置了两个交叉点，然后在进行部分基因交换。</li>
 <li>多点交叉 (Multi-point Crossover): 在个体编码串中随机选择多个交叉点，然后进行部分基因交换。</li>
 <li>均匀交叉 (Uniform Corssover): 两个配对个体的每个基因座上的基因都以相同的交叉概率进行交换，从而形成两个新个体。</li>
 <li>算数交叉 (Arithmetic Crossover): 由两个个体的线性组合而产生出两个新的个体，该操作对象一般是由浮点数编码表示的个体。</li>
 </ol>
-<h2 id="变异"><a href="#变异" class="headerlink" title="变异"></a>变异</h2><p>遗传算法中的变异运算，是指将个体染色体编码串中的某些基因座上的级音质用该基因座上的其他等位基因来替换，从而形成新的个体。</p>
-<h3 id="适用于二进制编码和浮点数编码的个体："><a href="#适用于二进制编码和浮点数编码的个体：" class="headerlink" title="适用于二进制编码和浮点数编码的个体："></a>适用于二进制编码和浮点数编码的个体：</h3><ol>
+<h2 id="变异"><a class="header-anchor" href="#变异">¶</a>变异</h2>
+<p>遗传算法中的变异运算，是指将个体染色体编码串中的某些基因座上的级音质用该基因座上的其他等位基因来替换，从而形成新的个体。</p>
+<h3 id="适用于二进制编码和浮点数编码的个体："><a class="header-anchor" href="#适用于二进制编码和浮点数编码的个体：">¶</a>适用于二进制编码和浮点数编码的个体：</h3>
+<ol>
 <li>基本位变异 (Simple Mutation): 对个体编码串以变异概率、随即制定的某一位或某几位仅基因座上的值进行变异运算。</li>
 <li>均匀变异 (Uniform Mutation): 分别用符合某一范围内均匀分布的随机数，以某一较小的概率来替换个体编码传中各个基因座上的原有基因值。</li>
 <li>边界变异 (Boundary Mutation): 随机的取基因座上的两个对应边界基因值之一去替代原有基因值。</li>
@@ -669,7 +683,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">280</span>
+                  <span class="site-state-item-count">281</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -680,7 +694,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">199</span>
+                  <span class="site-state-item-count">204</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -691,7 +705,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">192</span>
+                  <span class="site-state-item-count">197</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -783,7 +797,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#遗传算法-（Genetic-Algorithm）"><span class="nav-number">1.</span> <span class="nav-text">遗传算法 （Genetic Algorithm）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础信息"><span class="nav-number">1.1.</span> <span class="nav-text">基础信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择策略"><span class="nav-number">1.2.</span> <span class="nav-text">选择策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#轮盘赌选择法"><span class="nav-number">1.2.1.</span> <span class="nav-text">轮盘赌选择法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随即遍历抽样法"><span class="nav-number">1.2.2.</span> <span class="nav-text">随即遍历抽样法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锦标赛选择法"><span class="nav-number">1.2.3.</span> <span class="nav-text">锦标赛选择法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗传算法编码"><span class="nav-number">1.3.</span> <span class="nav-text">遗传算法编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制编码法"><span class="nav-number">1.3.1.</span> <span class="nav-text">二进制编码法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点编码法"><span class="nav-number">1.3.2.</span> <span class="nav-text">浮点编码法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号编码法"><span class="nav-number">1.3.3.</span> <span class="nav-text">符号编码法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉"><span class="nav-number">1.4.</span> <span class="nav-text">交叉</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#适用于二进制编码个体或浮点数编码个体的交叉算子："><span class="nav-number">1.4.1.</span> <span class="nav-text">适用于二进制编码个体或浮点数编码个体的交叉算子：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变异"><span class="nav-number">1.5.</span> <span class="nav-text">变异</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#适用于二进制编码和浮点数编码的个体："><span class="nav-number">1.5.1.</span> <span class="nav-text">适用于二进制编码和浮点数编码的个体：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">遗传算法 （Genetic Algorithm）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础信息"><span class="nav-number">1.1.</span> <span class="nav-text">¶基础信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择策略"><span class="nav-number">1.2.</span> <span class="nav-text">¶选择策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#轮盘赌选择法"><span class="nav-number">1.2.1.</span> <span class="nav-text">¶轮盘赌选择法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随即遍历抽样法"><span class="nav-number">1.2.2.</span> <span class="nav-text">¶随即遍历抽样法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锦标赛选择法"><span class="nav-number">1.2.3.</span> <span class="nav-text">¶锦标赛选择法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗传算法编码"><span class="nav-number">1.3.</span> <span class="nav-text">¶遗传算法编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制编码法"><span class="nav-number">1.3.1.</span> <span class="nav-text">¶二进制编码法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点编码法"><span class="nav-number">1.3.2.</span> <span class="nav-text">¶浮点编码法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号编码法"><span class="nav-number">1.3.3.</span> <span class="nav-text">¶符号编码法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉"><span class="nav-number">1.4.</span> <span class="nav-text">¶交叉</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#适用于二进制编码个体或浮点数编码个体的交叉算子："><span class="nav-number">1.4.1.</span> <span class="nav-text">¶适用于二进制编码个体或浮点数编码个体的交叉算子：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变异"><span class="nav-number">1.5.</span> <span class="nav-text">¶变异</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#适用于二进制编码和浮点数编码的个体："><span class="nav-number">1.5.1.</span> <span class="nav-text">¶适用于二进制编码和浮点数编码的个体：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
