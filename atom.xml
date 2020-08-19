@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-08-12T05:05:06.482Z</updated>
+  <updated>2020-08-19T09:45:52.241Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MAC快捷键位记录</title>
+    <link href="www.strivezs.com/2020/08/19/MAC%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%8D%E8%AE%B0%E5%BD%95/"/>
+    <id>www.strivezs.com/2020/08/19/MAC%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%8D%E8%AE%B0%E5%BD%95/</id>
+    <published>2020-08-19T09:45:52.241Z</published>
+    <updated>2020-08-19T09:45:52.241Z</updated>
+    
+    <content type="html"><![CDATA[<h1>MAC快捷键位记录</h1><p>整理了一下自己在MAC上常用到的快捷键为。</p><ul><li>Ctrl+Command+Q 快速锁屏</li><li>Ctrl+空格 切换输入法</li><li>Shift+Command+’&gt;/.’ 显示隐藏文件</li><li>Ctrl+Command+R 录屏</li><li>Ctrl+Command+Z QQ消息提取</li><li>Ctrl+Command+W 微信消息提取</li><li>Ctrl+Command+A 截屏</li><li>Shift+Command+’=/+’ Word中将[2]变为论文引用</li><li>Ctrl+Command+Y 网易云音乐全局停止</li><li>Ctrl+Command+上下左右箭头分别对应调大、调小音量，前一首、后一首</li><li>Command+Option+M Word中快速段落格式设置</li><li>Command+Option+D 隐藏/显示底部状态栏</li><li>Ctrl+’=/+’ Word中快速添加公式</li><li>Command+W 关闭页面但是不退出程序</li><li>Command+Q 关闭且退出程序</li><li>Command+S 保存内容</li><li>Command+A 全选</li><li>Command+Z 撤销</li><li>Command+X 剪切</li><li>Command+C 复制</li><li>Command+Option+V 复制之后移动文件，原文件没了</li><li>Command+V 复制文件，不修改原文件</li><li>Shitf+Command+G 快速访问</li><li>chmod -R 777 目录  来给目录权限</li></ul><h2 id="安装Spectacle"><a class="header-anchor" href="#安装Spectacle">¶</a>安装Spectacle</h2><p>Spectacle(眼镜)是一个很好用的系统分屏软件，目前我一直在使用 :D</p><ul><li>Command+Option+F 当前页面全屏</li><li>Command+Option+左箭头 页面占据左半屏</li><li>Command+Option+右箭头 页面占据右半屏</li></ul><p>会持续更新的，这里只是暂时记录了自己​用到的部分。QWQ​</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;MAC快捷键位记录&lt;/h1&gt;
+&lt;p&gt;整理了一下自己在MAC上常用到的快捷键为。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ctrl+Command+Q 快速锁屏&lt;/li&gt;
+&lt;li&gt;Ctrl+空格 切换输入法&lt;/li&gt;
+&lt;li&gt;Shift+Command+’&amp;gt;/.’ 显示隐藏文件&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="MAC" scheme="www.strivezs.com/categories/MAC/"/>
+    
+    
+      <category term="MAC" scheme="www.strivezs.com/tags/MAC/"/>
+    
+      <category term="快捷键" scheme="www.strivezs.com/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>KKT条件介绍</title>
@@ -619,42 +652,6 @@
       <category term="PyTorch" scheme="www.strivezs.com/tags/PyTorch/"/>
     
       <category term="CUDA" scheme="www.strivezs.com/tags/CUDA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用CDN加速github page访问</title>
-    <link href="www.strivezs.com/2020/02/22/%E4%BD%BF%E7%94%A8CDN%E5%8A%A0%E9%80%9Fgithub%20page%E8%AE%BF%E9%97%AE/"/>
-    <id>www.strivezs.com/2020/02/22/%E4%BD%BF%E7%94%A8CDN%E5%8A%A0%E9%80%9Fgithub%20page%E8%AE%BF%E9%97%AE/</id>
-    <published>2020-02-22T03:15:36.268Z</published>
-    <updated>2020-02-22T03:15:36.268Z</updated>
-    
-    <content type="html"><![CDATA[<h1>使用CDN加速github page访问</h1><p>这里我使用的<a href="https://portal.qiniu.com/">七牛云</a>来加速网站的访问.</p><p><strong>特别注意：你的域名一定要备案了才能用CDN！！！</strong></p><h2 id="步骤"><a class="header-anchor" href="#步骤">¶</a>步骤</h2><h3 id="创建CDN域名加速实例"><a class="header-anchor" href="#创建CDN域名加速实例">¶</a>创建CDN域名加速实例</h3><p><img src="https://gitee.com/zyp521/upload_image/raw/master/099ePA.png" alt="figure1"></p><h3 id="配置实例"><a class="header-anchor" href="#配置实例">¶</a>配置实例</h3><p><img src="https://gitee.com/zyp521/upload_image/raw/master/MNex84.png" alt="figure2"></p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/m4lIay.png" alt="figure3"></p><p>配置完如上实例后，需要等待实例状态变为成功:</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/XbWs3j.png" alt="figure4"></p><h3 id="添加到CNAME解析"><a class="header-anchor" href="#添加到CNAME解析">¶</a>添加到CNAME解析</h3><p>打开你自己的域名管理控制台。这里我用的是阿里云的域名管理控制台，进行域名就解析的配置：</p><h4 id="配置www"><a class="header-anchor" href="#配置www">¶</a>配置www</h4><p><img src="https://gitee.com/zyp521/upload_image/raw/master/LnLHLc.png" alt="figure5"></p><h4 id="配置"><a class="header-anchor" href="#配置">¶</a>配置@</h4><p><img src="https://gitee.com/zyp521/upload_image/raw/master/opB6nc.png" alt="figure6"></p><h2 id="验证解析成功没有"><a class="header-anchor" href="#验证解析成功没有">¶</a>验证解析成功没有</h2><h3 id="mac-linux"><a class="header-anchor" href="#mac-linux">¶</a>mac/linux</h3><p>在命令台输入</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dig </span>你的网址</span><br></pre></td></tr></table></figure><p>如果返回如下结果则表明解释成功了.</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/eI5g8q.png" alt="figure7"></p><h3 id="Windows"><a class="header-anchor" href="#Windows">¶</a>Windows</h3><p>由于这里我是mac系统所以windows我就贴出网上找到的验证方式：</p><p>windows系统可以通过Win+R 或 点击左下角的“开始”按钮打开“开始”菜单，打开“运行”，输入cmd回车。</p><p>在命令行模式下输入nslookup 您的加速域名，例如 nslookup qn.vinchi.club,在结果中可以看到您复制的cname值即可</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/Uz6PkK.jpg" alt="figure8"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;使用CDN加速github page访问&lt;/h1&gt;
-&lt;p&gt;这里我使用的&lt;a href=&quot;https://portal.qiniu.com/&quot;&gt;七牛云&lt;/a&gt;来加速网站的访问.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;特别注意：你的域名一定要备案了才能用CDN！！！&lt;/strong&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="文章页" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/"/>
-    
-      <category term="Github" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/Github/"/>
-    
-      <category term="域名" scheme="www.strivezs.com/categories/%E6%96%87%E7%AB%A0%E9%A1%B5/Github/%E5%9F%9F%E5%90%8D/"/>
-    
-    
-      <category term="域名解析" scheme="www.strivezs.com/tags/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"/>
-    
-      <category term="Github Page" scheme="www.strivezs.com/tags/Github-Page/"/>
-    
-      <category term="CDN加速" scheme="www.strivezs.com/tags/CDN%E5%8A%A0%E9%80%9F/"/>
     
   </entry>
   

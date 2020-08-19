@@ -10281,4 +10281,52 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path></svg></span></span></span><span 
 </html>
 ]]></content>
   </entry>
+  <entry>
+    <title>MAC快捷键位记录</title>
+    <url>/2020/08/19/MAC%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%8D%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1>MAC快捷键位记录</h1>
+<p>整理了一下自己在MAC上常用到的快捷键为。</p>
+<ul>
+<li>Ctrl+Command+Q 快速锁屏</li>
+<li>Ctrl+空格 切换输入法</li>
+<li>Shift+Command+’&gt;/.’ 显示隐藏文件</li>
+<li>Ctrl+Command+R 录屏</li>
+<li>Ctrl+Command+Z QQ消息提取</li>
+<li>Ctrl+Command+W 微信消息提取</li>
+<li>Ctrl+Command+A 截屏</li>
+<li>Shift+Command+’=/+’ Word中将[2]变为论文引用</li>
+<li>Ctrl+Command+Y 网易云音乐全局停止</li>
+<li>Ctrl+Command+上下左右箭头分别对应调大、调小音量，前一首、后一首</li>
+<li>Command+Option+M Word中快速段落格式设置</li>
+<li>Command+Option+D 隐藏/显示底部状态栏</li>
+<li>Ctrl+’=/+’ Word中快速添加公式</li>
+<li>Command+W 关闭页面但是不退出程序</li>
+<li>Command+Q 关闭且退出程序</li>
+<li>Command+S 保存内容</li>
+<li>Command+A 全选</li>
+<li>Command+Z 撤销</li>
+<li>Command+X 剪切</li>
+<li>Command+C 复制</li>
+<li>Command+Option+V 复制之后移动文件，原文件没了</li>
+<li>Command+V 复制文件，不修改原文件</li>
+<li>Shitf+Command+G 快速访问</li>
+<li>chmod -R 777 目录  来给目录权限</li>
+</ul>
+<h2 id="安装Spectacle"><a class="header-anchor" href="#安装Spectacle">¶</a>安装Spectacle</h2>
+<p>Spectacle(眼镜)是一个很好用的系统分屏软件，目前我一直在使用 :D</p>
+<ul>
+<li>Command+Option+F 当前页面全屏</li>
+<li>Command+Option+左箭头 页面占据左半屏</li>
+<li>Command+Option+右箭头 页面占据右半屏</li>
+</ul>
+<p>会持续更新的，这里只是暂时记录了自己​用到的部分。QWQ​</p>
+]]></content>
+      <categories>
+        <category>MAC</category>
+      </categories>
+      <tags>
+        <tag>MAC</tag>
+        <tag>快捷键</tag>
+      </tags>
+  </entry>
 </search>
