@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-08-25T11:08:51.141Z</updated>
+  <updated>2020-09-02T14:13:14.357Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Anaconda Clean命令</title>
+    <link href="www.strivezs.com/2020/09/02/Anaconda%20Clean%E5%91%BD%E4%BB%A4/"/>
+    <id>www.strivezs.com/2020/09/02/Anaconda%20Clean%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-09-02T14:13:14.357Z</published>
+    <updated>2020-09-02T14:13:14.357Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Anaconda Clean命令</h1><p>conda 安装的包都在目录Anaconda/pkgs下。随着使用，conda 安装的包也越来越多；有时候会出现以下不好的情况：</p><p>有些包安装之后，从来没有使用过；<br>一些安装包的tar包也保留在了计算机中；<br>由于依赖或者环境等原因，某些包的不同版本重复安装。<br>上面的这些情况使得anaconda显得更加冗余，并且浪费储存；对于这些情况可以使用conda clean 净化Anaconda。</p><h2 id="查看conda-clean使用参数"><a class="header-anchor" href="#查看conda-clean使用参数">¶</a>查看conda clean使用参数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">$ conda clean -H</span><br><span class="line">usage: conda clean [-h] [-a] [-i] [-l] [-p] [-t] [-f]</span><br><span class="line">                   [-c TEMPFILES [TEMPFILES ...]] [-d] [<span class="comment">--json] [-q] [-v] [-y]</span></span><br><span class="line"></span><br><span class="line">Remove unused packages and caches.</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, <span class="comment">--help            Show this help message and exit.</span></span><br><span class="line"></span><br><span class="line">Removal Targets:</span><br><span class="line">  -a, <span class="comment">--all             Remove index cache, lock files, unused cache packages,</span></span><br><span class="line">                        and tarballs.</span><br><span class="line">  -i, <span class="comment">--index-cache     Remove index cache.</span></span><br><span class="line">  -l, <span class="comment">--lock            Remove all conda lock files.</span></span><br><span class="line">  -p, <span class="comment">--packages        Remove unused packages from writable package caches.</span></span><br><span class="line">                        WARNING: This does not <span class="keyword">check</span> <span class="keyword">for</span> packages installed</span><br><span class="line">                        <span class="keyword">using</span> symlinks back <span class="keyword">to</span> the <span class="keyword">package</span> cache.</span><br><span class="line">  -t, <span class="comment">--tarballs        Remove cached package tarballs.</span></span><br><span class="line">  -f, <span class="comment">--force-pkgs-dirs</span></span><br><span class="line">                        Remove *<span class="keyword">all</span>* writable <span class="keyword">package</span> caches. This <span class="keyword">option</span> <span class="keyword">is</span></span><br><span class="line">                        <span class="keyword">not</span> included <span class="keyword">with</span> the <span class="comment">--all flag. WARNING: This will</span></span><br><span class="line">                        break environments <span class="keyword">with</span> packages installed <span class="keyword">using</span></span><br><span class="line">                        symlinks back <span class="keyword">to</span> the <span class="keyword">package</span> cache.</span><br><span class="line">  -c TEMPFILES [TEMPFILES ...], <span class="comment">--tempfiles TEMPFILES [TEMPFILES ...]</span></span><br><span class="line">                        Remove <span class="keyword">temporary</span> files that could <span class="keyword">not</span> be deleted</span><br><span class="line">                        earlier due <span class="keyword">to</span> being <span class="keyword">in</span>-use. Argument <span class="keyword">is</span> <span class="keyword">path</span>(s) <span class="keyword">to</span></span><br><span class="line">                        prefix(es) <span class="keyword">where</span> files should be <span class="keyword">found</span> <span class="keyword">and</span> removed.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Output</span>, <span class="keyword">Prompt</span>, <span class="keyword">and</span> Flow Control Options:</span><br><span class="line">  -d, <span class="comment">--dry-run         Only display what would have been done.</span></span><br><span class="line">  <span class="comment">--json                Report all output as json. Suitable for using conda</span></span><br><span class="line">                        programmatically.</span><br><span class="line">  -q, <span class="comment">--quiet           Do not display progress bar.</span></span><br><span class="line">  -v, <span class="comment">--verbose         Can be used multiple times. Once for INFO, twice for</span></span><br><span class="line">                        DEBUG, three times <span class="keyword">for</span> TRACE.</span><br><span class="line">  -y, <span class="comment">--yes             Do not ask for confirmation.</span></span><br><span class="line"></span><br><span class="line">Examples:</span><br><span class="line"></span><br><span class="line">    conda clean <span class="comment">--tarballs</span></span><br></pre></td></tr></table></figure><h2 id="Conda-clean使用"><a class="header-anchor" href="#Conda-clean使用">¶</a>Conda clean使用</h2><h2 id="删除从不使用的包"><a class="header-anchor" href="#删除从不使用的包">¶</a>删除从不使用的包</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ conda clean <span class="comment">--packages</span></span><br></pre></td></tr></table></figure><h2 id="删除tar包"><a class="header-anchor" href="#删除tar包">¶</a>删除tar包</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ conda clean <span class="comment">--tarballs</span></span><br></pre></td></tr></table></figure><h2 id="删除索引缓存、锁定文件、未使用过的包和tar包"><a class="header-anchor" href="#删除索引缓存、锁定文件、未使用过的包和tar包">¶</a>删除索引缓存、锁定文件、未使用过的包和tar包</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>conda clean -a</span><br></pre></td></tr></table></figure><h2 id="清楚索引缓存"><a class="header-anchor" href="#清楚索引缓存">¶</a>清楚索引缓存</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>conda clean -i</span><br></pre></td></tr></table></figure><h2 id="应用情况"><a class="header-anchor" href="#应用情况">¶</a>应用情况</h2><p>今天我在使用conda安装opencv的时候一直报unexpected error的错误，经过一番尝试发现使用</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">conda clean -i</span></span><br></pre></td></tr></table></figure><p>可以很好地解决该问题。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;Anaconda Clean命令&lt;/h1&gt;
+&lt;p&gt;conda 安装的包都在目录Anaconda/pkgs下。随着使用，conda 安装的包也越来越多；有时候会出现以下不好的情况：&lt;/p&gt;
+&lt;p&gt;有些包安装之后，从来没有使用过；&lt;br&gt;
+一些安装包的tar包也保留在了计算机
+      
+    
+    </summary>
+    
+    
+      <category term="MAC" scheme="www.strivezs.com/categories/MAC/"/>
+    
+      <category term="Anaconda" scheme="www.strivezs.com/categories/MAC/Anaconda/"/>
+    
+    
+      <category term="Anaconda" scheme="www.strivezs.com/tags/Anaconda/"/>
+    
+      <category term="Clean" scheme="www.strivezs.com/tags/Clean/"/>
+    
+  </entry>
   
   <entry>
     <title>理解无偏估计量</title>
@@ -608,36 +641,6 @@
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Word Embedding</title>
-    <link href="www.strivezs.com/2020/04/04/Word%20Embedding/"/>
-    <id>www.strivezs.com/2020/04/04/Word%20Embedding/</id>
-    <published>2020-04-04T09:54:30.990Z</published>
-    <updated>2020-04-04T09:54:30.990Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Word Embedding</h1><h2 id="Introduction"><a class="header-anchor" href="#Introduction">¶</a>Introduction</h2><h3 id="引入One-Hot"><a class="header-anchor" href="#引入One-Hot">¶</a>引入One-Hot</h3><p>自然语言处理主要研究语言信息，语言（词、句子等）属于人类认知过程中产生的高层认知抽象实体，而语言和图像属于较低层的元时输入信号。语音、图像和数据表达不需要特殊的编码，并且有天生的顺序性和关联性，近似的数字会被认为是近似的特征集合。正如图像是由像素的组成，语言是由词或字组成，可以把语言转换为词或字表示的结合。<br>然后，不同于像素的大小天生具有色彩信息，词的数值大小很难表征词的含义。最后，人们为了方便，<strong>采用One-Hot编码格式</strong>，以一个只有10个不同词的语料库为例，我们可以用一个10位的向量来表示每个词，该向量在词下标位置的值为1，而其他全部为0.</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一个词：[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">第二个词: [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">·····</span><br><span class="line">第十个词：[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure><p>这种词的表示方法十分简单，也很容易实现，充分解决了分类器难以处理属性数据的问题。但是它的<strong>缺点</strong>也很明显：冗余太多、无法体现词与词之间的关系。可以看到，这10个词的表示，彼此之间都是相互正交的。同时，随着词数的，One-Hot向量的维度也会急剧增长，如果有3000个不同的词，那么每个One-Hot词向量都是3k维，而且只有一个位置为1，其余位置都是0。（<strong>这里感觉为了节省的可以采用（300，3000）来表示长度为3k的向量第300个位置上为1，其余都为0</strong>）。虽然One-Hot编码格式在传统任务上表现出色，但是由于词的维度太高了，应用在深度学习上时，常常出现维度灾难，<ins>所以在深度学习中一般采用词向量的表示形式</ins>。</p><h3 id="引入词向量"><a class="header-anchor" href="#引入词向量">¶</a>引入词向量</h3><p>词向量(Word Vector)，也称为词嵌入(Word Embedding),并没有严格统一的定义。从概念上讲，<strong>它是指把一个维数为所有词的数量的高维空间(几万几十万个字)嵌入一个维数低得多的连续向量空间(128或256维)中，每个单词或词组被映射为实数域上的向量</strong>。<br>词向量有专门的训练方法，这里不会细讲，感兴趣的可以学习斯坦福的CS224系列课程。这里只需要了解<strong>词向量最重要的特征是相似词的词向量距离相近。每个词的词向量维度都是固定的，每一维都是连续的数。</strong></p><p>举个例子，如果我们用二维的词向量表示十个词：足球、比赛、教练、队伍、裤子、长裤、上衣和编制、折叠、拉，那么可视化出来的结果如下所示:</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/YorrIg.png" alt="figure.1"></p><p>可以看出，<strong>同类词彼此聚集，相互之间的距离较近</strong>。</p><p>由此可见，用词向量表示词，不仅所有维度会变少（十维变为二维），其中也会包含更合理的语义信息。除了相邻词距离更近之外，词向量还有不少有趣的特征，如下图所示：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/AlftfF.png" alt="figure.2"></p><p>虚线的的两端分别是男性词和女性词，例如：叔叔和阿姨、兄弟和姐妹、先生和女士。可以看出，虚线的方向和长度都差不多，因此可以认为：国王-女王≈男人-女人，即国王可以看成男性君主，女王可以看出女性君主，国王减去男性，只剩下君主的特征，女王减去女性，也只剩下君主的特征，所以这二者近似。</p><h2 id="具体介绍"><a class="header-anchor" href="#具体介绍">¶</a>具体介绍</h2><p>英文一般是用一个向量表示一个单词，也有使用一个向量表示一个字母的情况。中文同样也有一个词或者一个字的词向量表示，与英文采用空格来区分词不同，中文的词与词之间没有间隔，因此**如果采用基于词的词向量表示，需要先进行中文分词*。</p><p>这里只对词向量做一个概要性的介绍，让我们有一个直观地认知。我们只需要掌握词向量技术用向量表证词，相似词之间的向量距离近，</p><h3 id="PyTorch使用"><a class="header-anchor" href="#PyTorch使用">¶</a>PyTorch使用</h3><p>在PyTorch中，针对词向量有一个专门的层<strong>nn.Embedding</strong>，<ins>用来实现词与词向量的映射</ins>。nn.Embedding具有一个权重，形状是(num_words,embedding_dim)，例如：对上述句子中的10个词，每个词用2维向量表征，对应的权重就是一个10×2的矩阵。<strong>Embedding的输入形状是N×W，N是batch size， W是序列长度，输出的形状是N×W×embedding_dim.输入必须是LongTensor，FloatTensor须通过tensor.long（）方法转成LongTensor</strong>。</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># coding:utf8</span><br><span class="line"><span class="keyword">import</span> torch as t</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line">embedding = t.nn.Embedding(<span class="number">10</span>,<span class="number">2</span>) # 十个词，每个词用二维词向量表示</span><br><span class="line">input = t.arrange(<span class="number">0</span>,<span class="number">6</span>).view(<span class="number">3</span>,<span class="number">2</span>).long() # 三个句子，每个句子有两个词 N为<span class="number">3</span> W为<span class="number">2</span></span><br><span class="line">input = t.<span class="built_in">auto</span>grad.Variable(input)</span><br><span class="line">output = embedding(input)</span><br><span class="line">print(output.size())</span><br><span class="line">print(embedding.weight.size())</span><br></pre></td></tr></table></figure><p>输出:</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">3</span>L,<span class="number">2</span>L,<span class="number">2</span>L)</span><br><span class="line">(<span class="number">10</span>L,<span class="number">2</span>L)</span><br></pre></td></tr></table></figure><p>需要注意的是，Embedding的权重也是可以训练的，既可以采用随机初始化，也可以采用预训练好的词向量初始化。</p><h2 id="简单总结"><a class="header-anchor" href="#简单总结">¶</a>简单总结</h2><p>可以使用torch.nn.Embedding(num_words,embedding_dim)来生成一个大小为num_words×embedding_dim词向量，<br>其中共有num_words个单词，每个单词用一个二维词向量表示 类似横纵坐标</p><p>输入到embedding中的tensor必须是LongTensor，如果是FloatTensor必须用long（）转换<br>Embedding的输入为N×W N是batch_size W是每个batch的单词数 如输入三个句子 每个句子包含两个单词<br>Embedding的输出为N×W×embedding 即为输出还是三个句子 每个句子仍然是两个单词表示 但是每个单词则用一个二维向量表示</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;Word Embedding&lt;/h1&gt;
-&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#Introduction&quot;&gt;¶&lt;/a&gt;Introduction&lt;/h2&gt;
-&lt;h3 id=&quot;引入One-Hot&quot;&gt;&lt;a cla
-      
-    
-    </summary>
-    
-    
-      <category term="Knowledge" scheme="www.strivezs.com/categories/Knowledge/"/>
-    
-      <category term="Nerual Network" scheme="www.strivezs.com/categories/Knowledge/Nerual-Network/"/>
-    
-    
-      <category term="word embedding" scheme="www.strivezs.com/tags/word-embedding/"/>
     
   </entry>
   

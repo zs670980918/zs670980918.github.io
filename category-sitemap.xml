@@ -8,8 +8,15 @@
     </url>
 
     <url>
+        <loc>www.strivezs.com/categories/MAC/Anaconda/</loc>
+        <lastmod>2020-09-02T14:13:14.357Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/categories/MAC/</loc>
-        <lastmod>2020-08-19T09:45:52.241Z</lastmod>
+        <lastmod>2020-09-02T14:13:14.357Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

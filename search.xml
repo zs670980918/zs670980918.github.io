@@ -10371,4 +10371,38 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path></svg></span></span></span><span 
 <p data-source-line="58">实际操作中，要找到满足三个方面的估计量有时候并不容易，因此可以根据情况进行取舍。</p>
 </div></article><body><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>]]></content>
   </entry>
+  <entry>
+    <title>Anaconda Clean命令</title>
+    <url>/2020/09/02/Anaconda%20Clean%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1>Anaconda Clean命令</h1>
+<p>conda 安装的包都在目录Anaconda/pkgs下。随着使用，conda 安装的包也越来越多；有时候会出现以下不好的情况：</p>
+<p>有些包安装之后，从来没有使用过；<br>
+一些安装包的tar包也保留在了计算机中；<br>
+由于依赖或者环境等原因，某些包的不同版本重复安装。<br>
+上面的这些情况使得anaconda显得更加冗余，并且浪费储存；对于这些情况可以使用conda clean 净化Anaconda。</p>
+<h2 id="查看conda-clean使用参数"><a class="header-anchor" href="#查看conda-clean使用参数">¶</a>查看conda clean使用参数</h2>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">$ conda clean -H</span><br><span class="line">usage: conda clean [-h] [-a] [-i] [-l] [-p] [-t] [-f]</span><br><span class="line">                   [-c TEMPFILES [TEMPFILES ...]] [-d] [<span class="comment">--json] [-q] [-v] [-y]</span></span><br><span class="line"></span><br><span class="line">Remove unused packages and caches.</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, <span class="comment">--help            Show this help message and exit.</span></span><br><span class="line"></span><br><span class="line">Removal Targets:</span><br><span class="line">  -a, <span class="comment">--all             Remove index cache, lock files, unused cache packages,</span></span><br><span class="line">                        and tarballs.</span><br><span class="line">  -i, <span class="comment">--index-cache     Remove index cache.</span></span><br><span class="line">  -l, <span class="comment">--lock            Remove all conda lock files.</span></span><br><span class="line">  -p, <span class="comment">--packages        Remove unused packages from writable package caches.</span></span><br><span class="line">                        WARNING: This does not <span class="keyword">check</span> <span class="keyword">for</span> packages installed</span><br><span class="line">                        <span class="keyword">using</span> symlinks back <span class="keyword">to</span> the <span class="keyword">package</span> cache.</span><br><span class="line">  -t, <span class="comment">--tarballs        Remove cached package tarballs.</span></span><br><span class="line">  -f, <span class="comment">--force-pkgs-dirs</span></span><br><span class="line">                        Remove *<span class="keyword">all</span>* writable <span class="keyword">package</span> caches. This <span class="keyword">option</span> <span class="keyword">is</span></span><br><span class="line">                        <span class="keyword">not</span> included <span class="keyword">with</span> the <span class="comment">--all flag. WARNING: This will</span></span><br><span class="line">                        break environments <span class="keyword">with</span> packages installed <span class="keyword">using</span></span><br><span class="line">                        symlinks back <span class="keyword">to</span> the <span class="keyword">package</span> cache.</span><br><span class="line">  -c TEMPFILES [TEMPFILES ...], <span class="comment">--tempfiles TEMPFILES [TEMPFILES ...]</span></span><br><span class="line">                        Remove <span class="keyword">temporary</span> files that could <span class="keyword">not</span> be deleted</span><br><span class="line">                        earlier due <span class="keyword">to</span> being <span class="keyword">in</span>-use. Argument <span class="keyword">is</span> <span class="keyword">path</span>(s) <span class="keyword">to</span></span><br><span class="line">                        prefix(es) <span class="keyword">where</span> files should be <span class="keyword">found</span> <span class="keyword">and</span> removed.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Output</span>, <span class="keyword">Prompt</span>, <span class="keyword">and</span> Flow Control Options:</span><br><span class="line">  -d, <span class="comment">--dry-run         Only display what would have been done.</span></span><br><span class="line">  <span class="comment">--json                Report all output as json. Suitable for using conda</span></span><br><span class="line">                        programmatically.</span><br><span class="line">  -q, <span class="comment">--quiet           Do not display progress bar.</span></span><br><span class="line">  -v, <span class="comment">--verbose         Can be used multiple times. Once for INFO, twice for</span></span><br><span class="line">                        DEBUG, three times <span class="keyword">for</span> TRACE.</span><br><span class="line">  -y, <span class="comment">--yes             Do not ask for confirmation.</span></span><br><span class="line"></span><br><span class="line">Examples:</span><br><span class="line"></span><br><span class="line">    conda clean <span class="comment">--tarballs</span></span><br></pre></td></tr></table></figure>
+<h2 id="Conda-clean使用"><a class="header-anchor" href="#Conda-clean使用">¶</a>Conda clean使用</h2>
+<h2 id="删除从不使用的包"><a class="header-anchor" href="#删除从不使用的包">¶</a>删除从不使用的包</h2>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">$ conda clean <span class="comment">--packages</span></span><br></pre></td></tr></table></figure>
+<h2 id="删除tar包"><a class="header-anchor" href="#删除tar包">¶</a>删除tar包</h2>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">$ conda clean <span class="comment">--tarballs</span></span><br></pre></td></tr></table></figure>
+<h2 id="删除索引缓存、锁定文件、未使用过的包和tar包"><a class="header-anchor" href="#删除索引缓存、锁定文件、未使用过的包和tar包">¶</a>删除索引缓存、锁定文件、未使用过的包和tar包</h2>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>conda clean -a</span><br></pre></td></tr></table></figure>
+<h2 id="清楚索引缓存"><a class="header-anchor" href="#清楚索引缓存">¶</a>清楚索引缓存</h2>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>conda clean -i</span><br></pre></td></tr></table></figure>
+<h2 id="应用情况"><a class="header-anchor" href="#应用情况">¶</a>应用情况</h2>
+<p>今天我在使用conda安装opencv的时候一直报unexpected error的错误，经过一番尝试发现使用</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">conda clean -i</span></span><br></pre></td></tr></table></figure>
+<p>可以很好地解决该问题。</p>
+]]></content>
+      <categories>
+        <category>MAC</category>
+        <category>Anaconda</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+        <tag>Clean</tag>
+      </tags>
+  </entry>
 </search>
