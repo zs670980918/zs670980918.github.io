@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-09-02T14:13:14.357Z</updated>
+  <updated>2020-09-10T14:04:05.353Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Word设置从某一页开始从1到n显示页码</title>
+    <link href="www.strivezs.com/2020/09/10/Word%E8%AE%BE%E7%BD%AE%E4%BB%8E%E6%9F%90%E4%B8%80%E9%A1%B5%E5%BC%80%E5%A7%8B%E4%BB%8E1%E5%88%B0n%E6%98%BE%E7%A4%BA%E9%A1%B5%E7%A0%81/"/>
+    <id>www.strivezs.com/2020/09/10/Word%E8%AE%BE%E7%BD%AE%E4%BB%8E%E6%9F%90%E4%B8%80%E9%A1%B5%E5%BC%80%E5%A7%8B%E4%BB%8E1%E5%88%B0n%E6%98%BE%E7%A4%BA%E9%A1%B5%E7%A0%81/</id>
+    <published>2020-09-10T14:04:05.353Z</published>
+    <updated>2020-09-10T14:04:05.353Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Word设置从某一页开始从1到n显示页码</h1><h2 id="开启格式显示"><a class="header-anchor" href="#开启格式显示">¶</a>开启格式显示</h2><p>开启这个功能后，会显示你的页面的一些格式信息。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/ZGtKtQ.png" alt="figure.0"></p><h2 id="添加分节符"><a class="header-anchor" href="#添加分节符">¶</a>添加分节符</h2><p>首先在你想要开始的页面之前那个页面最后添加一个分节符。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/4649hZ.png" alt="figure.1"></p><p>添加分节符的目的是为了让之前的页面都变成一个部分(节)，然后接下来在设置的页面都是从目的页面开始进行页码编号。</p><h2 id="设置页码"><a class="header-anchor" href="#设置页码">¶</a>设置页码</h2><p>然后进入你想要的编码的页面打开页眉页脚编辑模式，先关闭链接到上一节的功能，防止页码重复。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/PBRgbI.png" alt="figure.2"></p><p>然后直接设置页码就可以了。注意要设置一下起始编号，而不是使用续前节。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/RLTb90.png" alt="figure.3"></p><p>最近在忙着研究生开学，因此博客什么的更新可以没办法跟上进度，学习方面可以会有所减少，以后会慢慢补上的QAQ。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;Word设置从某一页开始从1到n显示页码&lt;/h1&gt;
+&lt;h2 id=&quot;开启格式显示&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#开启格式显示&quot;&gt;¶&lt;/a&gt;开启格式显示&lt;/h2&gt;
+&lt;p&gt;开启这个功能后，会显示你的页面的一些格式信息。&lt;/p&gt;
+&lt;p&gt;&lt;im
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Anaconda Clean命令</title>
@@ -617,30 +642,6 @@
       <category term="XAMPP" scheme="www.strivezs.com/tags/XAMPP/"/>
     
       <category term="XDebug" scheme="www.strivezs.com/tags/XDebug/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Anaconda配置清华源并且安装PyTorch.md</title>
-    <link href="www.strivezs.com/2020/04/22/Anaconda%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%8E%E6%BA%90%E5%B9%B6%E4%B8%94%E5%AE%89%E8%A3%85PyTorch.md/"/>
-    <id>www.strivezs.com/2020/04/22/Anaconda%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%8E%E6%BA%90%E5%B9%B6%E4%B8%94%E5%AE%89%E8%A3%85PyTorch.md/</id>
-    <published>2020-04-22T03:36:21.885Z</published>
-    <updated>2020-04-22T03:36:21.885Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Anaconda配置清华源并且安装PyTorch</h1><h2 id="配置清华源"><a class="header-anchor" href="#配置清华源">¶</a>配置清华源</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">配置基础包：</span><br><span class="line">conda config --add channels http:<span class="regexp">//mi</span>rror.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/main/</span></span><br><span class="line">conda config --add channels http:<span class="regexp">//mi</span>rror.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span></span><br><span class="line"></span><br><span class="line">配置拓展包比如PyTorch</span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/conda-forge/</span> </span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/msys2/</span> </span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/bioconda/</span> </span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/menpo/</span> </span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/pytorch/</span></span><br><span class="line"></span><br><span class="line">执行：</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure><h2 id="安装PyTorch"><a class="header-anchor" href="#安装PyTorch">¶</a>安装PyTorch</h2><p>去官网选择对应的版本安装，<strong>需要注意的是要去掉 -c pytorch 否则安装的源来自于官网而不是自己之前设置的源</strong></p><p>如下：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision <span class="attribute">cudatoolkit</span>=9.0 -c pytorch</span><br><span class="line">改为</span><br><span class="line">conda install pytorch torchvision <span class="attribute">cudatoolkit</span>=9.0</span><br></pre></td></tr></table></figure><p>建议：在我们搭建好环境之后，最好就先添加镜像站到Anaconda中，这样安装包的时候，速度会得到大大的提升</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;Anaconda配置清华源并且安装PyTorch&lt;/h1&gt;
-&lt;h2 id=&quot;配置清华源&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#配置清华源&quot;&gt;¶&lt;/a&gt;配置清华源&lt;/h2&gt;
-&lt;figure class=&quot;highlight awk&quot;&gt;&lt;table
-      
-    
-    </summary>
-    
-    
     
   </entry>
   
