@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="MAC+XAMPP+PHPStorm+XDebug 在网上找了半天，花费了很长时间，总结了网上的内容，发现写的都不是十分全面，这里我写了从头到尾的配置过程。 ¶下载并安装XAMPP 首先先去官网下载：click here ps:个人补充一点，由于我上来先安装的是最新版本的导致我出现了许多问题，后来我尝试更换成了php7.3版本的XAMPP使用。 ¶下载并安装PHPStorm 直接去官网下载并且安装">
+<meta name="description" content="MAC+XAMPP+PHPStorm+XDebug在网上找了半天，花费了很长时间，总结了网上的内容，发现写的都不是十分全面，这里我写了从头到尾的配置过程。 下载并安装XAMPP首先先去官网下载：click here   ps:个人补充一点，由于我上来先安装的是最新版本的导致我出现了许多问题，后来我尝试更换成了php7.3版本的XAMPP使用。 下载并安装PHPStorm直接去官网下载并且安装即可，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MAC+XAMPP+PHPStorm+XDebug">
 <meta property="og:url" content="www.strivezs.com/2020/05/06/MAC+XAMPP+PHPStorm+XDebug/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="MAC+XAMPP+PHPStorm+XDebug 在网上找了半天，花费了很长时间，总结了网上的内容，发现写的都不是十分全面，这里我写了从头到尾的配置过程。 ¶下载并安装XAMPP 首先先去官网下载：click here ps:个人补充一点，由于我上来先安装的是最新版本的导致我出现了许多问题，后来我尝试更换成了php7.3版本的XAMPP使用。 ¶下载并安装PHPStorm 直接去官网下载并且安装">
+<meta property="og:description" content="MAC+XAMPP+PHPStorm+XDebug在网上找了半天，花费了很长时间，总结了网上的内容，发现写的都不是十分全面，这里我写了从头到尾的配置过程。 下载并安装XAMPP首先先去官网下载：click here   ps:个人补充一点，由于我上来先安装的是最新版本的导致我出现了许多问题，后来我尝试更换成了php7.3版本的XAMPP使用。 下载并安装PHPStorm直接去官网下载并且安装即可，">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/U8PIJ1.png">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/gEdJga.png">
@@ -470,15 +470,11 @@
       
 
       
-        <h1>MAC+XAMPP+PHPStorm+XDebug</h1>
-<p>在网上找了半天，花费了很长时间，总结了网上的内容，发现写的都不是十分全面，这里我写了从头到尾的配置过程。</p>
-<h2 id="下载并安装XAMPP"><a class="header-anchor" href="#下载并安装XAMPP">¶</a>下载并安装XAMPP</h2>
-<p>首先先去官网下载：<a href="https://www.apachefriends.org/zh_cn/index.html">click here</a></p>
+        <h1 id="MAC-XAMPP-PHPStorm-XDebug"><a href="#MAC-XAMPP-PHPStorm-XDebug" class="headerlink" title="MAC+XAMPP+PHPStorm+XDebug"></a>MAC+XAMPP+PHPStorm+XDebug</h1><p>在网上找了半天，花费了很长时间，总结了网上的内容，发现写的都不是十分全面，这里我写了从头到尾的配置过程。</p>
+<h2 id="下载并安装XAMPP"><a href="#下载并安装XAMPP" class="headerlink" title="下载并安装XAMPP"></a>下载并安装XAMPP</h2><p>首先先去官网下载：<a href="https://www.apachefriends.org/zh_cn/index.html">click here</a>  </p>
 <p>ps:个人补充一点，由于我上来先安装的是最新版本的导致我出现了许多问题，后来我尝试更换成了php7.3版本的XAMPP使用。</p>
-<h2 id="下载并安装PHPStorm"><a class="header-anchor" href="#下载并安装PHPStorm">¶</a>下载并安装PHPStorm</h2>
-<p>直接去官网下载并且安装即可，注意如果你不是教育版或者企业版，则需要购买或者使用密钥（自行查找吧）。 <a href="https://www.jetbrains.com/phpstorm/">click here</a></p>
-<h2 id="配置XAMPP"><a class="header-anchor" href="#配置XAMPP">¶</a>配置XAMPP</h2>
-<p>安装XMAPP之后，我们首先要配置一下conf文件.</p>
+<h2 id="下载并安装PHPStorm"><a href="#下载并安装PHPStorm" class="headerlink" title="下载并安装PHPStorm"></a>下载并安装PHPStorm</h2><p>直接去官网下载并且安装即可，注意如果你不是教育版或者企业版，则需要购买或者使用密钥（自行查找吧）。 <a href="https://www.jetbrains.com/phpstorm/">click here</a></p>
+<h2 id="配置XAMPP"><a href="#配置XAMPP" class="headerlink" title="配置XAMPP"></a>配置XAMPP</h2><p>安装XMAPP之后，我们首先要配置一下conf文件.</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/U8PIJ1.png" alt="figure.1"></p>
 <p>添加上你的端口，这里phpstorm默认使用的63342端口，因此我在配置文件中添加上了63342端口。</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/gEdJga.png" alt="figure.2"></p>
@@ -487,36 +483,28 @@
 <p>如果没有权限的话，则将User 改成你自己的用户名即可。</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/IiOE3f.png" alt="figure.4"></p>
 <p>按照上述过程配置好之后，重启以下apache就可以监听对应端口了。至于MySQL的我暂时没有到放在以后去写了。</p>
-<h2 id="PHPStorm配置"><a class="header-anchor" href="#PHPStorm配置">¶</a>PHPStorm配置</h2>
-<p>首先是创建一个PHP项目，然后打开Preferences-&gt;Debugger设置一下端口号，这里我们直接使用的默认63342的，如果你不使用默认的话，这里修改了对应着conf配置文件也要修改。</p>
+<h2 id="PHPStorm配置"><a href="#PHPStorm配置" class="headerlink" title="PHPStorm配置"></a>PHPStorm配置</h2><p>首先是创建一个PHP项目，然后打开Preferences-&gt;Debugger设置一下端口号，这里我们直接使用的默认63342的，如果你不使用默认的话，这里修改了对应着conf配置文件也要修改。</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/Ql0vJT.png" alt="figure.5"></p>
-<p>然后打开Deployment设置部署事宜。</p>
+<p>然后打开Deployment设置部署事宜。  </p>
 <p>创建一个local or mounted folder，然后设置一下项目地址，以及启动的网站，这里如果不是默认80端口的话，都要添加上自己端口号。</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/POJUXS.png" alt="figure.6"></p>
 <p>点开映射部分，设置一下自己的映射，<strong>注意这里之前在conf文件夹中设置了父级主站目录</strong>，因此我们需要在Web Path一栏中设置一下详细的目录，并且在local path中添加上项目地址。具体如下：</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/4DEfk5.png" alt="figure.7"></p>
 <p>配置完成之后一定要点一下那个小对勾，将该服务器设置为默认服务器。</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/DdckXH.png" alt="figure.8"></p>
-<h2 id="配置PHP"><a class="header-anchor" href="#配置PHP">¶</a>配置PHP</h2>
-<p>注意如果你是mac系统的话，则不需要使用xampp的php，可以直接使用你mac自导的php，在终端输入php-version可以查看当前php的版本，然后你打开Preferences-&gt;-&gt; Language -&gt; PHP 来选择你的解释器，默认是没有选择的。</p>
+<h2 id="配置PHP"><a href="#配置PHP" class="headerlink" title="配置PHP"></a>配置PHP</h2><p>注意如果你是mac系统的话，则不需要使用xampp的php，可以直接使用你mac自导的php，在终端输入php-version可以查看当前php的版本，然后你打开Preferences-&gt;-&gt; Language -&gt; PHP 来选择你的解释器，默认是没有选择的。</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/mNJ27O.png" alt="figure.9"></p>
 <p>注意两个栏的版本要一直，如果想要使用xampp中的php，则新建一个php，然后找到XAMPP/xamppfiles/bin/php-7.3.17来创建一个新的php。</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/SQdQUu.png" alt="figure.13"></p>
-<h2 id="配置XDebug"><a class="header-anchor" href="#配置XDebug">¶</a>配置XDebug</h2>
-<h3 id="安装xdebug扩展"><a class="header-anchor" href="#安装xdebug扩展">¶</a>安装xdebug扩展</h3>
-<ul>
+<h2 id="配置XDebug"><a href="#配置XDebug" class="headerlink" title="配置XDebug"></a>配置XDebug</h2><h3 id="安装xdebug扩展"><a href="#安装xdebug扩展" class="headerlink" title="安装xdebug扩展"></a>安装xdebug扩展</h3><ul>
 <li>查询与当前环境匹配的 xdebug 版本 <a href="https://xdebug.org/wizard">click here</a></li>
 <li>进入bin文件夹，cd /Applications/XAMPP/bin</li>
 <li>sudo ./pecl search xdebug-2.x.x 这里的版本号根据上面查找到的</li>
 <li>sudo ./pecl install xdebug-2.x.x  安装</li>
-<li>在etc文件夹中找到php.ini的最后添加如下内容</li>
-</ul>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zend_extension</span>=/Applications/XAMPP/xamppfiles/lib/php/extensions/<span class="literal">no</span>-debug-non-zts-<span class="number">20180731</span>/xdebug.so <span class="comment">;该行内容在安装完 xdebug 后，可从安装结束语中获取</span></span><br><span class="line"><span class="attr">xdebug.remote_enable</span> = <span class="number">1</span></span><br><span class="line"><span class="attr">xdebug.remote_host</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">xdebug.remote_port</span> = <span class="number">9000</span></span><br><span class="line"><span class="attr">xdebug.idekey</span> = PHPSTORM</span><br><span class="line"><span class="attr">xdebug.auto_start</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<ul>
+<li>在etc文件夹中找到php.ini的最后添加如下内容<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zend_extension</span>=/Applications/XAMPP/xamppfiles/lib/php/extensions/<span class="literal">no</span>-debug-non-zts-<span class="number">20180731</span>/xdebug.so <span class="comment">;该行内容在安装完 xdebug 后，可从安装结束语中获取</span></span><br><span class="line"><span class="attr">xdebug.remote_enable</span> = <span class="number">1</span></span><br><span class="line"><span class="attr">xdebug.remote_host</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">xdebug.remote_port</span> = <span class="number">9000</span></span><br><span class="line"><span class="attr">xdebug.idekey</span> = PHPSTORM</span><br><span class="line"><span class="attr">xdebug.auto_start</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure></li>
 <li>重启apache服务器</li>
 </ul>
-<h3 id="配置PHP-v2"><a class="header-anchor" href="#配置PHP-v2">¶</a>配置PHP</h3>
-<p>打开Perference-&gt;Language-&gt;Debuger, 设置端口号为9000</p>
+<h3 id="配置PHP-1"><a href="#配置PHP-1" class="headerlink" title="配置PHP"></a>配置PHP</h3><p>打开Perference-&gt;Language-&gt;Debuger, 设置端口号为9000</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/fz3haO.png" alt="figure.13"></p>
 <p>打开Perference-&gt;Language-&gt;Debuger-&gt;DBGp Proxy 配置代理信息</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/dlnNw2.png" alt="figure.14"></p>
@@ -524,13 +512,10 @@
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/fFrJL9.png" alt="figure.15"></p>
 <p>创建PHP Web并进行配置</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/4uL0fc.png" alt="figure.16"></p>
-<h3 id="安装Chrome插件"><a class="header-anchor" href="#安装Chrome插件">¶</a>安装Chrome插件</h3>
-<p>安装Chrome xdebug 插件，并且配置为debug模式 <a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc?utm_source=chrome-ntp-icon">click here</a></p>
-<h3 id="PHPSTORM开启监听"><a class="header-anchor" href="#PHPSTORM开启监听">¶</a>PHPSTORM开启监听</h3>
-<p>绿色小电话！！！</p>
+<h3 id="安装Chrome插件"><a href="#安装Chrome插件" class="headerlink" title="安装Chrome插件"></a>安装Chrome插件</h3><p>安装Chrome xdebug 插件，并且配置为debug模式 <a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc?utm_source=chrome-ntp-icon">click here</a></p>
+<h3 id="PHPSTORM开启监听"><a href="#PHPSTORM开启监听" class="headerlink" title="PHPSTORM开启监听"></a>PHPSTORM开启监听</h3><p>绿色小电话！！！</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/t2AJ2X.png" alt="figure.17"></p>
-<h2 id="运行"><a class="header-anchor" href="#运行">¶</a>运行</h2>
-<p>当你配置完成之后，创建一个php文件。</p>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>当你配置完成之后，创建一个php文件。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>id<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"> <span class="keyword">echo</span> <span class="string">"hello world"</span>;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>单击chrome运行即可以在浏览器中查看项目。</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/ENYizv.png" alt="figure.10"></p>
@@ -809,7 +794,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">MAC+XAMPP+PHPStorm+XDebug</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载并安装XAMPP"><span class="nav-number">1.1.</span> <span class="nav-text">¶下载并安装XAMPP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载并安装PHPStorm"><span class="nav-number">1.2.</span> <span class="nav-text">¶下载并安装PHPStorm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置XAMPP"><span class="nav-number">1.3.</span> <span class="nav-text">¶配置XAMPP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHPStorm配置"><span class="nav-number">1.4.</span> <span class="nav-text">¶PHPStorm配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置PHP"><span class="nav-number">1.5.</span> <span class="nav-text">¶配置PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置XDebug"><span class="nav-number">1.6.</span> <span class="nav-text">¶配置XDebug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装xdebug扩展"><span class="nav-number">1.6.1.</span> <span class="nav-text">¶安装xdebug扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置PHP-v2"><span class="nav-number">1.6.2.</span> <span class="nav-text">¶配置PHP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Chrome插件"><span class="nav-number">1.6.3.</span> <span class="nav-text">¶安装Chrome插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHPSTORM开启监听"><span class="nav-number">1.6.4.</span> <span class="nav-text">¶PHPSTORM开启监听</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行"><span class="nav-number">1.7.</span> <span class="nav-text">¶运行</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC-XAMPP-PHPStorm-XDebug"><span class="nav-number">1.</span> <span class="nav-text">MAC+XAMPP+PHPStorm+XDebug</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载并安装XAMPP"><span class="nav-number">1.1.</span> <span class="nav-text">下载并安装XAMPP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载并安装PHPStorm"><span class="nav-number">1.2.</span> <span class="nav-text">下载并安装PHPStorm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置XAMPP"><span class="nav-number">1.3.</span> <span class="nav-text">配置XAMPP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHPStorm配置"><span class="nav-number">1.4.</span> <span class="nav-text">PHPStorm配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置PHP"><span class="nav-number">1.5.</span> <span class="nav-text">配置PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置XDebug"><span class="nav-number">1.6.</span> <span class="nav-text">配置XDebug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装xdebug扩展"><span class="nav-number">1.6.1.</span> <span class="nav-text">安装xdebug扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置PHP-1"><span class="nav-number">1.6.2.</span> <span class="nav-text">配置PHP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Chrome插件"><span class="nav-number">1.6.3.</span> <span class="nav-text">安装Chrome插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHPSTORM开启监听"><span class="nav-number">1.6.4.</span> <span class="nav-text">PHPSTORM开启监听</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行"><span class="nav-number">1.7.</span> <span class="nav-text">运行</span></a></li></ol></li></ol></div>
             
 
           </div>
