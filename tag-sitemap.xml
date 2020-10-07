@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>www.strivezs.com/tags/MAC/</loc>
+        <lastmod>2020-10-07T03:32:27.328Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/Latex/</loc>
         <lastmod>2020-10-07T03:32:27.328Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,13 +31,6 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/MAC/</loc>
-        <lastmod>2020-10-07T03:32:27.328Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>www.strivezs.com/tags/GPU/</loc>
         <lastmod>2020-09-27T10:39:19.530Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -38,14 +38,14 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/Google-Colaboratory/</loc>
+        <loc>www.strivezs.com/tags/PyTorch/</loc>
         <lastmod>2020-09-27T10:39:19.530Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/PyTorch/</loc>
+        <loc>www.strivezs.com/tags/Google-Colaboratory/</loc>
         <lastmod>2020-09-27T10:39:19.530Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -885,14 +885,14 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/%25E8%25B0%2583%25E5%25BA%25A6/</loc>
+        <loc>www.strivezs.com/tags/OS/</loc>
         <lastmod>2018-07-02T05:57:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/OS/</loc>
+        <loc>www.strivezs.com/tags/%25E8%25B0%2583%25E5%25BA%25A6/</loc>
         <lastmod>2018-07-02T05:57:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
