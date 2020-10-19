@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-10-07T03:32:27.328Z</updated>
+  <updated>2020-10-19T09:21:29.493Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Focal Loss</title>
+    <link href="www.strivezs.com/2020/10/19/Focal%20Loss/"/>
+    <id>www.strivezs.com/2020/10/19/Focal%20Loss/</id>
+    <published>2020-10-19T09:21:29.493Z</published>
+    <updated>2020-10-19T09:21:29.493Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Focal-Loss"><a href="#Focal-Loss" class="headerlink" title="Focal Loss"></a>Focal Loss</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本质上讲，Focal Loss就是一个解决<strong>分类问题中类别不平衡、分类难度差异</strong>的一个Loss。该损失函数降低了大量的简单的负样本在训练中所占的权重。  </p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/CycFSY.jpg" alt="figure.1"></p><p>CE为交叉熵Loss，而FL为Focal Loss</p><h2 id="Focal-Loss——二分类"><a href="#Focal-Loss——二分类" class="headerlink" title="Focal Loss——二分类"></a>Focal Loss——二分类</h2><p>Focal Loss的形式(没有引入权值<script type="math/tex">\alpha</script> )是:  </p><script type="math/tex; mode=display">L_{fl}=\left\{\begin{matrix}-(1-\hat{y})^{\gamma}log\: \hat{y},y=1 \\ -\hat{y}^{\gamma}log\:(1-\hat{y}),y=0 \end{matrix}\right.</script><p>对于该式子 <script type="math/tex">\hat{y}</script>为预测值，而y为真实标签, <script type="math/tex">\gamma</script>的作用就是调节权重曲线的陡度。  </p><script type="math/tex; mode=display">L_{fl}$$实际上已经包含了对不均衡样本的解决办法，比如：负样本远比正样本多时，模型肯定会倾向于样本数目多的负类，这是如果负类的$$\hat{y}^{\gamma}$$比较小，而正类的$$(1-\hat{y})^{\gamma}$$比较大时，模型就会集中注意力关注正样本。  我们已知$$1-\sigma(x)=\sigma(-x)$$且$$\hat{y}=\sigma{x}$$ 因此对上面的式子我们可以变换得到:  $$ L_{fl}=\left\{\begin{matrix}-\sigma^{\gamma}(-x)log\:\sigma{x},y=1 \\ -\sigma^{\gamma}{x}log\:\sigma(-x),y=0 \end{matrix}\right.</script><p>同时，可以引入一个权重调整<script type="math/tex">\alpha</script>， 会对结果有微小的提升。  </p><script type="math/tex; mode=display">L_{fl}=\left\{\begin{matrix}-\alpha\sigma^{\gamma}(-x)log\:\sigma{x},y=1 \\ -(1-\alpha)\sigma^{\gamma}{x}log\:\sigma(-x),y=0 \end{matrix}\right.</script><p>在他的文章中，经过一系列调参得到了<script type="math/tex">\alpha=0.25,\gamma=2</script>对于他的模型来说效果是最好的。如果需要对需要对<script type="math/tex">\alpha</script>进行选择的话，需要使用大的训练样本和算力进行调参。如果要求不太高的话，可以把<script type="math/tex">\alpha</script>设置为0.5即可。  </p><p>简单说一下这里如果是我进行调参的话，我会使用控制变量法，设定一个<script type="math/tex">\alpha</script>的衰减系数，然后给定一个初始的参数值进行训练，每经过一次完整的训练则将这个α对应的准确率记录下来，经过n次衰减后，对比记录得到的结果进行参数alpha的选择。</p><h2 id="Focal-Loss——多分类"><a href="#Focal-Loss——多分类" class="headerlink" title="Focal Loss——多分类"></a>Focal Loss——多分类</h2><p>Focal Loss在多分类的形式可以根据二分类的形式得到:  </p><script type="math/tex; mode=display">L_{fl}=-(1-\hat{y})^{\gamma}log\:\hat{y}_{t}</script><p>其中<script type="math/tex">\hat{y}_{t}</script>为目标的的预测值，一般这个值是经过softmax之后结果。  </p><p>如果我们引入权重值<script type="math/tex">\alpha</script>之后的样子是:  </p><script type="math/tex; mode=display">L_{fl}=-\alpha_{t}(1-\hat{y})^{\gamma}log\:\hat{y}_{t}</script><p>其中每个类别都有一个对应的<script type="math/tex">\alpha_{t}</script>，并且保证<script type="math/tex">\sum_{t=1}^{n}\alpha_{t}=1</script>, 即所有类别的α之和为1.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Focal-Loss&quot;&gt;&lt;a href=&quot;#Focal-Loss&quot; class=&quot;headerlink&quot; title=&quot;Focal Loss&quot;&gt;&lt;/a&gt;Focal Loss&lt;/h1&gt;&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="Loss" scheme="www.strivezs.com/categories/Loss/"/>
+    
+      <category term="DL" scheme="www.strivezs.com/categories/Loss/DL/"/>
+    
+    
+      <category term="Focal Loss" scheme="www.strivezs.com/tags/Focal-Loss/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac+Sublime+Latex+Skim配置latex编辑环境</title>
@@ -577,28 +605,6 @@
       <category term="Pytorch" scheme="www.strivezs.com/tags/Pytorch/"/>
     
       <category term="Linear" scheme="www.strivezs.com/tags/Linear/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac+PyCharm+Anaconda配置QtDesigner.md</title>
-    <link href="www.strivezs.com/2020/06/17/Mac+PyCharm+Anaconda%E9%85%8D%E7%BD%AEQtDesigner.md/"/>
-    <id>www.strivezs.com/2020/06/17/Mac+PyCharm+Anaconda%E9%85%8D%E7%BD%AEQtDesigner.md/</id>
-    <published>2020-06-17T04:36:52.486Z</published>
-    <updated>2020-06-17T04:36:52.486Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Mac-PyCharm-Anaconda配置QtDesigner"><a href="#Mac-PyCharm-Anaconda配置QtDesigner" class="headerlink" title="Mac+PyCharm+Anaconda配置QtDesigner"></a>Mac+PyCharm+Anaconda配置QtDesigner</h1><p>打开Pycharm-&gt;Perference-&gt;Tools-&gt;ExternalTools 添加下面两个外部工具。</p><h2 id="配置QtDesigner"><a href="#配置QtDesigner" class="headerlink" title="配置QtDesigner"></a>配置QtDesigner</h2><p>首先说明一下由于我这里是使用Anaconda进行配置的，因此我的路径可能和你默认使用的路径不同，下面我给出两种路径:<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Anaconda:</span></span><br><span class="line">~opt<span class="meta-keyword">/anaconda3/</span>bin/Designer.app</span><br><span class="line"></span><br><span class="line">Mac默认路径：</span><br><span class="line"><span class="meta-keyword">/usr/</span>localCellar<span class="meta-keyword">/qt/</span><span class="number">5.10</span><span class="number">.1</span>/libexec</span><br></pre></td></tr></table></figure></p><p>下面是QtDesigner的配置信息，按照下图配置即可：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/H2IeEC.png" alt="figure.1"></p><h2 id="配置PyUIC"><a href="#配置PyUIC" class="headerlink" title="配置PyUIC"></a>配置PyUIC</h2><p>下面添加将.ui文件转换为.py文件的外部工具。</p><p>具体配置如下图：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/GQ8xLh.png" alt="figure.2"></p><ul><li>Program：选择python就可以了地址为：~/opt/anaconda3/bin/python3.7</li><li>Arguments：-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</li><li>Working directory：$ProjectFileDir$</li></ul><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>直接在Tools-&gt;Externel Tools中选择QtDesigner。  </p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/d0dsHg.png" alt="figure.3"></p><p>保存的文件一定要放在工作目录下，然后在选择PyUIC外部工具将ui选择为py文件。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Mac-PyCharm-Anaconda配置QtDesigner&quot;&gt;&lt;a href=&quot;#Mac-PyCharm-Anaconda配置QtDesigner&quot; class=&quot;headerlink&quot; title=&quot;Mac+PyCharm+Anaconda配置QtDesi
-      
-    
-    </summary>
-    
-    
     
   </entry>
   
