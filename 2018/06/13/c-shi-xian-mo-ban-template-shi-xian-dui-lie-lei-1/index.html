@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="queue.h头文件 代码： ifndef QUEUE_CLASSdefine QUEUE_CLASSinclude include include “LinkedList.h”using namespace std; template class Queue{    private:        LinkedList queueList;    public:        Queue(">
+<meta name="description" content="queue.h头文件 代码： #ifndef QUEUE_CLASS #define QUEUE_CLASS #include  #include  #include “LinkedList.h” using namespace std; template  class Queue { private: LinkedList queueList; public: Queue(void); v">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++实现模板（template）实现队列类">
 <meta property="og:url" content="www.strivezs.com/2018/06/13/c-shi-xian-mo-ban-template-shi-xian-dui-lie-lei-1/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="queue.h头文件 代码： ifndef QUEUE_CLASSdefine QUEUE_CLASSinclude include include “LinkedList.h”using namespace std; template class Queue{    private:        LinkedList queueList;    public:        Queue(">
+<meta property="og:description" content="queue.h头文件 代码： #ifndef QUEUE_CLASS #define QUEUE_CLASS #include  #include  #include “LinkedList.h” using namespace std; template  class Queue { private: LinkedList queueList; public: Queue(void); v">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/%E5%9B%BE%E7%89%87150.png">
 <meta property="article:published_time" content="2018-06-13T15:45:30.000Z">
@@ -460,11 +460,101 @@
       
 
       
-        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/图片150.png" alt="">   queue.h头文件 代码：</p>
-<h1 id="ifndef-QUEUE-CLASS"><a href="#ifndef-QUEUE-CLASS" class="headerlink" title="ifndef QUEUE_CLASS"></a>ifndef QUEUE_CLASS</h1><h1 id="define-QUEUE-CLASS"><a href="#define-QUEUE-CLASS" class="headerlink" title="define QUEUE_CLASS"></a>define QUEUE_CLASS</h1><h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <iostream></h1><h1 id="include-1"><a href="#include-1" class="headerlink" title="include "></a>include <cstdlib></h1><h1 id="include-“LinkedList-h”"><a href="#include-“LinkedList-h”" class="headerlink" title="include “LinkedList.h”"></a>include “LinkedList.h”</h1><p>using namespace std;</p>
-<p>template <class T><br>class Queue<br>{<br>    private:<br>        LinkedList<T> queueList;<br>    public:<br>        Queue(void);<br>        void QInsert(const T&amp; elt);<br>        T QDelete(void);<br>        T QFront(void);<br>        int QLength(void) const;<br>        int QEmpty(void) const;<br>        void QClear(void);<br>};<br>template <class T><br>Queue<T>::Queue(void)<br>{}<br>template <class T><br>int Queue<T>::QLength(void) const<br>{<br>    return queueList.ListSize();<br>}<br>template <class T><br>int Queue<T>::QEmpty(void) const<br>{<br>    return queueList.ListEmpty();<br>}<br>template <class T><br>void Queue<T>::QClear(void)<br>{<br>    queueList.ClearList();<br>}<br>template <class T><br>void Queue<T>::QInsert(const T&amp; elt)<br>{<br>    queueList.InsertRear(elt);<br>}<br>template <class T><br>T Queue<T>::QDelete(void)<br>{<br>    if (queueList.ListEmpty())<br>    {<br>        cerr &lt;&lt; “Calling QDelete for an empty queue!” &lt;&lt; endl;<br>        exit(1);<br>    }<br>    return queueList.DeleteFront();<br>}<br>template <class T><br>T Queue<T>::QFront(void)<br>{<br>    if (queueList.ListEmpty())<br>    {<br>        cerr &lt;&lt; “Calling QFront for an empty queue!” &lt;&lt; endl;<br>        exit(1);<br>    }<br>    queueList.Reset();<br>    return queueList.Data();<br>}</p>
-<h1 id="endif"><a href="#endif" class="headerlink" title="endif"></a>endif</h1><p>使用：</p>
-<h1 id="include-“queue-h”"><a href="#include-“queue-h”" class="headerlink" title="include “queue.h”"></a>include “queue.h”</h1><h1 id="include-2"><a href="#include-2" class="headerlink" title="include"></a>include<iostream></h1><p>using namespace std;<br>int main()<br>{<br>    Queue<int> A;<br>    cout&lt;&lt;”输入6个数值用来创建队列:”;<br>    int a=0;<br>    for(int i=0;i&lt;=5;i++)<br>    {<br>        cin&gt;&gt;a;<br>        A.QInsert(a);<br>    }<br>    cout&lt;&lt;”创建成功！”&lt;&lt;endl;<br>    cout &lt;&lt; “显示队列中的所有元素为：” ;<br>    while(!A.QEmpty())<br>    {<br>        cout &lt;&lt; A.QFront() &lt;&lt; “   “;<br>        A.QDelete();<br>    }<br>    cout&lt;&lt;endl;<br>    cout&lt;&lt;”判断队列是否为空：”&lt;&lt;(A.QEmpty()==0?”为空”:”不为空”)&lt;&lt;endl;<br>    cout &lt;&lt; endl;<br>    cout&lt;&lt;”开始清空队列！”&lt;&lt;endl;<br>    A.QClear();<br>    cout&lt;&lt;”队列成功清空！”&lt;&lt;endl;<br>    return 0;<br>}</p>
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/%E5%9B%BE%E7%89%87150.png" alt="">   queue.h头文件 代码：</p>
+<p>#ifndef QUEUE_CLASS<br>
+#define QUEUE_CLASS<br>
+#include <iostream><br>
+#include <cstdlib><br>
+#include “LinkedList.h”</p>
+<p>using namespace std;</p>
+<p>template <class T><br>
+class Queue<br>
+{<br>
+private:<br>
+LinkedList<T> queueList;<br>
+public:<br>
+Queue(void);<br>
+void QInsert(const T&amp; elt);<br>
+T QDelete(void);<br>
+T QFront(void);<br>
+int QLength(void) const;<br>
+int QEmpty(void) const;<br>
+void QClear(void);<br>
+};<br>
+template <class T><br>
+Queue<T>::Queue(void)<br>
+{}<br>
+template <class T><br>
+int Queue<T>::QLength(void) const<br>
+{<br>
+return queueList.ListSize();<br>
+}<br>
+template <class T><br>
+int Queue<T>::QEmpty(void) const<br>
+{<br>
+return queueList.ListEmpty();<br>
+}<br>
+template <class T><br>
+void Queue<T>::QClear(void)<br>
+{<br>
+queueList.ClearList();<br>
+}<br>
+template <class T><br>
+void Queue<T>::QInsert(const T&amp; elt)<br>
+{<br>
+queueList.InsertRear(elt);<br>
+}<br>
+template <class T><br>
+T Queue<T>::QDelete(void)<br>
+{<br>
+if (queueList.ListEmpty())<br>
+{<br>
+cerr &lt;&lt; “Calling QDelete for an empty queue!” &lt;&lt; endl;<br>
+exit(1);<br>
+}<br>
+return queueList.DeleteFront();<br>
+}<br>
+template <class T><br>
+T Queue<T>::QFront(void)<br>
+{<br>
+if (queueList.ListEmpty())<br>
+{<br>
+cerr &lt;&lt; “Calling QFront for an empty queue!” &lt;&lt; endl;<br>
+exit(1);<br>
+}<br>
+queueList.Reset();<br>
+return queueList.Data();<br>
+}<br>
+#endif</p>
+<p>使用：</p>
+<p>#include “queue.h”<br>
+#include<iostream></p>
+<p>using namespace std;<br>
+int main()<br>
+{<br>
+Queue<int> A;<br>
+cout&lt;&lt;“输入6个数值用来创建队列:”;<br>
+int a=0;<br>
+for(int i=0;i&lt;=5;i++)<br>
+{<br>
+cin&gt;&gt;a;<br>
+A.QInsert(a);<br>
+}<br>
+cout&lt;&lt;“创建成功！”&lt;&lt;endl;<br>
+cout &lt;&lt; “显示队列中的所有元素为：” ;<br>
+while(!A.QEmpty())<br>
+{<br>
+cout &lt;&lt; A.QFront() &lt;&lt; &quot;   &quot;;<br>
+A.QDelete();<br>
+}<br>
+cout&lt;&lt;endl;<br>
+cout&lt;&lt;“判断队列是否为空：”&lt;&lt;(A.QEmpty()==0?“为空”:“不为空”)&lt;&lt;endl;<br>
+cout &lt;&lt; endl;<br>
+cout&lt;&lt;“开始清空队列！”&lt;&lt;endl;<br>
+A.QClear();<br>
+cout&lt;&lt;“队列成功清空！”&lt;&lt;endl;<br>
+return 0;<br>
+}</p>
 
       
     </div>
@@ -582,17 +672,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -715,22 +796,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ifndef-QUEUE-CLASS"><span class="nav-number">1.</span> <span class="nav-text">ifndef QUEUE_CLASS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#define-QUEUE-CLASS"><span class="nav-number">2.</span> <span class="nav-text">define QUEUE_CLASS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include"><span class="nav-number">3.</span> <span class="nav-text">include </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-1"><span class="nav-number">4.</span> <span class="nav-text">include </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-“LinkedList-h”"><span class="nav-number">5.</span> <span class="nav-text">include “LinkedList.h”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#endif"><span class="nav-number">6.</span> <span class="nav-text">endif</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-“queue-h”"><span class="nav-number">7.</span> <span class="nav-text">include “queue.h”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-2"><span class="nav-number">8.</span> <span class="nav-text">include</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

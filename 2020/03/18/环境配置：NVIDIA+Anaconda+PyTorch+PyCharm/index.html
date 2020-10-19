@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="环境配置：NVIDIA+Anaconda+PyTorch+PyCharm步骤配置英伟达显卡安装CUDA 首先打开自己的英伟达控制面板查看自己的系统信息，如下图所示：我的是CUDA10.2.95因此需要去英伟达官网下载对应版本的CUDA，下载地址：click here     进行安装，基本上就是傻瓜式下一步没什么，等待安装完成即可   安装Cudnn 首先去英伟达官网下载cudnn(这里需要登录下">
+<meta name="description" content="环境配置：NVIDIA+Anaconda+PyTorch+PyCharm ¶步骤 ¶配置英伟达显卡 ¶安装CUDA  首先打开自己的英伟达控制面板查看自己的系统信息，如下图所示：我的是CUDA10.2.95因此需要去英伟达官网下载对应版本的CUDA，下载地址：click here     进行安装，基本上就是傻瓜式下一步没什么，等待安装完成即可   ¶安装Cudnn  首先去英伟达官网下载cudn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="环境配置：NVIDIA+Anaconda+PyTorch+PyCharm">
 <meta property="og:url" content="www.strivezs.com/2020/03/18/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%9ANVIDIA+Anaconda+PyTorch+PyCharm/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="环境配置：NVIDIA+Anaconda+PyTorch+PyCharm步骤配置英伟达显卡安装CUDA 首先打开自己的英伟达控制面板查看自己的系统信息，如下图所示：我的是CUDA10.2.95因此需要去英伟达官网下载对应版本的CUDA，下载地址：click here     进行安装，基本上就是傻瓜式下一步没什么，等待安装完成即可   安装Cudnn 首先去英伟达官网下载cudnn(这里需要登录下">
+<meta property="og:description" content="环境配置：NVIDIA+Anaconda+PyTorch+PyCharm ¶步骤 ¶配置英伟达显卡 ¶安装CUDA  首先打开自己的英伟达控制面板查看自己的系统信息，如下图所示：我的是CUDA10.2.95因此需要去英伟达官网下载对应版本的CUDA，下载地址：click here     进行安装，基本上就是傻瓜式下一步没什么，等待安装完成即可   ¶安装Cudnn  首先去英伟达官网下载cudn">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/rr74XI.png">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/r1wfSH.png">
@@ -460,7 +460,11 @@
       
 
       
-        <h1 id="环境配置：NVIDIA-Anaconda-PyTorch-PyCharm"><a href="#环境配置：NVIDIA-Anaconda-PyTorch-PyCharm" class="headerlink" title="环境配置：NVIDIA+Anaconda+PyTorch+PyCharm"></a>环境配置：NVIDIA+Anaconda+PyTorch+PyCharm</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="配置英伟达显卡"><a href="#配置英伟达显卡" class="headerlink" title="配置英伟达显卡"></a>配置英伟达显卡</h3><h4 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h4><ul>
+        <h1>环境配置：NVIDIA+Anaconda+PyTorch+PyCharm</h1>
+<h2 id="步骤"><a class="header-anchor" href="#步骤">¶</a>步骤</h2>
+<h3 id="配置英伟达显卡"><a class="header-anchor" href="#配置英伟达显卡">¶</a>配置英伟达显卡</h3>
+<h4 id="安装CUDA"><a class="header-anchor" href="#安装CUDA">¶</a>安装CUDA</h4>
+<ul>
 <li>首先打开自己的英伟达控制面板查看自己的系统信息，如下图所示：我的是CUDA10.2.95因此需要去英伟达官网下载对应版本的CUDA，下载地址：<a href="https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exenetwork">click here</a></li>
 </ul>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/rr74XI.png" alt="figure.3"></p>
@@ -469,12 +473,14 @@
 <li>进行安装，基本上就是傻瓜式下一步没什么，等待安装完成即可</li>
 </ul>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/QNrK0e.png" alt="figure.1"></p>
-<h4 id="安装Cudnn"><a href="#安装Cudnn" class="headerlink" title="安装Cudnn"></a>安装Cudnn</h4><ul>
+<h4 id="安装Cudnn"><a class="header-anchor" href="#安装Cudnn">¶</a>安装Cudnn</h4>
+<ul>
 <li>首先去英伟达官网下载cudnn(这里需要登录下载)。具体下载链接：<a href="https://developer.nvidia.com/cudnn">click here</a></li>
-<li>下载完成之后解压得到一个文件夹(蜜汁感动竟然是压缩包不用安装), 将文件夹中的内容放到在C盘路径为<strong>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\</strong>的对应文件夹中，直接复制进去就好了</li>
+<li>下载完成之后解压得到一个文件夹(蜜汁感动竟然是压缩包不用安装), 将文件夹中的内容放到在C盘路径为**C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2**的对应文件夹中，直接复制进去就好了</li>
 </ul>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/PRdOlQ.png" alt="figure.2"></p>
-<h3 id="配置PyTorch"><a href="#配置PyTorch" class="headerlink" title="配置PyTorch"></a>配置PyTorch</h3><ul>
+<h3 id="配置PyTorch"><a class="header-anchor" href="#配置PyTorch">¶</a>配置PyTorch</h3>
+<ul>
 <li>这里我使用的是anaconda来进行包的管理，具体anaconda下载地址： <a href="https://www.anaconda.com/">click here</a></li>
 <li>PyTorch安装，<strong>切记这里需要安装和cuda对应版本的PyTorch！</strong></li>
 <li>首先去PyTorch官网找到安装命令，如下图：</li>
@@ -488,12 +494,16 @@
 <li>安装完成</li>
 </ul>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/dUyIVX.png" alt="figure.6"></p>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><h3 id="版本验证"><a href="#版本验证" class="headerlink" title="版本验证"></a>版本验证</h3><ul>
-<li>在命令行中输入<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvcc -V</span></span><br></pre></td></tr></table></figure>
-会观察到如下版本信息：</li>
+<h2 id="验证"><a class="header-anchor" href="#验证">¶</a>验证</h2>
+<h3 id="版本验证"><a class="header-anchor" href="#版本验证">¶</a>版本验证</h3>
+<ul>
+<li>在命令行中输入</li>
 </ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvcc -V</span></span><br></pre></td></tr></table></figure>
+<p>会观察到如下版本信息：</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/4ARnMy.png" alt="figure.7"></p>
-<h3 id="PyCharm验证能够使用CUDA"><a href="#PyCharm验证能够使用CUDA" class="headerlink" title="PyCharm验证能够使用CUDA"></a>PyCharm验证能够使用CUDA</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(torch.__version__)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(torch.version.cuda)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(torch.cuda.is_available()</span></span>)</span><br></pre></td></tr></table></figure>
+<h3 id="PyCharm验证能够使用CUDA"><a class="header-anchor" href="#PyCharm验证能够使用CUDA">¶</a>PyCharm验证能够使用CUDA</h3>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(torch.__version__)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(torch.version.cuda)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(torch.cuda.is_available()</span></span>)</span><br></pre></td></tr></table></figure>
 <p>如果输出结果为True，则表示cuda可以使用了。（建议不用最新版的NVIDIA驱动，否则CUDA版本也会升级 PyTorch不一定会有对应版本 没有对应版本不能正常使用。）</p>
 
       
@@ -767,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境配置：NVIDIA-Anaconda-PyTorch-PyCharm"><span class="nav-number">1.</span> <span class="nav-text">环境配置：NVIDIA+Anaconda+PyTorch+PyCharm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">1.1.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置英伟达显卡"><span class="nav-number">1.1.1.</span> <span class="nav-text">配置英伟达显卡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装CUDA"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">安装CUDA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Cudnn"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">安装Cudnn</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置PyTorch"><span class="nav-number">1.1.2.</span> <span class="nav-text">配置PyTorch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证"><span class="nav-number">1.2.</span> <span class="nav-text">验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本验证"><span class="nav-number">1.2.1.</span> <span class="nav-text">版本验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PyCharm验证能够使用CUDA"><span class="nav-number">1.2.2.</span> <span class="nav-text">PyCharm验证能够使用CUDA</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">环境配置：NVIDIA+Anaconda+PyTorch+PyCharm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">1.1.</span> <span class="nav-text">¶步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置英伟达显卡"><span class="nav-number">1.1.1.</span> <span class="nav-text">¶配置英伟达显卡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装CUDA"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">¶安装CUDA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Cudnn"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">¶安装Cudnn</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置PyTorch"><span class="nav-number">1.1.2.</span> <span class="nav-text">¶配置PyTorch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证"><span class="nav-number">1.2.</span> <span class="nav-text">¶验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本验证"><span class="nav-number">1.2.1.</span> <span class="nav-text">¶版本验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PyCharm验证能够使用CUDA"><span class="nav-number">1.2.2.</span> <span class="nav-text">¶PyCharm验证能够使用CUDA</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

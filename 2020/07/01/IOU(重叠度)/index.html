@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="IOU物体检测需要定位出物体的bounding box, 就像下面的图片一样，我们不仅要定位出车辆的bounding box，我们还要识别出bounding box里面的无力就是车辆.  对于bounding box的定位精度，有一个重要的概念：因为我们算法不可能百分百跟人工标注的数据完全匹配，因此就存在一个定位精度评价公式: IOU。   它定义了两个bounding box的重叠度，如下图所示">
+<meta name="description" content="IOU 物体检测需要定位出物体的bounding box, 就像下面的图片一样，我们不仅要定位出车辆的bounding box，我们还要识别出bounding box里面的无力就是车辆.  对于bounding box的定位精度，有一个重要的概念：因为我们算法不可能百分百跟人工标注的数据完全匹配，因此就存在一个定位精度评价公式: IOU。 它定义了两个bounding box的重叠度，如下图所示:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IOU">
 <meta property="og:url" content="www.strivezs.com/2020/07/01/IOU(%E9%87%8D%E5%8F%A0%E5%BA%A6)/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="IOU物体检测需要定位出物体的bounding box, 就像下面的图片一样，我们不仅要定位出车辆的bounding box，我们还要识别出bounding box里面的无力就是车辆.  对于bounding box的定位精度，有一个重要的概念：因为我们算法不可能百分百跟人工标注的数据完全匹配，因此就存在一个定位精度评价公式: IOU。   它定义了两个bounding box的重叠度，如下图所示">
+<meta property="og:description" content="IOU 物体检测需要定位出物体的bounding box, 就像下面的图片一样，我们不仅要定位出车辆的bounding box，我们还要识别出bounding box里面的无力就是车辆.  对于bounding box的定位精度，有一个重要的概念：因为我们算法不可能百分百跟人工标注的数据完全匹配，因此就存在一个定位精度评价公式: IOU。 它定义了两个bounding box的重叠度，如下图所示:">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/tklIHI.png">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/08cc3B.png">
@@ -451,14 +451,16 @@
       
 
       
-        <h1 id="IOU"><a href="#IOU" class="headerlink" title="IOU"></a>IOU</h1><p>物体检测需要定位出物体的bounding box, 就像下面的图片一样，我们不仅要定位出车辆的bounding box，我们还要识别出bounding box里面的无力就是车辆.</p>
+        <h1>IOU</h1>
+<p>物体检测需要定位出物体的bounding box, 就像下面的图片一样，我们不仅要定位出车辆的bounding box，我们还要识别出bounding box里面的无力就是车辆.</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/tklIHI.png" alt="figure.1"></p>
-<p>对于bounding box的定位精度，有一个重要的概念：因为我们算法不可能百分百跟人工标注的数据完全匹配，因此就存在一个定位精度评价公式: IOU。  </p>
-<p>它定义了两个bounding box的重叠度，如下图所示:  </p>
+<p>对于bounding box的定位精度，有一个重要的概念：因为我们算法不可能百分百跟人工标注的数据完全匹配，因此就存在一个定位精度评价公式: IOU。</p>
+<p>它定义了两个bounding box的重叠度，如下图所示:</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/08cc3B.png" alt="figure.2"></p>
 <p>就是矩形A、B的重叠面积占A、B并集的面积比例。</p>
 <p>计算公式:</p>
-<script type="math/tex; mode=display">IOU = \frac{A \cap B}{A \cup B}</script>
+<p><code>$ IOU = \frac{A \cap B}{A \cup B}$</code></p>
+
       
     </div>
     
@@ -724,7 +726,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IOU"><span class="nav-number">1.</span> <span class="nav-text">IOU</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">IOU</span></a></li></ol></div>
             
 
           </div>

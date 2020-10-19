@@ -454,7 +454,8 @@
       
         
           
-           Get请求实例分析： 代码：12345678910import urllib.requesturl="https://www.baidu.com/s?wd="keyword = "strivez"url1 = url+keywordreq = urllib.request.Request(url1
+           Get请求实例分析： 代码：
+12345678910import urllib.requesturl="https://www.baidu.com/s?wd="keyword = "strivez"url1 = url+keywordreq = urllib.request.Request(url
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -635,7 +636,10 @@
         
           
            这里的排序算法进行处理的对象是通过array来创建的数组： 配合之前的队列来使用。 至于排序算法的思想，我感觉只要对C艹有一定了解得人大概都能看懂，所以这里不做过多的解释。 头文件代码：
-include “queue.h”includeusing namespace std;int main(){
+#include “queue.h”
+#include
+using namespace std;
+int ma
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -815,9 +819,17 @@ include “queue.h”includeusing namespace std;int main(){
       
         
           
-             queue.h头文件 代码：
-ifndef QUEUE_CLASSdefine QUEUE_CLASSinclude include include “LinkedList.h”using namespace std;
-template class Queue{    private:    
+             queue.h头文件 代码：
+#ifndef QUEUE_CLASS
+#define QUEUE_CLASS
+#include 
+#include 
+#include “LinkedList.h”
+using namespace std;
+template 
+class Queue
+{
+pri
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -986,7 +998,8 @@ template class Queue{    private:
       
         
           
-           主要介绍的是使用记录性信号量来实现生产者消费者问题。 在介绍生产者消费者问题之前先介绍一些记录型信号量：   采取的是让权等待策略，wait（）和signal（）分别用p（）和v（）来表示 其中包含了一个用于表示资源数目的整型变量value，还包含了一个进程链表指针list。 结构体代码：1234
+           主要介绍的是使用记录性信号量来实现生产者消费者问题。 在介绍生产者消费者问题之前先介绍一些记录型信号量：   采取的是让权等待策略，wait（）和signal（）分别用p（）和v（）来表示 其中包含了一个用于表示资源数目的整型变量value，还包含了一个进程链表指针list。 结构体代码：
+123
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1166,7 +1179,8 @@ template class Queue{    private:
       
         
           
-           链表相信都很熟悉了就不过多的介绍，如果需要自行翻阅数据结构。这里面使用到了之前结点类 创建LinkedList.h头文件 代码：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647
+           链表相信都很熟悉了就不过多的介绍，如果需要自行翻阅数据结构。这里面使用到了之前结点类 创建LinkedList.h头文件 代码：
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1346,7 +1360,8 @@ template class Queue{    private:
       
         
           
-           最近在看爬虫方面的知识，所以写了一个小爬虫可以爬取京东商城商品的图片，可以通过关键词进行搜索指定的商品，也可以进行多页爬取。 具体实现代码：1234567891011121314151617181920212223242526272829303132333435363738394041import
+           最近在看爬虫方面的知识，所以写了一个小爬虫可以爬取京东商城商品的图片，可以通过关键词进行搜索指定的商品，也可以进行多页爬取。 具体实现代码：
+1234567891011121314151617181920212223242526272829303132333435363738394041impor
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1526,7 +1541,8 @@ template class Queue{    private:
       
         
           
-           Node.h头文件 代码：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727
+           Node.h头文件 代码：
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172
           ...
           <!--noindex-->
           <div class="post-button text-center">
