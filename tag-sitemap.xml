@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>www.strivezs.com/tags/Cliclick/</loc>
+        <lastmod>2020-11-02T08:56:22.471Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E9%25BC%25A0%25E6%25A0%2587%25E5%258D%2595%25E5%2587%25BB/</loc>
+        <lastmod>2020-11-02T08:56:22.471Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Python/</loc>
+        <lastmod>2020-11-02T08:56:22.471Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/Focal-Loss/</loc>
         <lastmod>2020-10-19T09:21:29.493Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -242,13 +263,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/Pytorch/</loc>
-        <lastmod>2020-06-21T10:34:37.707Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/Python/</loc>
         <lastmod>2020-06-21T10:34:37.707Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

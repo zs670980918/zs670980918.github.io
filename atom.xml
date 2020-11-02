@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-10-19T09:21:29.493Z</updated>
+  <updated>2020-11-02T08:56:22.471Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cliclick 简单实用</title>
+    <link href="www.strivezs.com/2020/11/02/Cliclick%20%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/"/>
+    <id>www.strivezs.com/2020/11/02/Cliclick%20%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/</id>
+    <published>2020-11-02T08:56:22.471Z</published>
+    <updated>2020-11-02T08:56:22.471Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Cliclick 简单实用</h1><p>好久没发东西，最近课程实在是太多了，太忙了。忙晕了害<br>最近需要用到模拟鼠标单击的东西，因此找了找感觉这个还可以简单易用，介绍一下。</p><h2 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h2><h3 id="Homebrew"><a class="header-anchor" href="#Homebrew">¶</a>Homebrew</h3><p>Homebrew包管理器 : brew install cliclick</p><h3 id="官网下载"><a class="header-anchor" href="#官网下载">¶</a>官网下载</h3><p>也可以直接去官网下载安装包，进行下载安装包:<br><a href="https://www.bluem.net/en/projects/cliclick/">https://www.bluem.net/en/projects/cliclick/</a></p><h2 id="简单使用"><a class="header-anchor" href="#简单使用">¶</a>简单使用</h2><p>打开终端，进入cliclick所在文件夹下，输入：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./cliclick</span> -h</span><br></pre></td></tr></table></figure><p>可以查看帮助。</p><h3 id="打印当前鼠标的位置坐标"><a class="header-anchor" href="#打印当前鼠标的位置坐标">¶</a>打印当前鼠标的位置坐标</h3><p>注意鼠标要事先放在你想要知道坐标的位置。</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./cliclick</span> p</span><br></pre></td></tr></table></figure><p>就可以得到一个坐标，</p><h3 id="执行单击事件"><a class="header-anchor" href="#执行单击事件">¶</a>执行单击事件</h3><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./cliclick c:<span class="symbol">x</span>,<span class="symbol">y</span> 其中<span class="symbol">x</span>和<span class="symbol">y</span>分别为横坐标和纵坐标</span><br></pre></td></tr></table></figure><p>在命令行输入该命令，鼠标就会自动平移过去执行单击事件了。</p><h2 id="示例"><a class="header-anchor" href="#示例">¶</a>示例:</h2><p>以下是我用python执行命令行来实现的固定位置的单击操作：，这样做的好处是可以重复的执行单击操作。</p><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">import</span> <span class="variable">os</span></span><br><span class="line"><span class="variable">import</span> <span class="variable">time</span></span><br><span class="line"></span><br><span class="line"><span class="variable">cmd1</span> = <span class="string">"./cliclick c:789,867"</span></span><br><span class="line"><span class="variable">cmd2</span> = <span class="string">"./cliclick c:669,792"</span></span><br><span class="line"><span class="variable">for</span> <span class="variable">i</span> <span class="variable"><span class="keyword">in</span></span> <span class="function"><span class="title">range</span>(<span class="number">1000</span>):</span></span><br><span class="line"><span class="function">    <span class="variable">mess1</span> = <span class="variable">os.system</span>(<span class="variable">cmd1</span>)</span></span><br><span class="line">    <span class="function"><span class="title">print</span>(<span class="variable">mess1</span>)</span></span><br><span class="line">    <span class="variable">time.sleep</span>(<span class="number">10</span>)</span><br><span class="line">    <span class="variable">mess2</span> = <span class="variable">os.system</span>(<span class="variable">cmd2</span>)</span><br><span class="line">    <span class="function"><span class="title">print</span>(<span class="variable">mess2</span>)</span></span><br><span class="line">    <span class="function"><span class="title">print</span>(<span class="string">'----'</span> + <span class="title">str</span>(<span class="variable">i</span>+<span class="number">1</span>) + <span class="string">'------'</span>)</span></span><br><span class="line">    <span class="variable">time.sleep</span>(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;Cliclick 简单实用&lt;/h1&gt;
+&lt;p&gt;好久没发东西，最近课程实在是太多了，太忙了。忙晕了害&lt;br&gt;
+最近需要用到模拟鼠标单击的东西，因此找了找感觉这个还可以简单易用，介绍一下。&lt;/p&gt;
+&lt;h2 id=&quot;安装&quot;&gt;&lt;a class=&quot;header-anchor&quot; hre
+      
+    
+    </summary>
+    
+    
+      <category term="功能" scheme="www.strivezs.com/categories/%E5%8A%9F%E8%83%BD/"/>
+    
+      <category term="Python" scheme="www.strivezs.com/categories/%E5%8A%9F%E8%83%BD/Python/"/>
+    
+    
+      <category term="Python" scheme="www.strivezs.com/tags/Python/"/>
+    
+      <category term="鼠标单击" scheme="www.strivezs.com/tags/%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB/"/>
+    
+      <category term="Cliclick" scheme="www.strivezs.com/tags/Cliclick/"/>
+    
+  </entry>
   
   <entry>
     <title>Focal Loss</title>
@@ -610,41 +645,6 @@
     
     
       <category term="极大似然估计" scheme="www.strivezs.com/tags/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch中nn.Linear()理解</title>
-    <link href="www.strivezs.com/2020/06/21/PyTorch%E4%B8%ADnn.Linear()%E7%90%86%E8%A7%A3/"/>
-    <id>www.strivezs.com/2020/06/21/PyTorch%E4%B8%ADnn.Linear()%E7%90%86%E8%A7%A3/</id>
-    <published>2020-06-21T10:34:37.707Z</published>
-    <updated>2020-06-21T10:34:37.707Z</updated>
-    
-    <content type="html"><![CDATA[<h1>PyTorch中nn.Linear()理解</h1><h2 id="计算公式"><a class="header-anchor" href="#计算公式">¶</a>计算公式</h2><p><code>$ y = xA^{T}+b$</code></p><p>这里A为weight，b为bias。</p><h2 id="代码部分"><a class="header-anchor" href="#代码部分">¶</a>代码部分</h2><h3 id="初始化部分代码"><a class="header-anchor" href="#初始化部分代码">¶</a>初始化部分代码</h3><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="constructor">Linear(Module)</span>:</span><br><span class="line">...</span><br><span class="line">__constants__ = <span class="literal">['<span class="identifier">bias</span>']</span></span><br><span class="line"></span><br><span class="line">def <span class="constructor">__init__(<span class="params">self</span>, <span class="params">in_features</span>, <span class="params">out_features</span>, <span class="params">bias</span>=True)</span>:</span><br><span class="line">    super(Linear, self).<span class="constructor">__init__()</span></span><br><span class="line">    self.in_features = in_features</span><br><span class="line">    self.out_features = out_features</span><br><span class="line">    self.weight = <span class="constructor">Parameter(<span class="params">torch</span>.Tensor(<span class="params">out_features</span>, <span class="params">in_features</span>)</span>)</span><br><span class="line">    <span class="keyword">if</span> bias:</span><br><span class="line">        self.bias = <span class="constructor">Parameter(<span class="params">torch</span>.Tensor(<span class="params">out_features</span>)</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        self.register<span class="constructor">_parameter('<span class="params">bias</span>', None)</span></span><br><span class="line">    self.reset<span class="constructor">_parameters()</span></span><br></pre></td></tr></table></figure><h3 id="计算部分"><a class="header-anchor" href="#计算部分">¶</a>计算部分</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@weak_script_method</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(<span class="keyword">self</span>, input)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">return</span> F.linear(input, <span class="keyword">self</span>.weight, <span class="keyword">self</span>.bias)</span><br></pre></td></tr></table></figure><p>返回值为: input * weight + bias</p><h3 id="bias和weight"><a class="header-anchor" href="#bias和weight">¶</a>bias和weight</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">weight</span>: the learnable weights of the module of shape</span><br><span class="line">    :<span class="attribute">math</span>:<span class="built_in">`(\text&#123;out\_features&#125;, \text&#123;in\_features&#125;)`</span>. The values are</span><br><span class="line">    initialized <span class="attribute">from </span>:<span class="attribute">math</span>:<span class="built_in">`\mathcal&#123;U&#125;(-\sqrt&#123;k&#125;, \sqrt&#123;k&#125;)`</span>, where</span><br><span class="line">    :<span class="attribute">math</span>:<span class="built_in">`k = \frac&#123;1&#125;&#123;\text&#123;in\_features&#125;&#125;`</span></span><br><span class="line"><span class="attribute">bias</span>:   the learnable bias of the module of <span class="attribute">shape </span>:<span class="attribute">math</span>:<span class="built_in">`(\text&#123;out\_features&#125;)`</span>.</span><br><span class="line">        <span class="attribute">If </span>:<span class="attribute">attr</span>:<span class="built_in">`bias`</span> is <span class="built_in">``</span>True<span class="built_in">``</span>, the values are initialized from</span><br><span class="line">        :<span class="attribute">math</span>:<span class="built_in">`\mathcal&#123;U&#125;(-\sqrt&#123;k&#125;, \sqrt&#123;k&#125;)`</span> where</span><br><span class="line">        :<span class="attribute">math</span>:<span class="built_in">`k = \frac&#123;1&#125;&#123;\text&#123;in\_features&#125;&#125;`</span></span><br></pre></td></tr></table></figure><h2 id="示例"><a class="header-anchor" href="#示例">¶</a>示例</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; import torch</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; nn1 = torch.nn.Linear(<span class="number">100</span>, <span class="number">50</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; input1 = torch.randn(<span class="number">140</span>, <span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; output1 = nn1(input1)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; output1.size()</span><br><span class="line">torch.Size([<span class="number">140</span>, <span class="number">50</span>])</span><br></pre></td></tr></table></figure><p>对于上述描述，我们创建一个input的维度为[140,100], 通过声明线性层会得到根据维度初始化的权重和偏差，其中weight的维度为[50,100]。对于公式中A表示的就是weight，而b表示的就是bias。由于对A进行了转置所以这里weight的维度为[50,100]而不是[100,50]。</p><p>具体计算为[140,100] × [50,100]的转置 + bias = [140,100] × [100,50] + bias最后得到的维度为[140,50]。</p><p>至于对于bias和weight的初始化，根绝网上所讲的是来有关维度值得均匀分布。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;PyTorch中nn.Linear()理解&lt;/h1&gt;
-&lt;h2 id=&quot;计算公式&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#计算公式&quot;&gt;¶&lt;/a&gt;计算公式&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;$ y = xA^{T}+b$&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;这里A
-      
-    
-    </summary>
-    
-    
-      <category term="PyTorch" scheme="www.strivezs.com/categories/PyTorch/"/>
-    
-      <category term="Python" scheme="www.strivezs.com/categories/PyTorch/Python/"/>
-    
-    
-      <category term="Python" scheme="www.strivezs.com/tags/Python/"/>
-    
-      <category term="Pytorch" scheme="www.strivezs.com/tags/Pytorch/"/>
-    
-      <category term="Linear" scheme="www.strivezs.com/tags/Linear/"/>
     
   </entry>
   

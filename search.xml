@@ -10852,4 +10852,40 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path></svg></span></span></span><span 
 <p data-source-line="58">实际操作中，要找到满足三个方面的估计量有时候并不容易，因此可以根据情况进行取舍。</p>
 </div></article><body><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>]]></content>
   </entry>
+  <entry>
+    <title>Cliclick 简单实用</title>
+    <url>/2020/11/02/Cliclick%20%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/</url>
+    <content><![CDATA[<h1>Cliclick 简单实用</h1>
+<p>好久没发东西，最近课程实在是太多了，太忙了。忙晕了害<br>
+最近需要用到模拟鼠标单击的东西，因此找了找感觉这个还可以简单易用，介绍一下。</p>
+<h2 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h2>
+<h3 id="Homebrew"><a class="header-anchor" href="#Homebrew">¶</a>Homebrew</h3>
+<p>Homebrew包管理器 : brew install cliclick</p>
+<h3 id="官网下载"><a class="header-anchor" href="#官网下载">¶</a>官网下载</h3>
+<p>也可以直接去官网下载安装包，进行下载安装包:<br>
+<a href="https://www.bluem.net/en/projects/cliclick/">https://www.bluem.net/en/projects/cliclick/</a></p>
+<h2 id="简单使用"><a class="header-anchor" href="#简单使用">¶</a>简单使用</h2>
+<p>打开终端，进入cliclick所在文件夹下，输入：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">./cliclick</span> -h</span><br></pre></td></tr></table></figure>
+<p>可以查看帮助。</p>
+<h3 id="打印当前鼠标的位置坐标"><a class="header-anchor" href="#打印当前鼠标的位置坐标">¶</a>打印当前鼠标的位置坐标</h3>
+<p>注意鼠标要事先放在你想要知道坐标的位置。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">./cliclick</span> p</span><br></pre></td></tr></table></figure>
+<p>就可以得到一个坐标，</p>
+<h3 id="执行单击事件"><a class="header-anchor" href="#执行单击事件">¶</a>执行单击事件</h3>
+<figure class="highlight gml"><table><tr><td class="code"><pre><span class="line">./cliclick c:<span class="symbol">x</span>,<span class="symbol">y</span> 其中<span class="symbol">x</span>和<span class="symbol">y</span>分别为横坐标和纵坐标</span><br></pre></td></tr></table></figure>
+<p>在命令行输入该命令，鼠标就会自动平移过去执行单击事件了。</p>
+<h2 id="示例"><a class="header-anchor" href="#示例">¶</a>示例:</h2>
+<p>以下是我用python执行命令行来实现的固定位置的单击操作：，这样做的好处是可以重复的执行单击操作。</p>
+<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line"><span class="variable">import</span> <span class="variable">os</span></span><br><span class="line"><span class="variable">import</span> <span class="variable">time</span></span><br><span class="line"></span><br><span class="line"><span class="variable">cmd1</span> = <span class="string">"./cliclick c:789,867"</span></span><br><span class="line"><span class="variable">cmd2</span> = <span class="string">"./cliclick c:669,792"</span></span><br><span class="line"><span class="variable">for</span> <span class="variable">i</span> <span class="variable"><span class="keyword">in</span></span> <span class="function"><span class="title">range</span>(<span class="number">1000</span>):</span></span><br><span class="line"><span class="function">    <span class="variable">mess1</span> = <span class="variable">os.system</span>(<span class="variable">cmd1</span>)</span></span><br><span class="line">    <span class="function"><span class="title">print</span>(<span class="variable">mess1</span>)</span></span><br><span class="line">    <span class="variable">time.sleep</span>(<span class="number">10</span>)</span><br><span class="line">    <span class="variable">mess2</span> = <span class="variable">os.system</span>(<span class="variable">cmd2</span>)</span><br><span class="line">    <span class="function"><span class="title">print</span>(<span class="variable">mess2</span>)</span></span><br><span class="line">    <span class="function"><span class="title">print</span>(<span class="string">'----'</span> + <span class="title">str</span>(<span class="variable">i</span>+<span class="number">1</span>) + <span class="string">'------'</span>)</span></span><br><span class="line">    <span class="variable">time.sleep</span>(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>功能</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>鼠标单击</tag>
+        <tag>Cliclick</tag>
+      </tags>
+  </entry>
 </search>
