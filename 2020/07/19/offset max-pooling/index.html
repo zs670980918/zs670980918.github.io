@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="offset max-pooling 下面再让我们来继续学习有关 offset 池化的内容，为了简单起见，我们暂时不用二维的图像作为例子，而是采用一维作为示例，来讲解池化:  如上图所示，我们在x轴上有20个神经元，如果我们选择池化size&#x3D;3的非重叠池化，那么根据我们之前所学的方法应该是：对上面20个，从1位置开始进行分组，每3个连续的神经元为一组，然后计算魅族的最大值(最大池化)，19、20号">
+<meta name="description" content="offset max-pooling下面再让我们来继续学习有关 offset 池化的内容，为了简单起见，我们暂时不用二维的图像作为例子，而是采用一维作为示例，来讲解池化:  如上图所示，我们在x轴上有20个神经元，如果我们选择池化size&#x3D;3的非重叠池化，那么根据我们之前所学的方法应该是：对上面20个，从1位置开始进行分组，每3个连续的神经元为一组，然后计算魅族的最大值(最大池化)，19、20号神">
 <meta property="og:type" content="article">
 <meta property="og:title" content="offset max-pooling">
 <meta property="og:url" content="www.strivezs.com/2020/07/19/offset%20max-pooling/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="offset max-pooling 下面再让我们来继续学习有关 offset 池化的内容，为了简单起见，我们暂时不用二维的图像作为例子，而是采用一维作为示例，来讲解池化:  如上图所示，我们在x轴上有20个神经元，如果我们选择池化size&#x3D;3的非重叠池化，那么根据我们之前所学的方法应该是：对上面20个，从1位置开始进行分组，每3个连续的神经元为一组，然后计算魅族的最大值(最大池化)，19、20号">
+<meta property="og:description" content="offset max-pooling下面再让我们来继续学习有关 offset 池化的内容，为了简单起见，我们暂时不用二维的图像作为例子，而是采用一维作为示例，来讲解池化:  如上图所示，我们在x轴上有20个神经元，如果我们选择池化size&#x3D;3的非重叠池化，那么根据我们之前所学的方法应该是：对上面20个，从1位置开始进行分组，每3个连续的神经元为一组，然后计算魅族的最大值(最大池化)，19、20号神">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/QRMKRn.png">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/Sk1PRb.png">
@@ -465,13 +465,12 @@
       
 
       
-        <h1>offset max-pooling</h1>
-<p>下面再让我们来继续学习有关 offset 池化的内容，为了简单起见，我们暂时不用二维的图像作为例子，而是采用一维作为示例，来讲解池化:</p>
+        <h1 id="offset-max-pooling"><a href="#offset-max-pooling" class="headerlink" title="offset max-pooling"></a>offset max-pooling</h1><p>下面再让我们来继续学习有关 offset 池化的内容，为了简单起见，我们暂时不用二维的图像作为例子，而是采用一维作为示例，来讲解池化:</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/QRMKRn.png" alt="figure.8"></p>
 <p>如上图所示，我们在x轴上有20个神经元，如果我们选择池化size=3的非重叠池化，那么根据我们之前所学的方法应该是：对上面20个，从1位置开始进行分组，每3个连续的神经元为一组，然后计算魅族的最大值(最大池化)，19、20号神经元被丢弃，如下图所示:</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/Sk1PRb.png" alt="figure.9"></p>
-<p>我们也可以在20号神经元后面，人为的添加一个数值为0的神经元编号21，与19、20成为一组，这样可以分成7组：[1,2,3],[4,5,6],…[19,20,21]，最后计算每组的最大值，这就是我们以前所学的CNN中池化层的源码实现方法。</p>
-<p>上面我们说到，如果我们只分6组的话，我们除了以1作为初始位置进行连续组合之外，也可以从位置2或者3开始进行组合，也就是说我们其实有三种池化组合方法：</p>
+<p>我们也可以在20号神经元后面，人为的添加一个数值为0的神经元编号21，与19、20成为一组，这样可以分成7组：[1,2,3],[4,5,6],…[19,20,21]，最后计算每组的最大值，这就是我们以前所学的CNN中池化层的源码实现方法。  </p>
+<p>上面我们说到，如果我们只分6组的话，我们除了以1作为初始位置进行连续组合之外，也可以从位置2或者3开始进行组合，也就是说我们其实有三种池化组合方法：  </p>
 <ul>
 <li>从1开始：[1,2,3],…,[16,17,18]</li>
 <li>从2开始：[2,3,4],…,[17,18,19]</li>
@@ -479,7 +478,7 @@
 </ul>
 <p>对应图片如下：</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/uItSPi.png" alt="figure.10"></p>
-<p>对于之前的CNN，一般只采用从第一种从1开始的组合就可以了，但是在OverFeat中，是把上述三种方法的池化结果，分别送入到网络的下一层，这样的话，我们的网络在最后输出的时候，就会出现3中预测结果了。</p>
+<p>对于之前的CNN，一般只采用从第一种从1开始的组合就可以了，但是在OverFeat中，是把上述三种方法的池化结果，分别送入到网络的下一层，这样的话，我们的网络在最后输出的时候，就会出现3中预测结果了。  </p>
 <p>我们前面说的是一维的情况，如果是2维的图片的话，那么(x,y)就会有9种取值情况(3×3)；如果我们在做图片分类的时候，在网络的某一池化层加入了这种offset池化方法，然后把9种池化结果，分别送入后面的网络层，最后我们的图片分类输出结果就可以得到9个预测结果(每个类别都可以得到9种概率值，然后我们对每个类别的9种概率，取其最大值，做为此类别的概率预测值)</p>
 
       
@@ -751,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">offset max-pooling</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#offset-max-pooling"><span class="nav-number">1.</span> <span class="nav-text">offset max-pooling</span></a></li></ol></div>
             
 
           </div>

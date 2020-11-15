@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="Word Embedding ¶Introduction ¶引入One-Hot 自然语言处理主要研究语言信息，语言（词、句子等）属于人类认知过程中产生的高层认知抽象实体，而语言和图像属于较低层的元时输入信号。语音、图像和数据表达不需要特殊的编码，并且有天生的顺序性和关联性，近似的数字会被认为是近似的特征集合。正如图像是由像素的组成，语言是由词或字组成，可以把语言转换为词或字表示的结合。 然后，不同">
+<meta name="description" content="Word EmbeddingIntroduction引入One-Hot自然语言处理主要研究语言信息，语言（词、句子等）属于人类认知过程中产生的高层认知抽象实体，而语言和图像属于较低层的元时输入信号。语音、图像和数据表达不需要特殊的编码，并且有天生的顺序性和关联性，近似的数字会被认为是近似的特征集合。正如图像是由像素的组成，语言是由词或字组成，可以把语言转换为词或字表示的结合。然后，不同于像素的大小">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Word Embedding">
 <meta property="og:url" content="www.strivezs.com/2020/04/04/Word%20Embedding/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="Word Embedding ¶Introduction ¶引入One-Hot 自然语言处理主要研究语言信息，语言（词、句子等）属于人类认知过程中产生的高层认知抽象实体，而语言和图像属于较低层的元时输入信号。语音、图像和数据表达不需要特殊的编码，并且有天生的顺序性和关联性，近似的数字会被认为是近似的特征集合。正如图像是由像素的组成，语言是由词或字组成，可以把语言转换为词或字表示的结合。 然后，不同">
+<meta property="og:description" content="Word EmbeddingIntroduction引入One-Hot自然语言处理主要研究语言信息，语言（词、句子等）属于人类认知过程中产生的高层认知抽象实体，而语言和图像属于较低层的元时输入信号。语音、图像和数据表达不需要特殊的编码，并且有天生的顺序性和关联性，近似的数字会被认为是近似的特征集合。正如图像是由像素的组成，语言是由词或字组成，可以把语言转换为词或字表示的结合。然后，不同于像素的大小">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/YorrIg.png">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/AlftfF.png">
@@ -451,37 +451,24 @@
       
 
       
-        <h1>Word Embedding</h1>
-<h2 id="Introduction"><a class="header-anchor" href="#Introduction">¶</a>Introduction</h2>
-<h3 id="引入One-Hot"><a class="header-anchor" href="#引入One-Hot">¶</a>引入One-Hot</h3>
-<p>自然语言处理主要研究语言信息，语言（词、句子等）属于人类认知过程中产生的高层认知抽象实体，而语言和图像属于较低层的元时输入信号。语音、图像和数据表达不需要特殊的编码，并且有天生的顺序性和关联性，近似的数字会被认为是近似的特征集合。正如图像是由像素的组成，语言是由词或字组成，可以把语言转换为词或字表示的结合。<br>
-然后，不同于像素的大小天生具有色彩信息，词的数值大小很难表征词的含义。最后，人们为了方便，<strong>采用One-Hot编码格式</strong>，以一个只有10个不同词的语料库为例，我们可以用一个10位的向量来表示每个词，该向量在词下标位置的值为1，而其他全部为0.</p>
+        <h1 id="Word-Embedding"><a href="#Word-Embedding" class="headerlink" title="Word Embedding"></a>Word Embedding</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="引入One-Hot"><a href="#引入One-Hot" class="headerlink" title="引入One-Hot"></a>引入One-Hot</h3><p>自然语言处理主要研究语言信息，语言（词、句子等）属于人类认知过程中产生的高层认知抽象实体，而语言和图像属于较低层的元时输入信号。语音、图像和数据表达不需要特殊的编码，并且有天生的顺序性和关联性，近似的数字会被认为是近似的特征集合。正如图像是由像素的组成，语言是由词或字组成，可以把语言转换为词或字表示的结合。<br>然后，不同于像素的大小天生具有色彩信息，词的数值大小很难表征词的含义。最后，人们为了方便，<strong>采用One-Hot编码格式</strong>，以一个只有10个不同词的语料库为例，我们可以用一个10位的向量来表示每个词，该向量在词下标位置的值为1，而其他全部为0.</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一个词：[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">第二个词: [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">·····</span><br><span class="line">第十个词：[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
-<p>这种词的表示方法十分简单，也很容易实现，充分解决了分类器难以处理属性数据的问题。但是它的<strong>缺点</strong>也很明显：冗余太多、无法体现词与词之间的关系。可以看到，这10个词的表示，彼此之间都是相互正交的。同时，随着词数的，One-Hot向量的维度也会急剧增长，如果有3000个不同的词，那么每个One-Hot词向量都是3k维，而且只有一个位置为1，其余位置都是0。（<strong>这里感觉为了节省的可以采用（300，3000）来表示长度为3k的向量第300个位置上为1，其余都为0</strong>）。虽然One-Hot编码格式在传统任务上表现出色，但是由于词的维度太高了，应用在深度学习上时，常常出现维度灾难，<ins>所以在深度学习中一般采用词向量的表示形式</ins>。</p>
-<h3 id="引入词向量"><a class="header-anchor" href="#引入词向量">¶</a>引入词向量</h3>
-<p>词向量(Word Vector)，也称为词嵌入(Word Embedding),并没有严格统一的定义。从概念上讲，<strong>它是指把一个维数为所有词的数量的高维空间(几万几十万个字)嵌入一个维数低得多的连续向量空间(128或256维)中，每个单词或词组被映射为实数域上的向量</strong>。<br>
-词向量有专门的训练方法，这里不会细讲，感兴趣的可以学习斯坦福的CS224系列课程。这里只需要了解<strong>词向量最重要的特征是相似词的词向量距离相近。每个词的词向量维度都是固定的，每一维都是连续的数。</strong></p>
+<p>这种词的表示方法十分简单，也很容易实现，充分解决了分类器难以处理属性数据的问题。但是它的<strong>缺点</strong>也很明显：冗余太多、无法体现词与词之间的关系。可以看到，这10个词的表示，彼此之间都是相互正交的。同时，随着词数的，One-Hot向量的维度也会急剧增长，如果有3000个不同的词，那么每个One-Hot词向量都是3k维，而且只有一个位置为1，其余位置都是0。（<strong>这里感觉为了节省的可以采用（300，3000）来表示长度为3k的向量第300个位置上为1，其余都为0</strong>）。虽然One-Hot编码格式在传统任务上表现出色，但是由于词的维度太高了，应用在深度学习上时，常常出现维度灾难，++所以在深度学习中一般采用词向量的表示形式++。</p>
+<h3 id="引入词向量"><a href="#引入词向量" class="headerlink" title="引入词向量"></a>引入词向量</h3><p>词向量(Word Vector)，也称为词嵌入(Word Embedding),并没有严格统一的定义。从概念上讲，<strong>它是指把一个维数为所有词的数量的高维空间(几万几十万个字)嵌入一个维数低得多的连续向量空间(128或256维)中，每个单词或词组被映射为实数域上的向量</strong>。<br>词向量有专门的训练方法，这里不会细讲，感兴趣的可以学习斯坦福的CS224系列课程。这里只需要了解<strong>词向量最重要的特征是相似词的词向量距离相近。每个词的词向量维度都是固定的，每一维都是连续的数。</strong></p>
 <p>举个例子，如果我们用二维的词向量表示十个词：足球、比赛、教练、队伍、裤子、长裤、上衣和编制、折叠、拉，那么可视化出来的结果如下所示:</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/YorrIg.png" alt="figure.1"></p>
 <p>可以看出，<strong>同类词彼此聚集，相互之间的距离较近</strong>。</p>
 <p>由此可见，用词向量表示词，不仅所有维度会变少（十维变为二维），其中也会包含更合理的语义信息。除了相邻词距离更近之外，词向量还有不少有趣的特征，如下图所示：</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/AlftfF.png" alt="figure.2"></p>
 <p>虚线的的两端分别是男性词和女性词，例如：叔叔和阿姨、兄弟和姐妹、先生和女士。可以看出，虚线的方向和长度都差不多，因此可以认为：国王-女王≈男人-女人，即国王可以看成男性君主，女王可以看出女性君主，国王减去男性，只剩下君主的特征，女王减去女性，也只剩下君主的特征，所以这二者近似。</p>
-<h2 id="具体介绍"><a class="header-anchor" href="#具体介绍">¶</a>具体介绍</h2>
-<p>英文一般是用一个向量表示一个单词，也有使用一个向量表示一个字母的情况。中文同样也有一个词或者一个字的词向量表示，与英文采用空格来区分词不同，中文的词与词之间没有间隔，因此**如果采用基于词的词向量表示，需要先进行中文分词*。</p>
+<h2 id="具体介绍"><a href="#具体介绍" class="headerlink" title="具体介绍"></a>具体介绍</h2><p>英文一般是用一个向量表示一个单词，也有使用一个向量表示一个字母的情况。中文同样也有一个词或者一个字的词向量表示，与英文采用空格来区分词不同，中文的词与词之间没有间隔，因此<em>*如果采用基于词的词向量表示，需要先进行中文分词</em>。</p>
 <p>这里只对词向量做一个概要性的介绍，让我们有一个直观地认知。我们只需要掌握词向量技术用向量表证词，相似词之间的向量距离近，</p>
-<h3 id="PyTorch使用"><a class="header-anchor" href="#PyTorch使用">¶</a>PyTorch使用</h3>
-<p>在PyTorch中，针对词向量有一个专门的层<strong>nn.Embedding</strong>，<ins>用来实现词与词向量的映射</ins>。nn.Embedding具有一个权重，形状是(num_words,embedding_dim)，例如：对上述句子中的10个词，每个词用2维向量表征，对应的权重就是一个10×2的矩阵。<strong>Embedding的输入形状是N×W，N是batch size， W是序列长度，输出的形状是N×W×embedding_dim.输入必须是LongTensor，FloatTensor须通过tensor.long（）方法转成LongTensor</strong>。</p>
+<h3 id="PyTorch使用"><a href="#PyTorch使用" class="headerlink" title="PyTorch使用"></a>PyTorch使用</h3><p>在PyTorch中，针对词向量有一个专门的层<strong>nn.Embedding</strong>，++用来实现词与词向量的映射++。nn.Embedding具有一个权重，形状是(num_words,embedding_dim)，例如：对上述句子中的10个词，每个词用2维向量表征，对应的权重就是一个10×2的矩阵。<strong>Embedding的输入形状是N×W，N是batch size， W是序列长度，输出的形状是N×W×embedding_dim.输入必须是LongTensor，FloatTensor须通过tensor.long（）方法转成LongTensor</strong>。</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># coding:utf8</span><br><span class="line"><span class="keyword">import</span> torch as t</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line">embedding = t.nn.Embedding(<span class="number">10</span>,<span class="number">2</span>) # 十个词，每个词用二维词向量表示</span><br><span class="line">input = t.arrange(<span class="number">0</span>,<span class="number">6</span>).view(<span class="number">3</span>,<span class="number">2</span>).long() # 三个句子，每个句子有两个词 N为<span class="number">3</span> W为<span class="number">2</span></span><br><span class="line">input = t.<span class="built_in">auto</span>grad.Variable(input)</span><br><span class="line">output = embedding(input)</span><br><span class="line">print(output.size())</span><br><span class="line">print(embedding.weight.size())</span><br></pre></td></tr></table></figure>
-<p>输出:</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">3</span>L,<span class="number">2</span>L,<span class="number">2</span>L)</span><br><span class="line">(<span class="number">10</span>L,<span class="number">2</span>L)</span><br></pre></td></tr></table></figure>
+<p>输出:<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">3</span>L,<span class="number">2</span>L,<span class="number">2</span>L)</span><br><span class="line">(<span class="number">10</span>L,<span class="number">2</span>L)</span><br></pre></td></tr></table></figure></p>
 <p>需要注意的是，Embedding的权重也是可以训练的，既可以采用随机初始化，也可以采用预训练好的词向量初始化。</p>
-<h2 id="简单总结"><a class="header-anchor" href="#简单总结">¶</a>简单总结</h2>
-<p>可以使用torch.nn.Embedding(num_words,embedding_dim)来生成一个大小为num_words×embedding_dim词向量，<br>
-其中共有num_words个单词，每个单词用一个二维词向量表示 类似横纵坐标</p>
-<p>输入到embedding中的tensor必须是LongTensor，如果是FloatTensor必须用long（）转换<br>
-Embedding的输入为N×W N是batch_size W是每个batch的单词数 如输入三个句子 每个句子包含两个单词<br>
-Embedding的输出为N×W×embedding 即为输出还是三个句子 每个句子仍然是两个单词表示 但是每个单词则用一个二维向量表示</p>
+<h2 id="简单总结"><a href="#简单总结" class="headerlink" title="简单总结"></a>简单总结</h2><p>可以使用torch.nn.Embedding(num_words,embedding_dim)来生成一个大小为num_words×embedding_dim词向量，<br>其中共有num_words个单词，每个单词用一个二维词向量表示 类似横纵坐标 </p>
+<p>输入到embedding中的tensor必须是LongTensor，如果是FloatTensor必须用long（）转换<br>Embedding的输入为N×W N是batch_size W是每个batch的单词数 如输入三个句子 每个句子包含两个单词<br>Embedding的输出为N×W×embedding 即为输出还是三个句子 每个句子仍然是两个单词表示 但是每个单词则用一个二维向量表示</p>
 
       
     </div>
@@ -748,7 +735,7 @@ Embedding的输出为N×W×embedding 即为输出还是三个句子 每个句子
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Word Embedding</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">¶Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入One-Hot"><span class="nav-number">1.1.1.</span> <span class="nav-text">¶引入One-Hot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入词向量"><span class="nav-number">1.1.2.</span> <span class="nav-text">¶引入词向量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体介绍"><span class="nav-number">1.2.</span> <span class="nav-text">¶具体介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PyTorch使用"><span class="nav-number">1.2.1.</span> <span class="nav-text">¶PyTorch使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单总结"><span class="nav-number">1.3.</span> <span class="nav-text">¶简单总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Word-Embedding"><span class="nav-number">1.</span> <span class="nav-text">Word Embedding</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入One-Hot"><span class="nav-number">1.1.1.</span> <span class="nav-text">引入One-Hot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入词向量"><span class="nav-number">1.1.2.</span> <span class="nav-text">引入词向量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体介绍"><span class="nav-number">1.2.</span> <span class="nav-text">具体介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PyTorch使用"><span class="nav-number">1.2.1.</span> <span class="nav-text">PyTorch使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单总结"><span class="nav-number">1.3.</span> <span class="nav-text">简单总结</span></a></li></ol></li></ol></div>
             
 
           </div>
