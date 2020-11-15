@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2020-11-02T08:56:22.471Z</updated>
+  <updated>2020-11-15T04:56:45.096Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Resolution 归结原理</title>
+    <link href="www.strivezs.com/2020/11/15/Resolution%20%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86/"/>
+    <id>www.strivezs.com/2020/11/15/Resolution%20%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86/</id>
+    <published>2020-11-15T04:56:45.096Z</published>
+    <updated>2020-11-15T04:56:45.096Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Resolution 归结原理</h1><h2 id="和取范式"><a class="header-anchor" href="#和取范式">¶</a>和取范式</h2><p>满足一种特殊形式的sentences，conjunction of disjunctions of literals(文字)，一个原子命题的符号A或者他前面加上一个 <code>$\neg A $</code>都称为<strong>文字</strong>。<br>disjunction of literals形式如:均用析取符号<code>$\vee$</code>连接，比如<code>$ A\vee B \vee C $</code><br>conjunction of disjunction of literals(和取范式): 多个disjunction of literals用合取符号连接<code>$\wedge</code>，比如:<code>$(A\vee B\vee C)\wedge (D\vee \neg E)$</code><br>上面和的和取范式称为CNF。</p><p>语义等价<code>$\equiv$</code> 表示两个sentences可以互相转换(语义等价)，比如<code>$A \equiv B$</code>, 可以参考knowledge 1中提供的语义等价公式表来进行转换。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/wquYOk.png" alt="figure.1"></p><p>任何范式都是可以转换其他语义等价的合取范式。<br>将knowledge base中的任意一个sentence转换为一个CNF(通过语义等价)，然后将合取去掉，分成一个个disjunction of literals，将分拆开的DOL(disjunction of literals简写)组成一个新的knowledge base。这样将一个原来的一个knowledge base转换为了一个新的 knowledge base(KB简写)。<br>即<code>$KB \equiv KB' $</code></p><h2 id="归结"><a class="header-anchor" href="#归结">¶</a>归结</h2><p><code>$A, \neg A $</code>称为互补文字.</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/hUS3vR.png" alt="figure.2"></p><p>若<code>$ l_{i} $</code>和<code>$ m_{j} $</code>为互补文字，则可以把<code>$ l_{1}\vee l_{i}, m_{j}\vee m_{1} $</code>使用归结原理可以将<code>$ l_{i} $</code>和<code>$ m_{j} $</code>去掉可以化简为<code>$l_{1}\vee m_{1} $</code>从上述的式子中去掉.(<strong>归结规则</strong>)<br>每一次归结只能拿一对来进行归结，然后下一次还可以拿另外一对进行归结.</p><p>对于一个KB可以将使用等价规则将每一个sentence转换为和取范式，然后再将和取范式转化为一个个全是析取的式子(DOL)组成一个新的KB’,然后对于KB’中的DOL进行归结可以得到一个新的DOL，加入到KB’中。</p><h2 id="归结例子"><a class="header-anchor" href="#归结例子">¶</a>归结例子</h2><p><img src="https://gitee.com/zyp521/upload_image/raw/master/cHfQRp.png" alt="figure.3"></p><p><code>$S={KB,\neg \alpha} $</code>, 我们称S为Resolution closure</p><p><strong>具体流程</strong>:将alpha变为<code>$\neg \alpha $</code>然后加入到KB(通过语义等价转换为一个和取范式然后生成一个KB’)中组成一个新的集合KB’，然后在这基础上进行归结, 由于归结是有限,总会有停止情况，如果最后能够归结出一个空子句则表示<code>$KB\models \alpha $</code>，对于上述的归结，每归结一次将生成的句子放到S中，然后直到停止之后，得到的就是RC(S)，如果要证明<code>$KB\models \alpha $</code>，则RC(S)中一定存在一个空语句。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/xL4Mkd.png" alt="figure.4"></p><p>上述过程证明了规则是可靠(sound)的。</p><p>S(是KB和<code>$\neg \alpha$</code>)是永假的，则表示不存在一个真值使得每一个sentences为真，若S为永假，则可以推出RC(S)中包含一个空语句。</p><p>完备性可靠性得证。</p><h2 id="A-Search"><a class="header-anchor" href="#A-Search">¶</a>A* Search</h2><p>设计一个算法，任意给一个KB能否推出a。</p><ul><li>初始状态<code>${KB,\neg a}$</code></li><li>找两个子句归结得到一个新的<code>${KB,\neg a,new sentences}$</code>（可以分成很多种情况，类似一个树划分为无数个节点）</li><li>然后进行继续划分节点搜索</li><li>直到首次到达终止状态</li></ul><h2 id="Horn-and-Definite-Clauses"><a class="header-anchor" href="#Horn-and-Definite-Clauses">¶</a>Horn and Definite Clauses</h2><ul><li>正文字，负文字（带否符号的）</li><li>Defineite clauses: 很多个文字的析取，而且这些文字中有且仅有一个是正的</li><li>Horn Clauses： 很多文字的析取，至多有一个正的，也可以全是负的</li><li>两个Horn Clauses进行归结得到的Clauses一定是一个Hron Clauses</li><li>析取为disjunction，合取为conjunction</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;Resolution 归结原理&lt;/h1&gt;
+&lt;h2 id=&quot;和取范式&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#和取范式&quot;&gt;¶&lt;/a&gt;和取范式&lt;/h2&gt;
+&lt;p&gt;满足一种特殊形式的sentences，conjunction of disjunction
+      
+    
+    </summary>
+    
+    
+      <category term="高级人工智能" scheme="www.strivezs.com/categories/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+      <category term="知识点" scheme="www.strivezs.com/categories/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    
+    
+      <category term="Resolution" scheme="www.strivezs.com/tags/Resolution/"/>
+    
+  </entry>
   
   <entry>
     <title>Cliclick 简单实用</title>
@@ -616,35 +646,6 @@
     
     
       <category term="GA" scheme="www.strivezs.com/tags/GA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>极大似然估计</title>
-    <link href="www.strivezs.com/2020/06/25/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"/>
-    <id>www.strivezs.com/2020/06/25/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/</id>
-    <published>2020-06-25T09:10:22.814Z</published>
-    <updated>2020-06-25T09:10:22.814Z</updated>
-    
-    <content type="html"><![CDATA[<h1>极大似然估计</h1><h2 id="贝叶斯决策"><a class="header-anchor" href="#贝叶斯决策">¶</a>贝叶斯决策</h2><p>首先来看贝叶斯分类, 贝叶斯公式如下：</p><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venlwNTIxL3VwbG9hZF9pbWFnZS9yYXcvbWFzdGVyL0F4bjdhSy5wbmc?x-oss-process=image/format,png" alt="figure.1"></p><p>其中 <strong>p(w) 为先验概率</strong>，表示每种类别分布的概率; <strong>p(x|w)为类条件概率</strong>, 表示在某种类别w的前提下, 某件事情x发生的概率; 而P(w|x) 为后验概率，表示某事x发生了，并且它属于某一类别w的概率，有了这个后验概率，我们就可以对样本进行分类。<strong>后验概率越大，说明某事物属于这个类别的可能性越大，我们越有理由把它x归到这个类别w下。</strong></p><p>这样我们就可以根绝p(w) p(x) p(x|w)来计算出p(w|x)从而得到x的类别划分.</p><h2 id="问题引出"><a class="header-anchor" href="#问题引出">¶</a>问题引出</h2><p>但是在实际问题中并不都是这样幸运的, 我们能获得的数据可能只有有限数目的样本数据，而<ins>先验概率p(w)和类条件概率（各类的总体分布）p(x|w)都是未知的</ins>.根据仅有的样本数据进行分类时，一种可行的办法是我们需要先对先验概率和类条件概率进行评估，然后在套用贝叶斯分类器。</p><p><strong>先验概率的估计较简单</strong>:1.每个样本所属的自然状态都是已知的（有点监督学习）2.依靠经验 3.用训练样本中各类出现的频率估计</p><p>类条件概率的估计很难，原因包括：1.概率密度函数包含了一个随机变量的全部信息；2.样本数据可能不多；3.特征向量x的维度可能很大等等<br>总之要直接估计类条件概率的密度函数很难。解决办法：<strong>把估计完全未知的概率密度 p(x|w)转换为估计参数。这样就将概率密度估计问题转化为了参数估计问题</strong> ==极大似然估计就是一种参数估计方法==。 当然，概率密度函数的选取很重要，模型正确，在样本区域无穷时，我们会得到较准的估计值，如果模型都错了，那估计半天的参数，肯定没有意义了。</p><h2 id="重要前提"><a class="header-anchor" href="#重要前提">¶</a>重要前提</h2><p><strong>训练样本的分布能代表样本的真实分布。每个样本集中的样本都是所谓<ins>独立同分布额随机变量</ins>，且有充分的训练样本。</strong></p><h2 id="极大似然估计"><a class="header-anchor" href="#极大似然估计">¶</a>极大似然估计</h2><p>原理图：</p><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venlwNTIxL3VwbG9hZF9pbWFnZS9yYXcvbWFzdGVyL0VrUTU5Yy5wbmc?x-oss-process=image/format,png" alt="figure.2"></p><p><strong>似然函数(likehood function)</strong> : 联合概率密度函数 $p(D|\theta)$ 称为相对于$\left{ x_{1},x_{2},\dots ,x_{N} \right}$ 的$\theta$的似然函数. 每个x都是独立的</p><p>$$ l(\theta)=p(D|\theta)=p(x_{1},x_{2},\dots,x_{N}|\theta)=\prod_{i=1}^{N}p(x_{i}|\theta) $$</p><p>如果 $\hat{\theta}$ 是参数空间中能使似然函数 $l(\theta)$ 最大的 $\theta$ 值，则$\hat{\theta}$应该是最可能的参数值，那么$\hat{\theta}$ 就是 $\theta$ 的极大似然估计量。它的样本集的函数记作：</p><p>$$ \hat{\theta}=d(x_{1},x_{2},\dots,x_{N})=d(D)$$</p><p>$$ \hat{\theta}=d(x_{1},x_{2},\dots,x_{N}) $$ 称为极大似然函数估计值</p><h2 id="求解极大似然函数"><a class="header-anchor" href="#求解极大似然函数">¶</a>求解极大似然函数</h2><p><strong>ML估计</strong>:求是的出现该组样本的概率最大的 $\theta$ 值。</p><p>$$ \hat{\theta}=arg: \underset{\theta}{max} \prod_{i=1}^{N}p(x_{i}|\theta)$$</p><p>实际中为了便于分析，定义了<strong>对数似然函数</strong>：</p><p>$$ H(\theta)=ln:l(\theta)$$</p><p>$$ l(\theta)=p(D|\theta)=p(x_{1},x_{2},\dots,x_{N}|\theta)=\prod_{i=1}^{N}p(x_{i}|\theta) $$</p><p>$$ \hat{\theta}=arg:H(\theta)=arg: \underset{\theta}{max} \ln l(\theta)= arg: \prod_{i=1}^{N}ln:p(x_{i}|\theta)$$</p><p>1.未知参数只有一个（theta为标量）<br>在似然函数满足联系、可微的正则条件下，极大似然估计量是下面微分方程的解：</p><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venlwNTIxL3VwbG9hZF9pbWFnZS9yYXcvbWFzdGVyL0FZSU1vaC5wbmc?x-oss-process=image/format,png" alt="figure.3"></p><p>2.未知参数有多个(theta为向量)<br>则theta可表示为具有S个分量的未知向量：</p><p>$$ \theta=[\theta_{1},\theta_{2},\dots,\theta_{s}]^{T} $$</p><p>记梯度算子：</p><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venlwNTIxL3VwbG9hZF9pbWFnZS9yYXcvbWFzdGVyLzh6aVJkaC5wbmc?x-oss-process=image/format,png" alt="figure.4"></p><p>若似然函数满足连续可导的条件，则最大似然估计量就是如下方程的解.</p><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venlwNTIxL3VwbG9hZF9pbWFnZS9yYXcvbWFzdGVyL2RQbG0xaS5wbmc?x-oss-process=image/format,png" alt="figure.5"></p><p>方程的解只是一个估计值，只有在样本数趋于无限多的时候，它才会接近于真实值，</p><h2 id="例子"><a class="header-anchor" href="#例子">¶</a>例子</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venlwNTIxL3VwbG9hZF9pbWFnZS9yYXcvbWFzdGVyL0RvdTNHRC5wbmc?x-oss-process=image/format,png" alt="figure.6"></p><h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2><p><strong>求解最大似然估计量的一般步骤：</strong></p><ul><li>写出似然函数</li><li>写出对数似然函数，并整理</li><li>求对数似然函数关于标量/向量theta的导数，在上面例子中theta为向量=(u,sigma)</li><li>求解似然方程，将求导后的结果等于0 （满足dH(theta)/d theta=0</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;极大似然估计&lt;/h1&gt;
-&lt;h2 id=&quot;贝叶斯决策&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#贝叶斯决策&quot;&gt;¶&lt;/a&gt;贝叶斯决策&lt;/h2&gt;
-&lt;p&gt;首先来看贝叶斯分类, 贝叶斯公式如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://imgcon
-      
-    
-    </summary>
-    
-    
-      <category term="Math" scheme="www.strivezs.com/categories/Math/"/>
-    
-    
-      <category term="极大似然估计" scheme="www.strivezs.com/tags/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"/>
     
   </entry>
   

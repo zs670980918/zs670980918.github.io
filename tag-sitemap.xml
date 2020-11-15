@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>www.strivezs.com/tags/Resolution/</loc>
+        <lastmod>2020-11-15T04:56:45.096Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/Cliclick/</loc>
         <lastmod>2020-11-02T08:56:22.471Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -906,14 +913,14 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/OS/</loc>
+        <loc>www.strivezs.com/tags/%25E8%25B0%2583%25E5%25BA%25A6/</loc>
         <lastmod>2018-07-02T05:57:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/%25E8%25B0%2583%25E5%25BA%25A6/</loc>
+        <loc>www.strivezs.com/tags/OS/</loc>
         <lastmod>2018-07-02T05:57:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
