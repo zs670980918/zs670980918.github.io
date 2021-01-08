@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="Mac+PyCharm+Anaconda配置QtDesigner打开Pycharm-&gt;Perference-&gt;Tools-&gt;ExternalTools 添加下面两个外部工具。 配置QtDesigner首先说明一下由于我这里是使用Anaconda进行配置的，因此我的路径可能和你默认使用的路径不同，下面我给出两种路径:12345Anaconda:~opt&#x2F;anaconda3&#x2F;bin&#x2F;">
+<meta name="description" content="Mac+PyCharm+Anaconda配置QtDesigner 打开Pycharm-&gt;Perference-&gt;Tools-&gt;ExternalTools 添加下面两个外部工具。 ¶配置QtDesigner 首先说明一下由于我这里是使用Anaconda进行配置的，因此我的路径可能和你默认使用的路径不同，下面我给出两种路径: 12345Anaconda:~opt&#x2F;anaconda3&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac+PyCharm+Anaconda配置QtDesigner.md">
 <meta property="og:url" content="www.strivezs.com/2020/06/17/Mac+PyCharm+Anaconda%E9%85%8D%E7%BD%AEQtDesigner.md/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="Mac+PyCharm+Anaconda配置QtDesigner打开Pycharm-&gt;Perference-&gt;Tools-&gt;ExternalTools 添加下面两个外部工具。 配置QtDesigner首先说明一下由于我这里是使用Anaconda进行配置的，因此我的路径可能和你默认使用的路径不同，下面我给出两种路径:12345Anaconda:~opt&#x2F;anaconda3&#x2F;bin&#x2F;">
+<meta property="og:description" content="Mac+PyCharm+Anaconda配置QtDesigner 打开Pycharm-&gt;Perference-&gt;Tools-&gt;ExternalTools 添加下面两个外部工具。 ¶配置QtDesigner 首先说明一下由于我这里是使用Anaconda进行配置的，因此我的路径可能和你默认使用的路径不同，下面我给出两种路径: 12345Anaconda:~opt&#x2F;anaconda3&#x2F;">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/H2IeEC.png">
 <meta property="og:image" content="https://gitee.com/zyp521/upload_image/raw/master/GQ8xLh.png">
@@ -418,19 +418,24 @@
       
 
       
-        <h1 id="Mac-PyCharm-Anaconda配置QtDesigner"><a href="#Mac-PyCharm-Anaconda配置QtDesigner" class="headerlink" title="Mac+PyCharm+Anaconda配置QtDesigner"></a>Mac+PyCharm+Anaconda配置QtDesigner</h1><p>打开Pycharm-&gt;Perference-&gt;Tools-&gt;ExternalTools 添加下面两个外部工具。</p>
-<h2 id="配置QtDesigner"><a href="#配置QtDesigner" class="headerlink" title="配置QtDesigner"></a>配置QtDesigner</h2><p>首先说明一下由于我这里是使用Anaconda进行配置的，因此我的路径可能和你默认使用的路径不同，下面我给出两种路径:<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Anaconda:</span></span><br><span class="line">~opt<span class="meta-keyword">/anaconda3/</span>bin/Designer.app</span><br><span class="line"></span><br><span class="line">Mac默认路径：</span><br><span class="line"><span class="meta-keyword">/usr/</span>localCellar<span class="meta-keyword">/qt/</span><span class="number">5.10</span><span class="number">.1</span>/libexec</span><br></pre></td></tr></table></figure></p>
+        <h1>Mac+PyCharm+Anaconda配置QtDesigner</h1>
+<p>打开Pycharm-&gt;Perference-&gt;Tools-&gt;ExternalTools 添加下面两个外部工具。</p>
+<h2 id="配置QtDesigner"><a class="header-anchor" href="#配置QtDesigner">¶</a>配置QtDesigner</h2>
+<p>首先说明一下由于我这里是使用Anaconda进行配置的，因此我的路径可能和你默认使用的路径不同，下面我给出两种路径:</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Anaconda:</span></span><br><span class="line">~opt<span class="meta-keyword">/anaconda3/</span>bin/Designer.app</span><br><span class="line"></span><br><span class="line">Mac默认路径：</span><br><span class="line"><span class="meta-keyword">/usr/</span>localCellar<span class="meta-keyword">/qt/</span><span class="number">5.10</span><span class="number">.1</span>/libexec</span><br></pre></td></tr></table></figure>
 <p>下面是QtDesigner的配置信息，按照下图配置即可：</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/H2IeEC.png" alt="figure.1"></p>
-<h2 id="配置PyUIC"><a href="#配置PyUIC" class="headerlink" title="配置PyUIC"></a>配置PyUIC</h2><p>下面添加将.ui文件转换为.py文件的外部工具。</p>
+<h2 id="配置PyUIC"><a class="header-anchor" href="#配置PyUIC">¶</a>配置PyUIC</h2>
+<p>下面添加将.ui文件转换为.py文件的外部工具。</p>
 <p>具体配置如下图：</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/GQ8xLh.png" alt="figure.2"></p>
 <ul>
 <li>Program：选择python就可以了地址为：~/opt/anaconda3/bin/python3.7</li>
-<li>Arguments：-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</li>
+<li>Arguments：-m PyQt5.uic.pyuic $FileName$ -o $<a href="http://FileNameWithoutExtension$.py">FileNameWithoutExtension$.py</a></li>
 <li>Working directory：$ProjectFileDir$</li>
 </ul>
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>直接在Tools-&gt;Externel Tools中选择QtDesigner。  </p>
+<h2 id="启动"><a class="header-anchor" href="#启动">¶</a>启动</h2>
+<p>直接在Tools-&gt;Externel Tools中选择QtDesigner。</p>
 <p><img src="https://gitee.com/zyp521/upload_image/raw/master/d0dsHg.png" alt="figure.3"></p>
 <p>保存的文件一定要放在工作目录下，然后在选择PyUIC外部工具将ui选择为py文件。</p>
 
@@ -579,7 +584,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">294</span>
+                  <span class="site-state-item-count">296</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -590,7 +595,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">217</span>
+                  <span class="site-state-item-count">219</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -601,7 +606,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">214</span>
+                  <span class="site-state-item-count">217</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -693,7 +698,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac-PyCharm-Anaconda配置QtDesigner"><span class="nav-number">1.</span> <span class="nav-text">Mac+PyCharm+Anaconda配置QtDesigner</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置QtDesigner"><span class="nav-number">1.1.</span> <span class="nav-text">配置QtDesigner</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置PyUIC"><span class="nav-number">1.2.</span> <span class="nav-text">配置PyUIC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-number">1.3.</span> <span class="nav-text">启动</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Mac+PyCharm+Anaconda配置QtDesigner</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置QtDesigner"><span class="nav-number">1.1.</span> <span class="nav-text">¶配置QtDesigner</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置PyUIC"><span class="nav-number">1.2.</span> <span class="nav-text">¶配置PyUIC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-number">1.3.</span> <span class="nav-text">¶启动</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -984,7 +989,7 @@ if(canvas.getContext){
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

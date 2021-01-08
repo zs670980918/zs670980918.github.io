@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="描述 isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。 _isinstance()_ _与_ _type()_ _区别：_  _type()_ _不会认为子类是一种父类类型，不考虑继承关系。_ _isinstance()_ _会认为子类是一种父类类型，考虑继承关系。_  _如果要判断两个类型是否相同推荐使用_ _isinstance()__。_ 语法 以下是">
+<meta name="description" content="描述 isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。 isinstance() 与 type() 区别：  type() 不会认为子类是一种父类类型，不考虑继承关系。 isinstance() 会认为子类是一种父类类型，考虑继承关系。  如果要判断两个类型是否相同推荐使用 isinstance()__。 语法 以下是 isinstance() 方法的语法:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python isinstance() 函数">
 <meta property="og:url" content="www.strivezs.com/2018/05/27/python-isinstance-han-shu-1/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="描述 isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。 _isinstance()_ _与_ _type()_ _区别：_  _type()_ _不会认为子类是一种父类类型，不考虑继承关系。_ _isinstance()_ _会认为子类是一种父类类型，考虑继承关系。_  _如果要判断两个类型是否相同推荐使用_ _isinstance()__。_ 语法 以下是">
+<meta property="og:description" content="描述 isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。 isinstance() 与 type() 区别：  type() 不会认为子类是一种父类类型，不考虑继承关系。 isinstance() 会认为子类是一种父类类型，考虑继承关系。  如果要判断两个类型是否相同推荐使用 isinstance()__。 语法 以下是 isinstance() 方法的语法:">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/05/u407244128253124607fm27gp0.jpg">
 <meta property="article:published_time" content="2018-05-27T05:09:44.000Z">
@@ -450,19 +450,21 @@
       
 
       
-        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/u407244128253124607fm27gp0.jpg" alt=""> <strong>描述</strong> isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。 _isinstance()_ _与_ _type()_ _区别：_</p>
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/05/u407244128253124607fm27gp0.jpg" alt=""> <strong>描述</strong> isinstance() 函数来判断一个对象是否是一个已知的类型，类似 type()。 <em>isinstance()</em> <em>与</em> <em>type()</em> <em>区别：</em></p>
 <ul>
-<li>_type()_ _不会认为子类是一种父类类型，不考虑继承关系。_</li>
-<li>_isinstance()_ _会认为子类是一种父类类型，考虑继承关系。_</li>
+<li><em>type()</em> <em>不会认为子类是一种父类类型，不考虑继承关系。</em></li>
+<li><em>isinstance()</em> <em>会认为子类是一种父类类型，考虑继承关系。</em></li>
 </ul>
-<p>_如果要判断两个类型是否相同推荐使用_ _isinstance()__。_ <strong>语法</strong> 以下是 isinstance() 方法的语法: isinstance(object, classinfo) <strong>参数</strong></p>
+<p><em>如果要判断两个类型是否相同推荐使用</em> <em>isinstance()__。</em> <strong>语法</strong> 以下是 isinstance() 方法的语法: isinstance(object, classinfo) <strong>参数</strong></p>
 <ul>
-<li>object — 实例对象。</li>
-<li>classinfo — 可以是直接或间接类名、基本类型或者有它们组成的元组。</li>
+<li>object – 实例对象。</li>
+<li>classinfo – 可以是直接或间接类名、基本类型或者有它们组成的元组。</li>
 </ul>
-<p><strong>返回值</strong> 如果对象的类型与参数二的类型（classinfo）相同则返回 True，否则返回 False。。 <strong>实例</strong> 以下展示了使用 isinstance 函数的实例：<br><code>a=2
-print(isinstance(a,int))
-print(isinstance(a,str))</code><br>结果 第一个返回True 第二个返回False <strong>type()</strong> <strong>与</strong> <strong>isinstance()**</strong>区别：**<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="symbol">A: <span class="symbol">pass</span></span> <span class="symbol">class</span> <span class="symbol">B</span>(<span class="symbol">A</span>):</span><br><span class="line"></span><br><span class="line">     <span class="symbol">pass</span> <span class="symbol">isinstance</span>(<span class="symbol">A</span>(), <span class="symbol">A</span>) </span><br><span class="line"></span><br><span class="line"><span class="symbol">type</span>(<span class="symbol">A</span>()) == <span class="symbol">A</span> </span><br><span class="line"></span><br><span class="line"><span class="symbol">isinstance</span>(<span class="symbol">B</span>(), <span class="symbol">A</span>)</span><br></pre></td></tr></table></figure><br>结果： 第一个返回True 第二个返回False 第三个返回True   本文参考了python菜鸟教程中的文章，感谢该博主提供的知识。</p>
+<p><strong>返回值</strong> 如果对象的类型与参数二的类型（classinfo）相同则返回 True，否则返回 False。。 <strong>实例</strong> 以下展示了使用 isinstance 函数的实例：<br>
+<code>a=2 print(isinstance(a,int)) print(isinstance(a,str))</code><br>
+结果 第一个返回True 第二个返回False <strong>type()</strong> <strong>与</strong> **isinstance()**<strong>区别：</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="symbol">A: <span class="symbol">pass</span></span> <span class="symbol">class</span> <span class="symbol">B</span>(<span class="symbol">A</span>):</span><br><span class="line"></span><br><span class="line">     <span class="symbol">pass</span> <span class="symbol">isinstance</span>(<span class="symbol">A</span>(), <span class="symbol">A</span>) </span><br><span class="line"></span><br><span class="line"><span class="symbol">type</span>(<span class="symbol">A</span>()) == <span class="symbol">A</span> </span><br><span class="line"></span><br><span class="line"><span class="symbol">isinstance</span>(<span class="symbol">B</span>(), <span class="symbol">A</span>)</span><br></pre></td></tr></table></figure>
+<p>结果： 第一个返回True 第二个返回False 第三个返回True   本文参考了python菜鸟教程中的文章，感谢该博主提供的知识。</p>
 
       
     </div>
@@ -606,7 +608,7 @@ print(isinstance(a,str))</code><br>结果 第一个返回True 第二个返回Fal
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">294</span>
+                  <span class="site-state-item-count">296</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -617,7 +619,7 @@ print(isinstance(a,str))</code><br>结果 第一个返回True 第二个返回Fal
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">217</span>
+                  <span class="site-state-item-count">219</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -628,7 +630,7 @@ print(isinstance(a,str))</code><br>结果 第一个返回True 第二个返回Fal
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">214</span>
+                  <span class="site-state-item-count">217</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -995,7 +997,7 @@ if(canvas.getContext){
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

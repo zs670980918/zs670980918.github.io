@@ -75,12 +75,12 @@
 
 
 
-<meta name="description" content="因为最近在进行操作系统实验，涉及到了C语言多线程的实现，因此就写一片博文来讲一下。同样这个对于C++也适用。 首先要引用pthread.h 头文件。   声明一个线程变量： 格式：pthread_t 线程名（ps：这里也可以是一个线程组）   建立一个线程： 格式：pthread_create（） pthread_create(pthread_t *restrict tidp,const pth">
+<meta name="description" content="因为最近在进行操作系统实验，涉及到了C语言多线程的实现，因此就写一片博文来讲一下。同样这个对于C++也适用。 首先要引用pthread.h 头文件。   声明一个线程变量： 格式：pthread_t 线程名（ps：这里也可以是一个线程组）   建立一个线程： 格式：pthread_create（） pthread_create(pthread_t *restrict tidp,const pth">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言使用多线程分析和例子">
 <meta property="og:url" content="www.strivezs.com/2018/04/11/c-yu-yan-shi-yong-duo-xian-cheng-fen-xi-he-li-zi-1/index.html">
 <meta property="og:site_name" content="StriveZs的博客">
-<meta property="og:description" content="因为最近在进行操作系统实验，涉及到了C语言多线程的实现，因此就写一片博文来讲一下。同样这个对于C++也适用。 首先要引用pthread.h 头文件。   声明一个线程变量： 格式：pthread_t 线程名（ps：这里也可以是一个线程组）   建立一个线程： 格式：pthread_create（） pthread_create(pthread_t *restrict tidp,const pth">
+<meta property="og:description" content="因为最近在进行操作系统实验，涉及到了C语言多线程的实现，因此就写一片博文来讲一下。同样这个对于C++也适用。 首先要引用pthread.h 头文件。   声明一个线程变量： 格式：pthread_t 线程名（ps：这里也可以是一个线程组）   建立一个线程： 格式：pthread_create（） pthread_create(pthread_t *restrict tidp,const pth">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/QQ%E5%9B%BE%E7%89%8720180411221012.png">
 <meta property="og:image" content="http://47.100.4.8/wp-content/uploads/2018/04/QQ%E5%9B%BE%E7%89%8720180411222056.png">
@@ -455,7 +455,7 @@
       
 
       
-        <p><img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ图片20180411221012.png" alt=""> 因为最近在进行操作系统实验，涉及到了C语言多线程的实现，因此就写一片博文来讲一下。同样这个对于C++也适用。 首先要引用pthread.h 头文件。   声明一个线程变量： 格式：pthread_t 线程名（ps：这里也可以是一个线程组）   建立一个线程： 格式：pthread_create（） pthread_create(<a href="http://baike.baidu.com/view/4591990.htm">pthread_t</a> *restrict tidp,const pthread_attr_t *restrict_attr,void<em>（\</em>start_rtn)(void*),void <em>restrict arg) 四个参数： 第一个参数为指向线程<a href="http://baike.baidu.com/view/390932.htm">标识符</a>的指针。 第二个参数用来设置线程属性。 第三个参数是线程运行函数的起始地址。 最后一个参数是运行函数的参数。   pthread_join用来等待一个线程的结束。 格式：pthread_join void </em>a  这个随意定义的 pthread_join (你定义的线程名,&amp;a);   线程的终止： pthread_exit()； 用来终止当前进程。   下面给出一些常用的操作函数： <img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ图片20180411222056.png" alt=""> 常用的同步函数： <img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ图片20180411222125.png" alt="">   接下来是应用实例： 我是以生产者消费者问题为实例，这里我是创建了多个生产者和消费者线程，让他们同时发生。 <img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ图片20180411222254.png" alt="">   特别注意在Linux系统下编译可能会出现： <img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ图片20180411222415.png" alt=""> 需要 在编译时使用命令： <strong>gcc a.c -o b -lpthread</strong> 这样就可以编译成功了。(<em>^▽^</em>) End！</p>
+        <p><img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ%E5%9B%BE%E7%89%8720180411221012.png" alt=""> 因为最近在进行操作系统实验，涉及到了C语言多线程的实现，因此就写一片博文来讲一下。同样这个对于C++也适用。 首先要引用pthread.h 头文件。   声明一个线程变量： 格式：pthread_t 线程名（ps：这里也可以是一个线程组）   建立一个线程： 格式：pthread_create（） pthread_create(<a href="http://baike.baidu.com/view/4591990.htm">pthread_t</a> *restrict tidp,const pthread_attr_t *restrict_attr,void*（*start_rtn)(void*),void <em>restrict arg) 四个参数： 第一个参数为指向线程<a href="http://baike.baidu.com/view/390932.htm">标识符</a>的指针。 第二个参数用来设置线程属性。 第三个参数是线程运行函数的起始地址。 最后一个参数是运行函数的参数。   pthread_join用来等待一个线程的结束。 格式：pthread_join void <em>a  这个随意定义的 pthread_join (你定义的线程名,&amp;a);   线程的终止： pthread_exit()； 用来终止当前进程。   下面给出一些常用的操作函数： <img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ%E5%9B%BE%E7%89%8720180411222056.png" alt=""> 常用的同步函数： <img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ%E5%9B%BE%E7%89%8720180411222125.png" alt="">   接下来是应用实例： 我是以生产者消费者问题为实例，这里我是创建了多个生产者和消费者线程，让他们同时发生。 <img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ%E5%9B%BE%E7%89%8720180411222254.png" alt="">   特别注意在Linux系统下编译可能会出现： <img src="http://47.100.4.8/wp-content/uploads/2018/04/QQ%E5%9B%BE%E7%89%8720180411222415.png" alt=""> 需要 在编译时使用命令： <strong>gcc a.c -o b -lpthread</strong> 这样就可以编译成功了。(</em><sup>▽</sup></em>) End！</p>
 
       
     </div>
@@ -601,7 +601,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">294</span>
+                  <span class="site-state-item-count">296</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -612,7 +612,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">217</span>
+                  <span class="site-state-item-count">219</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -623,7 +623,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">214</span>
+                  <span class="site-state-item-count">217</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -990,7 +990,7 @@ if(canvas.getContext){
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

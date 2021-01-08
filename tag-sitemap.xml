@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>www.strivezs.com/tags/OJ/</loc>
+        <lastmod>2021-01-08T10:40:20.768Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/LeetCode/</loc>
+        <lastmod>2021-01-08T10:40:20.768Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Programing/</loc>
+        <lastmod>2021-01-08T10:40:20.768Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/Resolution/</loc>
         <lastmod>2020-11-15T04:56:45.096Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,14 +38,14 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/%25E9%25BC%25A0%25E6%25A0%2587%25E5%258D%2595%25E5%2587%25BB/</loc>
+        <loc>www.strivezs.com/tags/Python/</loc>
         <lastmod>2020-11-02T08:56:22.471Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/Python/</loc>
+        <loc>www.strivezs.com/tags/%25E9%25BC%25A0%25E6%25A0%2587%25E5%258D%2595%25E5%2587%25BB/</loc>
         <lastmod>2020-11-02T08:56:22.471Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -33,6 +54,13 @@
     <url>
         <loc>www.strivezs.com/tags/Focal-Loss/</loc>
         <lastmod>2020-10-19T09:21:29.493Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/MAC/</loc>
+        <lastmod>2020-10-07T03:32:27.328Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -53,13 +81,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/Sublime/</loc>
-        <lastmod>2020-10-07T03:32:27.328Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/MAC/</loc>
         <lastmod>2020-10-07T03:32:27.328Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
