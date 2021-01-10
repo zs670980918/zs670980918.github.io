@@ -38,14 +38,14 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/Python/</loc>
+        <loc>www.strivezs.com/tags/%25E9%25BC%25A0%25E6%25A0%2587%25E5%258D%2595%25E5%2587%25BB/</loc>
         <lastmod>2020-11-02T08:56:22.471Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/%25E9%25BC%25A0%25E6%25A0%2587%25E5%258D%2595%25E5%2587%25BB/</loc>
+        <loc>www.strivezs.com/tags/Python/</loc>
         <lastmod>2020-11-02T08:56:22.471Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -808,6 +808,13 @@
     </url>
 
     <url>
+        <loc>www.strivezs.com/tags/MatLab/</loc>
+        <lastmod>2018-08-28T08:40:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/tags/%25E6%2599%25BA%25E8%2583%25BD%25E4%25BC%2598%25E5%258C%2596/</loc>
         <lastmod>2018-08-28T08:40:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -823,13 +830,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/%25E9%2581%2597%25E4%25BC%25A0%25E7%25AE%2597%25E6%25B3%2595/</loc>
-        <lastmod>2018-08-28T08:40:46.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/MatLab/</loc>
         <lastmod>2018-08-28T08:40:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
