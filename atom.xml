@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2021-01-11T12:16:42.782Z</updated>
+  <updated>2021-01-13T11:55:36.545Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode No.6</title>
+    <link href="www.strivezs.com/2021/01/13/LeetCode%E7%AC%AC%E5%85%AD%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/01/13/LeetCode%E7%AC%AC%E5%85%AD%E9%A2%98/</id>
+    <published>2021-01-13T11:55:36.545Z</published>
+    <updated>2021-01-13T11:55:36.545Z</updated>
+    
+    <content type="html"><![CDATA[<h1>LeetCode第六题</h1><p>本题的实质就是模拟，虽然AC了，但是空间复杂度有点高，时间复杂度的话就是O(len(s))主要是找不到一个合适的存储，我只能用numpy存储了，大小的话和numRow有关。</p><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。</p><p>比如输入字符串为 “PAYPALISHIRING” 行数为 3 时，排列如下：</p><p>P   A   H   N<br>A P L S I I G<br>Y   I   R<br>之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：“PAHNAPLSIIGYIR”。</p><p>请你实现这个将字符串进行指定行数变换的函数：</p><p>string convert(string s, int numRows);</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"PAYPALISHIRING"</span>, numRows = <span class="number">3</span></span><br><span class="line">输出：<span class="string">"PAHNAPLSIIGYIR"</span></span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line">输入：s = <span class="string">"PAYPALISHIRING"</span>, numRows = <span class="number">4</span></span><br><span class="line">输出：<span class="string">"PINALSIGYAHRPI"</span></span><br><span class="line">解释：</span><br><span class="line">P     I    N</span><br><span class="line">A   L S  I G</span><br><span class="line">Y A   H R</span><br><span class="line">P     I</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"A"</span>, numRows = <span class="number">1</span></span><br><span class="line">输出：<span class="string">"A"</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> &lt;= s.length &lt;= <span class="number">1000</span></span><br><span class="line">s 由英文字母（小写和大写）、',' 和 '.' 组成</span><br><span class="line"><span class="number">1</span> &lt;= numRows &lt;= <span class="number">1000</span></span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><p>稍微给个原理图:</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/O3gsTr.png" alt="figure.1"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">convert</span><span class="params">(self, s, numRows)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :type numRows: int</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        list_str = list(s)</span><br><span class="line">        length = len(s)</span><br><span class="line">        <span class="keyword">if</span> numRows == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> s</span><br><span class="line">        onePart = numRows + (numRows - <span class="number">2</span>) <span class="comment"># 一个Z字形前半部分的字符个数</span></span><br><span class="line">        numPart = int(length / onePart) + <span class="number">1</span> <span class="comment"># 总共多少个part</span></span><br><span class="line">        <span class="comment">#print(list_str)</span></span><br><span class="line"></span><br><span class="line">        storeChart = np.zeros((numRows,numPart*numRows<span class="number">-1</span>),dtype=np.string_) <span class="comment"># 用来存储Z字形变换后的字符</span></span><br><span class="line">        <span class="comment">#print(storeChart)</span></span><br><span class="line">        row = <span class="number">0</span></span><br><span class="line">        flag = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(length):  <span class="comment"># 时间复杂度为O(len(s))</span></span><br><span class="line">            <span class="keyword">if</span> numRows == <span class="number">2</span>:  <span class="comment"># 单独处理2这种情况</span></span><br><span class="line">                <span class="keyword">if</span> i % onePart == <span class="number">0</span>:</span><br><span class="line">                    storeChart[i % onePart][row] = list_str[i]</span><br><span class="line">                <span class="keyword">elif</span> i % onePart == <span class="number">1</span>:</span><br><span class="line">                    storeChart[i % onePart][row] = list_str[i]</span><br><span class="line">                    row += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> i % onePart &lt; numRows:</span><br><span class="line">                <span class="keyword">if</span> flag:</span><br><span class="line">                    row += <span class="number">1</span></span><br><span class="line">                    flag = <span class="literal">False</span></span><br><span class="line">                storeChart[i % onePart][row] = list_str[i]</span><br><span class="line">            <span class="keyword">elif</span> i % onePart &gt;= numRows:</span><br><span class="line">                row += <span class="number">1</span></span><br><span class="line">                flag = <span class="literal">True</span></span><br><span class="line">                storeChart[onePart - i % onePart][row] = list_str[i]</span><br><span class="line">        <span class="comment">#print(storeChart)</span></span><br><span class="line">        strList = storeChart.astype(np.str)</span><br><span class="line">        result = <span class="string">''</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(strList.shape[<span class="number">0</span>]):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(strList.shape[<span class="number">1</span>]):</span><br><span class="line">                <span class="keyword">if</span> strList[i][j] != <span class="string">''</span>:</span><br><span class="line">                    result += str(strList[i][j])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.convert(<span class="string">'ABCD'</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;LeetCode第六题&lt;/h1&gt;
+&lt;p&gt;本题的实质就是模拟，虽然AC了，但是空间复杂度有点高，时间复杂度的话就是O(len(s))主要是找不到一个合适的存储，我只能用numpy存储了，大小的话和numRow有关。&lt;/p&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;h
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode No.5</title>
@@ -613,40 +647,6 @@
       <category term="相似图片搜索" scheme="www.strivezs.com/tags/%E7%9B%B8%E4%BC%BC%E5%9B%BE%E7%89%87%E6%90%9C%E7%B4%A2/"/>
     
       <category term="哈希" scheme="www.strivezs.com/tags/%E5%93%88%E5%B8%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>高斯模糊(高斯滤波)</title>
-    <link href="www.strivezs.com/2020/07/30/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A(%E9%AB%98%E6%96%AF%E6%BB%A4%E6%B3%A2)/"/>
-    <id>www.strivezs.com/2020/07/30/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A(%E9%AB%98%E6%96%AF%E6%BB%A4%E6%B3%A2)/</id>
-    <published>2020-07-30T08:25:02.583Z</published>
-    <updated>2020-07-30T08:25:02.583Z</updated>
-    
-    <content type="html"><![CDATA[<h1>高斯模糊/高斯滤波</h1><p>通常，图像处理软件会提供模糊滤镜，使图片产生模糊效果。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/3QniL2.png" alt="figure.1"></p><p>模糊的算法有很多，其中有一种叫高斯模糊(Gaussian Blur)，它将正态分布用于图像处理。<br>文本介绍了高斯模糊的算法，你会看到这是一个非常简单易懂的算法。本质上，它是一种数据平滑技术(data smoothing)，适用于多个场合，图像处理恰好提供了一个直观的应用实例。</p><h2 id="高斯模糊的原理"><a class="header-anchor" href="#高斯模糊的原理">¶</a>高斯模糊的原理</h2><p>所谓模糊，可以理解成每一个像素都取周边像素的平均值。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/4mc8j0.png" alt="figure.2"></p><p>上图中，2是中间点，周边点都是1.</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/QBwSBo.png" alt="figure.3"></p><p>中间点取周围点的平均值之后，就会从2变成了1.在数值上，这是一种平滑化。在图形上，就相当于产生模糊的效果，中间点失去了细节。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/c2vU85.png" alt="figure.4"></p><p>显然计算平均值时，取值范围越大，模糊效果越强烈。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/6bxXWL.png" alt="figure.5"></p><p>上面分别是原图、模糊半径3像素，模糊半径10像素的效果。模糊半径越大，图像就越模糊。从数值角度来看，就是数值越平滑。</p><p>接下来的问题是，既然每个点都要取周边像素的平均值，那么该如何分配权重呢？<br>如果使用简单平均，显然是不合理的，因为图像都是连续的，越靠近的点关系越密切，越远离的点关系就越疏远。因此，加权平均更合理，距离越近的点，权重就越大，距离越远的点，权重就越小。</p><h2 id="正态分布的权重"><a class="header-anchor" href="#正态分布的权重">¶</a>正态分布的权重</h2><p>正态分布显然是一种可取的权重分配模式。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/coQ9OU.png" alt="figure.6"></p><p>在图形上，正态分布是一种钟形曲线，越接近中心，取值越大，越远离中心，取值越小。<br>计算平均值的时候，我们只需要将中心点作为原点，其他点按照其在正态曲线上的位置，分配权重就可以得到一个加权平均值。</p><h2 id="高斯函数"><a class="header-anchor" href="#高斯函数">¶</a>高斯函数</h2><p>上面的正态分布是一维的，但是图像都是二维的，因此我们需要二维的正态分布。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/TAEtYi.png" alt="figure.7"></p><p>正态分布的密度函数叫做高斯函数，下面是一维高斯函数的公式：</p><p><code>$ G(x)=\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}} $</code></p><p>其中，<code>$ \mu $</code>是x的均值，σ是x的方差。因为计算平均值的时候，中心店是原点，因此均值等于0。</p><p><code>$ G(x)=\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{x^{2}}{2\sigma^{2}}} $</code></p><p>根据一维高斯函数，可以推导得到二维高斯函数:</p><p><code>$ G(x,y)=\frac{1}{2\pi \sigma^{2}}e^{-\frac{x^{2}+y^{2}}{2\sigma^{2}}} $</code></p><p>有了这个函数，就可以计算每个点的权重了。</p><h2 id="权重矩阵"><a class="header-anchor" href="#权重矩阵">¶</a>权重矩阵</h2><p>假设中心点的坐标是(0,0)，那么距离它最近的个点的坐标如下：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/YNvFdj.png" alt="figure.8"></p><p>更远的同理计算方法。</p><p>为了计算权重矩阵，需要设置σ的值。假定σ=1.5，则模糊半径为1的权重矩阵如下：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/tOGq99.png" alt="figure.9"></p><p><strong>这9个点的权重总和等于0.47877147，如果只计算这9个点的加权平均，还必须让他们的之和等于1，因此上面的9个值还要分别除以0.47877147，得到最终的权重矩阵(除以0.47877147会将每个数都进行调整，保证相加为1)</strong></p><p>计算结果:</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/4YpUfX.png" alt="figure.10"></p><h2 id="计算高斯模糊"><a class="header-anchor" href="#计算高斯模糊">¶</a>计算高斯模糊</h2><p>我们计算得到了权重矩阵，就可以根据它来计算高斯模糊的值了。</p><p>举例：<br>假设有9个像素点，灰度值(0-255)如下:</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/hEAMgk.png" alt="figure.11"></p><p>每个点乘以自己的权重值:</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/GB6s57.png" alt="figure.12"></p><p>计算得到：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/KTHBds.png" alt="figure.13"></p><p>最后我们将这个9个值加起来，就是中心点的高斯模糊值了(加权和)。<br>对所有点重复这个过程，就得到了高斯模糊处理后的图像，如果原图是彩色图片，我们要对RGB三个通道分别进行高斯模糊处理。</p><h2 id="边界点处理"><a class="header-anchor" href="#边界点处理">¶</a>边界点处理</h2><p>如果一个点处于边界，周边没有足够的点，该怎么办？</p><p>我们可以将该边界和另一侧对应的边界进行拼接，来模拟出一个完整的矩阵。同样也可以进行对称复制来得到一个矩阵。</p><p>文章内容参考：<a href="http://www.ruanyifeng.com/blog/2012/11/gaussian_blur.html">click here</a> 我对缺失的公式进行了补充。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;高斯模糊/高斯滤波&lt;/h1&gt;
-&lt;p&gt;通常，图像处理软件会提供模糊滤镜，使图片产生模糊效果。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://gitee.com/zyp521/upload_image/raw/master/3QniL2.png&quot; alt=&quot;figure.
-      
-    
-    </summary>
-    
-    
-      <category term="知识点" scheme="www.strivezs.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    
-      <category term="数学知识" scheme="www.strivezs.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="高斯模糊" scheme="www.strivezs.com/tags/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/"/>
-    
-      <category term="高斯滤波" scheme="www.strivezs.com/tags/%E9%AB%98%E6%96%AF%E6%BB%A4%E6%B3%A2/"/>
-    
-      <category term="Gaussian Blur" scheme="www.strivezs.com/tags/Gaussian-Blur/"/>
     
   </entry>
   
