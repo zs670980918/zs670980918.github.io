@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2021-01-17T15:14:17.841Z</updated>
+  <updated>2021-01-18T11:14:45.679Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode No.11</title>
+    <link href="www.strivezs.com/2021/01/18/LeetCode%E7%AC%AC%E5%8D%81%E4%B8%80%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/01/18/LeetCode%E7%AC%AC%E5%8D%81%E4%B8%80%E9%A2%98/</id>
+    <published>2021-01-18T11:14:45.679Z</published>
+    <updated>2021-01-18T11:14:45.679Z</updated>
+    
+    <content type="html"><![CDATA[<h1>LeetCode第十一题</h1><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p><p>说明：你不能倾斜容器。</p><p></p><p>示例 1：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/RoxA9E.jpg" alt="figure.1"></p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">输入：[<span class="number">1</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">7</span>]</span><br><span class="line">输出：<span class="number">49</span> </span><br><span class="line">解释：图中垂直线代表输入数组 [<span class="number">1</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">7</span>]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 <span class="number">49</span>。</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：height = [<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：height = [<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">4</span>]</span><br><span class="line">输出：<span class="number">16</span></span><br><span class="line">示例 <span class="number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：height = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">输出：<span class="number">2</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line">n = height.length</span><br><span class="line"><span class="number">2</span> &lt;= n &lt;= <span class="number">3</span> * <span class="number">104</span></span><br><span class="line"><span class="number">0</span> &lt;= height[i] &lt;= <span class="number">3</span> * <span class="number">104</span></span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxArea</span><span class="params">(self, height)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        从两头往中间靠，记录最佳</span></span><br><span class="line"><span class="string">        :type height: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        best = <span class="number">0</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        j = len(height) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; j:</span><br><span class="line">            temp = (j - i) * min(height[i], height[j])  <span class="comment"># 计算盛水容量</span></span><br><span class="line">            <span class="keyword">if</span> temp &gt; best:</span><br><span class="line">                best = temp</span><br><span class="line">            <span class="keyword">if</span> height[i] &lt; height[j]:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> best</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.maxArea([<span class="number">1</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">7</span>]))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;LeetCode第十一题&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode No.10</title>
@@ -630,39 +664,6 @@
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Anaconda Clean命令</title>
-    <link href="www.strivezs.com/2020/09/02/Anaconda%20Clean%E5%91%BD%E4%BB%A4/"/>
-    <id>www.strivezs.com/2020/09/02/Anaconda%20Clean%E5%91%BD%E4%BB%A4/</id>
-    <published>2020-09-02T14:13:14.357Z</published>
-    <updated>2020-09-02T14:13:14.357Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Anaconda Clean命令</h1><p>conda 安装的包都在目录Anaconda/pkgs下。随着使用，conda 安装的包也越来越多；有时候会出现以下不好的情况：</p><p>有些包安装之后，从来没有使用过；<br>一些安装包的tar包也保留在了计算机中；<br>由于依赖或者环境等原因，某些包的不同版本重复安装。<br>上面的这些情况使得anaconda显得更加冗余，并且浪费储存；对于这些情况可以使用conda clean 净化Anaconda。</p><h2 id="查看conda-clean使用参数"><a class="header-anchor" href="#查看conda-clean使用参数">¶</a>查看conda clean使用参数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">$ conda clean -H</span><br><span class="line">usage: conda clean [-h] [-a] [-i] [-l] [-p] [-t] [-f]</span><br><span class="line">                   [-c TEMPFILES [TEMPFILES ...]] [-d] [<span class="comment">--json] [-q] [-v] [-y]</span></span><br><span class="line"></span><br><span class="line">Remove unused packages and caches.</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, <span class="comment">--help            Show this help message and exit.</span></span><br><span class="line"></span><br><span class="line">Removal Targets:</span><br><span class="line">  -a, <span class="comment">--all             Remove index cache, lock files, unused cache packages,</span></span><br><span class="line">                        and tarballs.</span><br><span class="line">  -i, <span class="comment">--index-cache     Remove index cache.</span></span><br><span class="line">  -l, <span class="comment">--lock            Remove all conda lock files.</span></span><br><span class="line">  -p, <span class="comment">--packages        Remove unused packages from writable package caches.</span></span><br><span class="line">                        WARNING: This does not <span class="keyword">check</span> <span class="keyword">for</span> packages installed</span><br><span class="line">                        <span class="keyword">using</span> symlinks back <span class="keyword">to</span> the <span class="keyword">package</span> cache.</span><br><span class="line">  -t, <span class="comment">--tarballs        Remove cached package tarballs.</span></span><br><span class="line">  -f, <span class="comment">--force-pkgs-dirs</span></span><br><span class="line">                        Remove *<span class="keyword">all</span>* writable <span class="keyword">package</span> caches. This <span class="keyword">option</span> <span class="keyword">is</span></span><br><span class="line">                        <span class="keyword">not</span> included <span class="keyword">with</span> the <span class="comment">--all flag. WARNING: This will</span></span><br><span class="line">                        break environments <span class="keyword">with</span> packages installed <span class="keyword">using</span></span><br><span class="line">                        symlinks back <span class="keyword">to</span> the <span class="keyword">package</span> cache.</span><br><span class="line">  -c TEMPFILES [TEMPFILES ...], <span class="comment">--tempfiles TEMPFILES [TEMPFILES ...]</span></span><br><span class="line">                        Remove <span class="keyword">temporary</span> files that could <span class="keyword">not</span> be deleted</span><br><span class="line">                        earlier due <span class="keyword">to</span> being <span class="keyword">in</span>-use. Argument <span class="keyword">is</span> <span class="keyword">path</span>(s) <span class="keyword">to</span></span><br><span class="line">                        prefix(es) <span class="keyword">where</span> files should be <span class="keyword">found</span> <span class="keyword">and</span> removed.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Output</span>, <span class="keyword">Prompt</span>, <span class="keyword">and</span> Flow Control Options:</span><br><span class="line">  -d, <span class="comment">--dry-run         Only display what would have been done.</span></span><br><span class="line">  <span class="comment">--json                Report all output as json. Suitable for using conda</span></span><br><span class="line">                        programmatically.</span><br><span class="line">  -q, <span class="comment">--quiet           Do not display progress bar.</span></span><br><span class="line">  -v, <span class="comment">--verbose         Can be used multiple times. Once for INFO, twice for</span></span><br><span class="line">                        DEBUG, three times <span class="keyword">for</span> TRACE.</span><br><span class="line">  -y, <span class="comment">--yes             Do not ask for confirmation.</span></span><br><span class="line"></span><br><span class="line">Examples:</span><br><span class="line"></span><br><span class="line">    conda clean <span class="comment">--tarballs</span></span><br></pre></td></tr></table></figure><h2 id="Conda-clean使用"><a class="header-anchor" href="#Conda-clean使用">¶</a>Conda clean使用</h2><h2 id="删除从不使用的包"><a class="header-anchor" href="#删除从不使用的包">¶</a>删除从不使用的包</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ conda clean <span class="comment">--packages</span></span><br></pre></td></tr></table></figure><h2 id="删除tar包"><a class="header-anchor" href="#删除tar包">¶</a>删除tar包</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ conda clean <span class="comment">--tarballs</span></span><br></pre></td></tr></table></figure><h2 id="删除索引缓存、锁定文件、未使用过的包和tar包"><a class="header-anchor" href="#删除索引缓存、锁定文件、未使用过的包和tar包">¶</a>删除索引缓存、锁定文件、未使用过的包和tar包</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>conda clean -a</span><br></pre></td></tr></table></figure><h2 id="清楚索引缓存"><a class="header-anchor" href="#清楚索引缓存">¶</a>清楚索引缓存</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>conda clean -i</span><br></pre></td></tr></table></figure><h2 id="应用情况"><a class="header-anchor" href="#应用情况">¶</a>应用情况</h2><p>今天我在使用conda安装opencv的时候一直报unexpected error的错误，经过一番尝试发现使用</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">conda clean -i</span></span><br></pre></td></tr></table></figure><p>可以很好地解决该问题。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;Anaconda Clean命令&lt;/h1&gt;
-&lt;p&gt;conda 安装的包都在目录Anaconda/pkgs下。随着使用，conda 安装的包也越来越多；有时候会出现以下不好的情况：&lt;/p&gt;
-&lt;p&gt;有些包安装之后，从来没有使用过；&lt;br&gt;
-一些安装包的tar包也保留在了计算机
-      
-    
-    </summary>
-    
-    
-      <category term="MAC" scheme="www.strivezs.com/categories/MAC/"/>
-    
-      <category term="Anaconda" scheme="www.strivezs.com/categories/MAC/Anaconda/"/>
-    
-    
-      <category term="Anaconda" scheme="www.strivezs.com/tags/Anaconda/"/>
-    
-      <category term="Clean" scheme="www.strivezs.com/tags/Clean/"/>
     
   </entry>
   
