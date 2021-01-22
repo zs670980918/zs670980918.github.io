@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2021-01-21T14:31:28.445Z</updated>
+  <updated>2021-01-22T13:37:15.696Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,75 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode No.17</title>
+    <link href="www.strivezs.com/2021/01/22/LeetCode%E7%AC%AC%E5%8D%81%E4%B8%83%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/01/22/LeetCode%E7%AC%AC%E5%8D%81%E4%B8%83%E9%A2%98/</id>
+    <published>2021-01-22T13:37:15.696Z</published>
+    <updated>2021-01-22T13:37:15.696Z</updated>
+    
+    <content type="html"><![CDATA[<h1>LeetCode第十七题</h1><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。</p><p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/SQXdUG.jpg" alt="figure.1"></p><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入：<span class="string">"23"</span></span><br><span class="line">输出：[<span class="string">"ad"</span>, <span class="string">"ae"</span>, <span class="string">"af"</span>, <span class="string">"bd"</span>, <span class="string">"be"</span>, <span class="string">"bf"</span>, <span class="string">"cd"</span>, <span class="string">"ce"</span>, <span class="string">"cf"</span>].</span><br></pre></td></tr></table></figure><p>说明:<br>尽管上面的答案是按字典序排列的，但是你可以任意选择答案输出的顺序。</p><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">letterCombinations</span><span class="params">(self, digits)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type digits: str</span></span><br><span class="line"><span class="string">        :rtype: List[str]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> digits == <span class="string">""</span>:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="comment"># 字典查表</span></span><br><span class="line">        numList = [<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'4'</span>,<span class="string">'5'</span>,<span class="string">'6'</span>,<span class="string">'7'</span>,<span class="string">'8'</span>,<span class="string">'9'</span>]</span><br><span class="line">        characterList = [[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>],[<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>],[<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>],[<span class="string">'j'</span>,<span class="string">'k'</span>,<span class="string">'l'</span>],[<span class="string">'m'</span>,<span class="string">'n'</span>,<span class="string">'o'</span>],[<span class="string">'p'</span>,<span class="string">'q'</span>,<span class="string">'r'</span>,<span class="string">'s'</span>],[<span class="string">'t'</span>,<span class="string">'u'</span>,<span class="string">'v'</span>],[<span class="string">'w'</span>,<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>]]</span><br><span class="line">        temp = zip(numList,characterList)</span><br><span class="line">        dictList = dict(temp)</span><br><span class="line">        <span class="comment">#print(dictList)</span></span><br><span class="line"></span><br><span class="line">        digitsList = list(digits)</span><br><span class="line">        numCharaList = []</span><br><span class="line">        sumRes = <span class="number">1</span></span><br><span class="line">        <span class="comment"># 统计输入的数字对应的字母</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(digitsList)):</span><br><span class="line">            numCharaList.append(dictList[digitsList[i]])</span><br><span class="line">        <span class="comment">#print(numCharaList)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 生成结果</span></span><br><span class="line">        result = []</span><br><span class="line">        temp = list(itertools.product(*numCharaList))  <span class="comment"># 调用库来生成列表排列组合</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(temp)):</span><br><span class="line">            str1 = <span class="string">''</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(list(temp[i]))):</span><br><span class="line">                str1 += temp[i][j]</span><br><span class="line">            result.append(str1)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.letterCombinations(<span class="string">'23'</span>))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;LeetCode第十七题&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。&lt;/p&gt;
+&lt;p&gt;给出数字到字母
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode No.16</title>
+    <link href="www.strivezs.com/2021/01/22/LeetCode%E7%AC%AC%E5%8D%81%E5%85%AD%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/01/22/LeetCode%E7%AC%AC%E5%8D%81%E5%85%AD%E9%A2%98/</id>
+    <published>2021-01-22T13:37:11.248Z</published>
+    <updated>2021-01-22T13:37:11.248Z</updated>
+    
+    <content type="html"><![CDATA[<h1>LeetCode第十六题</h1><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。</p><p></p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-4</span>], target = <span class="number">1</span></span><br><span class="line">输出：<span class="number">2</span></span><br><span class="line">解释：与 target 最接近的和是 <span class="number">2</span> (<span class="number">-1</span> + <span class="number">2</span> + <span class="number">1</span> = <span class="number">2</span>) 。</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">3</span> &lt;= nums.length &lt;= <span class="number">10</span>^<span class="number">3</span></span><br><span class="line"><span class="number">-10</span>^<span class="number">3</span> &lt;= nums[i] &lt;= <span class="number">10</span>^<span class="number">3</span></span><br><span class="line"><span class="number">-10</span>^<span class="number">4</span> &lt;= target &lt;= <span class="number">10</span>^<span class="number">4</span></span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def threeSumClosest(self, nums, target):</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        :<span class="built_in">type</span> num<span class="variable">s:</span> List[<span class="keyword">int</span>]</span><br><span class="line">        :<span class="built_in">type</span> targe<span class="variable">t:</span> <span class="keyword">int</span></span><br><span class="line">        :rtype: <span class="keyword">int</span></span><br><span class="line">        尝试使用双向指针的方式来进行查找, 要求事先结果进行排序</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        nums.<span class="keyword">sort</span>()</span><br><span class="line">        closeNum = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>]</span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            <span class="keyword">l</span> = i + <span class="number">1</span></span><br><span class="line">            r = <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">l</span> &lt; r:</span><br><span class="line">                s = nums[i] + nums[<span class="keyword">l</span>] + nums[r]</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">abs</span>(s - target) &lt; <span class="built_in">abs</span>(closeNum - target):</span><br><span class="line">                    closeNum = s</span><br><span class="line">                elif s &gt; targe<span class="variable">t:</span></span><br><span class="line">                    r -= <span class="number">1</span></span><br><span class="line">                elif s &lt; targe<span class="variable">t:</span></span><br><span class="line">                    <span class="keyword">l</span> += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> target</span><br><span class="line">        <span class="keyword">return</span> closeNum</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    <span class="keyword">print</span>(s.threeSumClosest([-<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,-<span class="number">4</span>], <span class="number">1</span>))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;LeetCode第十六题&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode No.14</title>
@@ -618,72 +687,6 @@
       <category term="鼠标单击" scheme="www.strivezs.com/tags/%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB/"/>
     
       <category term="Cliclick" scheme="www.strivezs.com/tags/Cliclick/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Focal Loss</title>
-    <link href="www.strivezs.com/2020/10/19/Focal%20Loss/"/>
-    <id>www.strivezs.com/2020/10/19/Focal%20Loss/</id>
-    <published>2020-10-19T09:21:29.493Z</published>
-    <updated>2020-10-19T09:21:29.493Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Focal Loss</h1><h2 id="介绍"><a class="header-anchor" href="#介绍">¶</a>介绍</h2><p>本质上讲，Focal Loss就是一个解决<strong>分类问题中类别不平衡、分类难度差异</strong>的一个Loss。该损失函数降低了大量的简单的负样本在训练中所占的权重。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/CycFSY.jpg" alt="figure.1"></p><p>CE为交叉熵Loss，而FL为Focal Loss</p><h2 id="Focal-Loss——二分类"><a class="header-anchor" href="#Focal-Loss——二分类">¶</a>Focal Loss——二分类</h2><p>Focal Loss的形式(没有引入权值<code>$\alpha$</code> )是:</p><p>$$L_{fl}=\left{\begin{matrix}-(1-\hat{y})^{\gamma}log: \hat{y},y=1 \ -\hat{y}^{\gamma}log:(1-\hat{y}),y=0 \end{matrix}\right.$$</p><p>对于该式子 <code>$\hat{y}$</code>为预测值，而y为真实标签, <code>$\gamma$</code>的作用就是调节权重曲线的陡度。<br><code>$L_{fl}$</code>实际上已经包含了对不均衡样本的解决办法，比如：负样本远比正样本多时，模型肯定会倾向于样本数目多的负类，这是如果负类的<code>$\hat{y}^{\gamma}$</code>比较小，而正类的<code>$(1-\hat{y})^{\gamma}$</code>比较大时，模型就会集中注意力关注正样本。</p><p>我们已知<code>$1-\sigma(x)=\sigma(-x)$</code>且<code>$\hat{y}=\sigma{x}$</code> 因此对上面的式子我们可以变换得到:</p><p><code>$ L_{fl}=\left\{\begin{matrix}-\sigma^{\gamma}(-x)log\:\sigma{x},y=1 \\ -\sigma^{\gamma}{x}log\:\sigma(-x),y=0 \end{matrix}\right. $</code></p><p>同时，可以引入一个权重调整<code>$\alpha$</code>， 会对结果有微小的提升。</p><p><code>$ L_{fl}=\left\{\begin{matrix}-\alpha\sigma^{\gamma}(-x)log\:\sigma{x},y=1 \\ -(1-\alpha)\sigma^{\gamma}{x}log\:\sigma(-x),y=0 \end{matrix}\right. $</code></p><p>在他的文章中，经过一系列调参得到了<code>$\alpha=0.25,\gamma=2$</code>对于他的模型来说效果是最好的。如果需要对需要对<code>$\alpha$</code>进行选择的话，需要使用大的训练样本和算力进行调参。如果要求不太高的话，可以把<code>$\alpha$</code>设置为0.5即可。</p><p>简单说一下这里如果是我进行调参的话，我会使用控制变量法，设定一个<code>$\alpha$</code>的衰减系数，然后给定一个初始的参数值进行训练，每经过一次完整的训练则将这个α对应的准确率记录下来，经过n次衰减后，对比记录得到的结果进行参数alpha的选择。</p><h2 id="Focal-Loss——多分类"><a class="header-anchor" href="#Focal-Loss——多分类">¶</a>Focal Loss——多分类</h2><p>Focal Loss在多分类的形式可以根据二分类的形式得到:<br><code>$ L_{fl}=-(1-\hat{y})^{\gamma}log\:\hat{y}_{t} $</code></p><p>其中<code>$\hat{y}_{t}$</code>为目标的的预测值，一般这个值是经过softmax之后结果。</p><p>如果我们引入权重值<code>$\alpha$</code>之后的样子是:</p><p><code>$ L_{fl}=-\alpha_{t}(1-\hat{y})^{\gamma}log\:\hat{y}_{t} $</code></p><p>其中每个类别都有一个对应的<code>$\alpha_{t}$</code>，并且保证<code>$\sum_{t=1}^{n}\alpha_{t}=1$</code>, 即所有类别的α之和为1.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;Focal Loss&lt;/h1&gt;
-&lt;h2 id=&quot;介绍&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#介绍&quot;&gt;¶&lt;/a&gt;介绍&lt;/h2&gt;
-&lt;p&gt;本质上讲，Focal Loss就是一个解决&lt;strong&gt;分类问题中类别不平衡、分类难度差异&lt;/strong&gt;的
-      
-    
-    </summary>
-    
-    
-      <category term="Loss" scheme="www.strivezs.com/categories/Loss/"/>
-    
-      <category term="DL" scheme="www.strivezs.com/categories/Loss/DL/"/>
-    
-    
-      <category term="Focal Loss" scheme="www.strivezs.com/tags/Focal-Loss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac+Sublime+Latex+Skim配置latex编辑环境</title>
-    <link href="www.strivezs.com/2020/10/07/Mac+Sublime+Latex+Skim%E9%85%8D%E7%BD%AElatex%E7%BC%96%E8%BE%91%E7%8E%AF%E5%A2%83/"/>
-    <id>www.strivezs.com/2020/10/07/Mac+Sublime+Latex+Skim%E9%85%8D%E7%BD%AElatex%E7%BC%96%E8%BE%91%E7%8E%AF%E5%A2%83/</id>
-    <published>2020-10-07T03:32:27.328Z</published>
-    <updated>2020-10-07T03:32:27.328Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Sublime+Latex+Skim配置latex编辑环境</h1><h2 id="安装步骤"><a class="header-anchor" href="#安装步骤">¶</a>安装步骤</h2><h3 id="安装Sublime-Text"><a class="header-anchor" href="#安装Sublime-Text">¶</a>安装Sublime Text</h3><p>首先需要安装Sublime Text 2/3和Package Control，这个有大把的帖子。</p><h3 id="安装MacTex"><a class="header-anchor" href="#安装MacTex">¶</a>安装MacTex</h3><p>MacTex现在是一个2G+的大包子，其实里面很多东西我们不需要，所以本着节约精神，我们安装MacTex_Basic包就行了，现在的版本大概是100M以内。这个安装也是傻瓜的。</p><h3 id="配置"><a class="header-anchor" href="#配置">¶</a>配置</h3><p>在Sublime Text里Command+Shift+P调出命令窗口，输入Install，之后选择LaTexTools，网络OK的话，很快就完成了插件安装。</p><p>LaTexTools插件会在编译你的Tex文件后，调用Skim这个PDF阅读器打开编译出的PDF文件，因此你还需要安装Skim.</p><h4 id="配置Skim"><a class="header-anchor" href="#配置Skim">¶</a>配置Skim</h4><p>运行一下Skim，进入偏好设置——同步，在PDF-Tex同步支持那里选择自定义，输入 <strong>/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl</strong> 第二行不用动。这样，当你在Sublime Text里修改tex文件时，Skim预览也会相应变更。</p><h3 id="测试"><a class="header-anchor" href="#测试">¶</a>测试</h3><p>完成上面所有步骤，其实就已经搭建完成基本环境。创建一个test.tex文档，保存一下以后，Sublime Text会自动套用LaTex语法显示和编译。贴上我后面附的测试代码，一般来说Command+B应该可能会报fontspec错误；如果能正常编译，则会调用Skim显示一个PDF文档了。只是中间的中文不见了。</p><h3 id="中文环境"><a class="header-anchor" href="#中文环境">¶</a>中文环境</h3><p>让我们最后来修改编译和中文环境：<br>打开终端，运行：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr <span class="keyword">update</span> <span class="comment">--self</span></span><br><span class="line">sudo tlmgr <span class="keyword">install</span> latexmk</span><br></pre></td></tr></table></figure><p>在ST里打开LaTeXTools.sublime-settings（也就是LaTeXTools的用户设置</p><p>如果你是从旧版本升级上来或者担心这个配置文件出现问题，可以依次点击Preferences——Package Settings——LaTeXTools——Reconfigure LaTeXTools and migrate settings重建配置文件），在builder-settings下面新增两项配置：</p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"program"</span> : <span class="string">"xelatex"</span>,</span><br><span class="line"><span class="string">"command"</span> : [<span class="string">"latexmk"</span>, <span class="string">"-cd"</span>, <span class="string">"-e"</span>, <span class="string">"$pdflatex = 'xelatex -interaction=nonstopmode -synctex=1 %S %O'"</span>, <span class="string">"-f"</span>, <span class="string">"-pdf"</span>],</span><br></pre></td></tr></table></figure><p>另外注意之前应该有&quot;builder&quot;: “default”（或直接设置为空或”traditional”）。</p><p>保存配置文件后关闭，重新编译一下，中文正常啦！</p><h4 id="简单的中文设置方法"><a class="header-anchor" href="#简单的中文设置方法">¶</a>简单的中文设置方法</h4><p>仅需要将在tex文件前面添加上如下代码即可：</p><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%!TEX program = xelatex</span></span><br><span class="line"><span class="comment">%!TEX TS-program = xelatex</span></span><br><span class="line"><span class="comment">%!TEX encoding = UTF-8 Unicode</span></span><br></pre></td></tr></table></figure><p>以及添加 ctex包</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[UTF8]</span><span class="string">&#123;ctex&#125;</span></span></span><br></pre></td></tr></table></figure><h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2><p>LaTeXTools默认调用Skim来打开生成的PDF文件，如果你更喜欢使用OS X自带的“预览”，现在可以直接在用户设置中增加：<br>“viewer”: “preview”,<br>目前还不支持其他PDF工具。</p><p>附上我的配置文件：<a href="https://pan.baidu.com/s/1pKGYHfX">https://pan.baidu.com/s/1pKGYHfX</a> 密码：b27u</p><p>测试代码</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">&#123;article&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;xeCJK, fontspec, xunicode, xltxtra&#125;</span></span>  </span><br><span class="line"><span class="tag">\<span class="name">setCJKmainfont</span><span class="string">&#123;Hiragino Sans GB&#125;</span></span>  </span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">title</span><span class="string">&#123;Title&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">author</span><span class="string">&#123;&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;document&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">maketitle</span><span class="string">&#123;&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">section</span><span class="string">&#123;Introduction&#125;</span></span></span><br><span class="line"></span><br><span class="line">This is where you will write your content. 在这里写上内容。</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;document&#125;</span></span></span><br></pre></td></tr></table></figure><p>LATEX的其他选择<br>如果觉得修改设置看起来很复杂，可以在每篇文档前增加%!TEX program = xelatex，这会强制使用xelatex，也是解决中文的一个方法。</p><p>如果只是偶尔需要输入公式，这里介绍一个在线的LaTex公式编辑器  <a href="http://www.codecogs.com/latex/eqneditor.php">http://www.codecogs.com/latex/eqneditor.php</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;Sublime+Latex+Skim配置latex编辑环境&lt;/h1&gt;
-&lt;h2 id=&quot;安装步骤&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#安装步骤&quot;&gt;¶&lt;/a&gt;安装步骤&lt;/h2&gt;
-&lt;h3 id=&quot;安装Sublime-Text&quot;&gt;&lt;a class=&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="MAC" scheme="www.strivezs.com/categories/MAC/"/>
-    
-      <category term="LaTex" scheme="www.strivezs.com/categories/MAC/LaTex/"/>
-    
-    
-      <category term="MAC" scheme="www.strivezs.com/tags/MAC/"/>
-    
-      <category term="Sublime" scheme="www.strivezs.com/tags/Sublime/"/>
-    
-      <category term="Skim" scheme="www.strivezs.com/tags/Skim/"/>
-    
-      <category term="Latex" scheme="www.strivezs.com/tags/Latex/"/>
     
   </entry>
   
