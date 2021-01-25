@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2021-01-23T10:59:43.658Z</updated>
+  <updated>2021-01-25T11:54:29.881Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,102 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode No.21</title>
+    <link href="www.strivezs.com/2021/01/25/LeetCode%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%80%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/01/25/LeetCode%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%80%E9%A2%98/</id>
+    <published>2021-01-25T11:54:29.881Z</published>
+    <updated>2021-01-25T11:54:29.881Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="LeetCode第二十一题"><a href="#LeetCode第二十一题" class="headerlink" title="LeetCode第二十一题"></a>LeetCode第二十一题</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/f64Iep.jpg" alt="figure.1"></p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line">输入：l1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>], l2 = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>]</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：l1 = [], l2 = []</span><br><span class="line">输出：[]</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：l1 = [], l2 = [<span class="number">0</span>]</span><br><span class="line">输出：[<span class="number">0</span>]</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line">两个链表的节点数目范围是 [<span class="number">0</span>, <span class="number">50</span>]</span><br><span class="line"><span class="number">-100</span> &lt;= Node.val &lt;= <span class="number">100</span></span><br><span class="line">l1 和 l2 均按 非递减顺序 排列</span><br></pre></td></tr></table></figure><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeTwoLists</span><span class="params">(<span class="keyword">self</span>, <span class="symbol">l1:</span> ListNode, <span class="symbol">l2:</span> ListNode)</span></span> -&gt; <span class="symbol">ListNode:</span></span><br><span class="line">        res = ListNode(None)</span><br><span class="line">        node = res</span><br><span class="line">        <span class="keyword">while</span> l1 <span class="keyword">and</span> <span class="symbol">l2:</span></span><br><span class="line">            <span class="keyword">if</span> l1.val&lt;l2.<span class="symbol">val:</span></span><br><span class="line">                node.<span class="keyword">next</span>,l1 = l1,l1.<span class="keyword">next</span></span><br><span class="line">            <span class="symbol">else:</span></span><br><span class="line">                node.<span class="keyword">next</span>,l2 = l2,l2.<span class="keyword">next</span></span><br><span class="line">            node = node.<span class="keyword">next</span></span><br><span class="line">        <span class="keyword">if</span> <span class="symbol">l1:</span></span><br><span class="line">            node.<span class="keyword">next</span> = l1</span><br><span class="line">        <span class="symbol">else:</span></span><br><span class="line">            node.<span class="keyword">next</span> = l2</span><br><span class="line">        <span class="keyword">return</span> res.<span class="keyword">next</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;LeetCode第二十一题&quot;&gt;&lt;a href=&quot;#LeetCode第二十一题&quot; class=&quot;headerlink&quot; title=&quot;LeetCode第二十一题&quot;&gt;&lt;/a&gt;LeetCode第二十一题&lt;/h1&gt;&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode No.20</title>
+    <link href="www.strivezs.com/2021/01/25/LeetCode%E7%AC%AC%E4%BA%8C%E5%8D%81%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/01/25/LeetCode%E7%AC%AC%E4%BA%8C%E5%8D%81%E9%A2%98/</id>
+    <published>2021-01-25T11:52:45.685Z</published>
+    <updated>2021-01-25T11:52:45.685Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="LeetCode第二十题"><a href="#LeetCode第二十题" class="headerlink" title="LeetCode第二十题"></a>LeetCode第二十题</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串 s ，判断字符串是否有效。</p><p>有效字符串需满足：</p><p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：<span class="attr">s</span> = <span class="string">"()"</span></span><br><span class="line">输出：<span class="literal">true</span></span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：<span class="attr">s</span> = <span class="string">"()[]&#123;&#125;"</span></span><br><span class="line">输出：<span class="literal">true</span></span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：<span class="attr">s</span> = <span class="string">"(]"</span></span><br><span class="line">输出：<span class="literal">false</span></span><br><span class="line">示例 <span class="number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：<span class="attr">s</span> = <span class="string">"([)]"</span></span><br><span class="line">输出：<span class="literal">false</span></span><br><span class="line">示例 <span class="number">5</span>：</span><br><span class="line"></span><br><span class="line">输入：<span class="attr">s</span> = <span class="string">"&#123;[]&#125;"</span></span><br><span class="line">输出：<span class="literal">true</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> &lt;= s.length &lt;= <span class="number">104</span></span><br><span class="line">s 仅由括号 '()[]&#123;&#125;' 组成</span><br></pre></td></tr></table></figure><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        string = list(s)</span><br><span class="line">        stack = []</span><br><span class="line">        flag = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> string:</span><br><span class="line">            <span class="keyword">if</span> s == <span class="string">'('</span> <span class="keyword">or</span> s == <span class="string">'['</span> <span class="keyword">or</span> s == <span class="string">'&#123;'</span>:</span><br><span class="line">                stack.append(s)</span><br><span class="line">            <span class="keyword">elif</span> s == <span class="string">')'</span>:</span><br><span class="line">                <span class="keyword">if</span> len(stack) == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                temp = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> temp != <span class="string">'('</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">elif</span> s == <span class="string">']'</span>:</span><br><span class="line">                <span class="keyword">if</span> len(stack) == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                temp = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> temp != <span class="string">'['</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">elif</span> s == <span class="string">'&#125;'</span>:</span><br><span class="line">                <span class="keyword">if</span> len(stack) == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                temp = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> temp != <span class="string">'&#123;'</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">if</span> len(stack) != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.isValid(<span class="string">"&#123;&#123;&#123;&#123;"</span>))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;LeetCode第二十题&quot;&gt;&lt;a href=&quot;#LeetCode第二十题&quot; class=&quot;headerlink&quot; title=&quot;LeetCode第二十题&quot;&gt;&lt;/a&gt;LeetCode第二十题&lt;/h1&gt;&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode No.19</title>
+    <link href="www.strivezs.com/2021/01/25/LeetCode%E7%AC%AC%E5%8D%81%E4%B9%9D%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/01/25/LeetCode%E7%AC%AC%E5%8D%81%E4%B9%9D%E9%A2%98/</id>
+    <published>2021-01-25T11:52:41.774Z</published>
+    <updated>2021-01-25T11:52:41.774Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="LeetCode第十九题"><a href="#LeetCode第十九题" class="headerlink" title="LeetCode第十九题"></a>LeetCode第十九题</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。</p><p>进阶：你能尝试使用一趟扫描实现吗？</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/OMbmD5.jpg" alt="figure.1"></p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：head = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>], n = <span class="number">2</span></span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：head = [<span class="number">1</span>], n = <span class="number">1</span></span><br><span class="line">输出：[]</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：head = [<span class="number">1</span>,<span class="number">2</span>], n = <span class="number">1</span></span><br><span class="line">输出：[<span class="number">1</span>]</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line">链表中结点的数目为 sz</span><br><span class="line"><span class="number">1</span> &lt;= sz &lt;= <span class="number">30</span></span><br><span class="line"><span class="number">0</span> &lt;= Node.val &lt;= <span class="number">100</span></span><br><span class="line"><span class="number">1</span> &lt;= n &lt;= sz</span><br></pre></td></tr></table></figure><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>, val=<span class="number">0</span>, <span class="keyword">next</span>=None)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">next</span> = <span class="keyword">next</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeNthFromEnd</span><span class="params">(<span class="keyword">self</span>, head, n)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">            基本思想：由于是寻找从后往前数第n个，因此第一遍先正数n个，然后第二遍再从头开始往后遍历同时第一遍正数的从n开始为空之后，这样第二遍数的就变为到空还有n个</span></span><br><span class="line"><span class="string">            然后在去掉第倒数n个节点就行了。</span></span><br><span class="line"><span class="string">        "</span><span class="string">""</span></span><br><span class="line">        a = head</span><br><span class="line">        b = head</span><br><span class="line">        <span class="comment"># 第一遍数n个</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n)<span class="symbol">:</span></span><br><span class="line">            <span class="keyword">if</span> a.<span class="symbol">next:</span></span><br><span class="line">                a = a.<span class="keyword">next</span></span><br><span class="line">            <span class="symbol">else:</span></span><br><span class="line">                <span class="keyword">return</span> head.<span class="keyword">next</span></span><br><span class="line">        <span class="comment"># 接着数第一遍的同时，第二遍从头开始</span></span><br><span class="line">        <span class="keyword">while</span> a.<span class="symbol">next:</span></span><br><span class="line">            a = a.<span class="keyword">next</span></span><br><span class="line">            b = b.<span class="keyword">next</span></span><br><span class="line">        b.<span class="keyword">next</span> = b.<span class="keyword">next</span>.<span class="keyword">next</span></span><br><span class="line">        <span class="keyword">return</span> head</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;LeetCode第十九题&quot;&gt;&lt;a href=&quot;#LeetCode第十九题&quot; class=&quot;headerlink&quot; title=&quot;LeetCode第十九题&quot;&gt;&lt;/a&gt;LeetCode第十九题&lt;/h1&gt;&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode No.18</title>
@@ -590,102 +686,6 @@
       <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
     
       <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode No.2</title>
-    <link href="www.strivezs.com/2021/01/08/LeetCode%E7%AC%AC%E4%BA%8C%E9%A2%98/"/>
-    <id>www.strivezs.com/2021/01/08/LeetCode%E7%AC%AC%E4%BA%8C%E9%A2%98/</id>
-    <published>2021-01-08T10:40:20.768Z</published>
-    <updated>2021-01-08T10:40:20.768Z</updated>
-    
-    <content type="html"><![CDATA[<h1>LeetCode第2题</h1><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</p><p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p><p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p><p>示例1：</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/ba4SnQ.jpg" alt="figure.1"></p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 = [<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>], l2 = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>]</span><br><span class="line">输出：[<span class="number">7</span>,<span class="number">0</span>,<span class="number">8</span>]</span><br><span class="line">解释：<span class="number">342</span> + <span class="number">465</span> = <span class="number">807.</span></span><br><span class="line"></span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：l1 = [<span class="number">0</span>], l2 = [<span class="number">0</span>]</span><br><span class="line">输出：[<span class="number">0</span>]</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：l1 = [<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>], l2 = [<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>]</span><br><span class="line">输出：[<span class="number">8</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><p>代码这里使用的list格式，对于题目要求的格式只需要进行二者的格式转换就可以了</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def addTwoNumbers(self, l1, l2):</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        :<span class="built_in">type</span> l1: List</span><br><span class="line">        :<span class="built_in">type</span> l2: List</span><br><span class="line">        :rtype: List</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        </span><br><span class="line">        l1 = [l1[<span class="built_in">len</span>(l1)-i-<span class="number">1</span>] <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(l1))]</span><br><span class="line">        str1 = <span class="string">""</span></span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(l1)):</span><br><span class="line">            str1 = str1 + str(l1[i])</span><br><span class="line">        # <span class="keyword">print</span>(<span class="keyword">int</span>(str1))</span><br><span class="line">        l2 = [l2[<span class="built_in">len</span>(l2) - i - <span class="number">1</span>] <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(l2))]</span><br><span class="line">        str2 = <span class="string">""</span></span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(l2)):</span><br><span class="line">            str2 = str2 + str(l2[i])</span><br><span class="line">        # <span class="keyword">print</span>(<span class="keyword">int</span>(str1))</span><br><span class="line">        result = <span class="keyword">list</span>(str(<span class="keyword">int</span>(str1) + <span class="keyword">int</span>(str2)))</span><br><span class="line">        result_list = []</span><br><span class="line">        #print(result)</span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(result)):</span><br><span class="line">            result_list.<span class="keyword">append</span>(<span class="keyword">int</span>(result[<span class="built_in">len</span>(result) - i - <span class="number">1</span>]))</span><br><span class="line">        #print(result_list)</span><br><span class="line">        <span class="keyword">return</span> result_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    s.addTwoNumbers([<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>],[<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>])</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;LeetCode第2题&lt;/h1&gt;
-&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述&lt;/h2&gt;
-&lt;p&gt;给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点
-      
-    
-    </summary>
-    
-    
-      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
-    
-    
-      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
-    
-      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode No.1</title>
-    <link href="www.strivezs.com/2021/01/08/LeetCode%E7%AC%AC1%E9%A2%98/"/>
-    <id>www.strivezs.com/2021/01/08/LeetCode%E7%AC%AC1%E9%A2%98/</id>
-    <published>2021-01-08T10:40:17.268Z</published>
-    <updated>2021-01-08T10:40:17.268Z</updated>
-    
-    <content type="html"><![CDATA[<p>很久没有更新博客了之前一直在忙于考试，最近终于考完了，以后会慢慢坚持更新博客的。对于OJ这个题我计划是每天做一道两道，也是为了以后毕业可以在面试的时候有一个加分项吧，同样也可以锻炼一下自己的编程能力西西。  我觉得对于我来说就是贵在坚持，毕竟在果壳的科研路上也才刚刚起步，日久天长，在搞好科研的同时，可以在在其他方面提升一下自己。</p><h1>LeetCode第1题</h1><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p><p>你可以按任意顺序返回答案。</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">2</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">15</span>], target = <span class="number">9</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">解释：因为 nums[<span class="number">0</span>] + nums[<span class="number">1</span>] == <span class="number">9</span> ，返回 [<span class="number">0</span>, <span class="number">1</span>] 。</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">3</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        result_index = []</span><br><span class="line">        flag = <span class="literal">False</span></span><br><span class="line">        length = len(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(length):</span><br><span class="line">            j = i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> j &lt; length:</span><br><span class="line">                <span class="keyword">if</span> nums[i] + nums[j] == target:</span><br><span class="line">                    flag = <span class="literal">True</span></span><br><span class="line">                    result_index.append(i)</span><br><span class="line">                    result_index.append(j)</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                j = j + <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> flag:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> result_index</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>]</span><br><span class="line">    target = <span class="number">6</span></span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.twoSum(nums,target))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;很久没有更新博客了之前一直在忙于考试，最近终于考完了，以后会慢慢坚持更新博客的。对于OJ这个题我计划是每天做一道两道，也是为了以后毕业可以在面试的时候有一个加分项吧，同样也可以锻炼一下自己的编程能力西西。  我觉得对于我来说就是贵在坚持，毕竟在果壳的科研路上也才刚刚起步，日
-      
-    
-    </summary>
-    
-    
-      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
-    
-    
-      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
-    
-      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Resolution 归结原理</title>
-    <link href="www.strivezs.com/2020/11/15/Resolution%20%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86/"/>
-    <id>www.strivezs.com/2020/11/15/Resolution%20%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86/</id>
-    <published>2020-11-15T04:56:45.096Z</published>
-    <updated>2020-11-15T04:56:45.096Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Resolution 归结原理</h1><h2 id="和取范式"><a class="header-anchor" href="#和取范式">¶</a>和取范式</h2><p>满足一种特殊形式的sentences，conjunction of disjunctions of literals(文字)，一个原子命题的符号A或者他前面加上一个 <code>$\neg A $</code>都称为<strong>文字</strong>。<br>disjunction of literals形式如:均用析取符号<code>$\vee$</code>连接，比如<code>$ A\vee B \vee C $</code><br>conjunction of disjunction of literals(和取范式): 多个disjunction of literals用合取符号连接<code>$\wedge</code>，比如:<code>$(A\vee B\vee C)\wedge (D\vee \neg E)$</code><br>上面和的和取范式称为CNF。</p><p>语义等价<code>$\equiv$</code> 表示两个sentences可以互相转换(语义等价)，比如<code>$A \equiv B$</code>, 可以参考knowledge 1中提供的语义等价公式表来进行转换。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/wquYOk.png" alt="figure.1"></p><p>任何范式都是可以转换其他语义等价的合取范式。<br>将knowledge base中的任意一个sentence转换为一个CNF(通过语义等价)，然后将合取去掉，分成一个个disjunction of literals，将分拆开的DOL(disjunction of literals简写)组成一个新的knowledge base。这样将一个原来的一个knowledge base转换为了一个新的 knowledge base(KB简写)。<br>即<code>$KB \equiv KB' $</code></p><h2 id="归结"><a class="header-anchor" href="#归结">¶</a>归结</h2><p><code>$A, \neg A $</code>称为互补文字.</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/hUS3vR.png" alt="figure.2"></p><p>若<code>$ l_{i} $</code>和<code>$ m_{j} $</code>为互补文字，则可以把<code>$ l_{1}\vee l_{i}, m_{j}\vee m_{1} $</code>使用归结原理可以将<code>$ l_{i} $</code>和<code>$ m_{j} $</code>去掉可以化简为<code>$l_{1}\vee m_{1} $</code>从上述的式子中去掉.(<strong>归结规则</strong>)<br>每一次归结只能拿一对来进行归结，然后下一次还可以拿另外一对进行归结.</p><p>对于一个KB可以将使用等价规则将每一个sentence转换为和取范式，然后再将和取范式转化为一个个全是析取的式子(DOL)组成一个新的KB’,然后对于KB’中的DOL进行归结可以得到一个新的DOL，加入到KB’中。</p><h2 id="归结例子"><a class="header-anchor" href="#归结例子">¶</a>归结例子</h2><p><img src="https://gitee.com/zyp521/upload_image/raw/master/cHfQRp.png" alt="figure.3"></p><p><code>$S={KB,\neg \alpha} $</code>, 我们称S为Resolution closure</p><p><strong>具体流程</strong>:将alpha变为<code>$\neg \alpha $</code>然后加入到KB(通过语义等价转换为一个和取范式然后生成一个KB’)中组成一个新的集合KB’，然后在这基础上进行归结, 由于归结是有限,总会有停止情况，如果最后能够归结出一个空子句则表示<code>$KB\models \alpha $</code>，对于上述的归结，每归结一次将生成的句子放到S中，然后直到停止之后，得到的就是RC(S)，如果要证明<code>$KB\models \alpha $</code>，则RC(S)中一定存在一个空语句。</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/xL4Mkd.png" alt="figure.4"></p><p>上述过程证明了规则是可靠(sound)的。</p><p>S(是KB和<code>$\neg \alpha$</code>)是永假的，则表示不存在一个真值使得每一个sentences为真，若S为永假，则可以推出RC(S)中包含一个空语句。</p><p>完备性可靠性得证。</p><h2 id="A-Search"><a class="header-anchor" href="#A-Search">¶</a>A* Search</h2><p>设计一个算法，任意给一个KB能否推出a。</p><ul><li>初始状态<code>${KB,\neg a}$</code></li><li>找两个子句归结得到一个新的<code>${KB,\neg a,new sentences}$</code>（可以分成很多种情况，类似一个树划分为无数个节点）</li><li>然后进行继续划分节点搜索</li><li>直到首次到达终止状态</li></ul><h2 id="Horn-and-Definite-Clauses"><a class="header-anchor" href="#Horn-and-Definite-Clauses">¶</a>Horn and Definite Clauses</h2><ul><li>正文字，负文字（带否符号的）</li><li>Defineite clauses: 很多个文字的析取，而且这些文字中有且仅有一个是正的</li><li>Horn Clauses： 很多文字的析取，至多有一个正的，也可以全是负的</li><li>两个Horn Clauses进行归结得到的Clauses一定是一个Hron Clauses</li><li>析取为disjunction，合取为conjunction</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;Resolution 归结原理&lt;/h1&gt;
-&lt;h2 id=&quot;和取范式&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#和取范式&quot;&gt;¶&lt;/a&gt;和取范式&lt;/h2&gt;
-&lt;p&gt;满足一种特殊形式的sentences，conjunction of disjunction
-      
-    
-    </summary>
-    
-    
-      <category term="高级人工智能" scheme="www.strivezs.com/categories/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-      <category term="知识点" scheme="www.strivezs.com/categories/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    
-    
-      <category term="Resolution" scheme="www.strivezs.com/tags/Resolution/"/>
     
   </entry>
   
