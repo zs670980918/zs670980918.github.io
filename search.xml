@@ -11466,4 +11466,24 @@ IC 和 IM 这样的例子并不符合题目要求，49 应该写作 XLIX，999 �
         <tag>OJ</tag>
       </tags>
   </entry>
+  <entry>
+    <title>LeetCode No.22</title>
+    <url>/2021/01/27/LeetCode%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%BA%8C%E9%A2%98/</url>
+    <content><![CDATA[<h1>LeetCode第二十二题</h1>
+<h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2>
+<p>数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。</p>
+<p></p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">3</span></span><br><span class="line">输出：[<span class="string">"((()))"</span>,<span class="string">"(()())"</span>,<span class="string">"(())()"</span>,<span class="string">"()(())"</span>,<span class="string">"()()()"</span>]</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：n = <span class="number">1</span></span><br><span class="line">输出：[<span class="string">"()"</span>]</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> &lt;= n &lt;= <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(self,strlist, string, l, r, n)</span>:</span></span><br><span class="line">        <span class="comment"># 单边递归结束条件</span></span><br><span class="line">        <span class="keyword">if</span> l &gt; n <span class="keyword">or</span> r &gt; n <span class="keyword">or</span> r &gt; l:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># string生成结束条件</span></span><br><span class="line">        <span class="keyword">if</span> l == n <span class="keyword">and</span> r == n:</span><br><span class="line">            strlist.append(string)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.func(strlist, string + <span class="string">'('</span>, l+<span class="number">1</span>, r, n)</span><br><span class="line">        self.func(strlist, string + <span class="string">')'</span>, l, r+<span class="number">1</span>, n)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generateParenthesis</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: List[str]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        strlist = []</span><br><span class="line">        self.func(strlist, <span class="string">""</span>, <span class="number">0</span>, <span class="number">0</span>, n)</span><br><span class="line">        <span class="keyword">return</span> strlist</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.generateParenthesis(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OJ</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>LeetCode</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
 </search>
