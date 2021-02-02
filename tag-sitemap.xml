@@ -3,35 +3,42 @@
 
 
     <url>
-        <loc>www.strivezs.com/tags/OJ/</loc>
-        <lastmod>2021-02-01T05:18:14.831Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/LeetCode/</loc>
-        <lastmod>2021-02-01T05:18:14.831Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/Programing/</loc>
-        <lastmod>2021-02-01T05:18:14.831Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/round/</loc>
-        <lastmod>2021-01-11T11:22:58.791Z</lastmod>
+        <loc>www.strivezs.com/tags/itertools/</loc>
+        <lastmod>2021-02-02T10:02:42.991Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/Python/</loc>
+        <lastmod>2021-02-02T10:02:42.991Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/OJ/</loc>
+        <lastmod>2021-02-02T10:01:47.261Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/LeetCode/</loc>
+        <lastmod>2021-02-02T10:01:47.261Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Programing/</loc>
+        <lastmod>2021-02-02T10:01:47.261Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/round/</loc>
         <lastmod>2021-01-11T11:22:58.791Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
