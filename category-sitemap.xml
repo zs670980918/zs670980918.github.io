@@ -9,14 +9,49 @@
 
     <url>
         <loc>www.strivezs.com/categories/OJ/LeetCode/</loc>
-        <lastmod>2021-02-06T03:27:40.070Z</lastmod>
+        <lastmod>2021-02-07T05:30:46.713Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/categories/OJ/</loc>
-        <lastmod>2021-02-06T03:27:40.070Z</lastmod>
+        <lastmod>2021-02-07T05:30:46.713Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/MAC/Anaconda/Scrapy/</loc>
+        <lastmod>2021-02-07T04:48:15.944Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/MAC/Anaconda/</loc>
+        <lastmod>2021-02-07T04:48:15.944Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/MAC/</loc>
+        <lastmod>2021-02-07T04:48:15.944Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/JAVA/</loc>
+        <lastmod>2021-02-06T09:12:09.194Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/MarkDown/</loc>
+        <lastmod>2021-02-06T07:45:27.986Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -85,13 +120,6 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/categories/MAC/</loc>
-        <lastmod>2020-10-07T03:32:27.328Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>www.strivezs.com/categories/%25E6%25B7%25B1%25E5%25BA%25A6%25E5%25AD%25A6%25E4%25B9%25A0/%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8/</loc>
         <lastmod>2020-09-27T10:39:19.530Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -115,13 +143,6 @@
     <url>
         <loc>www.strivezs.com/categories/%25E6%258A%2580%25E6%259C%25AF/</loc>
         <lastmod>2020-09-23T01:28:45.635Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/categories/MAC/Anaconda/</loc>
-        <lastmod>2020-09-02T14:13:14.357Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

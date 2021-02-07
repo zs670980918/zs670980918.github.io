@@ -11761,4 +11761,217 @@ IC 和 IM 这样的例子并不符合题目要求，49 应该写作 XLIX，999 �
         <tag>OJ</tag>
       </tags>
   </entry>
+  <entry>
+    <title>JAVA学前知识储备</title>
+    <url>/2021/02/06/JAVA%E5%AD%A6%E5%89%8D%E7%9F%A5%E8%AF%86%E5%82%A8%E5%A4%87/</url>
+    <content><![CDATA[<h1>JAVA学前知识储备</h1>
+<h2 id="JAVA的三大版本"><a class="header-anchor" href="#JAVA的三大版本">¶</a>JAVA的三大版本</h2>
+<ul>
+<li>JAVASE是用于桌面端的开发</li>
+<li>JAVAME适用于嵌入式小型设备的开发</li>
+<li>JAVAEE是WEB端的开发</li>
+</ul>
+<h2 id="JDK-JRE-JVM"><a class="header-anchor" href="#JDK-JRE-JVM">¶</a>JDK JRE JVM</h2>
+<p>用一张图来说明：</p>
+<p><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=485650522,435650293&amp;fm=11&amp;gp=0.jpg" alt="figure.1"></p>
+<ul>
+<li>JDK: Java Development Kit 开发者工具</li>
+<li>JRE: Java Runtime Enviroment 运行时环境</li>
+<li>JVM: Java Virtual Machine 虚拟机</li>
+</ul>
+<h2 id="Hello-World"><a class="header-anchor" href="#Hello-World">¶</a>Hello World</h2>
+<p>新建一个文件，来编写hello world代码，注意文件名的后缀是.java结尾，而且文件名和类名要一样(区分大小写)。</p>
+<p>代码:</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hello</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span> [] args)</span></span>&#123;</span><br><span class="line">        System.out.<span class="built_in">print</span>(<span class="string">"Hello World"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果:</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/PY0gco.png" alt="figure.2"></p>
+<h2 id="JAVA运行机制"><a class="header-anchor" href="#JAVA运行机制">¶</a>JAVA运行机制</h2>
+<ul>
+<li>编译型</li>
+<li>解释型</li>
+</ul>
+<h2 id="设置IDEA背景图"><a class="header-anchor" href="#设置IDEA背景图">¶</a>设置IDEA背景图</h2>
+<ol>
+<li>设置里面搜索 Set Background Image  ，右键点击第一个，给设置背景的方法添加个快捷键 随便设置一个 不常用的（ctrl alt 0）</li>
+</ol>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/gJ12if.png" alt="figure.3"></p>
+<ol start="2">
+<li>点击OK之后 按下你设置的快捷键 来选择你心仪的图片~~  其中的Opacity滚动条是用来调节透明度的~</li>
+</ol>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/JjstyW.png" alt="figure.4"></p>
+<p>效果:</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/VtCq3O.png" alt="figure.5"></p>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>知识点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode No.35</title>
+    <url>/2021/02/07/LeetCode%E7%AC%AC%E4%B8%89%E5%8D%81%E4%BA%94%E9%A2%98/</url>
+    <content><![CDATA[<h1>LeetCode第三十五题</h1>
+<h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2>
+<p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
+<p>你可以假设数组中无重复元素。</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>], <span class="number">5</span></span><br><span class="line">输出: <span class="number">2</span></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>], <span class="number">2</span></span><br><span class="line">输出: <span class="number">1</span></span><br><span class="line">示例 <span class="number">3</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>], <span class="number">7</span></span><br><span class="line">输出: <span class="number">4</span></span><br><span class="line">示例 <span class="number">4</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>], <span class="number">0</span></span><br><span class="line">输出: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="思维导图"><a class="header-anchor" href="#思维导图">¶</a>思维导图</h2>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE.png" alt="figure.1"></p>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    # 二分查找索引值</span><br><span class="line">    def binarySearch(self,nums,<span class="keyword">l</span>,r,target):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">l</span> &lt; r:</span><br><span class="line">            mid = <span class="keyword">int</span>((r+<span class="keyword">l</span>)/<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">if</span> nums[mid] &lt; targe<span class="variable">t:</span></span><br><span class="line">                <span class="keyword">return</span> self.binarySearch(nums,mid+<span class="number">1</span>,r,target)</span><br><span class="line">            elif nums[mid] &gt; targe<span class="variable">t:</span></span><br><span class="line">                <span class="keyword">return</span> self.binarySearch(nums,<span class="keyword">l</span>,mid-<span class="number">1</span>,target)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> mid</span><br><span class="line">        elif r == <span class="variable">l:</span></span><br><span class="line">            <span class="keyword">if</span> nums[r] == targe<span class="variable">t:</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">l</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">l</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">l</span></span><br><span class="line"></span><br><span class="line">    def searchInsert(self, nums, target):</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        :<span class="built_in">type</span> num<span class="variable">s:</span> List[<span class="keyword">int</span>]</span><br><span class="line">        :<span class="built_in">type</span> targe<span class="variable">t:</span> <span class="keyword">int</span></span><br><span class="line">        :rtype: <span class="keyword">int</span></span><br><span class="line">        核心思想:</span><br><span class="line">            使用二分法查找目标值，如果找到则返回索引值，如果没找到，则返回和它最接近数值的坐标（小于它的）</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        <span class="built_in">index</span> = self.binarySearch(nums,<span class="number">0</span>,<span class="built_in">len</span>(nums)-<span class="number">1</span>,target)</span><br><span class="line">        <span class="keyword">if</span> nums[<span class="built_in">index</span>] == targe<span class="variable">t:</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">index</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">index</span> &gt;= <span class="keyword">int</span>(<span class="number">0</span>+<span class="built_in">len</span>(nums)-<span class="number">1</span>)/<span class="number">2</span>:</span><br><span class="line">                <span class="keyword">if</span> target &gt; nums[<span class="built_in">len</span>(nums)-<span class="number">1</span>]:</span><br><span class="line">                    <span class="built_in">index</span> = <span class="built_in">len</span>(nums)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> nums[<span class="built_in">index</span>] &gt; targe<span class="variable">t:</span></span><br><span class="line">                    pass</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="built_in">index</span> += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">index</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    <span class="keyword">print</span>(s.searchInsert([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>],<span class="number">10</span>))</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OJ</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>LeetCode</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MAC+Anaconda+Scrapy安装以及简单使用</title>
+    <url>/2021/02/07/MAC+Anaconda+Scrapy%E5%AE%89%E8%A3%85.md/</url>
+    <content><![CDATA[<h1>MAC+Anaconda+Scrapy安装</h1>
+<h2 id="Scarpy"><a class="header-anchor" href="#Scarpy">¶</a>Scarpy</h2>
+<p>Scrapy由 Python 编写的爬虫框架。如果你刚接触并且好奇这门语言的特性以及Scrapy的详情， 对于已经熟悉其他语言并且想快速学习Python的编程老手， 我们推荐 Learn Python The Hard Way ， 对于想从Python开始学习的编程新手， <a href="http://wiki.python.org/moin/BeginnersGuide/NonProgrammers">非程序员的Python学习资料列表</a>。</p>
+<h2 id="创建新的虚拟环境"><a class="header-anchor" href="#创建新的虚拟环境">¶</a>创建新的虚拟环境</h2>
+<p>首先在Anaconda上使用如下命令创建新的虚拟环境。</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">创建环境:</span><br><span class="line">conda <span class="keyword">create</span> -n env<span class="string">'name python==python版本</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">激活环境:</span></span><br><span class="line"><span class="string">conda actiavte env'</span><span class="type">name</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h2>
+<p>在终端输入如下命令进行安装</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">conda <span class="keyword">install</span> scrapy</span><br></pre></td></tr></table></figure>
+<h2 id="入门"><a class="header-anchor" href="#入门">¶</a>入门</h2>
+<p>思维导图:</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/Scrapy%E5%85%A5%E9%97%A8.png" alt="figure.1"></p>
+<h3 id="创建项目"><a class="header-anchor" href="#创建项目">¶</a>创建项目</h3>
+<p>使用如下命令创建一个Scrapy项目，其中tutorial为项目名称（事先使用命令行进入你想要创建项目的目录下）</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">scarpy startproject tutorial</span></span><br></pre></td></tr></table></figure>
+<p>创建的项目结构为:</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">tutorial/</span><br><span class="line">    scrapy.cfg</span><br><span class="line">    tutorial/</span><br><span class="line">        __init__.py</span><br><span class="line">        items.py</span><br><span class="line">        pipelines.py</span><br><span class="line">        settings.py</span><br><span class="line">        spiders/</span><br><span class="line">            __init__.py</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure>
+<p>这些文件分别是:</p>
+<ul>
+<li>scrapy.cfg: 项目的配置文件</li>
+<li>tutorial/: 该项目的python模块。之后您将在此加入代码。</li>
+<li>tutorial/items.py: 项目中的item文件.</li>
+<li>tutorial/pipelines.py: 项目中的pipelines文件.</li>
+<li>tutorial/settings.py: 项目的设置文件.</li>
+<li>tutorial/spiders/: 放置spider代码的目录</li>
+</ul>
+<h3 id="定义Item"><a class="header-anchor" href="#定义Item">¶</a>定义Item</h3>
+<p>这里的Item是用来存储爬虫爬取到的数据的容器，它的使用方法和python的字典机制十分相似，并且它提供了额外的保护机制来避免拼写错误导致的未定义名称报错。</p>
+<p>类似Java/C++中的类继承机制一样，你可以编写一个scrapy.item类，该类继承scrapy.Item，通过定义一个类型为 <strong>scrapy.Field</strong> 的类属性来定义一个Item。</p>
+<p>在创建这个Item之前，我们需要对需要爬取的数据进行建模，在完成建模之后，在Item中定义响应的字段，即编写tutorial目录中的items.py文件：</p>
+<p>例子(这里以爬取百度图片):</p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">DmozItem</span>(<span class="title">scrapy</span>.<span class="type">Item</span>):</span></span><br><span class="line"><span class="class">    title = scrapy.<span class="type">Field</span>()</span></span><br><span class="line"><span class="class">    link = scrapy.<span class="type">Field</span>()</span></span><br><span class="line"><span class="class">    desc = scrapy.<span class="type">Field</span>()</span></span><br></pre></td></tr></table></figure>
+<h3 id="编写爬虫例子"><a class="header-anchor" href="#编写爬虫例子">¶</a>编写爬虫例子</h3>
+<p>Spider(爬虫)是用户编写用于从单个网站或者一些网站爬取数据的类。</p>
+<p>其中包含了一个用于下载的初始URL，如何跟进网页中的连接以及如何分析页面中的内容，提取生成item的方法。</p>
+<p>为了创建一个Spider，您必须继承 scrapy.Spider 类， 且定义以下三个属性:</p>
+<ul>
+<li>name: 用于区别Spider。 该名字必须是唯一的，不可以为不同的Spider设定相同的名字。</li>
+<li>start_urls: 包含了Spider在启动时进行爬取的url列表。 因此，第一个被获取到的页面将是其中之一。 后续的URL则从初始的URL获取到的数据中提取。</li>
+<li>parse() 是spider的一个方法。 被调用时，每个初始URL完成下载后生成的 Response 对象将会作为唯一的参数传递给该函数。 该方法负责解析返回的数据(response data)，提取数据(生成item)以及生成需要进一步处理的URL的 Request 对象。</li>
+</ul>
+<p>Spider示例:创建一个spider文件放在tutorial/spiders文件目录下，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DmozSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">"dmoz"</span></span><br><span class="line">    allowed_domains = [<span class="string">"dmoz.org"</span>]</span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="string">"http://www.dmoz.org/Computers/Programming/Languages/Python/Books/"</span>,</span><br><span class="line">        <span class="string">"http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/"</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        filename = response.url.split(<span class="string">"/"</span>)[<span class="number">-2</span>]</span><br><span class="line">        <span class="keyword">with</span> open(filename, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(response.body)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/Rz97TH.png" alt="figure.2"></p>
+<p>刚才发生的过程为：Scrapy为Spider的 start_urls 属性中的每个URL创建了 scrapy.Request 对象，并将 parse 方法作为回调函数(callback)赋值给了Request。</p>
+<p>Request对象经过调度，执行生成 scrapy.http.Response 对象并送回给spider parse() 方法。</p>
+<h4 id="提取数据"><a class="header-anchor" href="#提取数据">¶</a>提取数据</h4>
+<p>Scrapy提取数据有自己的一套机制。它们被称作选择器(seletors)，因为他们通过特定的 XPath 或者 CSS 表达式来“选择” HTML文件中的某个部分。有关selectors的使用暂时先跳过，放在后面进行学习。<br>
+先使用如下代码进行：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DmozSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">"dmoz"</span></span><br><span class="line">    allowed_domains = [<span class="string">"dmoz.org"</span>]</span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="string">"http://www.dmoz.org/Computers/Programming/Languages/Python/Books/"</span>,</span><br><span class="line">        <span class="string">"http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/"</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> sel <span class="keyword">in</span> response.xpath(<span class="string">'//ul/li'</span>):</span><br><span class="line">            title = sel.xpath(<span class="string">'a/text()'</span>).extract()</span><br><span class="line">            link = sel.xpath(<span class="string">'a/@href'</span>).extract()</span><br><span class="line">            desc = sel.xpath(<span class="string">'text()'</span>).extract()</span><br><span class="line">            print(title, link, desc)</span><br></pre></td></tr></table></figure>
+<h4 id="使用Item存储提取的数据"><a class="header-anchor" href="#使用Item存储提取的数据">¶</a>使用Item存储提取的数据</h4>
+<p>Item对象是我们在Item.py文件中创建的类，我们通过创建一个/多个对象来存储我们提取得到的数据，通过字典的方式来访问每个属性，然后对每个属性进行赋值。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scrapyProject.items <span class="keyword">import</span> ScrapyprojectItem</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DmozSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">"dmoz"</span></span><br><span class="line">    allowed_domains = [<span class="string">"dmoz.org"</span>]</span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="string">"http://www.dmoz.org/Computers/Programming/Languages/Python/Books/"</span>,</span><br><span class="line">        <span class="string">"http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/"</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> sel <span class="keyword">in</span> response.xpath(<span class="string">'//ul/li'</span>):</span><br><span class="line">            item = ScrapyprojectItem()</span><br><span class="line">            item[<span class="string">'title'</span>] = sel.xpath(<span class="string">'a/text()'</span>).extract()</span><br><span class="line">            item[<span class="string">'link'</span>] = sel.xpath(<span class="string">'a/@href'</span>).extract()</span><br><span class="line">            item[<span class="string">'desc'</span>] = sel.xpath(<span class="string">'text()'</span>).extract()</span><br><span class="line">            <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
+<h3 id="保存爬取到的数据"><a class="header-anchor" href="#保存爬取到的数据">¶</a>保存爬取到的数据</h3>
+<p>最简单存储爬取的数据的方式是使用 Feed exports:</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">scrapy</span> <span class="selector-tag">crawl</span> <span class="selector-tag">dmoz</span> <span class="selector-tag">-o</span> <span class="selector-tag">items</span><span class="selector-class">.json</span></span><br></pre></td></tr></table></figure>
+<p>该命令将采用 JSON 格式对爬取的数据进行序列化，生成 items.json 文件。</p>
+<p>在类似本篇教程里这样小规模的项目中，这种存储方式已经足够。 如果需要对爬取到的item做更多更为复杂的操作，您可以编写 Item Pipeline 。 类似于我们在创建项目时对Item做的，用于您编写自己的 tutorial/pipelines.py 也被创建。 不过如果您仅仅想要保存item，您不需要实现任何的pipeline。</p>
+<h3 id="问题记录"><a class="header-anchor" href="#问题记录">¶</a>问题记录</h3>
+<ol>
+<li>报错：ModuleNotFoundError: No module named ‘protego’<br>
+使用conda 安装protego包即可解决。</li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">conda <span class="keyword">install</span> protego</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>失败说明<br>
+由于链接我尝试自己访问了一下发现无法访问了，应该是国外网站（墙的问题），暂时还没学xpath相关的知识，因此打算在之后尝试一下国内的网站使用。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>MAC</category>
+        <category>Anaconda</category>
+        <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>Anaconda</tag>
+        <tag>Python</tag>
+        <tag>MAC</tag>
+        <tag>Scrapy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MarkDown语法</title>
+    <url>/2021/02/06/MarkDown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1>MarkDown语法</h1>
+<h2 id="标题"><a class="header-anchor" href="#标题">¶</a>标题</h2>
+<figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题：# 标题名</span><br><span class="line">二级标题：## 标题名</span><br><span class="line">三级标题：### 标题名</span><br><span class="line">最多到六级</span><br></pre></td></tr></table></figure>
+<h2 id="字体"><a class="header-anchor" href="#字体">¶</a>字体</h2>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">粗体：*<span class="strong">*文字*</span><span class="strong">*</span></span><br><span class="line"><span class="strong">斜体：*</span>文字<span class="strong">*</span></span><br><span class="line"><span class="strong">删除线：~~文字~~</span></span><br></pre></td></tr></table></figure>
+<h2 id="引用"><a class="header-anchor" href="#引用">¶</a>引用</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">空格 文字</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>引用<br>
+示例</p>
+</blockquote>
+<h2 id="分割线"><a class="header-anchor" href="#分割线">¶</a>分割线</h2>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="bullet">--- </span>用来表示分割线</span><br><span class="line"><span class="bullet">*** </span>也用来表示分割线</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="图片"><a class="header-anchor" href="#图片">¶</a>图片</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">图片地址-本地图片/网络图片</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="超链接"><a class="header-anchor" href="#超链接">¶</a>超链接</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">超链接</span>](<span class="link">地址</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="列表"><a class="header-anchor" href="#列表">¶</a>列表</h2>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">有序列表:</span><br><span class="line">    <span class="number">1.</span></span><br><span class="line">    <span class="number">2.</span></span><br><span class="line">    <span class="number">3.</span></span><br><span class="line"></span><br><span class="line">无序列表:</span><br><span class="line">    -</span><br><span class="line">    -</span><br><span class="line">    -</span><br></pre></td></tr></table></figure>
+<h2 id="表格"><a class="header-anchor" href="#表格">¶</a>表格</h2>
+<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">名字|<span class="string">性别</span>|<span class="string">生日</span></span><br><span class="line"><span class="string">--</span>|<span class="string">--</span>|<span class="string">--</span>|</span><br><span class="line">张三|<span class="string">男</span>|1997</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>名字</th>
+<th>性别</th>
+<th>生日</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>张三</td>
+<td>男</td>
+<td>1997</td>
+</tr>
+<tr>
+<td>张三</td>
+<td>男</td>
+<td>1997</td>
+</tr>
+</tbody>
+</table>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">三个点<span class="symbol">:```</span> code</span><br></pre></td></tr></table></figure>
+<pre><code></code></pre>
+]]></content>
+      <categories>
+        <category>MarkDown</category>
+      </categories>
+      <tags>
+        <tag>MarkDown</tag>
+        <tag>语法</tag>
+      </tags>
+  </entry>
 </search>

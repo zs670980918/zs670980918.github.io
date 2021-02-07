@@ -4,34 +4,83 @@
 
     <url>
         <loc>www.strivezs.com/tags/OJ/</loc>
-        <lastmod>2021-02-06T03:27:40.070Z</lastmod>
+        <lastmod>2021-02-07T05:30:46.713Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/LeetCode/</loc>
-        <lastmod>2021-02-06T03:27:40.070Z</lastmod>
+        <lastmod>2021-02-07T05:30:46.713Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/Programing/</loc>
-        <lastmod>2021-02-06T03:27:40.070Z</lastmod>
+        <lastmod>2021-02-07T05:30:46.713Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/itertools/</loc>
-        <lastmod>2021-02-02T10:02:42.991Z</lastmod>
+        <loc>www.strivezs.com/tags/Scrapy/</loc>
+        <lastmod>2021-02-07T04:48:15.944Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/MAC/</loc>
+        <lastmod>2021-02-07T04:48:15.944Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/Python/</loc>
+        <lastmod>2021-02-07T04:48:15.944Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Anaconda/</loc>
+        <lastmod>2021-02-07T04:48:15.944Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E7%259F%25A5%25E8%25AF%2586%25E7%2582%25B9/</loc>
+        <lastmod>2021-02-06T09:12:09.194Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/JAVA/</loc>
+        <lastmod>2021-02-06T09:12:09.194Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E8%25AF%25AD%25E6%25B3%2595/</loc>
+        <lastmod>2021-02-06T07:45:27.986Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/MarkDown/</loc>
+        <lastmod>2021-02-06T07:45:27.986Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/itertools/</loc>
         <lastmod>2021-02-02T10:02:42.991Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -94,13 +143,6 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/MAC/</loc>
-        <lastmod>2020-10-07T03:32:27.328Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>www.strivezs.com/tags/GPU/</loc>
         <lastmod>2020-09-27T10:39:19.530Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -116,13 +158,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/Google-Colaboratory/</loc>
-        <lastmod>2020-09-27T10:39:19.530Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/Anaconda/</loc>
         <lastmod>2020-09-27T10:39:19.530Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
