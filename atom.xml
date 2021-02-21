@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2021-02-18T05:40:16.401Z</updated>
+  <updated>2021-02-21T04:39:40.453Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode No.43</title>
+    <link href="www.strivezs.com/2021/02/21/LeetCode%E7%AC%AC%E5%9B%9B%E5%8D%81%E4%B8%89%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/02/21/LeetCode%E7%AC%AC%E5%9B%9B%E5%8D%81%E4%B8%89%E9%A2%98/</id>
+    <published>2021-02-21T04:39:40.453Z</published>
+    <updated>2021-02-21T04:39:40.453Z</updated>
+    
+    <content type="html"><![CDATA[<h1>LeetCode第四十三题</h1><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="attr">num1</span> = <span class="string">"2"</span>, <span class="attr">num2</span> = <span class="string">"3"</span></span><br><span class="line">输出: <span class="string">"6"</span></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: <span class="attr">num1</span> = <span class="string">"123"</span>, <span class="attr">num2</span> = <span class="string">"456"</span></span><br><span class="line">输出: <span class="string">"56088"</span></span><br><span class="line">说明：</span><br><span class="line"></span><br><span class="line">num1 和 num2 的长度小于<span class="number">110</span>。</span><br><span class="line">num1 和 num2 只包含数字 <span class="number">0</span>-<span class="number">9</span>。</span><br><span class="line">num1 和 num2 均不以零开头，除非是数字 <span class="number">0</span> 本身。</span><br><span class="line">不能使用任何标准库的大数类型（比如 BigInteger）或直接将输入转换为整数来处理。</span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><p>本题是经典的大数乘法.</p><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class <span class="type">Solution</span>(<span class="keyword">object</span>):</span><br><span class="line">    def multiply(self, num1, num2):</span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type num1: str</span></span><br><span class="line"><span class="string">        :type num2: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        核心思想：经典的大数乘法</span></span><br><span class="line"><span class="string">                核心就是循环 每次分别计算进位和计算余位，注意整数和字符串的转换</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        num1_reverse = num1[::-<span class="number">1</span>]</span><br><span class="line">        num2_reverse = num2[::-<span class="number">1</span>]</span><br><span class="line">        <span class="literal">result</span> = [str(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(len(num1_reverse)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(len(num2_reverse)):</span><br><span class="line">                temp = <span class="built_in">int</span>(num1_reverse[i]) * <span class="built_in">int</span>(num2_reverse[j])</span><br><span class="line">                <span class="comment"># 计算进位</span></span><br><span class="line">                <span class="literal">result</span>[i+j+<span class="number">1</span>] = str(<span class="built_in">int</span>(<span class="literal">result</span>[i+j+<span class="number">1</span>]) + <span class="built_in">int</span>((<span class="built_in">int</span>(<span class="literal">result</span>[i+j]) + temp) / <span class="number">10</span>))</span><br><span class="line">                <span class="comment"># 计算余位</span></span><br><span class="line">                <span class="literal">result</span>[i+j] = str((<span class="built_in">int</span>(<span class="literal">result</span>[i+j]) + temp) % <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">        <span class="literal">result</span> = <span class="literal">result</span>[::-<span class="number">1</span>]</span><br><span class="line">        <span class="comment">#print(result)</span></span><br><span class="line">        str_res = <span class="string">""</span></span><br><span class="line">        flag = <span class="type">True</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(len(<span class="literal">result</span>)):</span><br><span class="line">            <span class="keyword">if</span> flag:</span><br><span class="line">                <span class="keyword">if</span> <span class="literal">result</span>[i] != '<span class="number">0</span>':</span><br><span class="line">                    flag = <span class="type">False</span></span><br><span class="line">                    str_res += <span class="literal">result</span>[i]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                str_res += <span class="literal">result</span>[i]</span><br><span class="line">        <span class="comment"># 单独处理为0的情况</span></span><br><span class="line">        <span class="keyword">if</span> flag:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"0"</span></span><br><span class="line">        <span class="keyword">return</span> str_res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == '__main__':</span><br><span class="line">    s = <span class="type">Solution</span>()</span><br><span class="line">    print(s.multiply('<span class="number">123</span>','<span class="number">456</span>'))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;LeetCode第四十三题&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode No.42</title>
@@ -636,38 +670,6 @@
       
       
         &lt;h1 id=&quot;LeetCode第二十八题&quot;&gt;&lt;a href=&quot;#LeetCode第二十八题&quot; class=&quot;headerlink&quot; title=&quot;LeetCode第二十八题&quot;&gt;&lt;/a&gt;LeetCode第二十八题&lt;/h1&gt;&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
-    
-    
-      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
-    
-      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode No.27</title>
-    <link href="www.strivezs.com/2021/02/01/LeetCode%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%83%E9%A2%98/"/>
-    <id>www.strivezs.com/2021/02/01/LeetCode%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%83%E9%A2%98/</id>
-    <published>2021-02-01T05:15:50.451Z</published>
-    <updated>2021-02-01T05:15:50.451Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="LeetCode第二十七题"><a href="#LeetCode第二十七题" class="headerlink" title="LeetCode第二十七题"></a>LeetCode第二十七题</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。</p><p>不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。</p><p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p><p>说明:</p><p>为什么返回数值是整数，但输出的答案是数组呢?</p><p>请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p><p>你可以想象内部操作如下:</p><p>// nums 是以“引用”方式传递的。也就是说，不对实参作任何拷贝<br>int len = removeElement(nums, val);</p><p>// 在函数里修改输入数组对于调用者是可见的。<br>// 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。<br>for (int i = 0; i &lt; len; i++) {<br>    print(nums[i]);<br>}</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>], val = <span class="number">3</span></span><br><span class="line">输出：<span class="number">2</span>, nums = [<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line">解释：函数应该返回新的长度 <span class="number">2</span>, 并且 nums 中的前两个元素均为 <span class="number">2</span>。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 <span class="number">2</span> ，而 nums = [<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>] 或 nums = [<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>]，也会被视作正确答案。</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">2</span>], val = <span class="number">2</span></span><br><span class="line">输出：<span class="number">5</span>, nums = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">0</span>,<span class="number">3</span>]</span><br><span class="line">解释：函数应该返回新的长度 <span class="number">5</span>, 并且 nums 中的前五个元素为 <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>。注意这五个元素可为任意顺序。你不需要考虑数组中超出新长度后面的元素。</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">0</span> &lt;= nums.length &lt;= <span class="number">100</span></span><br><span class="line"><span class="number">0</span> &lt;= nums[i] &lt;= <span class="number">50</span></span><br><span class="line"><span class="number">0</span> &lt;= val &lt;= <span class="number">100</span></span><br></pre></td></tr></table></figure><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def removeElement(self, nums, val):</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        :<span class="built_in">type</span> num<span class="variable">s:</span> List[<span class="keyword">int</span>]</span><br><span class="line">        :<span class="built_in">type</span> va<span class="variable">l:</span> <span class="keyword">int</span></span><br><span class="line">        :rtype: <span class="keyword">int</span></span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] != va<span class="variable">l:</span></span><br><span class="line">                result.<span class="keyword">append</span>(nums[i])</span><br><span class="line">        nums[<span class="number">0</span>:<span class="built_in">len</span>(result)] = result</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(result)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    <span class="keyword">print</span>(s.removeElement(nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>], val = <span class="number">3</span>))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;LeetCode第二十七题&quot;&gt;&lt;a href=&quot;#LeetCode第二十七题&quot; class=&quot;headerlink&quot; title=&quot;LeetCode第二十七题&quot;&gt;&lt;/a&gt;LeetCode第二十七题&lt;/h1&gt;&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot;
       
     
     </summary>
