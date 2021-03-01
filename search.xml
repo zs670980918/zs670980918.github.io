@@ -12177,4 +12177,112 @@ countAndSay(n) 是对 countAndSay(n-1) 的描述，然后转换成另一个数�
         <tag>OJ</tag>
       </tags>
   </entry>
+  <entry>
+    <title>LeetCode No.44</title>
+    <url>/2021/03/01/LeetCode%E7%AC%AC%E5%9B%9B%E5%8D%81%E5%9B%9B%E9%A2%98/</url>
+    <content><![CDATA[<h1>LeetCode第四十四题</h1>
+<p>鸽了好几天我胡汉三又回来了。接着坚持，前段时间基金给我搞炸了裂开。</p>
+<h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2>
+<p>定一个字符串 (s) 和一个字符模式 § ，实现一个支持 ‘?’ 和 ‘*’ 的通配符匹配。</p>
+<p>‘?’ 可以匹配任何单个字符。<br>
+‘*’ 可以匹配任意字符串（包括空字符串）。<br>
+两个字符串完全匹配才算匹配成功。</p>
+<p>说明:</p>
+<p>s 可能为空，且只包含从 a-z 的小写字母。<br>
+p 可能为空，且只包含从 a-z 的小写字母，以及字符 ? 和 *。<br>
+示例 1:</p>
+<p>输入:<br>
+s = “aa”<br>
+p = “a”<br>
+输出: false<br>
+解释: “a” 无法匹配 “aa” 整个字符串。<br>
+示例 2:</p>
+<p>输入:<br>
+s = “aa”<br>
+p = &quot;<em>&quot;<br>
+输出: true<br>
+解释: '</em>’ 可以匹配任意字符串。<br>
+示例 3:</p>
+<p>输入:<br>
+s = “cb”<br>
+p = “?a”<br>
+输出: false<br>
+解释: ‘?’ 可以匹配 ‘c’, 但第二个 ‘a’ 无法匹配 ‘b’。<br>
+示例 4:</p>
+<p>输入:<br>
+s = “adceb”<br>
+p = “<em>a</em>b”<br>
+输出: true<br>
+解释: 第一个 ‘<em>’ 可以匹配空字符串, 第二个 '</em>’ 可以匹配字符串 “dce”.<br>
+示例 5:</p>
+<p>输入:<br>
+s = “acdcb”<br>
+p = “a*c?b”<br>
+输出: false</p>
+<h2 id="核心思想"><a class="header-anchor" href="#核心思想">¶</a>核心思想</h2>
+<p>这是经典的动态规划算法。</p>
+<p>首先是创建一个s和p对应的棋盘(dp)：</p>
+<p><img src="https://pic.leetcode-cn.com/a319e64f7824ab0590ef1dbaa016d6e47f22c631424b124cb1ecea842ba002c8-gaitubao_%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-07-05%20%E4%B8%8B%E5%8D%882.09.44.png" alt="figure.1"></p>
+<p>然后对于*的情况，它理论上可以占据一行的True，但实际上是从它顶上的True开始占据后半行:</p>
+<p><img src="https://pic.leetcode-cn.com/c97b033d8e3f45686f87a3264404177411ac8095201c07c3e1af0b25953067b0-gaitubao_%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-07-05%20%E4%B8%8B%E5%8D%882.20.13.png" alt="figure.2"></p>
+<p>然后对于？的情况，它则是从dp[i-1][j-1]变到dp[i][j]</p>
+<p><img src="https://pic.leetcode-cn.com/abee7c42685e277f93c1693447d403044e30a33d1a90f763a96d3373ed66ce2f-gaitubao_%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-07-05%20%E4%B8%8B%E5%8D%882.44.25.png" alt="figure.3"></p>
+<p>下面是我参考大佬的代码。</p>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isMatch</span><span class="params">(self, s, p)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :type p: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        核心思想：使用动态规划</span></span><br><span class="line"><span class="string">                构建一个 len(s)+1 * len(p)+1 的dp动态矩阵</span></span><br><span class="line"><span class="string">                加1是因为：考虑s或p为空的情况下的初始状态</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        line = len(p) + <span class="number">1</span> <span class="comment"># 行</span></span><br><span class="line">        row = len(s) + <span class="number">1</span> <span class="comment"># 列</span></span><br><span class="line">        <span class="comment"># 创建dp数组</span></span><br><span class="line">        dp = [[<span class="literal">False</span>]*row <span class="keyword">for</span> _ <span class="keyword">in</span> range(line)]</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 单独处理s为空的情况</span></span><br><span class="line">        <span class="keyword">if</span> s == <span class="string">""</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(p)):</span><br><span class="line">                <span class="keyword">if</span> p[i] != <span class="string">'*'</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 单独处理p以*开头的情况</span></span><br><span class="line">        <span class="keyword">if</span> p.startswith(<span class="string">'*'</span>):</span><br><span class="line">            dp[<span class="number">1</span>] = [<span class="literal">True</span>]*row</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 开始处理</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,line):</span><br><span class="line">            isAsterisk = <span class="literal">False</span> <span class="comment"># 是否为 *</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,row):</span><br><span class="line">                <span class="comment"># 处理相等的情况</span></span><br><span class="line">                <span class="keyword">if</span> s[j<span class="number">-1</span>] == p[i<span class="number">-1</span>]:</span><br><span class="line">                    dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>]</span><br><span class="line">                <span class="comment"># 处理 ? 的情况</span></span><br><span class="line">                <span class="keyword">elif</span> p[i<span class="number">-1</span>] == <span class="string">'?'</span>:</span><br><span class="line">                    dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>]</span><br><span class="line">                <span class="comment"># 处理 * 的情况</span></span><br><span class="line">                <span class="keyword">elif</span> p[i<span class="number">-1</span>] == <span class="string">'*'</span>:</span><br><span class="line">                    <span class="comment"># 处理前面已经出现*的情况或者pattern以*开头的情况</span></span><br><span class="line">                    <span class="keyword">if</span> dp[i<span class="number">-1</span>][<span class="number">0</span>] == <span class="literal">True</span>:</span><br><span class="line">                        dp[i] = [<span class="literal">True</span>] * row</span><br><span class="line">                    <span class="comment"># 处理顶上为True下一个出现*的情况</span></span><br><span class="line">                    <span class="keyword">if</span> dp[i<span class="number">-1</span>][j]:</span><br><span class="line">                        isAsterisk = <span class="literal">True</span></span><br><span class="line">                    <span class="comment"># 从该True位置开始后面该行均为True</span></span><br><span class="line">                    <span class="keyword">if</span> isAsterisk:</span><br><span class="line">                        dp[i][j] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 返回结果</span></span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">-1</span>][<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.isMatch(s = <span class="string">""</span>,p = <span class="string">"**a**"</span>))</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OJ</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>LeetCode</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划</title>
+    <url>/2021/03/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h1>动态规划</h1>
+<h2 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h2>
+<h3 id="官方定义"><a class="header-anchor" href="#官方定义">¶</a>官方定义</h3>
+<p>动态规划算法是通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推(或者分治)的方式解决。</p>
+<p>动态规划算法的基本思想和分治法类似，也是将带求解的问题分为若干个子问题，按顺序求解各个子问题的解，前一个子问题的解为后一个子问题的解提供了有用的信息。在求解任一子问题时，列出各种可能的局部解，通过策略保留那些可能达到最优的局部解，丢弃其他局部解。以此解决各个子问题，最后一个子问题就是初始问题的解。</p>
+<h2 id="基本思想与策略编辑"><a class="header-anchor" href="#基本思想与策略编辑">¶</a>基本思想与策略编辑</h2>
+<p>由于动态规划解决的问题多数有重叠的子问题这个特点，为了减少重复计算，对每一个子问题只解一次，将其不同阶段的不同状态保存在一个二维数组中。</p>
+<p>上述内容解释：</p>
+<ul>
+<li>对于拆分问题：<ins>个人理解就是根据问题的可能性把问题划分成一步一步这样就可以通过递推或者递归来实现</ins></li>
+<li>对于定义问题状态和状态之间的关系：<ins>个人理解是前面拆分的步骤之间的关系，是以一种量化的形式表现出来的，类似于，高中学的推导公式，因为这种式子很容易用程序写出来（也就是常说的状态转移方程）</ins></li>
+<li>对于定义最后的话，<ins>个人理解是在我们找到最优解之后，需要将它保存下来，为了能够在后一步求解下一个子问题时，使用到前一步的最优解，在这个过程中难免有一些相比于最优解差的解，此时我们应该放弃，只保存最优解。</ins></li>
+</ul>
+<p>多说无益，折断的骨头，才是最好的课本（实战学习最能帮助理解了）</p>
+<h2 id="经典动态规划——数字三角问题"><a class="header-anchor" href="#经典动态规划——数字三角问题">¶</a>经典动态规划——数字三角问题</h2>
+<p>题目：</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/BsPB8D.png" alt="figure.1"></p>
+<p>在上面的数字三角形中寻找一条从顶部到底部的路径，使得路径上所经过的数字之和最大。路径上的每一步只能往左下或者右下走。只需要求出这个最大和即可，附加：如果可以的话也可以给出路径。(三角形的行数大于1小于等于100，数字为0-99)</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">输入：</span><br><span class="line">    <span class="number">7</span></span><br><span class="line">    <span class="number">3</span> <span class="number">8</span></span><br><span class="line">    <span class="number">8</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line">    <span class="number">2</span> <span class="number">7</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line">    <span class="number">4</span> <span class="number">5</span> <span class="number">2</span> <span class="number">6</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line">将上面的等腰三角形转换成了直角三角形，方便存储输入，很明显可以看出可以使用<span class="number">5</span>×<span class="number">5</span>的数组存储，没有数字的部分使用<span class="number">-1</span>填充</span><br></pre></td></tr></table></figure>
+<p>对于上述输入，我们尽可以采用向下或者向右下两种选择方式，最后一行则作为边界条件。<br>
+很容易我们想到可以使用递归来解决该问题，因为每一步不是向右下就是向下走，下面是Python递归方法的代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">dynamic_progam</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">MaxSum</span><span class="params">(self,D, i ,j, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type D: list  matrix</span></span><br><span class="line"><span class="string">        :type i: int  horizontal</span></span><br><span class="line"><span class="string">        :type j: int  ordinate</span></span><br><span class="line"><span class="string">        :type n: int  stop line</span></span><br><span class="line"><span class="string">        :rtype : int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> i == n:</span><br><span class="line">            <span class="keyword">return</span> D[i][j]</span><br><span class="line">        x = self.MaxSum(D,i+<span class="number">1</span>,j,n) <span class="comment"># 向下移动</span></span><br><span class="line">        y = self.MaxSum(D,i+<span class="number">1</span>,j+<span class="number">1</span>,n) <span class="comment">#向右下移动</span></span><br><span class="line">        <span class="keyword">return</span>  max(x,y)+D[i][j]</span><br></pre></td></tr></table></figure>
+<p>观察上面代码，我们可以发现仅通过这种递归的方法，我们会将所有的路径都遍历一遍(DFS)，这其中存在了大量的重复计算，当行数很大的时候就会超时，如果每算出一个maxSum(i,j)，就将让他保存起来，下次用到它的值时直接取用，则可以免去重复计算，那么就可以大大的缩短计算复杂度。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">代码：</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">dynamic_progam</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> maxsum <span class="comment"># 存储最大值的全局数组  初始全为-1</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">MaxSum</span><span class="params">(self,D, i ,j, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type D: list  matrix</span></span><br><span class="line"><span class="string">        :type i: int  horizontal</span></span><br><span class="line"><span class="string">        :type j: int  ordinate</span></span><br><span class="line"><span class="string">        :type n: int  stop line</span></span><br><span class="line"><span class="string">        :rtype : NULL</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> maxsum[i][j] != <span class="number">-1</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">if</span> i == n:</span><br><span class="line">            maxsum[i][j] =  D[i][j]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x = self.MaxSum(D, i + <span class="number">1</span>, j, n)  <span class="comment"># 向下移动</span></span><br><span class="line">            y = self.MaxSum(D, i + <span class="number">1</span>, j + <span class="number">1</span>, n)  <span class="comment"># 向右下移动</span></span><br><span class="line">            maxsum[i][j] = max(x,y) + D[i][j] <span class="comment"># 存储信息</span></span><br><span class="line">        <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+<h2 id="经典动态规划——背包问题"><a class="header-anchor" href="#经典动态规划——背包问题">¶</a>经典动态规划——背包问题</h2>
+<p>在N件物品取出若干件放在容量为W的背包里，每件物品的体积为W1, W2, …, Wn (Wi为整数)，与之相对应的价值分别为P1, P2, …,Pn(Pi为整数)，求背包能够容纳的最大价值。</p>
+<p>该问题是很明显的贪心问题, 分别</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"># 背包问题</span><br><span class="line">    ## <span class="keyword">dp</span>存储数组, 该数组横坐标表示从第一个物品开始放到第几个物品，纵坐标代表背包还有多少容量，<span class="keyword">dp</span>[i][<span class="keyword">j</span>]的值代表当前背包的价值为多少</span><br><span class="line">    <span class="keyword">global</span> <span class="keyword">dp</span></span><br><span class="line">    def bagProblem(self, n, v, <span class="keyword">w</span>, <span class="keyword">p</span>):</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        :<span class="built_in">type</span> n: <span class="keyword">int</span> 横坐标表示从第一个物品开始放到第几个物品</span><br><span class="line">        :<span class="built_in">type</span> <span class="variable">v:</span> <span class="keyword">int</span> 纵坐标代表背包还有多少容量</span><br><span class="line">        :<span class="built_in">type</span> <span class="variable">w:</span> <span class="keyword">list</span> 每个物品对应的体积</span><br><span class="line">        :<span class="built_in">type</span> <span class="keyword">p</span>: <span class="keyword">list</span> 每个物品对应的价值</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> <span class="keyword">j</span> in <span class="built_in">range</span>(<span class="number">1</span>,v+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">j</span> &gt;= <span class="keyword">w</span>[i]:</span><br><span class="line">                    # 能放下该物品，则减去空间，增加价值，并和不放该物品前的价值比较大小，取大小</span><br><span class="line">                    <span class="keyword">dp</span>[i][<span class="keyword">j</span>] = <span class="built_in">max</span>(<span class="keyword">dp</span>[i-<span class="number">1</span>][<span class="keyword">j</span>],<span class="keyword">dp</span>[i-<span class="number">1</span>][<span class="keyword">j</span>-<span class="keyword">w</span>[i]]+<span class="keyword">p</span>[i])</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    # 如果放不下，则存为上一个物品之后的价值</span><br><span class="line">                    <span class="keyword">dp</span>[i][<span class="keyword">j</span>] = <span class="keyword">dp</span>[i-<span class="number">1</span>][<span class="keyword">j</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">dp</span></span><br></pre></td></tr></table></figure>
+<h2 id="解题思路"><a class="header-anchor" href="#解题思路">¶</a>解题思路</h2>
+<p>首先拿到一个问题，要先考虑是否可以拆分成多个子问题求解，将问题刻画成一个个子问题后，然后在考虑使用递归来解决(类似分治)，最后再将递归转换为动态规划求解。<br>
+<strong>递归转换为动态规划的一般方法</strong>：<br>
+<ins>如果该递归函数有n个参数, 那么就定义一个n维数组, 数组下标示递归函数参数的取值范围(也就是数组每一维的大小)，数组元素的值是递归函数的返回值(初始化为一个标志值，表示还未被填充)，这样就可以从边界值开始逐步填充数组，相当于计算递归函数的逆过程。</ins></p>
+<p>ps：一般遇到求最优解可拆分问题都适合用动态规划求解。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
 </search>
