@@ -3,29 +3,29 @@
 
 
     <url>
-        <loc>www.strivezs.com/tags/Algorithm/</loc>
-        <lastmod>2021-03-01T11:41:40.279Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/Programing/</loc>
-        <lastmod>2021-03-01T11:41:40.279Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>www.strivezs.com/tags/OJ/</loc>
-        <lastmod>2021-03-01T11:41:03.198Z</lastmod>
+        <lastmod>2021-03-02T11:24:53.525Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/LeetCode/</loc>
-        <lastmod>2021-03-01T11:41:03.198Z</lastmod>
+        <lastmod>2021-03-02T11:24:53.525Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Programing/</loc>
+        <lastmod>2021-03-02T11:24:53.525Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Algorithm/</loc>
+        <lastmod>2021-03-01T11:41:40.279Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
