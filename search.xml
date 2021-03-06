@@ -12313,4 +12313,80 @@ p = “a*c?b”<br>
         <tag>OJ</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Learning English In Six Months—TED Record</title>
+    <url>/2021/03/06/Learning%20English%20In%20Six%20Months%E2%80%94TED%20Record/</url>
+    <content><![CDATA[<h1>Learning English In Six Months</h1>
+<p>First of all, I want to say is in order to improve my English listening and wirting skills, I decide to create this series to record my daily English learning process.</p>
+<p>I hope that with my efforts, English can become my second tongue.</p>
+<p>Original Video Address: <a href="https://www.youtube.com/watch?v=d0yGdNEWdn0&amp;ab_channel=TEDxTalks">click here</a></p>
+<h2 id="Five-Principles-And-Seven-Actions"><a class="header-anchor" href="#Five-Principles-And-Seven-Actions">¶</a>Five Principles And Seven Actions</h2>
+<p>Maybe a few more，but there are absolutely core.</p>
+<h3 id="Five-Principles"><a class="header-anchor" href="#Five-Principles">¶</a>Five Principles</h3>
+<h4 id="First"><a class="header-anchor" href="#First">¶</a>First</h4>
+<ul>
+<li>Attention</li>
+<li>Meaning</li>
+<li>Relevance</li>
+<li>Memory</li>
+</ul>
+<p>These interconnect in vary important ways.</p>
+<p><img src="https://gitee.com/zyp521/upload_image/raw/master/nTHk9x.png" alt="figure.1"></p>
+<h4 id="Second"><a class="header-anchor" href="#Second">¶</a>Second</h4>
+<p>Use your new language as a tool to communicate from day.</p>
+<h4 id="Third"><a class="header-anchor" href="#Third">¶</a>Third</h4>
+<p>When you first understand the message, you will unconsciously acquire the langeuage.</p>
+<h4 id="Forth"><a class="header-anchor" href="#Forth">¶</a>Forth</h4>
+<p>Learning English is like physiological training.</p>
+<h4 id="Five"><a class="header-anchor" href="#Five">¶</a>Five</h4>
+<p>Psycho-physiological state. We need high mood to learning English, happy relax and so on will let us to learn qucikly.</p>
+<h3 id="Seven-Actions-For-Rapid-Language-Acquisition"><a class="header-anchor" href="#Seven-Actions-For-Rapid-Language-Acquisition">¶</a>Seven Actions For Rapid Language Acquisition</h3>
+<ul>
+<li>Listen A Lot</li>
+<li>Focus on getting the meaning first even before you get the words</li>
+<li>Start Mixing, Language is a creative process.</li>
+<li>Get a language parent.</li>
+</ul>
+<p>Language Parent Rules:</p>
+<ul>
+<li>Works to understand what you are saying</li>
+<li>Does not correct mistakes</li>
+<li>Confirms undetstanding by using correct language</li>
+<li>Uses words the learner knows.</li>
+<li>Copy the face(how others’mouth to say this word)</li>
+<li>“Direct Connect” to Mental Images. Find the connection between the words and corresponding images.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>TED</category>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>TED Record</tag>
+        <tag>English Studying</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode No.46</title>
+    <url>/2021/03/06/LeetCode%E7%AC%AC%E5%9B%9B%E5%8D%81%E5%85%AD%E9%A2%98/</url>
+    <content><![CDATA[<h1>LeetCode第四十六题</h1>
+<p>刚开学，果壳开学挺晚的，这几天忙着收拾，今天才有空接着更新！！！</p>
+<p>科研生活开始咯。</p>
+<h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2>
+<p>给定一个 没有重复 数字的序列，返回其所有可能的全排列。</p>
+<p>示例:</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">输入: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>],</span><br><span class="line">  [<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">  [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<p>经典回溯法。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permute</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        核心思想：这里Python有现成的库可以进行，但是为了能够掌握代码，这里我使用回溯法进行编写代码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        回溯法的框架：</span></span><br><span class="line"><span class="string">            def backtrack(path, selected):</span></span><br><span class="line"><span class="string">                if 满足停止条件：</span></span><br><span class="line"><span class="string">                    res.append(path)</span></span><br><span class="line"><span class="string">                for 选择 in 选择列表：</span></span><br><span class="line"><span class="string">                    做出选择</span></span><br><span class="line"><span class="string">                    递归执行backtrack</span></span><br><span class="line"><span class="string">                        满足则return True</span></span><br><span class="line"><span class="string">                    如果不满足要求就撤销选择</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        result = []</span><br><span class="line">        temp = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">backtrack</span><span class="params">(nums)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> nums: <span class="comment"># 如果为空则表示选择完毕</span></span><br><span class="line">                <span class="keyword">if</span> nums <span class="keyword">in</span> result:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    result.append(temp[:])</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">                <span class="comment"># 做出选择</span></span><br><span class="line">                temp.append(nums[i])</span><br><span class="line">                <span class="comment"># 去除做出的选择</span></span><br><span class="line">                tt = nums[:i]+nums[i+<span class="number">1</span>:]</span><br><span class="line">                <span class="comment"># 接着执行选择</span></span><br><span class="line">                backtrack(tt)</span><br><span class="line">                <span class="comment"># 撤销选择</span></span><br><span class="line">                temp.pop()</span><br><span class="line">        backtrack(nums)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.permute([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OJ</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>LeetCode</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
 </search>

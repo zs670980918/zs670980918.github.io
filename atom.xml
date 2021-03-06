@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2021-03-02T11:24:53.525Z</updated>
+  <updated>2021-03-06T15:12:41.924Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Learning English In Six Months—TED Record</title>
+    <link href="www.strivezs.com/2021/03/06/Learning%20English%20In%20Six%20Months%E2%80%94TED%20Record/"/>
+    <id>www.strivezs.com/2021/03/06/Learning%20English%20In%20Six%20Months%E2%80%94TED%20Record/</id>
+    <published>2021-03-06T15:12:41.924Z</published>
+    <updated>2021-03-06T15:12:41.924Z</updated>
+    
+    <content type="html"><![CDATA[<h1>Learning English In Six Months</h1><p>First of all, I want to say is in order to improve my English listening and wirting skills, I decide to create this series to record my daily English learning process.</p><p>I hope that with my efforts, English can become my second tongue.</p><p>Original Video Address: <a href="https://www.youtube.com/watch?v=d0yGdNEWdn0&amp;ab_channel=TEDxTalks">click here</a></p><h2 id="Five-Principles-And-Seven-Actions"><a class="header-anchor" href="#Five-Principles-And-Seven-Actions">¶</a>Five Principles And Seven Actions</h2><p>Maybe a few more，but there are absolutely core.</p><h3 id="Five-Principles"><a class="header-anchor" href="#Five-Principles">¶</a>Five Principles</h3><h4 id="First"><a class="header-anchor" href="#First">¶</a>First</h4><ul><li>Attention</li><li>Meaning</li><li>Relevance</li><li>Memory</li></ul><p>These interconnect in vary important ways.</p><p><img src="https://gitee.com/zyp521/upload_image/raw/master/nTHk9x.png" alt="figure.1"></p><h4 id="Second"><a class="header-anchor" href="#Second">¶</a>Second</h4><p>Use your new language as a tool to communicate from day.</p><h4 id="Third"><a class="header-anchor" href="#Third">¶</a>Third</h4><p>When you first understand the message, you will unconsciously acquire the langeuage.</p><h4 id="Forth"><a class="header-anchor" href="#Forth">¶</a>Forth</h4><p>Learning English is like physiological training.</p><h4 id="Five"><a class="header-anchor" href="#Five">¶</a>Five</h4><p>Psycho-physiological state. We need high mood to learning English, happy relax and so on will let us to learn qucikly.</p><h3 id="Seven-Actions-For-Rapid-Language-Acquisition"><a class="header-anchor" href="#Seven-Actions-For-Rapid-Language-Acquisition">¶</a>Seven Actions For Rapid Language Acquisition</h3><ul><li>Listen A Lot</li><li>Focus on getting the meaning first even before you get the words</li><li>Start Mixing, Language is a creative process.</li><li>Get a language parent.</li></ul><p>Language Parent Rules:</p><ul><li>Works to understand what you are saying</li><li>Does not correct mistakes</li><li>Confirms undetstanding by using correct language</li><li>Uses words the learner knows.</li><li>Copy the face(how others’mouth to say this word)</li><li>“Direct Connect” to Mental Images. Find the connection between the words and corresponding images.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;Learning English In Six Months&lt;/h1&gt;
+&lt;p&gt;First of all, I want to say is in order to improve my English listening and wirting skills, I dec
+      
+    
+    </summary>
+    
+    
+      <category term="TED" scheme="www.strivezs.com/categories/TED/"/>
+    
+      <category term="English" scheme="www.strivezs.com/categories/TED/English/"/>
+    
+    
+      <category term="TED Record" scheme="www.strivezs.com/tags/TED-Record/"/>
+    
+      <category term="English Studying" scheme="www.strivezs.com/tags/English-Studying/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode No.46</title>
+    <link href="www.strivezs.com/2021/03/06/LeetCode%E7%AC%AC%E5%9B%9B%E5%8D%81%E5%85%AD%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/03/06/LeetCode%E7%AC%AC%E5%9B%9B%E5%8D%81%E5%85%AD%E9%A2%98/</id>
+    <published>2021-03-06T15:12:35.294Z</published>
+    <updated>2021-03-06T15:12:35.294Z</updated>
+    
+    <content type="html"><![CDATA[<h1>LeetCode第四十六题</h1><p>刚开学，果壳开学挺晚的，这几天忙着收拾，今天才有空接着更新！！！</p><p>科研生活开始咯。</p><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>给定一个 没有重复 数字的序列，返回其所有可能的全排列。</p><p>示例:</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>],</span><br><span class="line">  [<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">  [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><p>经典回溯法。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permute</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        核心思想：这里Python有现成的库可以进行，但是为了能够掌握代码，这里我使用回溯法进行编写代码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        回溯法的框架：</span></span><br><span class="line"><span class="string">            def backtrack(path, selected):</span></span><br><span class="line"><span class="string">                if 满足停止条件：</span></span><br><span class="line"><span class="string">                    res.append(path)</span></span><br><span class="line"><span class="string">                for 选择 in 选择列表：</span></span><br><span class="line"><span class="string">                    做出选择</span></span><br><span class="line"><span class="string">                    递归执行backtrack</span></span><br><span class="line"><span class="string">                        满足则return True</span></span><br><span class="line"><span class="string">                    如果不满足要求就撤销选择</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        result = []</span><br><span class="line">        temp = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">backtrack</span><span class="params">(nums)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> nums: <span class="comment"># 如果为空则表示选择完毕</span></span><br><span class="line">                <span class="keyword">if</span> nums <span class="keyword">in</span> result:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    result.append(temp[:])</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">                <span class="comment"># 做出选择</span></span><br><span class="line">                temp.append(nums[i])</span><br><span class="line">                <span class="comment"># 去除做出的选择</span></span><br><span class="line">                tt = nums[:i]+nums[i+<span class="number">1</span>:]</span><br><span class="line">                <span class="comment"># 接着执行选择</span></span><br><span class="line">                backtrack(tt)</span><br><span class="line">                <span class="comment"># 撤销选择</span></span><br><span class="line">                temp.pop()</span><br><span class="line">        backtrack(nums)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.permute([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;LeetCode第四十六题&lt;/h1&gt;
+&lt;p&gt;刚开学，果壳开学挺晚的，这几天忙着收拾，今天才有空接着更新！！！&lt;/p&gt;
+&lt;p&gt;科研生活开始咯。&lt;/p&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode No.45</title>
@@ -626,68 +692,6 @@
       <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
     
       <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode No.31</title>
-    <link href="www.strivezs.com/2021/02/03/LeetCode%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B8%80%E9%A2%98/"/>
-    <id>www.strivezs.com/2021/02/03/LeetCode%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B8%80%E9%A2%98/</id>
-    <published>2021-02-03T10:44:59.391Z</published>
-    <updated>2021-02-03T10:44:59.391Z</updated>
-    
-    <content type="html"><![CDATA[<h1>LeetCode第三十一题</h1><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。</p><p>如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。</p><p>必须 原地 修改，只允许使用额外常数空间。</p><p></p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">5</span>]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">5</span>,<span class="number">1</span>]</span><br><span class="line">示例 <span class="number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">1</span>]</span><br><span class="line">输出：[<span class="number">1</span>]</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> &lt;= nums.length &lt;= <span class="number">100</span></span><br><span class="line"><span class="number">0</span> &lt;= nums[i] &lt;= <span class="number">100</span></span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">nextPermutation</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: None Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        length = len(nums) <span class="comment"># 总长度</span></span><br><span class="line">        index_a = length - <span class="number">1</span></span><br><span class="line">        <span class="comment"># 从后往前找</span></span><br><span class="line">        <span class="keyword">while</span> index_a &gt;= <span class="number">0</span>:</span><br><span class="line">            index_b = length - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> index_b &gt; index_a :</span><br><span class="line">                <span class="comment"># 如果大于则交换位置并对前面查找的内容进行排序</span></span><br><span class="line">                <span class="keyword">if</span> nums[index_b] &gt; nums[index_a]:</span><br><span class="line">                    temp = nums[index_a]</span><br><span class="line">                    nums[index_a] = nums[index_b]</span><br><span class="line">                    nums[index_b] = temp</span><br><span class="line">                    tt = nums[index_a + <span class="number">1</span>:len(nums)]</span><br><span class="line">                    tt.sort()</span><br><span class="line">                    nums[index_a+<span class="number">1</span>:len(nums)] = tt</span><br><span class="line">                    <span class="keyword">return</span> nums</span><br><span class="line">                index_b -= <span class="number">1</span></span><br><span class="line">            index_a -= <span class="number">1</span></span><br><span class="line">        nums.reverse()</span><br><span class="line">        <span class="keyword">return</span> nums</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.nextPermutation(nums = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>]))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;LeetCode第三十一题&lt;/h1&gt;
-&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述&lt;/h2&gt;
-&lt;p&gt;实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。&lt;/p
-      
-    
-    </summary>
-    
-    
-      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
-    
-    
-      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
-    
-      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python—itertools库使用</title>
-    <link href="www.strivezs.com/2021/02/02/Python%E2%80%94itertools%E5%BA%93%E4%BD%BF%E7%94%A8/"/>
-    <id>www.strivezs.com/2021/02/02/Python%E2%80%94itertools%E5%BA%93%E4%BD%BF%E7%94%A8/</id>
-    <published>2021-02-02T10:02:42.991Z</published>
-    <updated>2021-02-02T10:02:42.991Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python—itertools库使用"><a href="#Python—itertools库使用" class="headerlink" title="Python—itertools库使用"></a>Python—itertools库使用</h1><h2 id="itertools-product"><a href="#itertools-product" class="headerlink" title="itertools.product()"></a>itertools.product()</h2><p>重复使用words 3次进行元素间的组合，总共是3×3×3=27中情况。  </p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">"word"</span>, <span class="string">"good"</span>, <span class="string">"best"</span>]</span><br><span class="line"><span class="builtin-name">print</span>(list(itertools.product(words, <span class="attribute">repeat</span>=3)))</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[(<span class="string">'word'</span>, <span class="string">'word'</span>, <span class="string">'word'</span>), (<span class="string">'word'</span>, <span class="string">'word'</span>, <span class="string">'good'</span>), (<span class="string">'word'</span>, <span class="string">'word'</span>, <span class="string">'best'</span>), (<span class="string">'word'</span>, <span class="string">'good'</span>, <span class="string">'word'</span>), (<span class="string">'word'</span>, <span class="string">'good'</span>, <span class="string">'good'</span>),</span><br><span class="line">(<span class="string">'word'</span>, <span class="string">'good'</span>, <span class="string">'best'</span>), (<span class="string">'word'</span>, <span class="string">'best'</span>, <span class="string">'word'</span>), (<span class="string">'word'</span>, <span class="string">'best'</span>, <span class="string">'good'</span>), (<span class="string">'word'</span>, <span class="string">'best'</span>, <span class="string">'best'</span>), (<span class="string">'good'</span>, <span class="string">'word'</span>, <span class="string">'word'</span>),</span><br><span class="line">(<span class="string">'good'</span>, <span class="string">'word'</span>, <span class="string">'good'</span>), (<span class="string">'good'</span>, <span class="string">'word'</span>, <span class="string">'best'</span>), (<span class="string">'good'</span>, <span class="string">'good'</span>, <span class="string">'word'</span>), (<span class="string">'good'</span>, <span class="string">'good'</span>, <span class="string">'good'</span>), (<span class="string">'good'</span>, <span class="string">'good'</span>, <span class="string">'best'</span>),</span><br><span class="line">(<span class="string">'good'</span>, <span class="string">'best'</span>, <span class="string">'word'</span>), (<span class="string">'good'</span>, <span class="string">'best'</span>, <span class="string">'good'</span>), (<span class="string">'good'</span>, <span class="string">'best'</span>, <span class="string">'best'</span>), (<span class="string">'best'</span>, <span class="string">'word'</span>, <span class="string">'word'</span>), (<span class="string">'best'</span>, <span class="string">'word'</span>, <span class="string">'good'</span>),</span><br><span class="line">(<span class="string">'best'</span>, <span class="string">'word'</span>, <span class="string">'best'</span>), (<span class="string">'best'</span>, <span class="string">'good'</span>, <span class="string">'word'</span>), (<span class="string">'best'</span>, <span class="string">'good'</span>, <span class="string">'good'</span>), (<span class="string">'best'</span>, <span class="string">'good'</span>, <span class="string">'best'</span>), (<span class="string">'best'</span>, <span class="string">'best'</span>, <span class="string">'word'</span>),</span><br><span class="line">(<span class="string">'best'</span>, <span class="string">'best'</span>, <span class="string">'good'</span>), (<span class="string">'best'</span>, <span class="string">'best'</span>, <span class="string">'best'</span>)]</span><br></pre></td></tr></table></figure><h2 id="itertools-combinations"><a href="#itertools-combinations" class="headerlink" title="itertools.combinations()"></a>itertools.combinations()</h2><p>内部有序自己组合，要求长度小于列表自身长度。  </p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">"word"</span>, <span class="string">"good"</span>, <span class="string">"best"</span>]</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(list(itertools.combinations(words, <span class="number">3</span>)</span></span>))</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[(<span class="string">'word'</span>, <span class="string">'good'</span>, <span class="string">'best'</span>)]</span><br><span class="line"></span><br><span class="line">words = [<span class="string">"word"</span>, <span class="string">"good"</span>, <span class="string">"best"</span>]</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(list(itertools.combinations(words, <span class="number">2</span>)</span></span>))</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[(<span class="string">'word'</span>, <span class="string">'good'</span>), (<span class="string">'word'</span>, <span class="string">'best'</span>), (<span class="string">'good'</span>, <span class="string">'best'</span>)]</span><br></pre></td></tr></table></figure><h2 id="itertools-permutations"><a href="#itertools-permutations" class="headerlink" title="itertools.permutations()"></a>itertools.permutations()</h2><p>内部无序自组合</p><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">"word"</span>, <span class="string">"good"</span>, <span class="string">"best"</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">list</span>(itertools.permutations(words, <span class="number">3</span>))) <span class="comment"># 3为列表长度</span></span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">[(<span class="string">'word'</span>, <span class="string">'good'</span>, <span class="string">'best'</span>), (<span class="string">'word'</span>, <span class="string">'best'</span>, <span class="string">'good'</span>), (<span class="string">'good'</span>, <span class="string">'word'</span>, <span class="string">'best'</span>), (<span class="string">'good'</span>, <span class="string">'best'</span>, <span class="string">'word'</span>), (<span class="string">'best'</span>, <span class="string">'word'</span>, <span class="string">'good'</span>), (<span class="string">'best'</span>, <span class="string">'good'</span>, <span class="string">'word'</span>)]</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Python—itertools库使用&quot;&gt;&lt;a href=&quot;#Python—itertools库使用&quot; class=&quot;headerlink&quot; title=&quot;Python—itertools库使用&quot;&gt;&lt;/a&gt;Python—itertools库使用&lt;/h1&gt;&lt;h2 i
-      
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="www.strivezs.com/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="www.strivezs.com/tags/Python/"/>
-    
-      <category term="itertools" scheme="www.strivezs.com/tags/itertools/"/>
     
   </entry>
   
