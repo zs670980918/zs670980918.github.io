@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.strivezs.com/"/>
-  <updated>2021-03-06T15:12:41.924Z</updated>
+  <updated>2021-03-07T04:50:52.429Z</updated>
   <id>www.strivezs.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode No.47</title>
+    <link href="www.strivezs.com/2021/03/07/LeetCode%E7%AC%AC%E5%9B%9B%E5%8D%81%E4%B8%83%E9%A2%98/"/>
+    <id>www.strivezs.com/2021/03/07/LeetCode%E7%AC%AC%E5%9B%9B%E5%8D%81%E4%B8%83%E9%A2%98/</id>
+    <published>2021-03-07T04:50:52.429Z</published>
+    <updated>2021-03-07T04:50:52.429Z</updated>
+    
+    <content type="html"><![CDATA[<h1>LeetCode第四十七题</h1><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。</p><p></p><p>示例 1：</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">输出：</span><br><span class="line">[[<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line"> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>],</span><br><span class="line"> [<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>]]</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">输出：[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>],[<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>],[<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]]</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> &lt;= nums.length &lt;= <span class="number">8</span></span><br><span class="line"><span class="number">-10</span> &lt;= nums[i] &lt;= <span class="number">10</span></span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><p>本题和上一道题目异曲同工，只是添加一个额外的重复检测代码。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permuteUnique</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        核心思想：这里Python有现成的库可以进行，但是为了能够掌握代码，这里我使用回溯法进行编写代码</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        回溯法的框架：</span></span><br><span class="line"><span class="string">            def backtrack(path, selected):</span></span><br><span class="line"><span class="string">                if 满足停止条件：</span></span><br><span class="line"><span class="string">                    res.append(path)</span></span><br><span class="line"><span class="string">                for 选择 in 选择列表：</span></span><br><span class="line"><span class="string">                    做出选择</span></span><br><span class="line"><span class="string">                    递归执行backtrack</span></span><br><span class="line"><span class="string">                        满足则return True</span></span><br><span class="line"><span class="string">                    如果不满足要求就撤销选择</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        result = []</span><br><span class="line">        temp = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">backtrack</span><span class="params">(nums)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> nums: <span class="comment"># 如果为空则表示选择完毕</span></span><br><span class="line">                <span class="keyword">if</span> temp <span class="keyword">in</span> result:</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    result.append(temp[:])</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">                <span class="comment"># 做出选择</span></span><br><span class="line">                temp.append(nums[i])</span><br><span class="line">                <span class="comment"># 去除做出的选择</span></span><br><span class="line">                tt = nums[:i]+nums[i+<span class="number">1</span>:]</span><br><span class="line">                <span class="comment"># 接着执行选择</span></span><br><span class="line">                backtrack(tt)</span><br><span class="line">                <span class="comment"># 撤销选择</span></span><br><span class="line">                temp.pop()</span><br><span class="line">        backtrack(nums)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.permuteUnique([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;LeetCode第四十七题&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
+    
+    
+      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
+    
+      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
+    
+      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
+    
+  </entry>
   
   <entry>
     <title>Learning English In Six Months—TED Record</title>
@@ -643,40 +678,6 @@
 &lt;p&gt;昨天这题没写完，无限火力太好玩了 md，今天又花了一个小时写完了。太菜了&lt;/p&gt;
 &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述&lt;/h2&gt;
 &lt;p&gt;升序排
-      
-    
-    </summary>
-    
-    
-      <category term="OJ" scheme="www.strivezs.com/categories/OJ/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/categories/OJ/LeetCode/"/>
-    
-    
-      <category term="Programing" scheme="www.strivezs.com/tags/Programing/"/>
-    
-      <category term="LeetCode" scheme="www.strivezs.com/tags/LeetCode/"/>
-    
-      <category term="OJ" scheme="www.strivezs.com/tags/OJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode No.32</title>
-    <link href="www.strivezs.com/2021/02/04/LeetCode%E7%AC%AC%E4%B8%89%E5%8D%81%E4%BA%8C%E9%A2%98/"/>
-    <id>www.strivezs.com/2021/02/04/LeetCode%E7%AC%AC%E4%B8%89%E5%8D%81%E4%BA%8C%E9%A2%98/</id>
-    <published>2021-02-04T10:49:32.290Z</published>
-    <updated>2021-02-04T10:49:32.290Z</updated>
-    
-    <content type="html"><![CDATA[<h1>LeetCode第三十二题</h1><h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2><p>给你一个只包含 ‘(’ 和 ‘)’ 的字符串，找出最长有效（格式正确且连续）括号子串的长度。</p><p></p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">"(()"</span></span><br><span class="line">输出：<span class="number">2</span></span><br><span class="line">解释：最长有效括号子串是 <span class="string">"()"</span></span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">")()())"</span></span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：最长有效括号子串是 <span class="string">"()()"</span></span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：s = <span class="string">""</span></span><br><span class="line">输出：<span class="number">0</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">0</span> &lt;= s.length &lt;= <span class="number">3</span> * <span class="number">104</span></span><br><span class="line">s[i] 为 '(' 或 ')'</span><br></pre></td></tr></table></figure><h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def longestValidParentheses(self, s):</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        :<span class="built_in">type</span> <span class="variable">s:</span> str</span><br><span class="line">        :rtype: <span class="keyword">int</span></span><br><span class="line">        核心思想：使用动态规划求解问题</span><br><span class="line">                碰到<span class="string">")"</span> 为基础长度为<span class="number">2</span></span><br><span class="line">                内部连在一起的的长度为<span class="keyword">dp</span>[i-<span class="number">1</span>]</span><br><span class="line">                外部连在一起的长度为<span class="keyword">dp</span>[i-<span class="keyword">dp</span>[i-<span class="number">1</span>]-<span class="number">2</span>]</span><br><span class="line">                状态转移方程为：<span class="number">2</span> + <span class="keyword">dp</span>[i-<span class="number">1</span>] + <span class="keyword">dp</span>[i-<span class="keyword">dp</span>[i-<span class="number">1</span>]-<span class="number">2</span>]</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        length = <span class="built_in">len</span>(s)</span><br><span class="line">        <span class="keyword">if</span> length == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">dp</span> = [<span class="number">0</span>] * length</span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="number">1</span>,length):</span><br><span class="line">        # 当遇到右括号时，尝试向前匹配左括号</span><br><span class="line">            <span class="keyword">if</span> s[i] == <span class="string">')'</span>:</span><br><span class="line">                <span class="keyword">pre</span> = i - <span class="keyword">dp</span>[i-<span class="number">1</span>] -<span class="number">1</span></span><br><span class="line">                # 如果是左括号，则更新匹配长度</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">pre</span> &gt;= <span class="number">0</span> <span class="built_in">and</span> s[<span class="keyword">pre</span>] == <span class="string">'('</span>:</span><br><span class="line">                    <span class="keyword">dp</span>[i] = <span class="keyword">dp</span>[i-<span class="number">1</span>] + <span class="number">2</span></span><br><span class="line">                    # 处理独立的括号对的情形 类似()()、()(())</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">pre</span> &gt; <span class="number">0</span>:</span><br><span class="line">                        <span class="keyword">dp</span>[i] += <span class="keyword">dp</span>[<span class="keyword">pre</span>-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(<span class="keyword">dp</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    <span class="keyword">print</span>(s.longestValidParentheses(s = <span class="string">"()(())))"</span>))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1&gt;LeetCode第三十二题&lt;/h1&gt;
-&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#题目描述&quot;&gt;¶&lt;/a&gt;题目描述&lt;/h2&gt;
-&lt;p&gt;给你一个只包含 ‘(’ 和 ‘)’ 的字符串，找出最长有效（格式正确且连续）括号子串的长度。&lt;
       
     
     </summary>
