@@ -4,21 +4,35 @@
 
     <url>
         <loc>www.strivezs.com/tags/OJ/</loc>
-        <lastmod>2021-04-06T05:25:17.810Z</lastmod>
+        <lastmod>2021-04-11T04:49:35.780Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/LeetCode/</loc>
-        <lastmod>2021-04-06T05:25:17.810Z</lastmod>
+        <lastmod>2021-04-11T04:49:35.780Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/Programing/</loc>
-        <lastmod>2021-04-06T05:25:17.810Z</lastmod>
+        <lastmod>2021-04-11T04:49:35.780Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8/</loc>
+        <lastmod>2021-04-10T04:37:29.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/MAC/</loc>
+        <lastmod>2021-04-10T04:37:29.480Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -46,13 +60,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/Scrapy/</loc>
-        <lastmod>2021-02-07T04:48:15.944Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/MAC/</loc>
         <lastmod>2021-02-07T04:48:15.944Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -572,13 +579,6 @@
     <url>
         <loc>www.strivezs.com/tags/tags/</loc>
         <lastmod>2019-12-31T05:27:43.119Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8/</loc>
-        <lastmod>2019-12-30T05:19:27.410Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
