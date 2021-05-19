@@ -4,21 +4,63 @@
 
     <url>
         <loc>www.strivezs.com/tags/OJ/</loc>
-        <lastmod>2021-05-13T11:05:48.299Z</lastmod>
+        <lastmod>2021-05-19T12:10:21.212Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/LeetCode/</loc>
-        <lastmod>2021-05-13T11:05:48.299Z</lastmod>
+        <lastmod>2021-05-19T12:10:21.212Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/Programing/</loc>
-        <lastmod>2021-05-13T11:05:48.299Z</lastmod>
+        <lastmod>2021-05-19T12:10:21.212Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Flask/</loc>
+        <lastmod>2021-05-18T09:31:24.853Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Vue/</loc>
+        <lastmod>2021-05-18T09:31:24.853Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/JavaScript/</loc>
+        <lastmod>2021-05-18T09:31:24.853Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Python/</loc>
+        <lastmod>2021-05-18T09:31:24.853Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/PyCharm/</loc>
+        <lastmod>2021-05-17T12:47:31.582Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/MAC/</loc>
+        <lastmod>2021-05-17T12:47:31.582Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -31,21 +73,7 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/JavaScript/</loc>
-        <lastmod>2021-05-06T08:01:38.571Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>www.strivezs.com/tags/Cesium/</loc>
-        <lastmod>2021-04-25T10:43:19.293Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/MAC/</loc>
         <lastmod>2021-04-25T10:43:19.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -81,13 +109,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/Scrapy/</loc>
-        <lastmod>2021-02-07T04:48:15.944Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/Python/</loc>
         <lastmod>2021-02-07T04:48:15.944Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -466,13 +487,6 @@
 
     <url>
         <loc>www.strivezs.com/tags/NVIDIA/</loc>
-        <lastmod>2020-03-18T02:22:12.072Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/PyCharm/</loc>
         <lastmod>2020-03-18T02:22:12.072Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

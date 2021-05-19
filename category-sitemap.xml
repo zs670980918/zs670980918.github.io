@@ -9,14 +9,49 @@
 
     <url>
         <loc>www.strivezs.com/categories/OJ/LeetCode/</loc>
-        <lastmod>2021-05-13T11:05:48.299Z</lastmod>
+        <lastmod>2021-05-19T12:10:21.212Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/categories/OJ/</loc>
-        <lastmod>2021-05-13T11:05:48.299Z</lastmod>
+        <lastmod>2021-05-19T12:10:21.212Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/Python/JavaScript/</loc>
+        <lastmod>2021-05-18T09:31:24.853Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/Python/</loc>
+        <lastmod>2021-05-18T09:31:24.853Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/MAC/Python/JavaScript/</loc>
+        <lastmod>2021-05-17T12:47:31.582Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/MAC/Python/</loc>
+        <lastmod>2021-05-17T12:47:31.582Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/MAC/</loc>
+        <lastmod>2021-05-17T12:47:31.582Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -30,13 +65,6 @@
 
     <url>
         <loc>www.strivezs.com/categories/MAC/Cesium/</loc>
-        <lastmod>2021-04-25T10:43:19.293Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/categories/MAC/</loc>
         <lastmod>2021-04-25T10:43:19.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -101,13 +129,6 @@
     <url>
         <loc>www.strivezs.com/categories/MarkDown/</loc>
         <lastmod>2021-02-06T07:45:27.986Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/categories/Python/</loc>
-        <lastmod>2021-02-02T10:02:42.991Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
