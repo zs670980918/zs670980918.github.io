@@ -4,21 +4,63 @@
 
     <url>
         <loc>www.strivezs.com/tags/OJ/</loc>
-        <lastmod>2021-05-28T13:14:32.685Z</lastmod>
+        <lastmod>2021-06-03T11:56:11.305Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/LeetCode/</loc>
-        <lastmod>2021-05-28T13:14:32.685Z</lastmod>
+        <lastmod>2021-06-03T11:56:11.305Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>www.strivezs.com/tags/Programing/</loc>
-        <lastmod>2021-05-28T13:14:32.685Z</lastmod>
+        <lastmod>2021-06-03T11:56:11.305Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Dijkstra/</loc>
+        <lastmod>2021-06-02T08:52:14.412Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E6%259C%2580%25E7%259F%25AD%25E8%25B7%25AF%25E5%25BE%2584/</loc>
+        <lastmod>2021-06-02T08:52:14.412Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E5%259B%25BE/</loc>
+        <lastmod>2021-06-02T08:52:14.412Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/%25E7%25AE%2597%25E6%25B3%2595/</loc>
+        <lastmod>2021-06-02T08:52:14.412Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Math/</loc>
+        <lastmod>2021-05-29T12:46:38.214Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/tags/Knowledge/</loc>
+        <lastmod>2021-05-29T12:46:38.214Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -738,13 +780,6 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/tags/%25E7%25AE%2597%25E6%25B3%2595/</loc>
-        <lastmod>2019-02-08T07:23:17.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>www.strivezs.com/tags/%25E5%25A4%25A7%25E6%2595%25B0%25E5%258A%25A0%25E5%2587%258F%25E4%25B9%2598%25E9%2599%25A4/</loc>
         <lastmod>2019-02-07T04:16:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1356,13 +1391,6 @@
     <url>
         <loc>www.strivezs.com/tags/%25E8%25B4%25AA%25E5%25BF%2583%25E7%25AE%2597%25E6%25B3%2595/</loc>
         <lastmod>2018-04-22T13:33:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/tags/Knowledge/</loc>
-        <lastmod>2018-04-21T15:10:23.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
