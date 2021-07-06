@@ -8,6 +8,34 @@
     </url>
 
     <url>
+        <loc>www.strivezs.com/categories/OJ/LeetCode/</loc>
+        <lastmod>2021-07-06T12:06:01.868Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/OJ/</loc>
+        <lastmod>2021-07-06T12:06:01.868Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/Knowledge/PyTorch/</loc>
+        <lastmod>2021-07-02T03:04:08.034Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>www.strivezs.com/categories/Knowledge/</loc>
+        <lastmod>2021-07-02T03:04:08.034Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>www.strivezs.com/categories/Linux/Jupyter/%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8/</loc>
         <lastmod>2021-06-30T03:33:05.924Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,20 +52,6 @@
     <url>
         <loc>www.strivezs.com/categories/Linux/</loc>
         <lastmod>2021-06-30T03:33:05.924Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/categories/OJ/LeetCode/</loc>
-        <lastmod>2021-06-30T03:26:44.400Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/categories/OJ/</loc>
-        <lastmod>2021-06-30T03:26:44.400Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -379,13 +393,6 @@
     </url>
 
     <url>
-        <loc>www.strivezs.com/categories/Knowledge/</loc>
-        <lastmod>2020-05-22T09:46:03.172Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>www.strivezs.com/categories/Neural-Network/Artificial-Intelligence/Knowledge/</loc>
         <lastmod>2020-05-22T09:45:57.928Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -423,13 +430,6 @@
     <url>
         <loc>www.strivezs.com/categories/Knowledge/Nerual-Network/</loc>
         <lastmod>2020-04-04T09:54:30.990Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>www.strivezs.com/categories/Knowledge/PyTorch/</loc>
-        <lastmod>2020-03-18T02:22:12.072Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

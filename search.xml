@@ -15002,4 +15002,265 @@ public List<Node> neighbors;<br>
         <tag>Kite</tag>
       </tags>
   </entry>
+  <entry>
+    <title>LeetCode No.137</title>
+    <url>/2021/07/03/LeetCode%E7%AC%AC137%E9%A2%98/</url>
+    <content><![CDATA[<h1>LeetCode第137题—只出现一次的数字II</h1>
+<p>今天获得了习近平七年知青岁月这本书，很开心！</p>
+<p>自己代码的开源仓库:<a href="https://github.com/zs670980918/LeetCode_Coding_Record">click here</a>  欢迎Star和Fork :)</p>
+<h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2>
+<p>给你一个整数数组 nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 。请你找出并返回那个只出现了一次的元素。</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">输出：<span class="number">3</span></span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：nums = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">99</span>]</span><br><span class="line">输出：<span class="number">99</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> &lt;= nums.length &lt;= <span class="number">3</span> * <span class="number">104</span></span><br><span class="line"><span class="number">-231</span> &lt;= nums[i] &lt;= <span class="number">231</span> - <span class="number">1</span></span><br><span class="line">nums 中，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">进阶：你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        还是考虑使用以前的异或操作，这里建立一个记忆字典，如果一个数出现了3次，则本次异或运算该数不参与运算了</span></span><br><span class="line"><span class="string">        所有的数只能出现3次或者1次，而且只有一个数可以出现1次 (充分利用这个思想)</span></span><br><span class="line"><span class="string">        然后就可以按照上一题的思路来做了:</span></span><br><span class="line"><span class="string">        异或^:</span></span><br><span class="line"><span class="string">            n ^ n = 0</span></span><br><span class="line"><span class="string">            0 ^ n = n</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        memory = dict()</span><br><span class="line">        res = nums[<span class="number">0</span>]</span><br><span class="line">        memory[res] = <span class="number">1</span> <span class="comment"># 出现次数设为1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] <span class="keyword">not</span> <span class="keyword">in</span> memory.keys():</span><br><span class="line">                memory[nums[i]] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                memory[nums[i]] += <span class="number">1</span></span><br><span class="line">            <span class="comment"># 出现第三次就跳过</span></span><br><span class="line">            <span class="keyword">if</span> memory[nums[i]] == <span class="number">3</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            res = res ^ nums[i]</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.singleNumber([<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>]))</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OJ</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>LeetCode</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode No.138</title>
+    <url>/2021/07/04/LeetCode%E7%AC%AC138%E9%A2%98/</url>
+    <content><![CDATA[<h1>LeetCode第138题—复制带随机指针的链表</h1>
+<p>今天获得了习近平七年知青岁月这本书，很开心！</p>
+<p>自己代码的开源仓库:<a href="https://github.com/zs670980918/LeetCode_Coding_Record">click here</a>  欢迎Star和Fork :)</p>
+<h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2>
+<p>给你一个长度为 n 的链表，每个节点包含一个额外增加的随机指针 random ，该指针可以指向链表中的任何节点或空节点。</p>
+<p>构造这个链表的 深拷贝。 深拷贝应该正好由 n 个 全新 节点组成，其中每个新节点的值都设为其对应的原节点的值。新节点的 next 指针和 random 指针也都应指向复制链表中的新节点，并使原链表和复制链表中的这些指针能够表示相同的链表状态。复制链表中的指针都不应指向原链表中的节点 。</p>
+<p>例如，如果原链表中有 X 和 Y 两个节点，其中 X.random --&gt; Y 。那么在复制链表中对应的两个节点 x 和 y ，同样有 x.random --&gt; y 。</p>
+<p>返回复制链表的头节点。</p>
+<p>用一个由 n 个节点组成的链表来表示输入/输出中的链表。每个节点用一个 [val, random_index] 表示：</p>
+<p>val：一个表示 Node.val 的整数。<br>
+random_index：随机指针指向的节点索引（范围从 0 到 n-1）；如果不指向任何节点，则为  null 。<br>
+你的代码 只 接受原链表的头节点 head 作为传入参数。</p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e1.png" alt="figure.1"></p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：head = [[<span class="number">7</span>,<span class="literal">null</span>],[<span class="number">13</span>,<span class="number">0</span>],[<span class="number">11</span>,<span class="number">4</span>],[<span class="number">10</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">0</span>]]</span><br><span class="line">输出：[[<span class="number">7</span>,<span class="literal">null</span>],[<span class="number">13</span>,<span class="number">0</span>],[<span class="number">11</span>,<span class="number">4</span>],[<span class="number">10</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e2.png" alt="figure.2"></p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：head = <span class="string">[[1,1],[2,1]]</span></span><br><span class="line">输出：<span class="string">[[1,1],[2,1]]</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e3.png" alt="figure.3"></p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入：head = [[<span class="number">3</span>,<span class="literal">null</span>],[<span class="number">3</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="literal">null</span>]]</span><br><span class="line">输出：[[<span class="number">3</span>,<span class="literal">null</span>],[<span class="number">3</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="literal">null</span>]]</span><br><span class="line">示例 <span class="number">4</span>：</span><br><span class="line"></span><br><span class="line">输入：head = []</span><br><span class="line">输出：[]</span><br><span class="line">解释：给定的链表为空（空指针），因此返回 <span class="literal">null</span>。</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line"><span class="number">0</span> &lt;= n &lt;= <span class="number">1000</span></span><br><span class="line"><span class="number">-10000</span> &lt;= Node.val &lt;= <span class="number">10000</span></span><br><span class="line">Node.random 为空（<span class="literal">null</span>）或指向链表中的节点。</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<h3 id="Python取巧方法（不建议！！！）"><a class="header-anchor" href="#Python取巧方法（不建议！！！）">¶</a>Python取巧方法（不建议！！！）</h3>
+<p>如果是生活中可以用库，真正OJ不建议使用。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="keyword">copy</span>.<span class="built_in">deepcopy</span>(head)</span><br></pre></td></tr></table></figure>
+<h3 id="实打实的哈希方法"><a class="header-anchor" href="#实打实的哈希方法">¶</a>实打实的哈希方法</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, next=None, random=None)</span>:</span></span><br><span class="line">        self.val = int(x)</span><br><span class="line">        self.next = next</span><br><span class="line">        self.random = random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">copyRandomList</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        题目分析：</span></span><br><span class="line"><span class="string">            实质上就是链表的深度copy，同时要保留链表之间的random连接关系</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            比较困难的一点就是: 如何找到random对应的节点关系</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            想法：</span></span><br><span class="line"><span class="string">                因为random_index是对应的节点索引，因此考虑先不设置random关系来构建一个完全相同的链表，并将节点对应的索引构建一个MAP和索引对应的节点构建一个MAP</span></span><br><span class="line"><span class="string">                然后根据原来链表的random_index来构建索引关系</span></span><br><span class="line"><span class="string">            构建：</span></span><br><span class="line"><span class="string">                1. 旧链表：节点到index的映射</span></span><br><span class="line"><span class="string">                2. 新链表：index到节点的映射</span></span><br><span class="line"><span class="string">            第一遍遍历先构建一个全新的链表</span></span><br><span class="line"><span class="string">            第二遍遍历在根据哈希关系构建random关系</span></span><br><span class="line"><span class="string">        :type head: Node</span></span><br><span class="line"><span class="string">        :rtype: Node</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> head <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        index_node_dict = dict() <span class="comment"># 新链表的index和节点对应关系</span></span><br><span class="line">        node_index_dict = dict() <span class="comment"># 旧链表的节点和index对应关系</span></span><br><span class="line">        start = head</span><br><span class="line">        new_head = Node(head.val)</span><br><span class="line">        new_start = new_head</span><br><span class="line">        index_node_dict[<span class="number">0</span>] = new_head</span><br><span class="line">        node_index_dict[head] = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 构建一个新的链表</span></span><br><span class="line">        num = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> start.next != <span class="literal">None</span>:</span><br><span class="line">            start = start.next</span><br><span class="line">            node = Node(start.val)</span><br><span class="line">            new_start.next = node</span><br><span class="line">            new_start = node</span><br><span class="line">            index_node_dict[num] = node</span><br><span class="line">            node_index_dict[start] = num</span><br><span class="line">            num += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 构建random关系</span></span><br><span class="line">        start = head</span><br><span class="line">        new_start = new_head</span><br><span class="line">        <span class="keyword">while</span> start != <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 单独处理为NULL情况</span></span><br><span class="line">            <span class="keyword">if</span> start.random <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                new_start.random = <span class="literal">None</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                new_start.random = index_node_dict[node_index_dict[start.random]] <span class="comment"># random是按照index索引的</span></span><br><span class="line">            start = start.next</span><br><span class="line">            new_start = new_start.next</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> new_head</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OJ</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>LeetCode</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode No.134</title>
+    <url>/2021/07/01/LeetCode%E7%AC%AC135%E9%A2%98/</url>
+    <content><![CDATA[<h1>LeetCode第135题—分发糖果</h1>
+<p>今天是建党100周年，祝愿祖国繁荣富强！</p>
+<p>自己代码的开源仓库:<a href="https://github.com/zs670980918/LeetCode_Coding_Record">click here</a>  欢迎Star和Fork :)</p>
+<h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2>
+<p>老师想给孩子们分发糖果，有 N 个孩子站成了一条直线，老师会根据每个孩子的表现，预先给他们评分。</p>
+<p>你需要按照以下要求，帮助老师给这些孩子分发糖果：</p>
+<p>每个孩子至少分配到 1 个糖果。<br>
+评分更高的孩子必须比他两侧的邻位孩子获得更多的糖果。<br>
+那么这样下来，老师至少需要准备多少颗糖果呢？</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>]</span><br><span class="line">输出：<span class="number">5</span></span><br><span class="line">解释：你可以分别给这三个孩子分发 <span class="number">2</span>、<span class="number">1</span>、<span class="number">2</span> 颗糖果。</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line">输出：<span class="number">4</span></span><br><span class="line">解释：你可以分别给这三个孩子分发 <span class="number">1</span>、<span class="number">2</span>、<span class="number">1</span> 颗糖果。</span><br><span class="line">     第三个孩子只得到 <span class="number">1</span> 颗糖果，这已满足上述两个条件。</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">candy</span><span class="params">(self, ratings)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        题目分析:</span></span><br><span class="line"><span class="string">            N个孩子站成一条直线，每个孩子的评分提前给出</span></span><br><span class="line"><span class="string">            分配规则:</span></span><br><span class="line"><span class="string">            1.每个孩子至少分配到一个糖果</span></span><br><span class="line"><span class="string">            2.评分更高的孩子必须比他两侧的相邻的孩子获得更多地糖果, 但是如果这个孩子和旁边孩子分数相同，则它可以为1</span></span><br><span class="line"><span class="string">            3.如果一个孩子比他旁边的一个孩子分低，则只需要保证他分配的糖果比这个孩子少就行，同时保证比他另一个分低的孩子糖果多</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            相邻分配情况:</span></span><br><span class="line"><span class="string">            1. 分数相同: 1</span></span><br><span class="line"><span class="string">            2. 分数为3 1 2: 中间分配1个</span></span><br><span class="line"><span class="string">            3. 分数为3 2 1: 中间分配2个</span></span><br><span class="line"><span class="string">            4. 分数为1 3 2: 中间分配3个</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            需求:老师至少需要多少个糖果?</span></span><br><span class="line"><span class="string">        解题思路:</span></span><br><span class="line"><span class="string">            必然是秉持着贪心的思想来进行分配的，最小化分配的原则，默认初始所有人分配1个</span></span><br><span class="line"><span class="string">            分两个方向进行遍历，不要同时兼顾左边和右边，否则会顾此失彼</span></span><br><span class="line"><span class="string">            ① 正序遍历，先处理中间孩子和前面一个孩子进行比较</span></span><br><span class="line"><span class="string">            ② 倒序遍历，再处理中间孩子和后面一个孩子进行比较</span></span><br><span class="line"><span class="string">            如果中间孩子大于前面孩子则他的基础上+1，同理中间孩子如果大于后面孩子则他的基础上+1</span></span><br><span class="line"><span class="string">            其他小于等于均不作处理</span></span><br><span class="line"><span class="string">            在糖果个数本来就大的情况下，就不需要再加了</span></span><br><span class="line"><span class="string">        (还有一种暴力的方法，就是先处理分数最低的孩子，然后依次处理分数高得孩子，有点类似于对位处理，但是估计会超时)</span></span><br><span class="line"><span class="string">        :type ratings: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        candies = [<span class="number">1</span>] * len(ratings)</span><br><span class="line">        <span class="comment"># 正序遍历</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(ratings)):</span><br><span class="line">            <span class="comment"># 在糖果个数本来就大的情况下，就不需要再加了</span></span><br><span class="line">            <span class="keyword">if</span> ratings[i] &gt; ratings[i<span class="number">-1</span>] <span class="keyword">and</span> candies[i] &lt;= candies[i<span class="number">-1</span>]:</span><br><span class="line">                candies[i] = candies[i<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 倒序遍历</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(ratings)):</span><br><span class="line">            <span class="comment"># # 在糖果个数本来就大的情况下，就不需要再加了</span></span><br><span class="line">            <span class="keyword">if</span> ratings[len(ratings) - i] &lt; ratings[len(ratings) - i - <span class="number">1</span>] <span class="keyword">and</span> candies[len(ratings) - i] &gt;= candies[len(ratings) - i - <span class="number">1</span>]:</span><br><span class="line">                candies[len(ratings) - i - <span class="number">1</span>] = candies[len(ratings) - i] + <span class="number">1</span></span><br><span class="line">        <span class="comment">#print(candies)</span></span><br><span class="line">        <span class="keyword">return</span> sum(candies)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.candy([<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>]))</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OJ</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>LeetCode</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode No.136</title>
+    <url>/2021/07/02/LeetCode%E7%AC%AC136%E9%A2%98/</url>
+    <content><![CDATA[<h1>LeetCode第136题—只出现一次的数字</h1>
+<p>自己代码的开源仓库:<a href="https://github.com/zs670980918/LeetCode_Coding_Record">click here</a>  欢迎Star和Fork :)</p>
+<h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2>
+<p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+<p>说明：</p>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">输出: <span class="number">1</span></span><br><span class="line">示例 <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">输入: [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">输出: <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        考虑用字典存储就好了</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res_dict = dict()</span><br><span class="line">        min_index = <span class="number">-1</span></span><br><span class="line">        min_count = <span class="number">10000</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] <span class="keyword">not</span> <span class="keyword">in</span> res_dict.keys():</span><br><span class="line">                res_dict[nums[i]] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res_dict[nums[i]] += <span class="number">1</span></span><br><span class="line">        res_dict = dict(sorted(res_dict.items(), key=<span class="keyword">lambda</span> item:item[<span class="number">1</span>]))</span><br><span class="line">        <span class="keyword">return</span> list(res_dict.keys())[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">faster_OR</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        参考大佬们的想法，采用异或操作: 还是要结合题意的，只有一个元素出现一次，其他元素出现两次，按照异或的规则，是可以进行操作的，如果其他的元素出现任意次，则不行</span></span><br><span class="line"><span class="string">            异或满足:</span></span><br><span class="line"><span class="string">                1.交换律：a ^ b ^ c &lt;=&gt; a ^ c ^ b</span></span><br><span class="line"><span class="string">                2.任何数于0异或为任何数 0 ^ n =&gt; n</span></span><br><span class="line"><span class="string">                3.相同的数异或为0: n ^ n =&gt; 0</span></span><br><span class="line"><span class="string">            因此可以考虑如下:</span></span><br><span class="line"><span class="string">            比如a = [2,3,3,3,4,4,2,1]</span></span><br><span class="line"><span class="string">            2^3^3^4^4^2^1 = 2^2^3^3^3^4^4^4^1 = 0^3^3^4^4^4^1 = 3^3^4^4^1 = 0^4^4^1 = 4^4^1 = 0^1 = 1</span></span><br><span class="line"><span class="string">        :param num:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = nums[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(nums)):</span><br><span class="line">            res = res ^ nums[i]</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    print(s.faster_OR([<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>]))</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OJ</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>LeetCode</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode No.139</title>
+    <url>/2021/07/06/LeetCode%E7%AC%AC139%E9%A2%98/</url>
+    <content><![CDATA[<h1>LeetCode第139题—单词拆分</h1>
+<p>这几天课比较多，有点忙，可能来不及更新喔</p>
+<p>自己代码的开源仓库:<a href="https://github.com/zs670980918/LeetCode_Coding_Record">click here</a>  欢迎Star和Fork :)</p>
+<h2 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h2>
+<p>给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。</p>
+<p>说明：</p>
+<p>拆分时可以重复使用字典中的单词。<br>
+你可以假设字典中没有重复的单词。</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">示例 <span class="number">1</span>：</span><br><span class="line"></span><br><span class="line">输入: <span class="attr">s</span> = <span class="string">"leetcode"</span>, <span class="attr">wordDict</span> = [<span class="string">"leet"</span>, <span class="string">"code"</span>]</span><br><span class="line">输出: <span class="literal">true</span></span><br><span class="line">解释: 返回 <span class="literal">true</span> 因为 <span class="string">"leetcode"</span> 可以被拆分成 <span class="string">"leet code"</span>。</span><br><span class="line">示例 <span class="number">2</span>：</span><br><span class="line"></span><br><span class="line">输入: <span class="attr">s</span> = <span class="string">"applepenapple"</span>, <span class="attr">wordDict</span> = [<span class="string">"apple"</span>, <span class="string">"pen"</span>]</span><br><span class="line">输出: <span class="literal">true</span></span><br><span class="line">解释: 返回 <span class="literal">true</span> 因为 <span class="string">"applepenapple"</span> 可以被拆分成 <span class="string">"apple pen apple"</span>。</span><br><span class="line">     注意你可以重复使用字典中的单词。</span><br><span class="line">示例 <span class="number">3</span>：</span><br><span class="line"></span><br><span class="line">输入: <span class="attr">s</span> = <span class="string">"catsandog"</span>, <span class="attr">wordDict</span> = [<span class="string">"cats"</span>, <span class="string">"dog"</span>, <span class="string">"sand"</span>, <span class="string">"and"</span>, <span class="string">"cat"</span>]</span><br><span class="line">输出: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a class="header-anchor" href="#代码">¶</a>代码</h2>
+<h3 id="最初版本"><a class="header-anchor" href="#最初版本">¶</a>最初版本</h3>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def wordBreak(self, s, wordDict):</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        拆分时可以重复使用字典中的单词。</span><br><span class="line">        你可以假设字典中没有重复的单词</span><br><span class="line">        题目分析:</span><br><span class="line">            从头到尾开始移动<span class="built_in">index</span>，进行单词切片，如果单词在字典里就，从新的<span class="built_in">index</span>开始</span><br><span class="line">            这种做法无法解决: <span class="string">"goalspecial"</span>  [<span class="string">"go"</span>,<span class="string">"goal"</span>,<span class="string">"goals"</span>,<span class="string">"special"</span>] 这种情况</span><br><span class="line">        因此需要考虑动态规划的做法：</span><br><span class="line">            <span class="keyword">dp</span>[i] 表示前i个字符是否能够拆分成wordDict</span><br><span class="line">            状态转移公式:</span><br><span class="line">                <span class="keyword">dp</span>[i]=true的话，则只需要判断i+<span class="number">1</span>到<span class="keyword">j</span>个字符是否属于WordDict就可以了</span><br><span class="line">            最后返回<span class="keyword">dp</span>[-<span class="number">1</span>]就好了</span><br><span class="line">        :<span class="built_in">type</span> <span class="variable">s:</span> str</span><br><span class="line">        :<span class="built_in">type</span> wordDic<span class="variable">t:</span> List[str]</span><br><span class="line">        :rtype: bool</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        <span class="keyword">dp</span> = [False] * (<span class="built_in">len</span>(s)+<span class="number">1</span>) # <span class="keyword">dp</span>[]长度为<span class="built_in">len</span>(s)+<span class="number">1</span></span><br><span class="line">        <span class="keyword">dp</span>[<span class="number">0</span>] = True # 设置初始</span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">for</span> <span class="keyword">j</span> in <span class="built_in">range</span>(i+<span class="number">1</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">dp</span>[i]:</span><br><span class="line">                    <span class="keyword">if</span> s[i:<span class="keyword">j</span>] in wordDic<span class="variable">t:</span></span><br><span class="line">                        <span class="keyword">dp</span>[<span class="keyword">j</span>] = True</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">dp</span>[-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="加速和节省之后的版本"><a class="header-anchor" href="#加速和节省之后的版本">¶</a>加速和节省之后的版本</h3>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def wordBreak(self, s, wordDict):</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        拆分时可以重复使用字典中的单词。</span><br><span class="line">        你可以假设字典中没有重复的单词</span><br><span class="line">        题目分析:</span><br><span class="line">            从头到尾开始移动<span class="built_in">index</span>，进行单词切片，如果单词在字典里就，从新的<span class="built_in">index</span>开始</span><br><span class="line">            这种做法无法解决: <span class="string">"goalspecial"</span>  [<span class="string">"go"</span>,<span class="string">"goal"</span>,<span class="string">"goals"</span>,<span class="string">"special"</span>] 这种情况</span><br><span class="line">        因此需要考虑动态规划的做法：</span><br><span class="line">            <span class="keyword">dp</span>[i] 表示前i个字符是否能够拆分成wordDict</span><br><span class="line">            状态转移公式:</span><br><span class="line">                <span class="keyword">dp</span>[i]=true的话，则只需要判断i+<span class="number">1</span>到<span class="keyword">j</span>个字符是否属于WordDict就可以了</span><br><span class="line">            最后返回<span class="keyword">dp</span>[-<span class="number">1</span>]就好了</span><br><span class="line">        :<span class="built_in">type</span> <span class="variable">s:</span> str</span><br><span class="line">        :<span class="built_in">type</span> wordDic<span class="variable">t:</span> List[str]</span><br><span class="line">        :rtype: bool</span><br><span class="line">        <span class="string">""</span><span class="comment">"</span></span><br><span class="line">        <span class="keyword">dp</span> = [False] * (<span class="built_in">len</span>(s)+<span class="number">1</span>) # <span class="keyword">dp</span>[]长度为<span class="built_in">len</span>(s)+<span class="number">1</span></span><br><span class="line">        <span class="keyword">dp</span>[<span class="number">0</span>] = True # 设置初始</span><br><span class="line">        <span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">dp</span>[i]:</span><br><span class="line">                <span class="keyword">for</span> <span class="keyword">j</span> in <span class="built_in">range</span>(i+<span class="number">1</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>):</span><br><span class="line">                    <span class="keyword">if</span> s[i:<span class="keyword">j</span>] in wordDic<span class="variable">t:</span></span><br><span class="line">                        <span class="keyword">dp</span>[<span class="keyword">j</span>] = True</span><br><span class="line">                        # 提前结束条件</span><br><span class="line">                        <span class="keyword">if</span> <span class="keyword">j</span> == <span class="built_in">len</span>(s)+<span class="number">1</span>:</span><br><span class="line">                             <span class="keyword">return</span> True</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">dp</span>[-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = Solution()</span><br><span class="line">    <span class="keyword">print</span>(s.wordBreak(<span class="string">"catsandog"</span>, wordDict = [<span class="string">"cats"</span>, <span class="string">"dog"</span>, <span class="string">"sand"</span>, <span class="string">"and"</span>, <span class="string">"cat"</span>]))</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OJ</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Programing</tag>
+        <tag>LeetCode</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TensorFlow-静态图和PyTorch-动态图区别</title>
+    <url>/2021/07/02/TensorFlow-%E9%9D%99%E6%80%81%E5%9B%BE%E5%92%8CPyTorch-%E5%8A%A8%E6%80%81%E5%9B%BE%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h1>TensorFlow-静态图和PyTorch-动态图区别</h1>
+<p>最近在重新学习一遍pytorch，之前对于自动求导中的计算图的概念不是很清楚，这里从头看了一遍，有了解一下，简单的写一下自己的笔记。</p>
+<p>PyTorch自动求导看起来非常像TensorFlow，这两个框架中，我们都定义了计算图，使用自动微分来计算梯度，但是两者之间最大的不同是TensorFlow的计算图是静态的，而PyTorch使用的是动态的计算图。<br>
+<strong>在TensorFlow中，我们定义计算图一次，然后后续就会重复执行这个相同的图，后面的话可能只是会提供不同的输入数据，而在PyTorch中，每一个前向通道(forward)定义一个新的计算图。</strong></p>
+<p>静态图的好处在于你可以预先对图进行优化。例如：一个框架可能要融合一些图的运算来提升效率，或者产生一个策略来将图分布到多个GPU或者机器上，如果重复使用相同的图，那么再重复运行一个图时，前期潜在的代价高昂的预先优化的消耗就会被分摊开。</p>
+<p>静态图和动态图的一个区别是<strong>控制流</strong>。对于一些模型，我们希望对每个数据点执行不同的计算。例如：一个递归神经网络可能对每个数据点执行不同的时间步数，这个展开（unrolling)可以作为一个循环来实现。<br>
+对于一个静态图，循环结构要作为图的一部分，因此TensorFlow提供了运算符来把循环嵌入到图当中。对于动态图来说，情况更加简单，既然我们为每个例子即时创建计算图，我们可以使用普通的命令式控制流来为每个输入执行不同的计算。</p>
+<p><strong>tensorflow的forward只会根据第一次模型前向传播来构建一个静态的计算图, 后面的梯度自动求导都是根据这个计算图来计算的, 但是pytorch则不是, 它会为每次forward计算都构建一个动态图的计算图, 后续的每一次迭代都是使用一个新的计算图进行计算的.</strong></p>
+<h2 id="PyTorch应用控制流的动态图实例"><a class="header-anchor" href="#PyTorch应用控制流的动态图实例">¶</a>PyTorch应用控制流的动态图实例</h2>
+<p>作为动态图(网络结构发生变化并不影响计算图计算梯度)和权重共享的一个例子，我们实现了一个非常奇怪的模型：一个全连接的ReLU网络，在每一次前向传播时，它的隐藏层的层数为随机1到4之间的数，这样可以多次重用相同的权重来计算。</p>
+<p>因为这个模型可以使用普通的Python流控制来实现循环，并且我们可以通过定义转发时多次重用同一个模块来实现最内层的权重共享。</p>
+<p>下面是例子的代码:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># fixme: 定义网络</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DynamicNet</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, D_in, H, D_out)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        构造函数，在这里需要将网络的各个模块进行实例化, 并把他们作为成员变量</span></span><br><span class="line"><span class="string">        :params D_in: 输入维度</span></span><br><span class="line"><span class="string">        :params H: 隐藏层维度</span></span><br><span class="line"><span class="string">        :params D_out: 输出维度</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        super(DynamicNet, self).__init__()</span><br><span class="line">        </span><br><span class="line">        self.input_layer = nn.Linear(D_in, H)</span><br><span class="line">        self.hidden_layer = nn.Linear(H, H)</span><br><span class="line">        self.output_layer = nn.Linear(H, D_out)</span><br><span class="line">        </span><br><span class="line">        self.relu = nn.ReLU()</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x1 = self.input_layer(x)</span><br><span class="line">        t_relu = self.relu(x1)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 定义0-3个隐藏层，利用pytorch动态图的特征，这种做法是可行的</span></span><br><span class="line">        <span class="comment">## 重复调用self.hidden_layer 0-3次，由于pytorch是采用动态图的，因此每一次forward都会创建一个新的动态图，不影响梯度计算</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(random.randint(<span class="number">0</span>, <span class="number">3</span>)):</span><br><span class="line">            t_relu = self.relu(self.hidden_layer(t_relu))</span><br><span class="line">        </span><br><span class="line">        pred = self.output_layer(t_relu)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> pred</span><br><span class="line"></span><br><span class="line"><span class="comment"># fixme: 参数配置</span></span><br><span class="line">dtype = torch.float</span><br><span class="line">device = torch.device(<span class="string">'cuda:0'</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">'cpu'</span>)</span><br><span class="line">N, D_in, H, D_out = <span class="number">64</span>, <span class="number">1000</span>, <span class="number">100</span>, <span class="number">10</span> <span class="comment"># N为批量大小，D_in是输入维度，H是隐藏层维度，D_out是输出层维度</span></span><br><span class="line">learning_rate = <span class="number">1e-4</span></span><br><span class="line">epochs = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># fixeme: 创建输入和输出随机张量</span></span><br><span class="line">input = torch.randn(N, D_in)</span><br><span class="line">label = torch.randn(N, D_out)</span><br><span class="line"></span><br><span class="line"><span class="comment"># fixme: 实例化模型</span></span><br><span class="line">model = DynamicNet(D_in, H, D_out)</span><br><span class="line"></span><br><span class="line"><span class="comment"># fixme: 损失函数的定义</span></span><br><span class="line">loss_fn = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># fixme: 使用torch.optim定义参数优化器</span></span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr = learning_rate) <span class="comment"># 这里用的是Adam</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># fixme: 训练</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(epochs):</span><br><span class="line">    <span class="comment"># 前向过程</span></span><br><span class="line">    pred = model(input)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算loss</span></span><br><span class="line">    loss = loss_fn(pred, label)</span><br><span class="line">    print(<span class="string">'当前代数:&#123;&#125;，当前loss为:&#123;&#125;'</span>.format(epoch,loss.item()))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 模型参数梯度置零</span></span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># loss反向传播</span></span><br><span class="line">    loss.backward()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 更新权重</span></span><br><span class="line">    optimizer.step()</span><br></pre></td></tr></table></figure>
+<pre><code>当前代数:0，当前loss为:702.3717651367188
+当前代数:1，当前loss为:700.1735229492188
+当前代数:2，当前loss为:697.996826171875
+当前代数:3，当前loss为:701.37646484375
+当前代数:4，当前loss为:745.0324096679688
+当前代数:5，当前loss为:686.2260131835938
+当前代数:6，当前loss为:729.3468017578125
+当前代数:7，当前loss为:719.3234252929688
+当前代数:8，当前loss为:700.3496704101562
+当前代数:9，当前loss为:697.38720703125
+当前代数:10，当前loss为:676.840576171875
+当前代数:11，当前loss为:674.8969116210938
+当前代数:12，当前loss为:667.5950927734375
+当前代数:13，当前loss为:657.723388671875
+当前代数:14，当前loss为:668.5684814453125
+当前代数:15，当前loss为:691.20361328125
+当前代数:16，当前loss为:629.1569213867188
+当前代数:17，当前loss为:662.6659545898438
+当前代数:18，当前loss为:611.5732421875
+当前代数:19，当前loss为:602.4924926757812
+当前代数:20，当前loss为:698.65625
+当前代数:21，当前loss为:583.9902954101562
+当前代数:22，当前loss为:655.1369018554688
+当前代数:23，当前loss为:566.2965087890625
+当前代数:24，当前loss为:557.3516845703125
+当前代数:25，当前loss为:547.8927001953125
+当前代数:26，当前loss为:650.374755859375
+当前代数:27，当前loss为:648.9633178710938
+当前代数:28，当前loss为:697.7493286132812
+当前代数:29，当前loss为:515.4136962890625
+当前代数:30，当前loss为:507.982421875
+当前代数:31，当前loss为:500.00030517578125
+当前代数:32，当前loss为:491.6020812988281
+当前代数:33，当前loss为:482.8730163574219
+当前代数:34，当前loss为:697.01220703125
+当前代数:35，当前loss为:687.0211791992188
+当前代数:36，当前loss为:638.8866577148438
+当前代数:37，当前loss为:696.5703735351562
+当前代数:38，当前loss为:636.4703369140625
+当前代数:39，当前loss为:685.7159423828125
+当前代数:40，当前loss为:685.2298583984375
+当前代数:41，当前loss为:684.5957641601562
+当前代数:42，当前loss为:695.6959228515625
+当前代数:43，当前loss为:427.000732421875
+当前代数:44，当前loss为:682.4891967773438
+当前代数:45，当前loss为:419.1412048339844
+当前代数:46，当前loss为:681.0149536132812
+当前代数:47，当前loss为:694.716552734375
+当前代数:48，当前loss为:406.95831298828125
+当前代数:49，当前loss为:678.7310180664062
+当前代数:50，当前loss为:623.3473510742188
+当前代数:51，当前loss为:395.0804443359375
+当前代数:52，当前loss为:693.6585083007812
+当前代数:53，当前loss为:675.7344360351562
+当前代数:54，当前loss为:618.6995239257812
+当前代数:55，当前loss为:616.9414672851562
+当前代数:56，当前loss为:614.5744018554688
+当前代数:57，当前loss为:692.4542236328125
+当前代数:58，当前loss为:609.0692138671875
+当前代数:59，当前loss为:691.904052734375
+当前代数:60，当前loss为:603.1943359375
+当前代数:61，当前loss为:669.9990234375
+当前代数:62，当前loss为:691.0020141601562
+当前代数:63，当前loss为:594.264892578125
+当前代数:64，当前loss为:591.1102294921875
+当前代数:65，当前loss为:666.8950805664062
+当前代数:66，当前loss为:665.9771728515625
+当前代数:67，当前loss为:689.326171875
+当前代数:68，当前loss为:688.93701171875
+当前代数:69，当前loss为:688.5073852539062
+当前代数:70，当前loss为:574.0647583007812
+当前代数:71，当前loss为:661.115234375
+当前代数:72，当前loss为:660.0462036132812
+当前代数:73，当前loss为:566.465576171875
+当前代数:74，当前loss为:360.7765197753906
+当前代数:75，当前loss为:685.8043212890625
+当前代数:76，当前loss为:357.83026123046875
+当前代数:77，当前loss为:556.7740478515625
+当前代数:78，当前loss为:684.478515625
+当前代数:79，当前loss为:683.9954223632812
+当前代数:80，当前loss为:683.468994140625
+当前代数:81，当前loss为:650.9133911132812
+当前代数:82，当前loss为:545.8726806640625
+当前代数:83，当前loss为:543.443359375
+当前代数:84，当前loss为:540.5396118164062
+当前代数:85，当前loss为:342.5977478027344
+当前代数:86，当前loss为:645.627685546875
+当前代数:87，当前loss为:644.410888671875
+当前代数:88，当前loss为:642.9930419921875
+当前代数:89，当前loss为:641.402099609375
+当前代数:90，当前loss为:524.3102416992188
+当前代数:91，当前loss为:521.52880859375
+当前代数:92，当前loss为:518.2946166992188
+当前代数:93，当前loss为:676.001220703125
+当前代数:94，当前loss为:633.2501220703125
+当前代数:95，当前loss为:674.614501953125
+当前代数:96，当前loss为:673.8367919921875
+当前代数:97，当前loss为:628.274169921875
+当前代数:98，当前loss为:626.4828491210938
+当前代数:99，当前loss为:325.72052001953125
+</code></pre>
+]]></content>
+      <categories>
+        <category>Knowledge</category>
+        <category>PyTorch</category>
+      </categories>
+      <tags>
+        <tag>Knowledge</tag>
+        <tag>PyTorch</tag>
+        <tag>TensorFlow</tag>
+        <tag>计算图</tag>
+      </tags>
+  </entry>
 </search>
